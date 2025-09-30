@@ -38,6 +38,7 @@ BUILD_DIR = build
 C_SOURCES =  \
 CMSIS/Devices/STM32F4xx/Src/system_stm32f4xx.c \
 Core/Src/main.c \
+Core/Src/init.c \ 
 
 
 # ASM sources
@@ -97,6 +98,7 @@ C_INCLUDES =  \
 -ICMSIS/Devices/STM32F4xx/Inc \
 -ICMSIS/Devices/STM32F4xx/Inc/STM32F429ZI \
 -ICMSIS/Include \
+-ICMSIS/Devices \
 
 
 # compile gcc flags

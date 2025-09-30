@@ -1,3 +1,7 @@
 {
-    "makefile.configureOnOpen": true
+    "makefile.configureOnOpen": true,
+    "files.associations": {
+        "stdint.h": "c",
+        "stm32f4xx.h": "c"
+    }
 }
