@@ -1,23 +1,57 @@
 #include "init.h"
+// КНОПКИ подключены на PC8 PC9 PC10 PC11
+// управление режимом выхода порта осуществляется при помощи кнопки без светодиода. изначально при помощи удержания кнопок к которым парраллельно подключен
+// светодиод можно зажигать светодиоды на плате при помощи удержания этих кнопок.
+// 1 при нажатии кнопки без светодиода: первая кнопка переходит в режим выход (больше не управляет светодиодом на плате), остальные работают
+//  2 при нажатии кнопки без светодиода: вторая кнопка переходит в режим выход (больше не управляет светодиодом на плате), остальные работают
+//   3 при нажатии кнопки без светодиода: третья кнопка переходит в режим выход (больше не управляет светодиодом на плате), остальные работают
+// далее по заданию
+void GPIO_Ini()
+{
+    // включаем тактирование на пины GPIOCEN GPIOBEN
+    SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN | RCC_AHB1ENR_GPIOBEN);
+    // конфигурируем все пины на вход
+    CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10 | GPIO_MODER_MODE11);
+    // TODO: добавь зеленый
+    CLEAR_BIT(GPIOB->MODER, GPIO_MODER_MODE0 | GPIO_MODER_MODE7 | GPIO_MODER_MODE14);
+    SET_BIT(GPIOB->MODER, GPIO_MODER_MODE0_0 | GPIO_MODER_MODER7_0 | GPIO_MODER_MODER14_0);
+    // тип выхода push pull
+    CLEAR_BIT(GPIOC->OTYPER, GPIO_OTYPER_OT_8 | GPIO_OTYPER_OT_9 | GPIO_OTYPER_OT_10);
+    // скорость работы - средняя
+    SET_BIT(GPIOC->OSPEEDR, GPIO_OSPEEDER_OSPEEDR8_0 | GPIO_OSPEEDER_OSPEEDR9_0 | GPIO_OSPEEDER_OSPEEDR10_0 | GPIO_OSPEEDER_OSPEEDR11_0);
+    // подтяжка резистора pull up (если убрать подтяжку кнопка станет сенсорной (⊙_⊙;))
+    SET_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR8_0 | GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_0 | GPIO_PUPDR_PUPDR11_0);
+}
+// OPTIMIZE: возможно стоит добавить верхнюю границу для обработки зажатой кнопки
+bool button_bounce_read(uint32_t idr_mask)
+{
+    bool press = false;
+    int32_t bounce = 0;
+    do
+    {
+        if (READ_BIT(GPIOC->IDR, idr_mask) == 0)
+        {
+            bounce++;
+            press = true;
+            continue;
+        }
+        else
+        {
+            bounce--;
+        }
+    } while (bounce > 0);
+    return press;
+}
 
-void GPIO_Ini(){
-    // *(uint32_t *)(0x40023800UL + 0x30UL) |= 0x06;   // Включение тактирования портов GPIOB и GPIOC
-    // *(uint32_t *)(0x40020400UL + 0x00UL) |= 0x4000; // Настройка работы 7-го пина GPIOB в режиме вывода сигнала (Output mode)
-    // *(uint32_t *)(0x40020400UL + 0x04UL) |= 0x00;   // Настройка на PushPull работу 7-го пина GPIOB (Output Push-Pull)
-    // *(uint32_t *)(0x40020400UL + 0x08UL) |= 0x4000; // Настройка скорости работы 7-го пина GPIOB на среднюю
-    // *(uint32_t *)(0x40020400UL + 0x0CUL) |= 0x00;   // Отключение PU/PD резисторов для 7-го пина GPIOB
-   
-    // RCC_GPIO_EN |= RCC_GPIOB_EN + RCC_GPIOC_EN;
-    // GPIOB_MODER |= GPIOB_MODE_PIN7_OUT;
-    // GPIOB_OTYPER |= GPIOB_OTYPER_PIN7_PP;
-    // GPIOB_OSPEEDR |= GPIOB_OSPEED_PIN7_MID;
-    // GPIOB_PUPDR |= GPIOB_PUPDR_PIN7_NOPUPD;
-
-    SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN);
-
-    SET_BIT(GPIOB->MODER, GPIO_MODER_MODE7_0);
-    CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_7);
-    SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR7_0);
-    CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPDR7_0);
-    
+// NOTE: принимает аргументом номера битов регистра MODER для установки режима выхода
+//  остальные порты кнопок переходят в режим входа, и биты регистра BSRR для подачи высокого сигнала на кнопки в режиме выход
+// HACK: можно сделать функцию от двух переменных
+void changeConf(uint32_t PORT0_bit, uint32_t PORT1_bit, uint32_t PORT0_LIGTH, uint32_t PORT1_LIGTH, bool noRepeat)
+{
+    if (noRepeat == true)
+    {
+        CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
+        SET_BIT(GPIOC->MODER, PORT0_bit | PORT1_bit);
+        SET_BIT(GPIOC->BSRR, PORT0_LIGTH | PORT1_LIGTH);
+    }
 }
