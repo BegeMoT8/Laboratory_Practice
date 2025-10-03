@@ -43,9 +43,10 @@ bool button_bounce_read(uint32_t idr_mask)
     return press;
 }
 
+// HACK: можно сделать функцию от двух переменных
+
 // NOTE: принимает аргументом номера битов регистра MODER для установки режима выхода
 //  остальные порты кнопок переходят в режим входа, и биты регистра BSRR для подачи высокого сигнала на кнопки в режиме выход
-// HACK: можно сделать функцию от двух переменных
 void changeConf(uint32_t PORT0_bit, uint32_t PORT1_bit, uint32_t PORT0_LIGTH, uint32_t PORT1_LIGTH, bool noRepeat)
 {
     if (noRepeat == true)
@@ -53,5 +54,20 @@ void changeConf(uint32_t PORT0_bit, uint32_t PORT1_bit, uint32_t PORT0_LIGTH, ui
         CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
         SET_BIT(GPIOC->MODER, PORT0_bit | PORT1_bit);
         SET_BIT(GPIOC->BSRR, PORT0_LIGTH | PORT1_LIGTH);
+    }
+}
+
+// HACK: можно сделать функцию от двух переменных
+
+// NOTE: принимает аргументами: бит для чтения с порта GPIOC, бит для записи в GPIOB, бит для очистки бита в GPIOB
+void button_light_led(uint32_t IDR_bit, uint32_t BSRR_BS, uint32_t BSRR_BR)
+{
+    if (READ_BIT(GPIOC->IDR, IDR_bit) == 0)
+    {
+        SET_BIT(GPIOB->BSRR, BSRR_BS);
+    }
+    else
+    {
+        SET_BIT(GPIOB->BSRR, BSRR_BR);
     }
 }

@@ -1,17 +1,7 @@
 // вариант №3
 #include <init.h>
 
-void button_light_led(uint32_t IDR_bit, uint32_t BSRR_BS, uint32_t BSRR_BR)
-{
-    if (READ_BIT(GPIOC->IDR, IDR_bit) == 0)
-    {
-        SET_BIT(GPIOB->BSRR, BSRR_BS);
-    }
-    else
-    {
-        SET_BIT(GPIOB->BSRR, BSRR_BR);
-    }
-}
+
 
 int main(void)
 {
@@ -57,7 +47,7 @@ int main(void)
                 old_counter_press = counter_press;
             }
         }
-        else if (counter_press == 5)
+        else if ((counter_press == 5) | (counter_press == 0))
         {
             // все порты в режим входа
             if (old_counter_press != counter_press)
@@ -69,7 +59,7 @@ int main(void)
             button_light_led(GPIO_IDR_IDR_9, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
             button_light_led(GPIO_IDR_IDR_8, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
         }
-        else if ((counter_press > 5) | (counter_press <= 0))
+        else if (counter_press > 5)
         {
             counter_press = 1;
         }

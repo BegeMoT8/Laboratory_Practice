@@ -6,3 +6,4 @@
 void GPIO_Ini(void);
 bool button_bounce_read(uint32_t idr_mask);
 void changeConf(uint32_t PORT0_bit, uint32_t PORT1_bit, uint32_t PORT0_LIGTH, uint32_t PORT1_LIGTH, bool noRepeat);
+void button_light_led(uint32_t IDR_bit, uint32_t BSRR_BS, uint32_t BSRR_BR);
