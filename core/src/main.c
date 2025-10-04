@@ -1,17 +1,12 @@
 // вариант №3
 #include <init.h>
 
-
-
 int main(void)
 {
     GPIO_Ini();
     int8_t counter_press = 0, old_counter_press = 0;
     while (1)
     {
-        // SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
-        // SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS7);
-        // SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS0);
         if (button_bounce_read(GPIO_IDR_IDR_11) == true)
         {
             counter_press++;
@@ -66,5 +61,4 @@ int main(void)
             counter_press = 1;
         }
     }
-    
 }
