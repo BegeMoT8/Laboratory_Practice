@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -29,425 +29,384 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 1
   27              	GPIO_Ini:
   28              	.LFB130:
    1:Core/Src/init.c **** #include "init.h"
-   2:Core/Src/init.c **** // КНОПКИ подключены на PC8 PC9 PC10 PC11
-   3:Core/Src/init.c **** // управление режимом выхода порта осуществляется при 
-   4:Core/Src/init.c **** // светодиод можно зажигать светодиоды на плате при по�
-   5:Core/Src/init.c **** // 1 при нажатии кнопки без светодиода: первая кнопка пе
-   6:Core/Src/init.c **** //  2 при нажатии кнопки без светодиода: вторая кнопка п�
-   7:Core/Src/init.c **** //   3 при нажатии кнопки без светодиода: третья кнопка п
-   8:Core/Src/init.c **** // далее по заданию
-   9:Core/Src/init.c **** 
-  10:Core/Src/init.c **** void GPIO_Ini()
-  11:Core/Src/init.c **** {
-  29              		.loc 1 11 1 view -0
+   2:Core/Src/init.c **** //volatile bool flag = false; 
+   3:Core/Src/init.c **** void GPIO_Ini()
+   4:Core/Src/init.c **** {
+  29              		.loc 1 4 1 view -0
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
   33              		@ link register save eliminated.
-  12:Core/Src/init.c ****     // // включаем тактирование на пины GPIOCEN GPIOBEN GPIOAEN
-  13:Core/Src/init.c **** 
-  14:Core/Src/init.c ****     // включаем тактирование на пины GPIOB (адрес RCC + адрес R
-  15:Core/Src/init.c ****     RCC_GPIO_EN |= RCC_GPIOB_EN;                   // собственный макрос
-  34              		.loc 1 15 5 view .LVU1
-  35 0000 224A     		ldr	r2, .L2
+   5:Core/Src/init.c ****     // // включаем тактирование на пины GPIOCEN GPIOBEN GPIOAEN
+   6:Core/Src/init.c **** 
+   7:Core/Src/init.c ****     // включаем тактирование на пины GPIOB (адрес RCC + адрес R
+   8:Core/Src/init.c ****     RCC_GPIO_EN |= RCC_GPIOB_EN;                   // собственный макрос
+  34              		.loc 1 8 5 view .LVU1
+  35 0000 214A     		ldr	r2, .L2
   36 0002 D2F83038 		ldr	r3, [r2, #2096]
-  37              		.loc 1 15 17 is_stmt 0 view .LVU2
+  37              		.loc 1 8 17 is_stmt 0 view .LVU2
   38 0006 43F00203 		orr	r3, r3, #2
   39 000a C2F83038 		str	r3, [r2, #2096]
-  16:Core/Src/init.c ****     (*(uint32_t *)(0x40023800UL + 0x30UL)) |= 0x2; // прямое обращение к памят
-  40              		.loc 1 16 5 is_stmt 1 view .LVU3
-  17:Core/Src/init.c ****     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN);    // библиотека CMIS
-  41              		.loc 1 17 5 view .LVU4
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 2
-
-
+   9:Core/Src/init.c ****     (*(uint32_t *)(0x40023800UL + 0x30UL)) |= 0x2; // прямое обращение к памят
+  40              		.loc 1 9 5 is_stmt 1 view .LVU3
+  10:Core/Src/init.c ****     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN);    // библиотека CMIS
+  41              		.loc 1 10 5 view .LVU4
   42 000e 02F50062 		add	r2, r2, #2048
   43 0012 136B     		ldr	r3, [r2, #48]
   44 0014 43F00403 		orr	r3, r3, #4
   45 0018 1363     		str	r3, [r2, #48]
-  18:Core/Src/init.c **** 
-  19:Core/Src/init.c ****     // //настройка кнопок
-  20:Core/Src/init.c **** 
-  21:Core/Src/init.c ****     // // конфигурируем все пины кнопок на вход
-  22:Core/Src/init.c ****     // CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10 | GPIO_MODER
-  23:Core/Src/init.c ****     // // тип выхода push pull
-  24:Core/Src/init.c ****     // CLEAR_BIT(GPIOC->OTYPER, GPIO_OTYPER_OT_8 | GPIO_OTYPER_OT_9 | GPIO_OTYPER_OT_10);
-  25:Core/Src/init.c ****     // // скорость работы - средняя
-  26:Core/Src/init.c ****     // SET_BIT(GPIOC->OSPEEDR, GPIO_OSPEEDER_OSPEEDR8_0 | GPIO_OSPEEDER_OSPEEDR9_0 | GPIO_OSPEEDER_
-  27:Core/Src/init.c ****     // // подтяжка резистора pull up
-  28:Core/Src/init.c ****     // SET_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR8_0 | GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_0 | GPI
-  29:Core/Src/init.c ****     // // конфигурируем пины встроенных светодиодов на пл
-  30:Core/Src/init.c ****     // // CLEAR_BIT(GPIOB->MODER, GPIO_MODER_MODE0 | GPIO_MODER_MODE7 | GPIO_MODER_MODE14);
-  31:Core/Src/init.c ****     // // SET_BIT(GPIOB->MODER, GPIO_MODER_MODE0_0 | GPIO_MODER_MODER7_0 | GPIO_MODER_MODER14_0);
+  11:Core/Src/init.c **** 
+  12:Core/Src/init.c ****     // //настройка кнопок
+  13:Core/Src/init.c ****     // конфигурируем все пины на вход
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 2
+
+
+  14:Core/Src/init.c ****     CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10 | GPIO_MODER_MO
+  46              		.loc 1 14 5 view .LVU5
+  47 001a 1C4B     		ldr	r3, .L2+4
+  48 001c 1A68     		ldr	r2, [r3]
+  49 001e 22F47F02 		bic	r2, r2, #16711680
+  50 0022 1A60     		str	r2, [r3]
+  15:Core/Src/init.c ****     // тип выхода push pull
+  16:Core/Src/init.c ****     CLEAR_BIT(GPIOC->OTYPER, GPIO_OTYPER_OT_8 | GPIO_OTYPER_OT_9 | GPIO_OTYPER_OT_10);
+  51              		.loc 1 16 5 view .LVU6
+  52 0024 5A68     		ldr	r2, [r3, #4]
+  53 0026 22F4E062 		bic	r2, r2, #1792
+  54 002a 5A60     		str	r2, [r3, #4]
+  17:Core/Src/init.c ****     // скорость работы - средняя
+  18:Core/Src/init.c ****     SET_BIT(GPIOC->OSPEEDR, GPIO_OSPEEDER_OSPEEDR8_0 | GPIO_OSPEEDER_OSPEEDR9_0 | GPIO_OSPEEDER_OSP
+  55              		.loc 1 18 5 view .LVU7
+  56 002c 9A68     		ldr	r2, [r3, #8]
+  57 002e 42F4AA02 		orr	r2, r2, #5570560
+  58 0032 9A60     		str	r2, [r3, #8]
+  19:Core/Src/init.c ****     // подтяжка резистора pull up 
+  20:Core/Src/init.c ****     SET_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR8_0 | GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_0 | GPIO_P
+  59              		.loc 1 20 5 view .LVU8
+  60 0034 DA68     		ldr	r2, [r3, #12]
+  61 0036 42F4AA02 		orr	r2, r2, #5570560
+  62 003a DA60     		str	r2, [r3, #12]
+  21:Core/Src/init.c **** 
+  22:Core/Src/init.c **** 
+  23:Core/Src/init.c ****     // Настройка макросом (желтый 0)
+  24:Core/Src/init.c ****     GPIOB_MODER |= GPIOB_MODE_PIN0_OUT;
+  63              		.loc 1 24 5 view .LVU9
+  64 003c 144A     		ldr	r2, .L2+8
+  65 003e D2F80034 		ldr	r3, [r2, #1024]
+  66              		.loc 1 24 17 is_stmt 0 view .LVU10
+  67 0042 43F00101 		orr	r1, r3, #1
+  68 0046 C2F80014 		str	r1, [r2, #1024]
+  25:Core/Src/init.c ****    // GPIOB_OTYPER |= GPIOB_OTYPER_PIN0_PP;
+  26:Core/Src/init.c **** 
+  27:Core/Src/init.c ****     // настройка прямым обращением к памяти (красный све�
+  28:Core/Src/init.c ****     //(адрес GPIOB + адрес MODER) для настройки режима порта (00 i
+  29:Core/Src/init.c ****     (*(uint32_t *)(0x40020400UL + 0x00UL)) |= 0x10000000;
+  69              		.loc 1 29 5 is_stmt 1 view .LVU11
+  70              		.loc 1 29 44 is_stmt 0 view .LVU12
+  71 004a 43F08053 		orr	r3, r3, #268435456
+  72 004e 43F00103 		orr	r3, r3, #1
+  73 0052 C2F80034 		str	r3, [r2, #1024]
+  30:Core/Src/init.c ****     // скорость работы порта - средняя
+  31:Core/Src/init.c ****     (*(uint32_t *)(0x40020400UL + 0x08UL)) |= 0x10000000;
+  74              		.loc 1 31 5 is_stmt 1 view .LVU13
+  75              		.loc 1 31 6 is_stmt 0 view .LVU14
+  76 0056 D2F80834 		ldr	r3, [r2, #1032]
+  77              		.loc 1 31 44 view .LVU15
+  78 005a 43F08053 		orr	r3, r3, #268435456
+  79 005e C2F80834 		str	r3, [r2, #1032]
   32:Core/Src/init.c **** 
-  33:Core/Src/init.c ****     // Настройка макросом (желтый 0)
-  34:Core/Src/init.c ****     GPIOB_MODER |= GPIOB_MODE_PIN0_OUT;
-  46              		.loc 1 34 5 view .LVU5
-  47 001a A2F56052 		sub	r2, r2, #14336
-  48 001e D2F80034 		ldr	r3, [r2, #1024]
-  49              		.loc 1 34 17 is_stmt 0 view .LVU6
-  50 0022 43F00101 		orr	r1, r3, #1
-  51 0026 C2F80014 		str	r1, [r2, #1024]
-  35:Core/Src/init.c ****    // GPIOB_OTYPER |= GPIOB_OTYPER_PIN0_PP;
-  36:Core/Src/init.c **** 
-  37:Core/Src/init.c ****     // настройка прямым обращением к памяти (красный све�
-  38:Core/Src/init.c ****     //(адрес GPIOB + адрес MODER) для настройки режима порта (00 i
-  39:Core/Src/init.c ****     (*(uint32_t *)(0x40020400UL + 0x00UL)) |= 0x10000000;
-  52              		.loc 1 39 5 is_stmt 1 view .LVU7
-  53              		.loc 1 39 44 is_stmt 0 view .LVU8
-  54 002a 43F08053 		orr	r3, r3, #268435456
-  55 002e 43F00103 		orr	r3, r3, #1
-  56 0032 C2F80034 		str	r3, [r2, #1024]
-  40:Core/Src/init.c ****     // скорость работы порта - средняя
-  41:Core/Src/init.c ****     (*(uint32_t *)(0x40020400UL + 0x08UL)) |= 0x10000000;
-  57              		.loc 1 41 5 is_stmt 1 view .LVU9
-  58              		.loc 1 41 6 is_stmt 0 view .LVU10
-  59 0036 D2F80834 		ldr	r3, [r2, #1032]
-  60              		.loc 1 41 44 view .LVU11
-  61 003a 43F08053 		orr	r3, r3, #268435456
-  62 003e C2F80834 		str	r3, [r2, #1032]
-  42:Core/Src/init.c **** 
-  43:Core/Src/init.c ****     // настройка CMIS (синий светодиод 7)
-  44:Core/Src/init.c ****     CLEAR_BIT(GPIOB->MODER, GPIO_MODER_MODE7);
-  63              		.loc 1 44 5 is_stmt 1 view .LVU12
-  64 0042 134B     		ldr	r3, .L2+4
-  65 0044 1A68     		ldr	r2, [r3]
-  66 0046 22F44042 		bic	r2, r2, #49152
-  67 004a 1A60     		str	r2, [r3]
-  45:Core/Src/init.c ****     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE7_0);
-  68              		.loc 1 45 5 view .LVU13
-  69 004c 1A68     		ldr	r2, [r3]
-  70 004e 42F48042 		orr	r2, r2, #16384
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 3
+  33:Core/Src/init.c ****     // настройка CMIS (синий светодиод 7)
+  34:Core/Src/init.c ****     CLEAR_BIT(GPIOB->MODER, GPIO_MODER_MODE7);
+  80              		.loc 1 34 5 is_stmt 1 view .LVU16
+  81 0062 0C4B     		ldr	r3, .L2+12
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 3
 
 
-  71 0052 1A60     		str	r2, [r3]
-  46:Core/Src/init.c ****     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT7_Msk);
-  72              		.loc 1 46 5 view .LVU14
-  73 0054 5A68     		ldr	r2, [r3, #4]
-  74 0056 22F08002 		bic	r2, r2, #128
-  75 005a 5A60     		str	r2, [r3, #4]
-  47:Core/Src/init.c ****     SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR7_0);
-  76              		.loc 1 47 5 view .LVU15
-  77 005c 9A68     		ldr	r2, [r3, #8]
-  78 005e 42F48042 		orr	r2, r2, #16384
-  79 0062 9A60     		str	r2, [r3, #8]
-  48:Core/Src/init.c **** 
-  49:Core/Src/init.c **** 
-  50:Core/Src/init.c **** 
-  51:Core/Src/init.c **** 
-  52:Core/Src/init.c **** 
-  53:Core/Src/init.c ****     // конфигурируем все пины на вход
-  54:Core/Src/init.c ****     CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10 | GPIO_MODER_MO
-  80              		.loc 1 54 5 view .LVU16
-  81 0064 03F58063 		add	r3, r3, #1024
-  82 0068 1A68     		ldr	r2, [r3]
-  83 006a 22F47F02 		bic	r2, r2, #16711680
-  84 006e 1A60     		str	r2, [r3]
-  55:Core/Src/init.c ****     // тип выхода push pull
-  56:Core/Src/init.c ****     CLEAR_BIT(GPIOC->OTYPER, GPIO_OTYPER_OT_8 | GPIO_OTYPER_OT_9 | GPIO_OTYPER_OT_10);
-  85              		.loc 1 56 5 view .LVU17
-  86 0070 5A68     		ldr	r2, [r3, #4]
-  87 0072 22F4E062 		bic	r2, r2, #1792
-  88 0076 5A60     		str	r2, [r3, #4]
-  57:Core/Src/init.c ****     // скорость работы - средняя
-  58:Core/Src/init.c ****     SET_BIT(GPIOC->OSPEEDR, GPIO_OSPEEDER_OSPEEDR8_0 | GPIO_OSPEEDER_OSPEEDR9_0 | GPIO_OSPEEDER_OSP
-  89              		.loc 1 58 5 view .LVU18
-  90 0078 9A68     		ldr	r2, [r3, #8]
-  91 007a 42F4AA02 		orr	r2, r2, #5570560
-  92 007e 9A60     		str	r2, [r3, #8]
-  59:Core/Src/init.c ****     // подтяжка резистора pull up 
-  60:Core/Src/init.c ****     SET_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR8_0 | GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_0 | GPIO_P
-  93              		.loc 1 60 5 view .LVU19
-  94 0080 DA68     		ldr	r2, [r3, #12]
-  95 0082 42F4AA02 		orr	r2, r2, #5570560
-  96 0086 DA60     		str	r2, [r3, #12]
-  61:Core/Src/init.c **** }
-  97              		.loc 1 61 1 is_stmt 0 view .LVU20
-  98 0088 7047     		bx	lr
+  82 0064 1A68     		ldr	r2, [r3]
+  83 0066 22F44042 		bic	r2, r2, #49152
+  84 006a 1A60     		str	r2, [r3]
+  35:Core/Src/init.c ****     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE7_0);
+  85              		.loc 1 35 5 view .LVU17
+  86 006c 1A68     		ldr	r2, [r3]
+  87 006e 42F48042 		orr	r2, r2, #16384
+  88 0072 1A60     		str	r2, [r3]
+  36:Core/Src/init.c ****     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT7_Msk);
+  89              		.loc 1 36 5 view .LVU18
+  90 0074 5A68     		ldr	r2, [r3, #4]
+  91 0076 22F08002 		bic	r2, r2, #128
+  92 007a 5A60     		str	r2, [r3, #4]
+  37:Core/Src/init.c ****     SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR7_0);
+  93              		.loc 1 37 5 view .LVU19
+  94 007c 9A68     		ldr	r2, [r3, #8]
+  95 007e 42F48042 		orr	r2, r2, #16384
+  96 0082 9A60     		str	r2, [r3, #8]
+  38:Core/Src/init.c **** }
+  97              		.loc 1 38 1 is_stmt 0 view .LVU20
+  98 0084 7047     		bx	lr
   99              	.L3:
- 100 008a 00BF     		.align	2
+ 100 0086 00BF     		.align	2
  101              	.L2:
- 102 008c 00300240 		.word	1073885184
- 103 0090 00040240 		.word	1073873920
- 104              		.cfi_endproc
- 105              	.LFE130:
- 107              		.section	.text.button_bounce_read,"ax",%progbits
- 108              		.align	1
- 109              		.global	button_bounce_read
- 110              		.syntax unified
- 111              		.thumb
- 112              		.thumb_func
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 4
+ 102 0088 00300240 		.word	1073885184
+ 103 008c 00080240 		.word	1073874944
+ 104 0090 00000240 		.word	1073872896
+ 105 0094 00040240 		.word	1073873920
+ 106              		.cfi_endproc
+ 107              	.LFE130:
+ 109              		.section	.text.button_bounce_read,"ax",%progbits
+ 110              		.align	1
+ 111              		.global	button_bounce_read
+ 112              		.syntax unified
+ 113              		.thumb
+ 114              		.thumb_func
+ 116              	button_bounce_read:
+ 117              	.LVL0:
+ 118              	.LFB131:
+  39:Core/Src/init.c **** 
+  40:Core/Src/init.c **** // OPTIMIZE: возможно стоит добавить верхнюю границу для об
+  41:Core/Src/init.c **** bool button_bounce_read(uint32_t idr_mask)
+  42:Core/Src/init.c **** {
+ 119              		.loc 1 42 1 is_stmt 1 view -0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              		@ link register save eliminated.
+ 124              		.loc 1 42 1 is_stmt 0 view .LVU22
+ 125 0000 0146     		mov	r1, r0
+  43:Core/Src/init.c ****     bool press = false;
+ 126              		.loc 1 43 5 is_stmt 1 view .LVU23
+ 127              	.LVL1:
+  44:Core/Src/init.c ****     int32_t bounce = 0;
+ 128              		.loc 1 44 5 view .LVU24
+ 129              		.loc 1 44 13 is_stmt 0 view .LVU25
+ 130 0002 0023     		movs	r3, #0
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 4
 
 
- 114              	button_bounce_read:
- 115              	.LVL0:
- 116              	.LFB131:
-  62:Core/Src/init.c **** // OPTIMIZE: возможно стоит добавить верхнюю границу для об
-  63:Core/Src/init.c **** bool button_bounce_read(uint32_t idr_mask)
-  64:Core/Src/init.c **** {
- 117              		.loc 1 64 1 is_stmt 1 view -0
- 118              		.cfi_startproc
- 119              		@ args = 0, pretend = 0, frame = 0
- 120              		@ frame_needed = 0, uses_anonymous_args = 0
- 121              		@ link register save eliminated.
- 122              		.loc 1 64 1 is_stmt 0 view .LVU22
- 123 0000 0146     		mov	r1, r0
-  65:Core/Src/init.c ****     bool press = false;
- 124              		.loc 1 65 5 is_stmt 1 view .LVU23
- 125              	.LVL1:
-  66:Core/Src/init.c ****     int32_t bounce = 0;
- 126              		.loc 1 66 5 view .LVU24
- 127              		.loc 1 66 13 is_stmt 0 view .LVU25
- 128 0002 0023     		movs	r3, #0
-  65:Core/Src/init.c ****     bool press = false;
- 129              		.loc 1 65 10 view .LVU26
- 130 0004 1846     		mov	r0, r3
- 131              	.LVL2:
-  65:Core/Src/init.c ****     bool press = false;
- 132              		.loc 1 65 10 view .LVU27
- 133 0006 02E0     		b	.L7
- 134              	.LVL3:
- 135              	.L5:
-  67:Core/Src/init.c ****     do
+  43:Core/Src/init.c ****     bool press = false;
+ 131              		.loc 1 43 10 view .LVU26
+ 132 0004 1846     		mov	r0, r3
+ 133              	.LVL2:
+  43:Core/Src/init.c ****     bool press = false;
+ 134              		.loc 1 43 10 view .LVU27
+ 135 0006 02E0     		b	.L7
+ 136              	.LVL3:
+ 137              	.L5:
+  45:Core/Src/init.c ****     do
+  46:Core/Src/init.c ****     {
+  47:Core/Src/init.c ****         if (READ_BIT(GPIOC->IDR, idr_mask) == 0)
+  48:Core/Src/init.c ****         {
+  49:Core/Src/init.c ****             bounce++;
+  50:Core/Src/init.c ****             press = true;
+  51:Core/Src/init.c ****             continue;
+  52:Core/Src/init.c ****         }
+  53:Core/Src/init.c ****         else
+  54:Core/Src/init.c ****         {
+  55:Core/Src/init.c ****             bounce--;
+ 138              		.loc 1 55 13 is_stmt 1 view .LVU28
+ 139              		.loc 1 55 19 is_stmt 0 view .LVU29
+ 140 0008 013B     		subs	r3, r3, #1
+ 141              	.LVL4:
+ 142              	.L6:
+  56:Core/Src/init.c ****         }
+  57:Core/Src/init.c ****     } while (bounce > 0);
+ 143              		.loc 1 57 21 is_stmt 1 view .LVU30
+ 144 000a 002B     		cmp	r3, #0
+ 145 000c 06DD     		ble	.L8
+ 146              	.LVL5:
+ 147              	.L7:
+  45:Core/Src/init.c ****     do
+ 148              		.loc 1 45 5 view .LVU31
+  47:Core/Src/init.c ****         {
+ 149              		.loc 1 47 9 view .LVU32
+  47:Core/Src/init.c ****         {
+ 150              		.loc 1 47 13 is_stmt 0 view .LVU33
+ 151 000e 044A     		ldr	r2, .L9
+ 152 0010 1269     		ldr	r2, [r2, #16]
+  47:Core/Src/init.c ****         {
+ 153              		.loc 1 47 12 view .LVU34
+ 154 0012 0A42     		tst	r2, r1
+ 155 0014 F8D1     		bne	.L5
+  49:Core/Src/init.c ****             press = true;
+ 156              		.loc 1 49 13 is_stmt 1 view .LVU35
+  49:Core/Src/init.c ****             press = true;
+ 157              		.loc 1 49 19 is_stmt 0 view .LVU36
+ 158 0016 0133     		adds	r3, r3, #1
+ 159              	.LVL6:
+  50:Core/Src/init.c ****             continue;
+ 160              		.loc 1 50 13 is_stmt 1 view .LVU37
+  51:Core/Src/init.c ****         }
+ 161              		.loc 1 51 13 view .LVU38
+  50:Core/Src/init.c ****             continue;
+ 162              		.loc 1 50 19 is_stmt 0 view .LVU39
+ 163 0018 0120     		movs	r0, #1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 5
+
+
+  51:Core/Src/init.c ****         }
+ 164              		.loc 1 51 13 view .LVU40
+ 165 001a F6E7     		b	.L6
+ 166              	.LVL7:
+ 167              	.L8:
+  58:Core/Src/init.c ****     return press;
+ 168              		.loc 1 58 5 is_stmt 1 view .LVU41
+  59:Core/Src/init.c **** }
+ 169              		.loc 1 59 1 is_stmt 0 view .LVU42
+ 170 001c 7047     		bx	lr
+ 171              	.L10:
+ 172 001e 00BF     		.align	2
+ 173              	.L9:
+ 174 0020 00080240 		.word	1073874944
+ 175              		.cfi_endproc
+ 176              	.LFE131:
+ 178              		.section	.text.changeConf,"ax",%progbits
+ 179              		.align	1
+ 180              		.global	changeConf
+ 181              		.syntax unified
+ 182              		.thumb
+ 183              		.thumb_func
+ 185              	changeConf:
+ 186              	.LVL8:
+ 187              	.LFB132:
+  60:Core/Src/init.c **** 
+  61:Core/Src/init.c **** // OPTIMIZE: можно сделать функцию от трех переменных
+  62:Core/Src/init.c **** 
+  63:Core/Src/init.c **** // NOTE: принимает аргументом номер битов регистра MODER дл�
+  64:Core/Src/init.c **** //  остальные порты кнопок переходят в режим входа, и би
+  65:Core/Src/init.c **** void changeConf(uint32_t PORT0_bit, uint32_t PORT0_LIGTH, bool noRepeat)
+  66:Core/Src/init.c **** {
+ 188              		.loc 1 66 1 is_stmt 1 view -0
+ 189              		.cfi_startproc
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192              		@ link register save eliminated.
+  67:Core/Src/init.c ****     if (noRepeat == true)
+ 193              		.loc 1 67 5 view .LVU44
+ 194              		.loc 1 67 8 is_stmt 0 view .LVU45
+ 195 0000 52B1     		cbz	r2, .L11
   68:Core/Src/init.c ****     {
-  69:Core/Src/init.c ****         if (READ_BIT(GPIOC->IDR, idr_mask) == 0)
-  70:Core/Src/init.c ****         {
-  71:Core/Src/init.c ****             bounce++;
-  72:Core/Src/init.c ****             press = true;
-  73:Core/Src/init.c ****             continue;
-  74:Core/Src/init.c ****         }
-  75:Core/Src/init.c ****         else
-  76:Core/Src/init.c ****         {
-  77:Core/Src/init.c ****             bounce--;
- 136              		.loc 1 77 13 is_stmt 1 view .LVU28
- 137              		.loc 1 77 19 is_stmt 0 view .LVU29
- 138 0008 013B     		subs	r3, r3, #1
- 139              	.LVL4:
- 140              	.L6:
-  78:Core/Src/init.c ****         }
-  79:Core/Src/init.c ****     } while (bounce > 0);
- 141              		.loc 1 79 21 is_stmt 1 view .LVU30
- 142 000a 002B     		cmp	r3, #0
- 143 000c 06DD     		ble	.L8
- 144              	.LVL5:
- 145              	.L7:
-  67:Core/Src/init.c ****     do
- 146              		.loc 1 67 5 view .LVU31
-  69:Core/Src/init.c ****         {
- 147              		.loc 1 69 9 view .LVU32
-  69:Core/Src/init.c ****         {
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 5
+  69:Core/Src/init.c ****         CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
+ 196              		.loc 1 69 9 is_stmt 1 view .LVU46
+ 197 0002 064B     		ldr	r3, .L13
+ 198 0004 1A68     		ldr	r2, [r3]
+ 199              	.LVL9:
+ 200              		.loc 1 69 9 is_stmt 0 view .LVU47
+ 201 0006 22F47C12 		bic	r2, r2, #4128768
+ 202 000a 1A60     		str	r2, [r3]
+  70:Core/Src/init.c ****         SET_BIT(GPIOC->MODER, PORT0_bit);
+ 203              		.loc 1 70 9 is_stmt 1 view .LVU48
+ 204 000c 1A68     		ldr	r2, [r3]
+ 205 000e 0243     		orrs	r2, r2, r0
+ 206 0010 1A60     		str	r2, [r3]
+  71:Core/Src/init.c ****         SET_BIT(GPIOC->BSRR, PORT0_LIGTH);
+ 207              		.loc 1 71 9 view .LVU49
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 6
 
 
- 148              		.loc 1 69 13 is_stmt 0 view .LVU33
- 149 000e 044A     		ldr	r2, .L9
- 150 0010 1269     		ldr	r2, [r2, #16]
-  69:Core/Src/init.c ****         {
- 151              		.loc 1 69 12 view .LVU34
- 152 0012 0A42     		tst	r2, r1
- 153 0014 F8D1     		bne	.L5
-  71:Core/Src/init.c ****             press = true;
- 154              		.loc 1 71 13 is_stmt 1 view .LVU35
-  71:Core/Src/init.c ****             press = true;
- 155              		.loc 1 71 19 is_stmt 0 view .LVU36
- 156 0016 0133     		adds	r3, r3, #1
- 157              	.LVL6:
-  72:Core/Src/init.c ****             continue;
- 158              		.loc 1 72 13 is_stmt 1 view .LVU37
-  73:Core/Src/init.c ****         }
- 159              		.loc 1 73 13 view .LVU38
-  72:Core/Src/init.c ****             continue;
- 160              		.loc 1 72 19 is_stmt 0 view .LVU39
- 161 0018 0120     		movs	r0, #1
-  73:Core/Src/init.c ****         }
- 162              		.loc 1 73 13 view .LVU40
- 163 001a F6E7     		b	.L6
- 164              	.LVL7:
- 165              	.L8:
-  80:Core/Src/init.c ****     return press;
- 166              		.loc 1 80 5 is_stmt 1 view .LVU41
-  81:Core/Src/init.c **** }
- 167              		.loc 1 81 1 is_stmt 0 view .LVU42
- 168 001c 7047     		bx	lr
- 169              	.L10:
- 170 001e 00BF     		.align	2
- 171              	.L9:
- 172 0020 00080240 		.word	1073874944
- 173              		.cfi_endproc
- 174              	.LFE131:
- 176              		.section	.text.changeConf,"ax",%progbits
- 177              		.align	1
- 178              		.global	changeConf
- 179              		.syntax unified
- 180              		.thumb
- 181              		.thumb_func
- 183              	changeConf:
- 184              	.LVL8:
- 185              	.LFB132:
-  82:Core/Src/init.c **** 
-  83:Core/Src/init.c **** // HACK: можно сделать функцию от трех переменных
-  84:Core/Src/init.c **** 
-  85:Core/Src/init.c **** // NOTE: принимает аргументом номера битов регистра MODER д�
-  86:Core/Src/init.c **** //  остальные порты кнопок переходят в режим входа, и би
-  87:Core/Src/init.c **** void changeConf(uint32_t PORT0_bit, uint32_t PORT1_bit, uint32_t PORT0_LIGTH, uint32_t PORT1_LIGTH,
-  88:Core/Src/init.c **** {
- 186              		.loc 1 88 1 is_stmt 1 view -0
- 187              		.cfi_startproc
- 188              		@ args = 4, pretend = 0, frame = 0
- 189              		@ frame_needed = 0, uses_anonymous_args = 0
- 190              		@ link register save eliminated.
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 6
+ 208 0012 9A69     		ldr	r2, [r3, #24]
+ 209 0014 0A43     		orrs	r2, r2, r1
+ 210 0016 9A61     		str	r2, [r3, #24]
+ 211              	.L11:
+  72:Core/Src/init.c ****     }
+  73:Core/Src/init.c **** }
+ 212              		.loc 1 73 1 is_stmt 0 view .LVU50
+ 213 0018 7047     		bx	lr
+ 214              	.L14:
+ 215 001a 00BF     		.align	2
+ 216              	.L13:
+ 217 001c 00080240 		.word	1073874944
+ 218              		.cfi_endproc
+ 219              	.LFE132:
+ 221              		.section	.text.button_light_led,"ax",%progbits
+ 222              		.align	1
+ 223              		.global	button_light_led
+ 224              		.syntax unified
+ 225              		.thumb
+ 226              		.thumb_func
+ 228              	button_light_led:
+ 229              	.LVL10:
+ 230              	.LFB133:
+  74:Core/Src/init.c **** 
+  75:Core/Src/init.c **** // OPTIMIZE: можно сделать функцию от двух переменных
+  76:Core/Src/init.c **** 
+  77:Core/Src/init.c **** // NOTE: принимает аргументами:тип порта на котором наход
+  78:Core/Src/init.c **** // бит для записи в GPIOB, бит для очистки бита в GPIOB
+  79:Core/Src/init.c **** void button_light_led(GPIO_TypeDef *GPIOx, uint32_t IDR_bit, uint32_t BSRR_BS, uint32_t BSRR_BR)
+  80:Core/Src/init.c **** {
+ 231              		.loc 1 80 1 is_stmt 1 view -0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 0
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              		@ link register save eliminated.
+  81:Core/Src/init.c ****     if (READ_BIT(GPIOx->IDR, IDR_bit) == 0)
+ 236              		.loc 1 81 5 view .LVU52
+ 237              		.loc 1 81 9 is_stmt 0 view .LVU53
+ 238 0000 0069     		ldr	r0, [r0, #16]
+ 239              	.LVL11:
+ 240              		.loc 1 81 8 view .LVU54
+ 241 0002 0842     		tst	r0, r1
+ 242 0004 04D1     		bne	.L16
+  82:Core/Src/init.c ****     {
+  83:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BS);
+ 243              		.loc 1 83 9 is_stmt 1 view .LVU55
+ 244 0006 0549     		ldr	r1, .L18
+ 245              	.LVL12:
+ 246              		.loc 1 83 9 is_stmt 0 view .LVU56
+ 247 0008 8B69     		ldr	r3, [r1, #24]
+ 248              	.LVL13:
+ 249              		.loc 1 83 9 view .LVU57
+ 250 000a 1343     		orrs	r3, r3, r2
+ 251 000c 8B61     		str	r3, [r1, #24]
+ 252 000e 7047     		bx	lr
+ 253              	.LVL14:
+ 254              	.L16:
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 7
 
 
- 191              		.loc 1 88 1 is_stmt 0 view .LVU44
- 192 0000 30B4     		push	{r4, r5}
- 193              	.LCFI0:
- 194              		.cfi_def_cfa_offset 8
- 195              		.cfi_offset 4, -8
- 196              		.cfi_offset 5, -4
- 197 0002 9DF80840 		ldrb	r4, [sp, #8]	@ zero_extendqisi2
-  89:Core/Src/init.c ****     if (noRepeat == true)
- 198              		.loc 1 89 5 is_stmt 1 view .LVU45
- 199              		.loc 1 89 8 is_stmt 0 view .LVU46
- 200 0006 64B1     		cbz	r4, .L11
-  90:Core/Src/init.c ****     {
-  91:Core/Src/init.c ****         CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
- 201              		.loc 1 91 9 is_stmt 1 view .LVU47
- 202 0008 074C     		ldr	r4, .L14
- 203 000a 2568     		ldr	r5, [r4]
- 204 000c 25F47C15 		bic	r5, r5, #4128768
- 205 0010 2560     		str	r5, [r4]
- 206              	.LVL9:
-  92:Core/Src/init.c ****         SET_BIT(GPIOC->MODER, PORT0_bit | PORT1_bit);
- 207              		.loc 1 92 9 view .LVU48
- 208 0012 2568     		ldr	r5, [r4]
- 209 0014 0843     		orrs	r0, r0, r1
- 210              	.LVL10:
- 211              		.loc 1 92 9 is_stmt 0 view .LVU49
- 212 0016 2843     		orrs	r0, r0, r5
- 213 0018 2060     		str	r0, [r4]
-  93:Core/Src/init.c ****         SET_BIT(GPIOC->BSRR, PORT0_LIGTH | PORT1_LIGTH);
- 214              		.loc 1 93 9 is_stmt 1 view .LVU50
- 215 001a A169     		ldr	r1, [r4, #24]
- 216              	.LVL11:
- 217              		.loc 1 93 9 is_stmt 0 view .LVU51
- 218 001c 1A43     		orrs	r2, r2, r3
- 219              	.LVL12:
- 220              		.loc 1 93 9 view .LVU52
- 221 001e 0A43     		orrs	r2, r2, r1
- 222 0020 A261     		str	r2, [r4, #24]
- 223              	.L11:
-  94:Core/Src/init.c ****     }
-  95:Core/Src/init.c **** }
- 224              		.loc 1 95 1 view .LVU53
- 225 0022 30BC     		pop	{r4, r5}
- 226              	.LCFI1:
- 227              		.cfi_restore 5
- 228              		.cfi_restore 4
- 229              		.cfi_def_cfa_offset 0
- 230 0024 7047     		bx	lr
- 231              	.L15:
- 232 0026 00BF     		.align	2
- 233              	.L14:
- 234 0028 00080240 		.word	1073874944
- 235              		.cfi_endproc
- 236              	.LFE132:
- 238              		.section	.text.button_light_led,"ax",%progbits
- 239              		.align	1
- 240              		.global	button_light_led
- 241              		.syntax unified
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 7
-
-
- 242              		.thumb
- 243              		.thumb_func
- 245              	button_light_led:
- 246              	.LVL13:
- 247              	.LFB133:
-  96:Core/Src/init.c **** 
-  97:Core/Src/init.c **** // HACK: можно сделать функцию от двух переменных
-  98:Core/Src/init.c **** 
-  99:Core/Src/init.c **** // NOTE: принимает аргументами: бит для чтения с порта GPIOC,
- 100:Core/Src/init.c **** void button_light_led(GPIO_TypeDef *GPIOx, uint32_t IDR_bit, uint32_t BSRR_BS, uint32_t BSRR_BR)
- 101:Core/Src/init.c **** {
- 248              		.loc 1 101 1 is_stmt 1 view -0
- 249              		.cfi_startproc
- 250              		@ args = 0, pretend = 0, frame = 0
- 251              		@ frame_needed = 0, uses_anonymous_args = 0
- 252              		@ link register save eliminated.
- 102:Core/Src/init.c ****     if (READ_BIT(GPIOx->IDR, IDR_bit) == 0)
- 253              		.loc 1 102 5 view .LVU55
- 254              		.loc 1 102 9 is_stmt 0 view .LVU56
- 255 0000 0069     		ldr	r0, [r0, #16]
- 256              	.LVL14:
- 257              		.loc 1 102 8 view .LVU57
- 258 0002 0842     		tst	r0, r1
- 259 0004 04D1     		bne	.L17
- 103:Core/Src/init.c ****     {
- 104:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BS);
- 260              		.loc 1 104 9 is_stmt 1 view .LVU58
- 261 0006 0549     		ldr	r1, .L19
- 262              	.LVL15:
- 263              		.loc 1 104 9 is_stmt 0 view .LVU59
- 264 0008 8B69     		ldr	r3, [r1, #24]
- 265              	.LVL16:
- 266              		.loc 1 104 9 view .LVU60
- 267 000a 1343     		orrs	r3, r3, r2
- 268 000c 8B61     		str	r3, [r1, #24]
- 269 000e 7047     		bx	lr
- 270              	.LVL17:
- 271              	.L17:
- 105:Core/Src/init.c ****     }
- 106:Core/Src/init.c ****     else
- 107:Core/Src/init.c ****     {
- 108:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BR);
- 272              		.loc 1 108 9 is_stmt 1 view .LVU61
- 273 0010 0249     		ldr	r1, .L19
- 274              	.LVL18:
- 275              		.loc 1 108 9 is_stmt 0 view .LVU62
- 276 0012 8A69     		ldr	r2, [r1, #24]
- 277              	.LVL19:
- 278              		.loc 1 108 9 view .LVU63
- 279 0014 1343     		orrs	r3, r3, r2
- 280              	.LVL20:
- 281              		.loc 1 108 9 view .LVU64
- 282 0016 8B61     		str	r3, [r1, #24]
- 109:Core/Src/init.c ****     }
- 110:Core/Src/init.c **** }...
- 283              		.loc 1 110 1 view .LVU65
- 284 0018 7047     		bx	lr
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 8
-
-
- 285              	.L20:
- 286 001a 00BF     		.align	2
- 287              	.L19:
- 288 001c 00040240 		.word	1073873920
- 289              		.cfi_endproc
- 290              	.LFE133:
- 292              		.text
- 293              	.Letext0:
- 294              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
- 295              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
- 296              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccIICF2j.s 			page 9
+  84:Core/Src/init.c ****     }
+  85:Core/Src/init.c ****     else
+  86:Core/Src/init.c ****     {
+  87:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BR);
+ 255              		.loc 1 87 9 is_stmt 1 view .LVU58
+ 256 0010 0249     		ldr	r1, .L18
+ 257              	.LVL15:
+ 258              		.loc 1 87 9 is_stmt 0 view .LVU59
+ 259 0012 8A69     		ldr	r2, [r1, #24]
+ 260              	.LVL16:
+ 261              		.loc 1 87 9 view .LVU60
+ 262 0014 1343     		orrs	r3, r3, r2
+ 263              	.LVL17:
+ 264              		.loc 1 87 9 view .LVU61
+ 265 0016 8B61     		str	r3, [r1, #24]
+  88:Core/Src/init.c ****     }
+  89:Core/Src/init.c **** }...
+ 266              		.loc 1 89 1 view .LVU62
+ 267 0018 7047     		bx	lr
+ 268              	.L19:
+ 269 001a 00BF     		.align	2
+ 270              	.L18:
+ 271 001c 00040240 		.word	1073873920
+ 272              		.cfi_endproc
+ 273              	.LFE133:
+ 275              		.text
+ 276              	.Letext0:
+ 277              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
+ 278              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 279              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 init.c
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:21     .text.GPIO_Ini:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:27     .text.GPIO_Ini:00000000 GPIO_Ini
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:102    .text.GPIO_Ini:0000008c $d
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:108    .text.button_bounce_read:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:114    .text.button_bounce_read:00000000 button_bounce_read
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:172    .text.button_bounce_read:00000020 $d
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:177    .text.changeConf:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:183    .text.changeConf:00000000 changeConf
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:234    .text.changeConf:00000028 $d
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:239    .text.button_light_led:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:245    .text.button_light_led:00000000 button_light_led
-C:\Users\79530\AppData\Local\Temp\ccIICF2j.s:288    .text.button_light_led:0000001c $d
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:21     .text.GPIO_Ini:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:27     .text.GPIO_Ini:00000000 GPIO_Ini
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:102    .text.GPIO_Ini:00000088 $d
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:110    .text.button_bounce_read:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:116    .text.button_bounce_read:00000000 button_bounce_read
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:174    .text.button_bounce_read:00000020 $d
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:179    .text.changeConf:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:185    .text.changeConf:00000000 changeConf
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:217    .text.changeConf:0000001c $d
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:222    .text.button_light_led:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:228    .text.button_light_led:00000000 button_light_led
+C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:271    .text.button_light_led:0000001c $d
 
 NO UNDEFINED SYMBOLS

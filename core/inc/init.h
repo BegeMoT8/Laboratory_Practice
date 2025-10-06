@@ -5,7 +5,7 @@
 
 void GPIO_Ini(void);
 bool button_bounce_read(uint32_t idr_mask);
-void changeConf(uint32_t PORT0_bit, uint32_t PORT1_bit, uint32_t PORT0_LIGTH, uint32_t PORT1_LIGTH, bool noRepeat);
+void changeConf(uint32_t PORT0_bit, uint32_t PORT0_LIGTH, bool noRepeat);
 void button_light_led(GPIO_TypeDef *GPIOx, uint32_t IDR_bit, uint32_t BSRR_BS, uint32_t BSRR_BR);
 
 // NOTE: макросы для настройки режима работы порта вручную
@@ -24,3 +24,5 @@ void button_light_led(GPIO_TypeDef *GPIOx, uint32_t IDR_bit, uint32_t BSRR_BS, u
 #define GPIOB_MODE_PIN0_OUT 0x1UL
 // настраиваем тип выхода на push-pull (0)
 #define GPIOB_OTYPER_PIN0_PP 0x0000UL
+
+//extern volatile bool flag;

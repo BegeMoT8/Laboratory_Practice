@@ -1,5 +1,5 @@
 #include "init.h"
-
+//volatile bool flag = false; 
 void GPIO_Ini()
 {
     // // включаем тактирование на пины GPIOCEN GPIOBEN GPIOAEN
@@ -60,15 +60,15 @@ bool button_bounce_read(uint32_t idr_mask)
 
 // OPTIMIZE: можно сделать функцию от трех переменных
 
-// NOTE: принимает аргументом номера битов регистра MODER для установки режима выхода
+// NOTE: принимает аргументом номер битов регистра MODER для установки режима выхода
 //  остальные порты кнопок переходят в режим входа, и биты регистра BSRR для подачи высокого сигнала на кнопки в режиме выход
-void changeConf(uint32_t PORT0_bit, uint32_t PORT1_bit, uint32_t PORT0_LIGTH, uint32_t PORT1_LIGTH, bool noRepeat)
+void changeConf(uint32_t PORT0_bit, uint32_t PORT0_LIGTH, bool noRepeat)
 {
     if (noRepeat == true)
     {
         CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
-        SET_BIT(GPIOC->MODER, PORT0_bit | PORT1_bit);
-        SET_BIT(GPIOC->BSRR, PORT0_LIGTH | PORT1_LIGTH);
+        SET_BIT(GPIOC->MODER, PORT0_bit);
+        SET_BIT(GPIOC->BSRR, PORT0_LIGTH);
     }
 }
 
