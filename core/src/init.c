@@ -1,5 +1,5 @@
 #include "init.h"
-//volatile bool flag = false; 
+
 void GPIO_Ini()
 {
     // // включаем тактирование на пины GPIOCEN GPIOBEN GPIOAEN
@@ -16,13 +16,12 @@ void GPIO_Ini()
     CLEAR_BIT(GPIOC->OTYPER, GPIO_OTYPER_OT_8 | GPIO_OTYPER_OT_9 | GPIO_OTYPER_OT_10);
     // скорость работы - средняя
     SET_BIT(GPIOC->OSPEEDR, GPIO_OSPEEDER_OSPEEDR8_0 | GPIO_OSPEEDER_OSPEEDR9_0 | GPIO_OSPEEDER_OSPEEDR10_0 | GPIO_OSPEEDER_OSPEEDR11_0);
-    // подтяжка резистора pull up 
+    // подтяжка резистора pull up
     SET_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR8_0 | GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_0 | GPIO_PUPDR_PUPDR11_0);
-
 
     // Настройка макросом (желтый 0)
     GPIOB_MODER |= GPIOB_MODE_PIN0_OUT;
-   // GPIOB_OTYPER |= GPIOB_OTYPER_PIN0_PP;
+    // GPIOB_OTYPER |= GPIOB_OTYPER_PIN0_PP;
 
     // настройка прямым обращением к памяти (красный светодиод 14)
     //(адрес GPIOB + адрес MODER) для настройки режима порта (00 input; 01 output)
@@ -58,21 +57,18 @@ bool button_bounce_read(uint32_t idr_mask)
     return press;
 }
 
-// OPTIMIZE: можно сделать функцию от трех переменных
 
-// NOTE: принимает аргументом номер битов регистра MODER для установки режима выхода
+// NOTE: принимает аргументом номера битов регистра MODER для установки режима выхода
 //  остальные порты кнопок переходят в режим входа, и биты регистра BSRR для подачи высокого сигнала на кнопки в режиме выход
-void changeConf(uint32_t PORT0_bit, uint32_t PORT0_LIGTH, bool noRepeat)
+void changeConf(uint32_t PORT0_bit, uint32_t PORT1_bit, uint32_t PORT0_LIGTH, uint32_t PORT1_LIGTH, bool noRepeat)
 {
     if (noRepeat == true)
     {
         CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
-        SET_BIT(GPIOC->MODER, PORT0_bit);
-        SET_BIT(GPIOC->BSRR, PORT0_LIGTH);
+        SET_BIT(GPIOC->MODER, PORT0_bit | PORT1_bit);
+        SET_BIT(GPIOC->BSRR, PORT0_LIGTH | PORT1_LIGTH);
     }
 }
-
-// OPTIMIZE: можно сделать функцию от двух переменных
 
 // NOTE: принимает аргументами:тип порта на котором находится кнопка (GPIOx), бит для чтения с порта GPIOx,
 // бит для записи в GPIOB, бит для очистки бита в GPIOB
@@ -85,5 +81,165 @@ void button_light_led(GPIO_TypeDef *GPIOx, uint32_t IDR_bit, uint32_t BSRR_BS, u
     else
     {
         SET_BIT(GPIOB->BSRR, BSRR_BR);
+    }
+}
+
+// NOTE: для доп задания
+//  принимает число для подстановки в отношение (n/20) для задания n итераций в течение которых светодиод включен
+//  бит для включения и выключения высокого сигнала на порте
+void mode_light(uint8_t ratio, uint32_t BSRR_BSx, uint32_t BSRR_BRx)
+{
+    for (int i = 0; i < ratio; i++)
+    {
+        SET_BIT(GPIOB->BSRR, BSRR_BSx);
+    }
+    for (int i = 0; i < 20; i++)
+    {
+        SET_BIT(GPIOB->BSRR, BSRR_BRx);
+    }
+}
+
+// NOTE: дополнительное задание
+void changing_brightness()
+{
+    static uint8_t bright = 1, counter_press8 = 0, counter_press9 = 0, counter_press10 = 0;
+    if (button_bounce_read(GPIO_IDR_IDR_11) == true)
+    {
+        bright++;
+    }
+    if (bright > 3)
+    {
+        bright = 1;
+    }
+
+    if (button_bounce_read(GPIO_IDR_IDR_8) == true)
+    {
+        counter_press8++;
+    }
+    if (button_bounce_read(GPIO_IDR_IDR_9) == true)
+    {
+        counter_press9++;
+    }
+    if (button_bounce_read(GPIO_IDR_IDR_10) == true)
+    {
+        counter_press10++;
+    }
+
+    if (counter_press8 % 2 == 1)
+    {
+        if (bright == 1)
+        {
+            mode_light(1, GPIO_BSRR_BS7_Msk, GPIO_BSRR_BR7_Msk);
+        }
+        else if (bright == 2)
+        {
+            mode_light(12, GPIO_BSRR_BS7_Msk, GPIO_BSRR_BR7_Msk);
+        }
+        else
+        {
+            SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS7_Msk);
+        }
+    }
+    else
+    {
+        SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR7_Msk);
+    }
+    if (counter_press9 % 2 == 1)
+    {
+        if (bright == 1)
+        {
+            mode_light(1, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
+        }
+        else if (bright == 2)
+        {
+            mode_light(12, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
+        }
+        else
+        {
+            SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14_Msk);
+        }
+    }
+    else
+    {
+        SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14_Msk);
+    }
+    if (counter_press10 % 2 == 1)
+    {
+        if (bright == 1)
+        {
+            mode_light(6, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
+        }
+        else if (bright == 2)
+        {
+            mode_light(15, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
+        }
+        else
+        {
+            SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS0_Msk);
+        }
+    }
+    else
+    {
+        SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0_Msk);
+    }
+}
+
+// NOTE: основное задание
+void main_task()
+{
+
+    static int8_t counter_press = 0, old_counter_press = 0;
+    if (button_bounce_read(GPIO_IDR_IDR_11) == true)
+    {
+        counter_press++;
+    }
+
+    // NOTE: функция смены конфигурации вызывается только один раз
+
+    if (counter_press == 1)
+    {
+        changeConf(GPIO_MODER_MODER8_0, GPIO_MODER_MODER9_0, GPIO_BSRR_BS8, GPIO_BSRR_BS9, (old_counter_press != counter_press));
+        old_counter_press = counter_press;
+        // 10 на вход, остальные на выход
+        button_light_led(GPIOC, GPIO_IDR_IDR_10, GPIO_BSRR_BS7_Msk, GPIO_BSRR_BR7_Msk);
+    }
+    else if (counter_press == 2)
+    {
+        changeConf(GPIO_MODER_MODER8_0, GPIO_MODER_MODER10_0, GPIO_BSRR_BS8, GPIO_BSRR_BS10, (old_counter_press != counter_press));
+        old_counter_press = counter_press;
+        // 9 на вход остальные на выход
+        button_light_led(GPIOC, GPIO_IDR_IDR_9, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
+    }
+    else if (counter_press == 3)
+    {
+        changeConf(GPIO_MODER_MODER9_0, GPIO_MODER_MODER10_0, GPIO_BSRR_BS9, GPIO_BSRR_BS10, (old_counter_press != counter_press));
+        old_counter_press = counter_press;
+        // 8 на вход остальные на выход
+        button_light_led(GPIOC, GPIO_IDR_IDR_8, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
+    }
+    else if (counter_press == 4)
+    {
+        // все порты в режим выхода
+        if (old_counter_press != counter_press)
+        {
+            SET_BIT(GPIOC->MODER, GPIO_MODER_MODER8_0);
+            old_counter_press = counter_press;
+        }
+    }
+    else if ((counter_press == 5) | (counter_press == 0))
+    {
+        // все порты в режим входа
+        if (old_counter_press != counter_press)
+        {
+            CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
+            old_counter_press = counter_press;
+        }
+        button_light_led(GPIOC, GPIO_IDR_IDR_10, GPIO_BSRR_BS7_Msk, GPIO_BSRR_BR7_Msk);
+        button_light_led(GPIOC, GPIO_IDR_IDR_9, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
+        button_light_led(GPIOC, GPIO_IDR_IDR_8, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
+    }
+    else if (counter_press > 5)
+    {
+        counter_press = 1;
     }
 }

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -29,7 +29,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 1
   27              	GPIO_Ini:
   28              	.LFB130:
    1:Core/Src/init.c **** #include "init.h"
-   2:Core/Src/init.c **** //volatile bool flag = false; 
+   2:Core/Src/init.c **** 
    3:Core/Src/init.c **** void GPIO_Ini()
    4:Core/Src/init.c **** {
   29              		.loc 1 4 1 view -0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 1
   11:Core/Src/init.c **** 
   12:Core/Src/init.c ****     // //настройка кнопок
   13:Core/Src/init.c ****     // конфигурируем все пины на вход
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 2
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 2
 
 
   14:Core/Src/init.c ****     CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10 | GPIO_MODER_MO
@@ -79,68 +79,67 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 1
   56 002c 9A68     		ldr	r2, [r3, #8]
   57 002e 42F4AA02 		orr	r2, r2, #5570560
   58 0032 9A60     		str	r2, [r3, #8]
-  19:Core/Src/init.c ****     // подтяжка резистора pull up 
+  19:Core/Src/init.c ****     // подтяжка резистора pull up
   20:Core/Src/init.c ****     SET_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR8_0 | GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_0 | GPIO_P
   59              		.loc 1 20 5 view .LVU8
   60 0034 DA68     		ldr	r2, [r3, #12]
   61 0036 42F4AA02 		orr	r2, r2, #5570560
   62 003a DA60     		str	r2, [r3, #12]
   21:Core/Src/init.c **** 
-  22:Core/Src/init.c **** 
-  23:Core/Src/init.c ****     // Настройка макросом (желтый 0)
-  24:Core/Src/init.c ****     GPIOB_MODER |= GPIOB_MODE_PIN0_OUT;
-  63              		.loc 1 24 5 view .LVU9
+  22:Core/Src/init.c ****     // Настройка макросом (желтый 0)
+  23:Core/Src/init.c ****     GPIOB_MODER |= GPIOB_MODE_PIN0_OUT;
+  63              		.loc 1 23 5 view .LVU9
   64 003c 144A     		ldr	r2, .L2+8
   65 003e D2F80034 		ldr	r3, [r2, #1024]
-  66              		.loc 1 24 17 is_stmt 0 view .LVU10
+  66              		.loc 1 23 17 is_stmt 0 view .LVU10
   67 0042 43F00101 		orr	r1, r3, #1
   68 0046 C2F80014 		str	r1, [r2, #1024]
-  25:Core/Src/init.c ****    // GPIOB_OTYPER |= GPIOB_OTYPER_PIN0_PP;
-  26:Core/Src/init.c **** 
-  27:Core/Src/init.c ****     // настройка прямым обращением к памяти (красный све�
-  28:Core/Src/init.c ****     //(адрес GPIOB + адрес MODER) для настройки режима порта (00 i
-  29:Core/Src/init.c ****     (*(uint32_t *)(0x40020400UL + 0x00UL)) |= 0x10000000;
-  69              		.loc 1 29 5 is_stmt 1 view .LVU11
-  70              		.loc 1 29 44 is_stmt 0 view .LVU12
+  24:Core/Src/init.c ****     // GPIOB_OTYPER |= GPIOB_OTYPER_PIN0_PP;
+  25:Core/Src/init.c **** 
+  26:Core/Src/init.c ****     // настройка прямым обращением к памяти (красный све�
+  27:Core/Src/init.c ****     //(адрес GPIOB + адрес MODER) для настройки режима порта (00 i
+  28:Core/Src/init.c ****     (*(uint32_t *)(0x40020400UL + 0x00UL)) |= 0x10000000;
+  69              		.loc 1 28 5 is_stmt 1 view .LVU11
+  70              		.loc 1 28 44 is_stmt 0 view .LVU12
   71 004a 43F08053 		orr	r3, r3, #268435456
   72 004e 43F00103 		orr	r3, r3, #1
   73 0052 C2F80034 		str	r3, [r2, #1024]
-  30:Core/Src/init.c ****     // скорость работы порта - средняя
-  31:Core/Src/init.c ****     (*(uint32_t *)(0x40020400UL + 0x08UL)) |= 0x10000000;
-  74              		.loc 1 31 5 is_stmt 1 view .LVU13
-  75              		.loc 1 31 6 is_stmt 0 view .LVU14
+  29:Core/Src/init.c ****     // скорость работы порта - средняя
+  30:Core/Src/init.c ****     (*(uint32_t *)(0x40020400UL + 0x08UL)) |= 0x10000000;
+  74              		.loc 1 30 5 is_stmt 1 view .LVU13
+  75              		.loc 1 30 6 is_stmt 0 view .LVU14
   76 0056 D2F80834 		ldr	r3, [r2, #1032]
-  77              		.loc 1 31 44 view .LVU15
+  77              		.loc 1 30 44 view .LVU15
   78 005a 43F08053 		orr	r3, r3, #268435456
   79 005e C2F80834 		str	r3, [r2, #1032]
-  32:Core/Src/init.c **** 
-  33:Core/Src/init.c ****     // настройка CMIS (синий светодиод 7)
-  34:Core/Src/init.c ****     CLEAR_BIT(GPIOB->MODER, GPIO_MODER_MODE7);
-  80              		.loc 1 34 5 is_stmt 1 view .LVU16
+  31:Core/Src/init.c **** 
+  32:Core/Src/init.c ****     // настройка CMIS (синий светодиод 7)
+  33:Core/Src/init.c ****     CLEAR_BIT(GPIOB->MODER, GPIO_MODER_MODE7);
+  80              		.loc 1 33 5 is_stmt 1 view .LVU16
   81 0062 0C4B     		ldr	r3, .L2+12
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 3
-
-
   82 0064 1A68     		ldr	r2, [r3]
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 3
+
+
   83 0066 22F44042 		bic	r2, r2, #49152
   84 006a 1A60     		str	r2, [r3]
-  35:Core/Src/init.c ****     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE7_0);
-  85              		.loc 1 35 5 view .LVU17
+  34:Core/Src/init.c ****     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE7_0);
+  85              		.loc 1 34 5 view .LVU17
   86 006c 1A68     		ldr	r2, [r3]
   87 006e 42F48042 		orr	r2, r2, #16384
   88 0072 1A60     		str	r2, [r3]
-  36:Core/Src/init.c ****     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT7_Msk);
-  89              		.loc 1 36 5 view .LVU18
+  35:Core/Src/init.c ****     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT7_Msk);
+  89              		.loc 1 35 5 view .LVU18
   90 0074 5A68     		ldr	r2, [r3, #4]
   91 0076 22F08002 		bic	r2, r2, #128
   92 007a 5A60     		str	r2, [r3, #4]
-  37:Core/Src/init.c ****     SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR7_0);
-  93              		.loc 1 37 5 view .LVU19
+  36:Core/Src/init.c ****     SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR7_0);
+  93              		.loc 1 36 5 view .LVU19
   94 007c 9A68     		ldr	r2, [r3, #8]
   95 007e 42F48042 		orr	r2, r2, #16384
   96 0082 9A60     		str	r2, [r3, #8]
-  38:Core/Src/init.c **** }
-  97              		.loc 1 38 1 is_stmt 0 view .LVU20
+  37:Core/Src/init.c **** }
+  97              		.loc 1 37 1 is_stmt 0 view .LVU20
   98 0084 7047     		bx	lr
   99              	.L3:
  100 0086 00BF     		.align	2
@@ -160,96 +159,96 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 1
  116              	button_bounce_read:
  117              	.LVL0:
  118              	.LFB131:
-  39:Core/Src/init.c **** 
-  40:Core/Src/init.c **** // OPTIMIZE: возможно стоит добавить верхнюю границу для об
-  41:Core/Src/init.c **** bool button_bounce_read(uint32_t idr_mask)
-  42:Core/Src/init.c **** {
- 119              		.loc 1 42 1 is_stmt 1 view -0
+  38:Core/Src/init.c **** 
+  39:Core/Src/init.c **** // OPTIMIZE: возможно стоит добавить верхнюю границу для об
+  40:Core/Src/init.c **** bool button_bounce_read(uint32_t idr_mask)
+  41:Core/Src/init.c **** {
+ 119              		.loc 1 41 1 is_stmt 1 view -0
  120              		.cfi_startproc
  121              		@ args = 0, pretend = 0, frame = 0
  122              		@ frame_needed = 0, uses_anonymous_args = 0
  123              		@ link register save eliminated.
- 124              		.loc 1 42 1 is_stmt 0 view .LVU22
+ 124              		.loc 1 41 1 is_stmt 0 view .LVU22
  125 0000 0146     		mov	r1, r0
-  43:Core/Src/init.c ****     bool press = false;
- 126              		.loc 1 43 5 is_stmt 1 view .LVU23
+  42:Core/Src/init.c ****     bool press = false;
+ 126              		.loc 1 42 5 is_stmt 1 view .LVU23
  127              	.LVL1:
-  44:Core/Src/init.c ****     int32_t bounce = 0;
- 128              		.loc 1 44 5 view .LVU24
- 129              		.loc 1 44 13 is_stmt 0 view .LVU25
+  43:Core/Src/init.c ****     int32_t bounce = 0;
+ 128              		.loc 1 43 5 view .LVU24
+ 129              		.loc 1 43 13 is_stmt 0 view .LVU25
  130 0002 0023     		movs	r3, #0
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 4
+  42:Core/Src/init.c ****     bool press = false;
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 4
 
 
-  43:Core/Src/init.c ****     bool press = false;
- 131              		.loc 1 43 10 view .LVU26
+ 131              		.loc 1 42 10 view .LVU26
  132 0004 1846     		mov	r0, r3
  133              	.LVL2:
-  43:Core/Src/init.c ****     bool press = false;
- 134              		.loc 1 43 10 view .LVU27
+  42:Core/Src/init.c ****     bool press = false;
+ 134              		.loc 1 42 10 view .LVU27
  135 0006 02E0     		b	.L7
  136              	.LVL3:
  137              	.L5:
-  45:Core/Src/init.c ****     do
-  46:Core/Src/init.c ****     {
-  47:Core/Src/init.c ****         if (READ_BIT(GPIOC->IDR, idr_mask) == 0)
-  48:Core/Src/init.c ****         {
-  49:Core/Src/init.c ****             bounce++;
-  50:Core/Src/init.c ****             press = true;
-  51:Core/Src/init.c ****             continue;
-  52:Core/Src/init.c ****         }
-  53:Core/Src/init.c ****         else
-  54:Core/Src/init.c ****         {
-  55:Core/Src/init.c ****             bounce--;
- 138              		.loc 1 55 13 is_stmt 1 view .LVU28
- 139              		.loc 1 55 19 is_stmt 0 view .LVU29
+  44:Core/Src/init.c ****     do
+  45:Core/Src/init.c ****     {
+  46:Core/Src/init.c ****         if (READ_BIT(GPIOC->IDR, idr_mask) == 0)
+  47:Core/Src/init.c ****         {
+  48:Core/Src/init.c ****             bounce++;
+  49:Core/Src/init.c ****             press = true;
+  50:Core/Src/init.c ****             continue;
+  51:Core/Src/init.c ****         }
+  52:Core/Src/init.c ****         else
+  53:Core/Src/init.c ****         {
+  54:Core/Src/init.c ****             bounce--;
+ 138              		.loc 1 54 13 is_stmt 1 view .LVU28
+ 139              		.loc 1 54 19 is_stmt 0 view .LVU29
  140 0008 013B     		subs	r3, r3, #1
  141              	.LVL4:
  142              	.L6:
-  56:Core/Src/init.c ****         }
-  57:Core/Src/init.c ****     } while (bounce > 0);
- 143              		.loc 1 57 21 is_stmt 1 view .LVU30
+  55:Core/Src/init.c ****         }
+  56:Core/Src/init.c ****     } while (bounce > 0);
+ 143              		.loc 1 56 21 is_stmt 1 view .LVU30
  144 000a 002B     		cmp	r3, #0
  145 000c 06DD     		ble	.L8
  146              	.LVL5:
  147              	.L7:
-  45:Core/Src/init.c ****     do
- 148              		.loc 1 45 5 view .LVU31
-  47:Core/Src/init.c ****         {
- 149              		.loc 1 47 9 view .LVU32
-  47:Core/Src/init.c ****         {
- 150              		.loc 1 47 13 is_stmt 0 view .LVU33
+  44:Core/Src/init.c ****     do
+ 148              		.loc 1 44 5 view .LVU31
+  46:Core/Src/init.c ****         {
+ 149              		.loc 1 46 9 view .LVU32
+  46:Core/Src/init.c ****         {
+ 150              		.loc 1 46 13 is_stmt 0 view .LVU33
  151 000e 044A     		ldr	r2, .L9
  152 0010 1269     		ldr	r2, [r2, #16]
-  47:Core/Src/init.c ****         {
- 153              		.loc 1 47 12 view .LVU34
+  46:Core/Src/init.c ****         {
+ 153              		.loc 1 46 12 view .LVU34
  154 0012 0A42     		tst	r2, r1
  155 0014 F8D1     		bne	.L5
-  49:Core/Src/init.c ****             press = true;
- 156              		.loc 1 49 13 is_stmt 1 view .LVU35
-  49:Core/Src/init.c ****             press = true;
- 157              		.loc 1 49 19 is_stmt 0 view .LVU36
+  48:Core/Src/init.c ****             press = true;
+ 156              		.loc 1 48 13 is_stmt 1 view .LVU35
+  48:Core/Src/init.c ****             press = true;
+ 157              		.loc 1 48 19 is_stmt 0 view .LVU36
  158 0016 0133     		adds	r3, r3, #1
  159              	.LVL6:
-  50:Core/Src/init.c ****             continue;
- 160              		.loc 1 50 13 is_stmt 1 view .LVU37
-  51:Core/Src/init.c ****         }
- 161              		.loc 1 51 13 view .LVU38
-  50:Core/Src/init.c ****             continue;
- 162              		.loc 1 50 19 is_stmt 0 view .LVU39
+  49:Core/Src/init.c ****             continue;
+ 160              		.loc 1 49 13 is_stmt 1 view .LVU37
+  50:Core/Src/init.c ****         }
+ 161              		.loc 1 50 13 view .LVU38
+  49:Core/Src/init.c ****             continue;
+ 162              		.loc 1 49 19 is_stmt 0 view .LVU39
  163 0018 0120     		movs	r0, #1
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 5
+  50:Core/Src/init.c ****         }
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 5
 
 
-  51:Core/Src/init.c ****         }
- 164              		.loc 1 51 13 view .LVU40
+ 164              		.loc 1 50 13 view .LVU40
  165 001a F6E7     		b	.L6
  166              	.LVL7:
  167              	.L8:
-  58:Core/Src/init.c ****     return press;
- 168              		.loc 1 58 5 is_stmt 1 view .LVU41
-  59:Core/Src/init.c **** }
- 169              		.loc 1 59 1 is_stmt 0 view .LVU42
+  57:Core/Src/init.c ****     return press;
+ 168              		.loc 1 57 5 is_stmt 1 view .LVU41
+  58:Core/Src/init.c **** }
+ 169              		.loc 1 58 1 is_stmt 0 view .LVU42
  170 001c 7047     		bx	lr
  171              	.L10:
  172 001e 00BF     		.align	2
@@ -266,147 +265,972 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 1
  185              	changeConf:
  186              	.LVL8:
  187              	.LFB132:
-  60:Core/Src/init.c **** 
-  61:Core/Src/init.c **** // OPTIMIZE: можно сделать функцию от трех переменных
-  62:Core/Src/init.c **** 
-  63:Core/Src/init.c **** // NOTE: принимает аргументом номер битов регистра MODER дл�
-  64:Core/Src/init.c **** //  остальные порты кнопок переходят в режим входа, и би
-  65:Core/Src/init.c **** void changeConf(uint32_t PORT0_bit, uint32_t PORT0_LIGTH, bool noRepeat)
-  66:Core/Src/init.c **** {
- 188              		.loc 1 66 1 is_stmt 1 view -0
+  59:Core/Src/init.c **** 
+  60:Core/Src/init.c **** // OPTIMIZE: можно сделать функцию от трех переменных
+  61:Core/Src/init.c **** 
+  62:Core/Src/init.c **** // NOTE: принимает аргументом номера битов регистра MODER д�
+  63:Core/Src/init.c **** //  остальные порты кнопок переходят в режим входа, и би
+  64:Core/Src/init.c **** void changeConf(uint32_t PORT0_bit, uint32_t PORT1_bit, uint32_t PORT0_LIGTH, uint32_t PORT1_LIGTH,
+  65:Core/Src/init.c **** {
+ 188              		.loc 1 65 1 is_stmt 1 view -0
  189              		.cfi_startproc
- 190              		@ args = 0, pretend = 0, frame = 0
+ 190              		@ args = 4, pretend = 0, frame = 0
  191              		@ frame_needed = 0, uses_anonymous_args = 0
  192              		@ link register save eliminated.
-  67:Core/Src/init.c ****     if (noRepeat == true)
- 193              		.loc 1 67 5 view .LVU44
- 194              		.loc 1 67 8 is_stmt 0 view .LVU45
- 195 0000 52B1     		cbz	r2, .L11
-  68:Core/Src/init.c ****     {
-  69:Core/Src/init.c ****         CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
- 196              		.loc 1 69 9 is_stmt 1 view .LVU46
- 197 0002 064B     		ldr	r3, .L13
- 198 0004 1A68     		ldr	r2, [r3]
- 199              	.LVL9:
- 200              		.loc 1 69 9 is_stmt 0 view .LVU47
- 201 0006 22F47C12 		bic	r2, r2, #4128768
- 202 000a 1A60     		str	r2, [r3]
-  70:Core/Src/init.c ****         SET_BIT(GPIOC->MODER, PORT0_bit);
- 203              		.loc 1 70 9 is_stmt 1 view .LVU48
- 204 000c 1A68     		ldr	r2, [r3]
- 205 000e 0243     		orrs	r2, r2, r0
- 206 0010 1A60     		str	r2, [r3]
-  71:Core/Src/init.c ****         SET_BIT(GPIOC->BSRR, PORT0_LIGTH);
- 207              		.loc 1 71 9 view .LVU49
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 6
+ 193              		.loc 1 65 1 is_stmt 0 view .LVU44
+ 194 0000 30B4     		push	{r4, r5}
+ 195              	.LCFI0:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 4, -8
+ 198              		.cfi_offset 5, -4
+ 199 0002 9DF80840 		ldrb	r4, [sp, #8]	@ zero_extendqisi2
+  66:Core/Src/init.c ****     if (noRepeat == true)
+ 200              		.loc 1 66 5 is_stmt 1 view .LVU45
+ 201              		.loc 1 66 8 is_stmt 0 view .LVU46
+ 202 0006 64B1     		cbz	r4, .L11
+  67:Core/Src/init.c ****     {
+  68:Core/Src/init.c ****         CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
+ 203              		.loc 1 68 9 is_stmt 1 view .LVU47
+ 204 0008 074C     		ldr	r4, .L14
+ 205 000a 2568     		ldr	r5, [r4]
+ 206 000c 25F47C15 		bic	r5, r5, #4128768
+ 207 0010 2560     		str	r5, [r4]
+ 208              	.LVL9:
+  69:Core/Src/init.c ****         SET_BIT(GPIOC->MODER, PORT0_bit | PORT1_bit);
+ 209              		.loc 1 69 9 view .LVU48
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 6
 
 
- 208 0012 9A69     		ldr	r2, [r3, #24]
- 209 0014 0A43     		orrs	r2, r2, r1
- 210 0016 9A61     		str	r2, [r3, #24]
- 211              	.L11:
-  72:Core/Src/init.c ****     }
-  73:Core/Src/init.c **** }
- 212              		.loc 1 73 1 is_stmt 0 view .LVU50
- 213 0018 7047     		bx	lr
- 214              	.L14:
- 215 001a 00BF     		.align	2
- 216              	.L13:
- 217 001c 00080240 		.word	1073874944
- 218              		.cfi_endproc
- 219              	.LFE132:
- 221              		.section	.text.button_light_led,"ax",%progbits
- 222              		.align	1
- 223              		.global	button_light_led
- 224              		.syntax unified
- 225              		.thumb
- 226              		.thumb_func
- 228              	button_light_led:
- 229              	.LVL10:
- 230              	.LFB133:
-  74:Core/Src/init.c **** 
-  75:Core/Src/init.c **** // OPTIMIZE: можно сделать функцию от двух переменных
-  76:Core/Src/init.c **** 
-  77:Core/Src/init.c **** // NOTE: принимает аргументами:тип порта на котором наход
-  78:Core/Src/init.c **** // бит для записи в GPIOB, бит для очистки бита в GPIOB
-  79:Core/Src/init.c **** void button_light_led(GPIO_TypeDef *GPIOx, uint32_t IDR_bit, uint32_t BSRR_BS, uint32_t BSRR_BR)
-  80:Core/Src/init.c **** {
- 231              		.loc 1 80 1 is_stmt 1 view -0
- 232              		.cfi_startproc
- 233              		@ args = 0, pretend = 0, frame = 0
- 234              		@ frame_needed = 0, uses_anonymous_args = 0
- 235              		@ link register save eliminated.
-  81:Core/Src/init.c ****     if (READ_BIT(GPIOx->IDR, IDR_bit) == 0)
- 236              		.loc 1 81 5 view .LVU52
- 237              		.loc 1 81 9 is_stmt 0 view .LVU53
- 238 0000 0069     		ldr	r0, [r0, #16]
- 239              	.LVL11:
- 240              		.loc 1 81 8 view .LVU54
- 241 0002 0842     		tst	r0, r1
- 242 0004 04D1     		bne	.L16
-  82:Core/Src/init.c ****     {
-  83:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BS);
- 243              		.loc 1 83 9 is_stmt 1 view .LVU55
- 244 0006 0549     		ldr	r1, .L18
- 245              	.LVL12:
- 246              		.loc 1 83 9 is_stmt 0 view .LVU56
- 247 0008 8B69     		ldr	r3, [r1, #24]
+ 210 0012 2568     		ldr	r5, [r4]
+ 211 0014 0843     		orrs	r0, r0, r1
+ 212              	.LVL10:
+ 213              		.loc 1 69 9 is_stmt 0 view .LVU49
+ 214 0016 2843     		orrs	r0, r0, r5
+ 215 0018 2060     		str	r0, [r4]
+  70:Core/Src/init.c ****         SET_BIT(GPIOC->BSRR, PORT0_LIGTH | PORT1_LIGTH);
+ 216              		.loc 1 70 9 is_stmt 1 view .LVU50
+ 217 001a A169     		ldr	r1, [r4, #24]
+ 218              	.LVL11:
+ 219              		.loc 1 70 9 is_stmt 0 view .LVU51
+ 220 001c 1A43     		orrs	r2, r2, r3
+ 221              	.LVL12:
+ 222              		.loc 1 70 9 view .LVU52
+ 223 001e 0A43     		orrs	r2, r2, r1
+ 224 0020 A261     		str	r2, [r4, #24]
+ 225              	.L11:
+  71:Core/Src/init.c ****     }
+  72:Core/Src/init.c **** }
+ 226              		.loc 1 72 1 view .LVU53
+ 227 0022 30BC     		pop	{r4, r5}
+ 228              	.LCFI1:
+ 229              		.cfi_restore 5
+ 230              		.cfi_restore 4
+ 231              		.cfi_def_cfa_offset 0
+ 232 0024 7047     		bx	lr
+ 233              	.L15:
+ 234 0026 00BF     		.align	2
+ 235              	.L14:
+ 236 0028 00080240 		.word	1073874944
+ 237              		.cfi_endproc
+ 238              	.LFE132:
+ 240              		.section	.text.button_light_led,"ax",%progbits
+ 241              		.align	1
+ 242              		.global	button_light_led
+ 243              		.syntax unified
+ 244              		.thumb
+ 245              		.thumb_func
+ 247              	button_light_led:
  248              	.LVL13:
- 249              		.loc 1 83 9 view .LVU57
- 250 000a 1343     		orrs	r3, r3, r2
- 251 000c 8B61     		str	r3, [r1, #24]
- 252 000e 7047     		bx	lr
- 253              	.LVL14:
- 254              	.L16:
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 7
+ 249              	.LFB133:
+  73:Core/Src/init.c **** 
+  74:Core/Src/init.c **** // OPTIMIZE: можно сделать функцию от двух переменных
+  75:Core/Src/init.c **** 
+  76:Core/Src/init.c **** // NOTE: принимает аргументами:тип порта на котором наход
+  77:Core/Src/init.c **** // бит для записи в GPIOB, бит для очистки бита в GPIOB
+  78:Core/Src/init.c **** void button_light_led(GPIO_TypeDef *GPIOx, uint32_t IDR_bit, uint32_t BSRR_BS, uint32_t BSRR_BR)
+  79:Core/Src/init.c **** {
+ 250              		.loc 1 79 1 is_stmt 1 view -0
+ 251              		.cfi_startproc
+ 252              		@ args = 0, pretend = 0, frame = 0
+ 253              		@ frame_needed = 0, uses_anonymous_args = 0
+ 254              		@ link register save eliminated.
+  80:Core/Src/init.c ****     if (READ_BIT(GPIOx->IDR, IDR_bit) == 0)
+ 255              		.loc 1 80 5 view .LVU55
+ 256              		.loc 1 80 9 is_stmt 0 view .LVU56
+ 257 0000 0069     		ldr	r0, [r0, #16]
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 7
 
 
-  84:Core/Src/init.c ****     }
-  85:Core/Src/init.c ****     else
-  86:Core/Src/init.c ****     {
-  87:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BR);
- 255              		.loc 1 87 9 is_stmt 1 view .LVU58
- 256 0010 0249     		ldr	r1, .L18
- 257              	.LVL15:
- 258              		.loc 1 87 9 is_stmt 0 view .LVU59
- 259 0012 8A69     		ldr	r2, [r1, #24]
- 260              	.LVL16:
- 261              		.loc 1 87 9 view .LVU60
- 262 0014 1343     		orrs	r3, r3, r2
- 263              	.LVL17:
- 264              		.loc 1 87 9 view .LVU61
- 265 0016 8B61     		str	r3, [r1, #24]
-  88:Core/Src/init.c ****     }
-  89:Core/Src/init.c **** }...
- 266              		.loc 1 89 1 view .LVU62
- 267 0018 7047     		bx	lr
- 268              	.L19:
- 269 001a 00BF     		.align	2
- 270              	.L18:
- 271 001c 00040240 		.word	1073873920
- 272              		.cfi_endproc
- 273              	.LFE133:
- 275              		.text
- 276              	.Letext0:
- 277              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
- 278              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
- 279              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s 			page 8
+ 258              	.LVL14:
+ 259              		.loc 1 80 8 view .LVU57
+ 260 0002 0842     		tst	r0, r1
+ 261 0004 04D1     		bne	.L17
+  81:Core/Src/init.c ****     {
+  82:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BS);
+ 262              		.loc 1 82 9 is_stmt 1 view .LVU58
+ 263 0006 0549     		ldr	r1, .L19
+ 264              	.LVL15:
+ 265              		.loc 1 82 9 is_stmt 0 view .LVU59
+ 266 0008 8B69     		ldr	r3, [r1, #24]
+ 267              	.LVL16:
+ 268              		.loc 1 82 9 view .LVU60
+ 269 000a 1343     		orrs	r3, r3, r2
+ 270 000c 8B61     		str	r3, [r1, #24]
+ 271 000e 7047     		bx	lr
+ 272              	.LVL17:
+ 273              	.L17:
+  83:Core/Src/init.c ****     }
+  84:Core/Src/init.c ****     else
+  85:Core/Src/init.c ****     {
+  86:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BR);
+ 274              		.loc 1 86 9 is_stmt 1 view .LVU61
+ 275 0010 0249     		ldr	r1, .L19
+ 276              	.LVL18:
+ 277              		.loc 1 86 9 is_stmt 0 view .LVU62
+ 278 0012 8A69     		ldr	r2, [r1, #24]
+ 279              	.LVL19:
+ 280              		.loc 1 86 9 view .LVU63
+ 281 0014 1343     		orrs	r3, r3, r2
+ 282              	.LVL20:
+ 283              		.loc 1 86 9 view .LVU64
+ 284 0016 8B61     		str	r3, [r1, #24]
+  87:Core/Src/init.c ****     }
+  88:Core/Src/init.c **** }
+ 285              		.loc 1 88 1 view .LVU65
+ 286 0018 7047     		bx	lr
+ 287              	.L20:
+ 288 001a 00BF     		.align	2
+ 289              	.L19:
+ 290 001c 00040240 		.word	1073873920
+ 291              		.cfi_endproc
+ 292              	.LFE133:
+ 294              		.section	.text.mode_light,"ax",%progbits
+ 295              		.align	1
+ 296              		.global	mode_light
+ 297              		.syntax unified
+ 298              		.thumb
+ 299              		.thumb_func
+ 301              	mode_light:
+ 302              	.LVL21:
+ 303              	.LFB134:
+  89:Core/Src/init.c **** 
+  90:Core/Src/init.c **** void mode_light(uint8_t ratio, uint32_t BSRR_BSx, uint32_t BSRR_BRx)
+  91:Core/Src/init.c **** {
+ 304              		.loc 1 91 1 is_stmt 1 view -0
+ 305              		.cfi_startproc
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 8
+
+
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308              		@ link register save eliminated.
+ 309              		.loc 1 91 1 is_stmt 0 view .LVU67
+ 310 0000 10B4     		push	{r4}
+ 311              	.LCFI2:
+ 312              		.cfi_def_cfa_offset 4
+ 313              		.cfi_offset 4, -4
+  92:Core/Src/init.c ****     for (int i = 0; i < ratio; i++)
+ 314              		.loc 1 92 5 is_stmt 1 view .LVU68
+ 315              	.LBB2:
+ 316              		.loc 1 92 10 view .LVU69
+ 317              	.LVL22:
+ 318              		.loc 1 92 14 is_stmt 0 view .LVU70
+ 319 0002 4FF0000C 		mov	ip, #0
+ 320              		.loc 1 92 5 view .LVU71
+ 321 0006 05E0     		b	.L22
+ 322              	.LVL23:
+ 323              	.L23:
+  93:Core/Src/init.c ****     {
+  94:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BSx);
+ 324              		.loc 1 94 9 is_stmt 1 view .LVU72
+ 325 0008 094C     		ldr	r4, .L27
+ 326 000a A369     		ldr	r3, [r4, #24]
+ 327 000c 0B43     		orrs	r3, r3, r1
+ 328 000e A361     		str	r3, [r4, #24]
+  92:Core/Src/init.c ****     for (int i = 0; i < ratio; i++)
+ 329              		.loc 1 92 33 discriminator 3 view .LVU73
+ 330 0010 0CF1010C 		add	ip, ip, #1
+ 331              	.LVL24:
+ 332              	.L22:
+  92:Core/Src/init.c ****     for (int i = 0; i < ratio; i++)
+ 333              		.loc 1 92 23 discriminator 1 view .LVU74
+ 334 0014 6045     		cmp	r0, ip
+ 335 0016 F7DC     		bgt	.L23
+ 336              	.LBE2:
+ 337              	.LBB3:
+  95:Core/Src/init.c ****     }
+  96:Core/Src/init.c ****     for (int i = 0; i < 20; i++)
+ 338              		.loc 1 96 14 is_stmt 0 view .LVU75
+ 339 0018 0021     		movs	r1, #0
+ 340              	.LVL25:
+ 341              		.loc 1 96 14 view .LVU76
+ 342 001a 04E0     		b	.L24
+ 343              	.LVL26:
+ 344              	.L25:
+  97:Core/Src/init.c ****     {
+  98:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, BSRR_BRx);
+ 345              		.loc 1 98 9 is_stmt 1 view .LVU77
+ 346 001c 0448     		ldr	r0, .L27
+ 347 001e 8369     		ldr	r3, [r0, #24]
+ 348 0020 1343     		orrs	r3, r3, r2
+ 349 0022 8361     		str	r3, [r0, #24]
+  96:Core/Src/init.c ****     {
+ 350              		.loc 1 96 30 discriminator 3 view .LVU78
+ 351 0024 0131     		adds	r1, r1, #1
+ 352              	.LVL27:
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 9
+
+
+ 353              	.L24:
+  96:Core/Src/init.c ****     {
+ 354              		.loc 1 96 23 discriminator 1 view .LVU79
+ 355 0026 1329     		cmp	r1, #19
+ 356 0028 F8DD     		ble	.L25
+ 357              	.LBE3:
+  99:Core/Src/init.c ****     }
+ 100:Core/Src/init.c **** }
+ 358              		.loc 1 100 1 is_stmt 0 view .LVU80
+ 359 002a 5DF8044B 		ldr	r4, [sp], #4
+ 360              	.LCFI3:
+ 361              		.cfi_restore 4
+ 362              		.cfi_def_cfa_offset 0
+ 363 002e 7047     		bx	lr
+ 364              	.L28:
+ 365              		.align	2
+ 366              	.L27:
+ 367 0030 00040240 		.word	1073873920
+ 368              		.cfi_endproc
+ 369              	.LFE134:
+ 371              		.section	.text.changing_brightness,"ax",%progbits
+ 372              		.align	1
+ 373              		.global	changing_brightness
+ 374              		.syntax unified
+ 375              		.thumb
+ 376              		.thumb_func
+ 378              	changing_brightness:
+ 379              	.LFB135:
+ 101:Core/Src/init.c **** 
+ 102:Core/Src/init.c **** // NOTE: дополнительное задание
+ 103:Core/Src/init.c **** void changing_brightness()
+ 104:Core/Src/init.c **** {
+ 380              		.loc 1 104 1 is_stmt 1 view -0
+ 381              		.cfi_startproc
+ 382              		@ args = 0, pretend = 0, frame = 0
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384 0000 08B5     		push	{r3, lr}
+ 385              	.LCFI4:
+ 386              		.cfi_def_cfa_offset 8
+ 387              		.cfi_offset 3, -8
+ 388              		.cfi_offset 14, -4
+ 105:Core/Src/init.c ****     static uint8_t bright = 1, counter_press8 = 0, counter_press9 = 0, counter_press10 = 0;
+ 389              		.loc 1 105 5 view .LVU82
+ 106:Core/Src/init.c ****     if (button_bounce_read(GPIO_IDR_IDR_11) == true)
+ 390              		.loc 1 106 5 view .LVU83
+ 391              		.loc 1 106 9 is_stmt 0 view .LVU84
+ 392 0002 4FF40060 		mov	r0, #2048
+ 393 0006 FFF7FEFF 		bl	button_bounce_read
+ 394              	.LVL28:
+ 395              		.loc 1 106 8 discriminator 1 view .LVU85
+ 396 000a 18B1     		cbz	r0, .L30
+ 107:Core/Src/init.c ****     {
+ 108:Core/Src/init.c ****         bright++;
+ 397              		.loc 1 108 9 is_stmt 1 view .LVU86
+ 398              		.loc 1 108 15 is_stmt 0 view .LVU87
+ 399 000c 4A4A     		ldr	r2, .L54
+ 400 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 10
+
+
+ 401 0010 0133     		adds	r3, r3, #1
+ 402 0012 1370     		strb	r3, [r2]
+ 403              	.L30:
+ 109:Core/Src/init.c ****     }
+ 110:Core/Src/init.c ****     if (bright > 3)
+ 404              		.loc 1 110 5 is_stmt 1 view .LVU88
+ 405              		.loc 1 110 16 is_stmt 0 view .LVU89
+ 406 0014 484B     		ldr	r3, .L54
+ 407 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 408              		.loc 1 110 8 view .LVU90
+ 409 0018 032B     		cmp	r3, #3
+ 410 001a 02D9     		bls	.L31
+ 111:Core/Src/init.c ****     {
+ 112:Core/Src/init.c ****         bright = 1;
+ 411              		.loc 1 112 9 is_stmt 1 view .LVU91
+ 412              		.loc 1 112 16 is_stmt 0 view .LVU92
+ 413 001c 464B     		ldr	r3, .L54
+ 414 001e 0122     		movs	r2, #1
+ 415 0020 1A70     		strb	r2, [r3]
+ 416              	.L31:
+ 113:Core/Src/init.c ****     }
+ 114:Core/Src/init.c **** 
+ 115:Core/Src/init.c ****     if (button_bounce_read(GPIO_IDR_IDR_8) == true)
+ 417              		.loc 1 115 5 is_stmt 1 view .LVU93
+ 418              		.loc 1 115 9 is_stmt 0 view .LVU94
+ 419 0022 4FF48070 		mov	r0, #256
+ 420 0026 FFF7FEFF 		bl	button_bounce_read
+ 421              	.LVL29:
+ 422              		.loc 1 115 8 discriminator 1 view .LVU95
+ 423 002a 18B1     		cbz	r0, .L32
+ 116:Core/Src/init.c ****     {
+ 117:Core/Src/init.c ****         counter_press8++;
+ 424              		.loc 1 117 9 is_stmt 1 view .LVU96
+ 425              		.loc 1 117 23 is_stmt 0 view .LVU97
+ 426 002c 434A     		ldr	r2, .L54+4
+ 427 002e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 428 0030 0133     		adds	r3, r3, #1
+ 429 0032 1370     		strb	r3, [r2]
+ 430              	.L32:
+ 118:Core/Src/init.c ****     }
+ 119:Core/Src/init.c ****     if (button_bounce_read(GPIO_IDR_IDR_9) == true)
+ 431              		.loc 1 119 5 is_stmt 1 view .LVU98
+ 432              		.loc 1 119 9 is_stmt 0 view .LVU99
+ 433 0034 4FF40070 		mov	r0, #512
+ 434 0038 FFF7FEFF 		bl	button_bounce_read
+ 435              	.LVL30:
+ 436              		.loc 1 119 8 discriminator 1 view .LVU100
+ 437 003c 18B1     		cbz	r0, .L33
+ 120:Core/Src/init.c ****     {
+ 121:Core/Src/init.c ****         counter_press9++;
+ 438              		.loc 1 121 9 is_stmt 1 view .LVU101
+ 439              		.loc 1 121 23 is_stmt 0 view .LVU102
+ 440 003e 404A     		ldr	r2, .L54+8
+ 441 0040 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 442 0042 0133     		adds	r3, r3, #1
+ 443 0044 1370     		strb	r3, [r2]
+ 444              	.L33:
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 11
+
+
+ 122:Core/Src/init.c ****     }
+ 123:Core/Src/init.c ****     if (button_bounce_read(GPIO_IDR_IDR_10) == true)
+ 445              		.loc 1 123 5 is_stmt 1 view .LVU103
+ 446              		.loc 1 123 9 is_stmt 0 view .LVU104
+ 447 0046 4FF48060 		mov	r0, #1024
+ 448 004a FFF7FEFF 		bl	button_bounce_read
+ 449              	.LVL31:
+ 450              		.loc 1 123 8 discriminator 1 view .LVU105
+ 451 004e 18B1     		cbz	r0, .L34
+ 124:Core/Src/init.c ****     {
+ 125:Core/Src/init.c ****         counter_press10++;
+ 452              		.loc 1 125 9 is_stmt 1 view .LVU106
+ 453              		.loc 1 125 24 is_stmt 0 view .LVU107
+ 454 0050 3C4A     		ldr	r2, .L54+12
+ 455 0052 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 456 0054 0133     		adds	r3, r3, #1
+ 457 0056 1370     		strb	r3, [r2]
+ 458              	.L34:
+ 126:Core/Src/init.c ****     }
+ 127:Core/Src/init.c **** 
+ 128:Core/Src/init.c ****     if (counter_press8 % 2 == 1)
+ 459              		.loc 1 128 5 is_stmt 1 view .LVU108
+ 460              		.loc 1 128 28 is_stmt 0 view .LVU109
+ 461 0058 384B     		ldr	r3, .L54+4
+ 462 005a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 463              		.loc 1 128 8 view .LVU110
+ 464 005c 13F0010F 		tst	r3, #1
+ 465 0060 19D0     		beq	.L35
+ 129:Core/Src/init.c ****     {
+ 130:Core/Src/init.c ****         if (bright == 1)
+ 466              		.loc 1 130 9 is_stmt 1 view .LVU111
+ 467              		.loc 1 130 20 is_stmt 0 view .LVU112
+ 468 0062 354B     		ldr	r3, .L54
+ 469 0064 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 470              		.loc 1 130 12 view .LVU113
+ 471 0066 012B     		cmp	r3, #1
+ 472 0068 07D0     		beq	.L48
+ 131:Core/Src/init.c ****         {
+ 132:Core/Src/init.c ****             mode_light(1, GPIO_BSRR_BS7_Msk, GPIO_BSRR_BR7_Msk);
+ 133:Core/Src/init.c ****         }
+ 134:Core/Src/init.c ****         else if (bright == 2)
+ 473              		.loc 1 134 14 is_stmt 1 view .LVU114
+ 474              		.loc 1 134 17 is_stmt 0 view .LVU115
+ 475 006a 022B     		cmp	r3, #2
+ 476 006c 0CD0     		beq	.L49
+ 135:Core/Src/init.c ****         {
+ 136:Core/Src/init.c ****             mode_light(12, GPIO_BSRR_BS7_Msk, GPIO_BSRR_BR7_Msk);
+ 137:Core/Src/init.c ****         }
+ 138:Core/Src/init.c ****         else
+ 139:Core/Src/init.c ****         {
+ 140:Core/Src/init.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS7_Msk);
+ 477              		.loc 1 140 13 is_stmt 1 view .LVU116
+ 478 006e 364A     		ldr	r2, .L54+16
+ 479 0070 9369     		ldr	r3, [r2, #24]
+ 480 0072 43F08003 		orr	r3, r3, #128
+ 481 0076 9361     		str	r3, [r2, #24]
+ 482 0078 12E0     		b	.L37
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 12
+
+
+ 483              	.L48:
+ 132:Core/Src/init.c ****         }
+ 484              		.loc 1 132 13 view .LVU117
+ 485 007a 4FF40002 		mov	r2, #8388608
+ 486 007e 8021     		movs	r1, #128
+ 487 0080 0120     		movs	r0, #1
+ 488 0082 FFF7FEFF 		bl	mode_light
+ 489              	.LVL32:
+ 490 0086 0BE0     		b	.L37
+ 491              	.L49:
+ 136:Core/Src/init.c ****         }
+ 492              		.loc 1 136 13 view .LVU118
+ 493 0088 4FF40002 		mov	r2, #8388608
+ 494 008c 8021     		movs	r1, #128
+ 495 008e 0C20     		movs	r0, #12
+ 496 0090 FFF7FEFF 		bl	mode_light
+ 497              	.LVL33:
+ 498 0094 04E0     		b	.L37
+ 499              	.L35:
+ 141:Core/Src/init.c ****         }
+ 142:Core/Src/init.c ****     }
+ 143:Core/Src/init.c ****     else
+ 144:Core/Src/init.c ****     {
+ 145:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR7_Msk);
+ 500              		.loc 1 145 9 view .LVU119
+ 501 0096 2C4A     		ldr	r2, .L54+16
+ 502 0098 9369     		ldr	r3, [r2, #24]
+ 503 009a 43F40003 		orr	r3, r3, #8388608
+ 504 009e 9361     		str	r3, [r2, #24]
+ 505              	.L37:
+ 146:Core/Src/init.c ****     }
+ 147:Core/Src/init.c ****     if (counter_press9 % 2 == 1)
+ 506              		.loc 1 147 5 view .LVU120
+ 507              		.loc 1 147 28 is_stmt 0 view .LVU121
+ 508 00a0 274B     		ldr	r3, .L54+8
+ 509 00a2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 510              		.loc 1 147 8 view .LVU122
+ 511 00a4 13F0010F 		tst	r3, #1
+ 512 00a8 1BD0     		beq	.L39
+ 148:Core/Src/init.c ****     {
+ 149:Core/Src/init.c ****         if (bright == 1)
+ 513              		.loc 1 149 9 is_stmt 1 view .LVU123
+ 514              		.loc 1 149 20 is_stmt 0 view .LVU124
+ 515 00aa 234B     		ldr	r3, .L54
+ 516 00ac 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 517              		.loc 1 149 12 view .LVU125
+ 518 00ae 012B     		cmp	r3, #1
+ 519 00b0 07D0     		beq	.L50
+ 150:Core/Src/init.c ****         {
+ 151:Core/Src/init.c ****             mode_light(1, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
+ 152:Core/Src/init.c ****         }
+ 153:Core/Src/init.c ****         else if (bright == 2)
+ 520              		.loc 1 153 14 is_stmt 1 view .LVU126
+ 521              		.loc 1 153 17 is_stmt 0 view .LVU127
+ 522 00b2 022B     		cmp	r3, #2
+ 523 00b4 0DD0     		beq	.L51
+ 154:Core/Src/init.c ****         {
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 13
+
+
+ 155:Core/Src/init.c ****             mode_light(12, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
+ 156:Core/Src/init.c ****         }
+ 157:Core/Src/init.c ****         else
+ 158:Core/Src/init.c ****         {
+ 159:Core/Src/init.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14_Msk);
+ 524              		.loc 1 159 13 is_stmt 1 view .LVU128
+ 525 00b6 244A     		ldr	r2, .L54+16
+ 526 00b8 9369     		ldr	r3, [r2, #24]
+ 527 00ba 43F48043 		orr	r3, r3, #16384
+ 528 00be 9361     		str	r3, [r2, #24]
+ 529 00c0 14E0     		b	.L41
+ 530              	.L50:
+ 151:Core/Src/init.c ****         }
+ 531              		.loc 1 151 13 view .LVU129
+ 532 00c2 4FF08042 		mov	r2, #1073741824
+ 533 00c6 4FF48041 		mov	r1, #16384
+ 534 00ca 0120     		movs	r0, #1
+ 535 00cc FFF7FEFF 		bl	mode_light
+ 536              	.LVL34:
+ 537 00d0 0CE0     		b	.L41
+ 538              	.L51:
+ 155:Core/Src/init.c ****         }
+ 539              		.loc 1 155 13 view .LVU130
+ 540 00d2 4FF08042 		mov	r2, #1073741824
+ 541 00d6 4FF48041 		mov	r1, #16384
+ 542 00da 0C20     		movs	r0, #12
+ 543 00dc FFF7FEFF 		bl	mode_light
+ 544              	.LVL35:
+ 545 00e0 04E0     		b	.L41
+ 546              	.L39:
+ 160:Core/Src/init.c ****         }
+ 161:Core/Src/init.c ****     }
+ 162:Core/Src/init.c ****     else
+ 163:Core/Src/init.c ****     {
+ 164:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14_Msk);
+ 547              		.loc 1 164 9 view .LVU131
+ 548 00e2 194A     		ldr	r2, .L54+16
+ 549 00e4 9369     		ldr	r3, [r2, #24]
+ 550 00e6 43F08043 		orr	r3, r3, #1073741824
+ 551 00ea 9361     		str	r3, [r2, #24]
+ 552              	.L41:
+ 165:Core/Src/init.c ****     }
+ 166:Core/Src/init.c ****     if (counter_press10 % 2 == 1)
+ 553              		.loc 1 166 5 view .LVU132
+ 554              		.loc 1 166 29 is_stmt 0 view .LVU133
+ 555 00ec 154B     		ldr	r3, .L54+12
+ 556 00ee 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 557              		.loc 1 166 8 view .LVU134
+ 558 00f0 13F0010F 		tst	r3, #1
+ 559 00f4 19D0     		beq	.L43
+ 167:Core/Src/init.c ****     {
+ 168:Core/Src/init.c ****         if (bright == 1)
+ 560              		.loc 1 168 9 is_stmt 1 view .LVU135
+ 561              		.loc 1 168 20 is_stmt 0 view .LVU136
+ 562 00f6 104B     		ldr	r3, .L54
+ 563 00f8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 564              		.loc 1 168 12 view .LVU137
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 14
+
+
+ 565 00fa 012B     		cmp	r3, #1
+ 566 00fc 07D0     		beq	.L52
+ 169:Core/Src/init.c ****         {
+ 170:Core/Src/init.c ****             mode_light(6, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
+ 171:Core/Src/init.c ****         }
+ 172:Core/Src/init.c ****         else if (bright == 2)
+ 567              		.loc 1 172 14 is_stmt 1 view .LVU138
+ 568              		.loc 1 172 17 is_stmt 0 view .LVU139
+ 569 00fe 022B     		cmp	r3, #2
+ 570 0100 0CD0     		beq	.L53
+ 173:Core/Src/init.c ****         {
+ 174:Core/Src/init.c ****             mode_light(15, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
+ 175:Core/Src/init.c ****         }
+ 176:Core/Src/init.c ****         else
+ 177:Core/Src/init.c ****         {
+ 178:Core/Src/init.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS0_Msk);
+ 571              		.loc 1 178 13 is_stmt 1 view .LVU140
+ 572 0102 114A     		ldr	r2, .L54+16
+ 573 0104 9369     		ldr	r3, [r2, #24]
+ 574 0106 43F00103 		orr	r3, r3, #1
+ 575 010a 9361     		str	r3, [r2, #24]
+ 576 010c 12E0     		b	.L29
+ 577              	.L52:
+ 170:Core/Src/init.c ****         }
+ 578              		.loc 1 170 13 view .LVU141
+ 579 010e 4FF48032 		mov	r2, #65536
+ 580 0112 0121     		movs	r1, #1
+ 581 0114 0620     		movs	r0, #6
+ 582 0116 FFF7FEFF 		bl	mode_light
+ 583              	.LVL36:
+ 584 011a 0BE0     		b	.L29
+ 585              	.L53:
+ 174:Core/Src/init.c ****         }
+ 586              		.loc 1 174 13 view .LVU142
+ 587 011c 4FF48032 		mov	r2, #65536
+ 588 0120 0121     		movs	r1, #1
+ 589 0122 0F20     		movs	r0, #15
+ 590 0124 FFF7FEFF 		bl	mode_light
+ 591              	.LVL37:
+ 592 0128 04E0     		b	.L29
+ 593              	.L43:
+ 179:Core/Src/init.c ****         }
+ 180:Core/Src/init.c ****     }
+ 181:Core/Src/init.c ****     else
+ 182:Core/Src/init.c ****     {
+ 183:Core/Src/init.c ****         SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0_Msk);
+ 594              		.loc 1 183 9 view .LVU143
+ 595 012a 074A     		ldr	r2, .L54+16
+ 596 012c 9369     		ldr	r3, [r2, #24]
+ 597 012e 43F48033 		orr	r3, r3, #65536
+ 598 0132 9361     		str	r3, [r2, #24]
+ 599              	.L29:
+ 184:Core/Src/init.c ****     }
+ 185:Core/Src/init.c **** }
+ 600              		.loc 1 185 1 is_stmt 0 view .LVU144
+ 601 0134 08BD     		pop	{r3, pc}
+ 602              	.L55:
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 15
+
+
+ 603 0136 00BF     		.align	2
+ 604              	.L54:
+ 605 0138 00000000 		.word	bright.5
+ 606 013c 00000000 		.word	counter_press8.4
+ 607 0140 00000000 		.word	counter_press9.3
+ 608 0144 00000000 		.word	counter_press10.2
+ 609 0148 00040240 		.word	1073873920
+ 610              		.cfi_endproc
+ 611              	.LFE135:
+ 613              		.section	.text.main_task,"ax",%progbits
+ 614              		.align	1
+ 615              		.global	main_task
+ 616              		.syntax unified
+ 617              		.thumb
+ 618              		.thumb_func
+ 620              	main_task:
+ 621              	.LFB136:
+ 186:Core/Src/init.c **** 
+ 187:Core/Src/init.c **** void main_task()
+ 188:Core/Src/init.c **** {
+ 622              		.loc 1 188 1 is_stmt 1 view -0
+ 623              		.cfi_startproc
+ 624              		@ args = 0, pretend = 0, frame = 0
+ 625              		@ frame_needed = 0, uses_anonymous_args = 0
+ 626 0000 10B5     		push	{r4, lr}
+ 627              	.LCFI5:
+ 628              		.cfi_def_cfa_offset 8
+ 629              		.cfi_offset 4, -8
+ 630              		.cfi_offset 14, -4
+ 631 0002 82B0     		sub	sp, sp, #8
+ 632              	.LCFI6:
+ 633              		.cfi_def_cfa_offset 16
+ 189:Core/Src/init.c **** 
+ 190:Core/Src/init.c ****     static int8_t counter_press = 0, old_counter_press = 0;
+ 634              		.loc 1 190 5 view .LVU146
+ 191:Core/Src/init.c ****     if (button_bounce_read(GPIO_IDR_IDR_11) == true)
+ 635              		.loc 1 191 5 view .LVU147
+ 636              		.loc 1 191 9 is_stmt 0 view .LVU148
+ 637 0004 4FF40060 		mov	r0, #2048
+ 638 0008 FFF7FEFF 		bl	button_bounce_read
+ 639              	.LVL38:
+ 640              		.loc 1 191 8 discriminator 1 view .LVU149
+ 641 000c 18B1     		cbz	r0, .L57
+ 192:Core/Src/init.c ****     {
+ 193:Core/Src/init.c ****         counter_press++;
+ 642              		.loc 1 193 9 is_stmt 1 view .LVU150
+ 643              		.loc 1 193 22 is_stmt 0 view .LVU151
+ 644 000e 514A     		ldr	r2, .L68
+ 645 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 646 0012 0133     		adds	r3, r3, #1
+ 647 0014 1370     		strb	r3, [r2]
+ 648              	.L57:
+ 194:Core/Src/init.c ****     }
+ 195:Core/Src/init.c **** 
+ 196:Core/Src/init.c ****     // NOTE: функция смены конфигурации вызывается только �
+ 197:Core/Src/init.c **** 
+ 198:Core/Src/init.c ****     if (counter_press == 1)
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 16
+
+
+ 649              		.loc 1 198 5 is_stmt 1 view .LVU152
+ 650              		.loc 1 198 23 is_stmt 0 view .LVU153
+ 651 0016 4F4B     		ldr	r3, .L68
+ 652 0018 93F90030 		ldrsb	r3, [r3]
+ 653 001c 052B     		cmp	r3, #5
+ 654 001e 00F29280 		bhi	.L58
+ 655 0022 DFE803F0 		tbb	[pc, r3]
+ 656              	.L60:
+ 657 0026 69       		.byte	(.L59-.L60)/2
+ 658 0027 03       		.byte	(.L64-.L60)/2
+ 659 0028 21       		.byte	(.L63-.L60)/2
+ 660 0029 3F       		.byte	(.L62-.L60)/2
+ 661 002a 5C       		.byte	(.L61-.L60)/2
+ 662 002b 69       		.byte	(.L59-.L60)/2
+ 663              		.p2align 1
+ 664              	.L64:
+ 199:Core/Src/init.c ****     {
+ 200:Core/Src/init.c ****         changeConf(GPIO_MODER_MODER8_0, GPIO_MODER_MODER9_0, GPIO_BSRR_BS8, GPIO_BSRR_BS9, (old_cou
+ 665              		.loc 1 200 9 is_stmt 1 view .LVU154
+ 666 002c 4A4C     		ldr	r4, .L68+4
+ 667 002e 94F90020 		ldrsb	r2, [r4]
+ 668 0032 D31A     		subs	r3, r2, r3
+ 669 0034 18BF     		it	ne
+ 670 0036 0123     		movne	r3, #1
+ 671 0038 0093     		str	r3, [sp]
+ 672 003a 4FF40073 		mov	r3, #512
+ 673 003e 4FF48072 		mov	r2, #256
+ 674 0042 4FF48021 		mov	r1, #262144
+ 675 0046 4FF48030 		mov	r0, #65536
+ 676 004a FFF7FEFF 		bl	changeConf
+ 677              	.LVL39:
+ 201:Core/Src/init.c ****         old_counter_press = counter_press;
+ 678              		.loc 1 201 9 view .LVU155
+ 679              		.loc 1 201 27 is_stmt 0 view .LVU156
+ 680 004e 414B     		ldr	r3, .L68
+ 681 0050 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 682 0052 2370     		strb	r3, [r4]
+ 202:Core/Src/init.c ****         // 10 на вход, остальные на выход
+ 203:Core/Src/init.c ****         button_light_led(GPIOC, GPIO_IDR_IDR_10, GPIO_BSRR_BS7_Msk, GPIO_BSRR_BR7_Msk);
+ 683              		.loc 1 203 9 is_stmt 1 view .LVU157
+ 684 0054 4FF40003 		mov	r3, #8388608
+ 685 0058 8022     		movs	r2, #128
+ 686 005a 4FF48061 		mov	r1, #1024
+ 687 005e 3F48     		ldr	r0, .L68+8
+ 688 0060 FFF7FEFF 		bl	button_light_led
+ 689              	.LVL40:
+ 690              	.L56:
+ 204:Core/Src/init.c ****     }
+ 205:Core/Src/init.c ****     else if (counter_press == 2)
+ 206:Core/Src/init.c ****     {
+ 207:Core/Src/init.c ****         changeConf(GPIO_MODER_MODER8_0, GPIO_MODER_MODER10_0, GPIO_BSRR_BS8, GPIO_BSRR_BS10, (old_c
+ 208:Core/Src/init.c ****         old_counter_press = counter_press;
+ 209:Core/Src/init.c ****         // 9 на вход остальные на выход
+ 210:Core/Src/init.c ****         button_light_led(GPIOC, GPIO_IDR_IDR_9, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
+ 211:Core/Src/init.c ****     }
+ 212:Core/Src/init.c ****     else if (counter_press == 3)
+ 213:Core/Src/init.c ****     {
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 17
+
+
+ 214:Core/Src/init.c ****         changeConf(GPIO_MODER_MODER9_0, GPIO_MODER_MODER10_0, GPIO_BSRR_BS9, GPIO_BSRR_BS10, (old_c
+ 215:Core/Src/init.c ****         old_counter_press = counter_press;
+ 216:Core/Src/init.c ****         // 8 на вход остальные на выход
+ 217:Core/Src/init.c ****         button_light_led(GPIOC, GPIO_IDR_IDR_8, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
+ 218:Core/Src/init.c ****     }
+ 219:Core/Src/init.c ****     else if (counter_press == 4)
+ 220:Core/Src/init.c ****     {
+ 221:Core/Src/init.c ****         // все порты в режим выхода
+ 222:Core/Src/init.c ****         if (old_counter_press != counter_press)
+ 223:Core/Src/init.c ****         {
+ 224:Core/Src/init.c ****             SET_BIT(GPIOC->MODER, GPIO_MODER_MODER8_0);
+ 225:Core/Src/init.c ****             old_counter_press = counter_press;
+ 226:Core/Src/init.c ****         }
+ 227:Core/Src/init.c ****     }
+ 228:Core/Src/init.c ****     else if ((counter_press == 5) | (counter_press == 0))
+ 229:Core/Src/init.c ****     {
+ 230:Core/Src/init.c ****         // все порты в режим входа
+ 231:Core/Src/init.c ****         if (old_counter_press != counter_press)
+ 232:Core/Src/init.c ****         {
+ 233:Core/Src/init.c ****             CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8 | GPIO_MODER_MODE9 | GPIO_MODER_MODE10);
+ 234:Core/Src/init.c ****             old_counter_press = counter_press;
+ 235:Core/Src/init.c ****         }
+ 236:Core/Src/init.c ****         button_light_led(GPIOC, GPIO_IDR_IDR_10, GPIO_BSRR_BS7_Msk, GPIO_BSRR_BR7_Msk);
+ 237:Core/Src/init.c ****         button_light_led(GPIOC, GPIO_IDR_IDR_9, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
+ 238:Core/Src/init.c ****         button_light_led(GPIOC, GPIO_IDR_IDR_8, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
+ 239:Core/Src/init.c ****     }
+ 240:Core/Src/init.c ****     else if (counter_press > 5)
+ 241:Core/Src/init.c ****     {
+ 242:Core/Src/init.c ****         counter_press = 1;
+ 243:Core/Src/init.c ****     }
+ 244:Core/Src/init.c **** }
+ 691              		.loc 1 244 1 is_stmt 0 view .LVU158
+ 692 0064 02B0     		add	sp, sp, #8
+ 693              	.LCFI7:
+ 694              		.cfi_remember_state
+ 695              		.cfi_def_cfa_offset 8
+ 696              		@ sp needed
+ 697 0066 10BD     		pop	{r4, pc}
+ 698              	.L63:
+ 699              	.LCFI8:
+ 700              		.cfi_restore_state
+ 207:Core/Src/init.c ****         old_counter_press = counter_press;
+ 701              		.loc 1 207 9 is_stmt 1 view .LVU159
+ 702 0068 3B4C     		ldr	r4, .L68+4
+ 703 006a 94F90020 		ldrsb	r2, [r4]
+ 704 006e D31A     		subs	r3, r2, r3
+ 705 0070 18BF     		it	ne
+ 706 0072 0123     		movne	r3, #1
+ 707 0074 0093     		str	r3, [sp]
+ 708 0076 4FF48063 		mov	r3, #1024
+ 709 007a 4FF48072 		mov	r2, #256
+ 710 007e 4FF48011 		mov	r1, #1048576
+ 711 0082 4FF48030 		mov	r0, #65536
+ 712 0086 FFF7FEFF 		bl	changeConf
+ 713              	.LVL41:
+ 208:Core/Src/init.c ****         // 9 на вход остальные на выход
+ 714              		.loc 1 208 9 view .LVU160
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 18
+
+
+ 208:Core/Src/init.c ****         // 9 на вход остальные на выход
+ 715              		.loc 1 208 27 is_stmt 0 view .LVU161
+ 716 008a 324B     		ldr	r3, .L68
+ 717 008c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 718 008e 2370     		strb	r3, [r4]
+ 210:Core/Src/init.c ****     }
+ 719              		.loc 1 210 9 is_stmt 1 view .LVU162
+ 720 0090 4FF08043 		mov	r3, #1073741824
+ 721 0094 4FF48042 		mov	r2, #16384
+ 722 0098 4FF40071 		mov	r1, #512
+ 723 009c 2F48     		ldr	r0, .L68+8
+ 724 009e FFF7FEFF 		bl	button_light_led
+ 725              	.LVL42:
+ 726 00a2 DFE7     		b	.L56
+ 727              	.L62:
+ 214:Core/Src/init.c ****         old_counter_press = counter_press;
+ 728              		.loc 1 214 9 view .LVU163
+ 729 00a4 2C4C     		ldr	r4, .L68+4
+ 730 00a6 94F90020 		ldrsb	r2, [r4]
+ 731 00aa D31A     		subs	r3, r2, r3
+ 732 00ac 18BF     		it	ne
+ 733 00ae 0123     		movne	r3, #1
+ 734 00b0 0093     		str	r3, [sp]
+ 735 00b2 4FF48063 		mov	r3, #1024
+ 736 00b6 4FF40072 		mov	r2, #512
+ 737 00ba 4FF48011 		mov	r1, #1048576
+ 738 00be 4FF48020 		mov	r0, #262144
+ 739 00c2 FFF7FEFF 		bl	changeConf
+ 740              	.LVL43:
+ 215:Core/Src/init.c ****         // 8 на вход остальные на выход
+ 741              		.loc 1 215 9 view .LVU164
+ 215:Core/Src/init.c ****         // 8 на вход остальные на выход
+ 742              		.loc 1 215 27 is_stmt 0 view .LVU165
+ 743 00c6 234B     		ldr	r3, .L68
+ 744 00c8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 745 00ca 2370     		strb	r3, [r4]
+ 217:Core/Src/init.c ****     }
+ 746              		.loc 1 217 9 is_stmt 1 view .LVU166
+ 747 00cc 4FF48033 		mov	r3, #65536
+ 748 00d0 0122     		movs	r2, #1
+ 749 00d2 4FF48071 		mov	r1, #256
+ 750 00d6 2148     		ldr	r0, .L68+8
+ 751 00d8 FFF7FEFF 		bl	button_light_led
+ 752              	.LVL44:
+ 753 00dc C2E7     		b	.L56
+ 754              	.L61:
+ 222:Core/Src/init.c ****         {
+ 755              		.loc 1 222 9 view .LVU167
+ 222:Core/Src/init.c ****         {
+ 756              		.loc 1 222 31 is_stmt 0 view .LVU168
+ 757 00de 1E4A     		ldr	r2, .L68+4
+ 758 00e0 92F90020 		ldrsb	r2, [r2]
+ 222:Core/Src/init.c ****         {
+ 759              		.loc 1 222 12 view .LVU169
+ 760 00e4 9342     		cmp	r3, r2
+ 761 00e6 BDD0     		beq	.L56
+ 224:Core/Src/init.c ****             old_counter_press = counter_press;
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 19
+
+
+ 762              		.loc 1 224 13 is_stmt 1 view .LVU170
+ 763 00e8 1C49     		ldr	r1, .L68+8
+ 764 00ea 0A68     		ldr	r2, [r1]
+ 765 00ec 42F48032 		orr	r2, r2, #65536
+ 766 00f0 0A60     		str	r2, [r1]
+ 225:Core/Src/init.c ****         }
+ 767              		.loc 1 225 13 view .LVU171
+ 225:Core/Src/init.c ****         }
+ 768              		.loc 1 225 31 is_stmt 0 view .LVU172
+ 769 00f2 194A     		ldr	r2, .L68+4
+ 770 00f4 1370     		strb	r3, [r2]
+ 771 00f6 B5E7     		b	.L56
+ 772              	.L59:
+ 231:Core/Src/init.c ****         {
+ 773              		.loc 1 231 9 is_stmt 1 view .LVU173
+ 231:Core/Src/init.c ****         {
+ 774              		.loc 1 231 31 is_stmt 0 view .LVU174
+ 775 00f8 174A     		ldr	r2, .L68+4
+ 776 00fa 92F90020 		ldrsb	r2, [r2]
+ 231:Core/Src/init.c ****         {
+ 777              		.loc 1 231 12 view .LVU175
+ 778 00fe 9342     		cmp	r3, r2
+ 779 0100 06D0     		beq	.L66
+ 233:Core/Src/init.c ****             old_counter_press = counter_press;
+ 780              		.loc 1 233 13 is_stmt 1 view .LVU176
+ 781 0102 1649     		ldr	r1, .L68+8
+ 782 0104 0A68     		ldr	r2, [r1]
+ 783 0106 22F47C12 		bic	r2, r2, #4128768
+ 784 010a 0A60     		str	r2, [r1]
+ 234:Core/Src/init.c ****         }
+ 785              		.loc 1 234 13 view .LVU177
+ 234:Core/Src/init.c ****         }
+ 786              		.loc 1 234 31 is_stmt 0 view .LVU178
+ 787 010c 124A     		ldr	r2, .L68+4
+ 788 010e 1370     		strb	r3, [r2]
+ 789              	.L66:
+ 236:Core/Src/init.c ****         button_light_led(GPIOC, GPIO_IDR_IDR_9, GPIO_BSRR_BS14_Msk, GPIO_BSRR_BR14_Msk);
+ 790              		.loc 1 236 9 is_stmt 1 view .LVU179
+ 791 0110 124C     		ldr	r4, .L68+8
+ 792 0112 4FF40003 		mov	r3, #8388608
+ 793 0116 8022     		movs	r2, #128
+ 794 0118 4FF48061 		mov	r1, #1024
+ 795 011c 2046     		mov	r0, r4
+ 796 011e FFF7FEFF 		bl	button_light_led
+ 797              	.LVL45:
+ 237:Core/Src/init.c ****         button_light_led(GPIOC, GPIO_IDR_IDR_8, GPIO_BSRR_BS0_Msk, GPIO_BSRR_BR0_Msk);
+ 798              		.loc 1 237 9 view .LVU180
+ 799 0122 4FF08043 		mov	r3, #1073741824
+ 800 0126 4FF48042 		mov	r2, #16384
+ 801 012a 4FF40071 		mov	r1, #512
+ 802 012e 2046     		mov	r0, r4
+ 803 0130 FFF7FEFF 		bl	button_light_led
+ 804              	.LVL46:
+ 238:Core/Src/init.c ****     }
+ 805              		.loc 1 238 9 view .LVU181
+ 806 0134 4FF48033 		mov	r3, #65536
+ 807 0138 0122     		movs	r2, #1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 20
+
+
+ 808 013a 4FF48071 		mov	r1, #256
+ 809 013e 2046     		mov	r0, r4
+ 810 0140 FFF7FEFF 		bl	button_light_led
+ 811              	.LVL47:
+ 812 0144 8EE7     		b	.L56
+ 813              	.L58:
+ 240:Core/Src/init.c ****     {
+ 814              		.loc 1 240 10 view .LVU182
+ 240:Core/Src/init.c ****     {
+ 815              		.loc 1 240 13 is_stmt 0 view .LVU183
+ 816 0146 052B     		cmp	r3, #5
+ 817 0148 8CDD     		ble	.L56
+ 242:Core/Src/init.c ****     }
+ 818              		.loc 1 242 9 is_stmt 1 view .LVU184
+ 242:Core/Src/init.c ****     }
+ 819              		.loc 1 242 23 is_stmt 0 view .LVU185
+ 820 014a 024B     		ldr	r3, .L68
+ 821 014c 0122     		movs	r2, #1
+ 822 014e 1A70     		strb	r2, [r3]
+ 823              		.loc 1 244 1 view .LVU186
+ 824 0150 88E7     		b	.L56
+ 825              	.L69:
+ 826 0152 00BF     		.align	2
+ 827              	.L68:
+ 828 0154 00000000 		.word	counter_press.1
+ 829 0158 00000000 		.word	old_counter_press.0
+ 830 015c 00080240 		.word	1073874944
+ 831              		.cfi_endproc
+ 832              	.LFE136:
+ 834              		.section	.bss.old_counter_press.0,"aw",%nobits
+ 837              	old_counter_press.0:
+ 838 0000 00       		.space	1
+ 839              		.section	.bss.counter_press.1,"aw",%nobits
+ 842              	counter_press.1:
+ 843 0000 00       		.space	1
+ 844              		.section	.bss.counter_press10.2,"aw",%nobits
+ 847              	counter_press10.2:
+ 848 0000 00       		.space	1
+ 849              		.section	.bss.counter_press9.3,"aw",%nobits
+ 852              	counter_press9.3:
+ 853 0000 00       		.space	1
+ 854              		.section	.bss.counter_press8.4,"aw",%nobits
+ 857              	counter_press8.4:
+ 858 0000 00       		.space	1
+ 859              		.section	.data.bright.5,"aw"
+ 862              	bright.5:
+ 863 0000 01       		.byte	1
+ 864              		.text
+ 865              	.Letext0:
+ 866              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
+ 867              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 868              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 init.c
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:21     .text.GPIO_Ini:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:27     .text.GPIO_Ini:00000000 GPIO_Ini
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:102    .text.GPIO_Ini:00000088 $d
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:110    .text.button_bounce_read:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:116    .text.button_bounce_read:00000000 button_bounce_read
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:174    .text.button_bounce_read:00000020 $d
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:179    .text.changeConf:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:185    .text.changeConf:00000000 changeConf
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:217    .text.changeConf:0000001c $d
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:222    .text.button_light_led:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:228    .text.button_light_led:00000000 button_light_led
-C:\Users\79530\AppData\Local\Temp\ccDCIPsl.s:271    .text.button_light_led:0000001c $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:21     .text.GPIO_Ini:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:27     .text.GPIO_Ini:00000000 GPIO_Ini
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:102    .text.GPIO_Ini:00000088 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:110    .text.button_bounce_read:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:116    .text.button_bounce_read:00000000 button_bounce_read
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:174    .text.button_bounce_read:00000020 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:179    .text.changeConf:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:185    .text.changeConf:00000000 changeConf
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:236    .text.changeConf:00000028 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:241    .text.button_light_led:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:247    .text.button_light_led:00000000 button_light_led
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:290    .text.button_light_led:0000001c $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:295    .text.mode_light:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:301    .text.mode_light:00000000 mode_light
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:367    .text.mode_light:00000030 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:372    .text.changing_brightness:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:378    .text.changing_brightness:00000000 changing_brightness
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:605    .text.changing_brightness:00000138 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:862    .data.bright.5:00000000 bright.5
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:857    .bss.counter_press8.4:00000000 counter_press8.4
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:852    .bss.counter_press9.3:00000000 counter_press9.3
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:847    .bss.counter_press10.2:00000000 counter_press10.2
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:614    .text.main_task:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:620    .text.main_task:00000000 main_task
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:657    .text.main_task:00000026 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:663    .text.main_task:0000002c $t
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:828    .text.main_task:00000154 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:842    .bss.counter_press.1:00000000 counter_press.1
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:837    .bss.old_counter_press.0:00000000 old_counter_press.0
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:838    .bss.old_counter_press.0:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:843    .bss.counter_press.1:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:848    .bss.counter_press10.2:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:853    .bss.counter_press9.3:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccI8XUYF.s:858    .bss.counter_press8.4:00000000 $d
 
 NO UNDEFINED SYMBOLS
