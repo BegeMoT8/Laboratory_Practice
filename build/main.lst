@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccNKftzb.s 			page 1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -54,13 +54,14 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccNKftzb.s 			page 1
    9:Core/Src/main.c ****     {
   10:Core/Src/main.c ****         // NOTE: однвременный запуск двух задач не поддержив�
   11:Core/Src/main.c **** 
-  12:Core/Src/main.c ****         changing_brightness(); // дополнительное задание
-  44              		.loc 1 12 9 discriminator 1 view .LVU3
-  45 0006 FFF7FEFF 		bl	changing_brightness
+  12:Core/Src/main.c ****         //changing_brightness(); // дополнительное задание
+  13:Core/Src/main.c ****         main_task(); // основное задание
+  44              		.loc 1 13 9 discriminator 1 view .LVU3
+  45 0006 FFF7FEFF 		bl	main_task
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s 			page 2
+
+
   46              	.LVL1:
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccNKftzb.s 			page 2
-
-
    8:Core/Src/main.c ****     {
   47              		.loc 1 8 11 view .LVU4
   48 000a FCE7     		b	.L2
@@ -69,14 +70,14 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccNKftzb.s 			page 1
   52              		.text
   53              	.Letext0:
   54              		.file 2 "Core/Inc/init.h"
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccNKftzb.s 			page 3
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\79530\AppData\Local\Temp\ccNKftzb.s:21     .text.main:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccNKftzb.s:27     .text.main:00000000 main
+C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s:21     .text.main:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s:27     .text.main:00000000 main
 
 UNDEFINED SYMBOLS
 GPIO_Ini
-changing_brightness
+main_task
