@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s 			page 1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\cco4JKHv.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s 			page 1
   13:Core/Src/main.c ****         main_task(); // основное задание
   44              		.loc 1 13 9 discriminator 1 view .LVU3
   45 0006 FFF7FEFF 		bl	main_task
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s 			page 2
+ARM GAS  C:\Users\79530\AppData\Local\Temp\cco4JKHv.s 			page 2
 
 
   46              	.LVL1:
@@ -70,13 +70,13 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s 			page 1
   52              		.text
   53              	.Letext0:
   54              		.file 2 "Core/Inc/init.h"
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s 			page 3
+ARM GAS  C:\Users\79530\AppData\Local\Temp\cco4JKHv.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s:21     .text.main:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccTKtnyh.s:27     .text.main:00000000 main
+C:\Users\79530\AppData\Local\Temp\cco4JKHv.s:21     .text.main:00000000 $t
+C:\Users\79530\AppData\Local\Temp\cco4JKHv.s:27     .text.main:00000000 main
 
 UNDEFINED SYMBOLS
 GPIO_Ini
