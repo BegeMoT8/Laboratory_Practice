@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\79530\AppData\Local\Temp\cco4JKHv.s 			page 1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\cc0HP6wd.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -38,46 +38,27 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\cco4JKHv.s 			page 1
   31              		@ Volatile: function does not return.
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34 0000 08B5     		push	{r3, lr}
-  35              	.LCFI0:
-  36              		.cfi_def_cfa_offset 8
-  37              		.cfi_offset 3, -8
-  38              		.cfi_offset 14, -4
-   6:Core/Src/main.c ****     GPIO_Ini();
-  39              		.loc 1 6 5 view .LVU1
-  40 0002 FFF7FEFF 		bl	GPIO_Ini
-  41              	.LVL0:
-  42              	.L2:
-   7:Core/Src/main.c **** 
-   8:Core/Src/main.c ****     while (1)
-  43              		.loc 1 8 5 view .LVU2
-   9:Core/Src/main.c ****     {
-  10:Core/Src/main.c ****         // NOTE: однвременный запуск двух задач не поддержив�
-  11:Core/Src/main.c **** 
-  12:Core/Src/main.c ****         //changing_brightness(); // дополнительное задание
-  13:Core/Src/main.c ****         main_task(); // основное задание
-  44              		.loc 1 13 9 discriminator 1 view .LVU3
-  45 0006 FFF7FEFF 		bl	main_task
-ARM GAS  C:\Users\79530\AppData\Local\Temp\cco4JKHv.s 			page 2
-
-
-  46              	.LVL1:
-   8:Core/Src/main.c ****     {
-  47              		.loc 1 8 11 view .LVU4
-  48 000a FCE7     		b	.L2
-  49              		.cfi_endproc
-  50              	.LFE130:
-  52              		.text
-  53              	.Letext0:
-  54              		.file 2 "Core/Inc/init.h"
-ARM GAS  C:\Users\79530\AppData\Local\Temp\cco4JKHv.s 			page 3
+  34              		@ link register save eliminated.
+  35              	.L2:
+   6:Core/Src/main.c ****     while (1)
+  36              		.loc 1 6 5 view .LVU1
+   7:Core/Src/main.c ****     {
+   8:Core/Src/main.c **** 
+   9:Core/Src/main.c ****     }
+  37              		.loc 1 9 5 view .LVU2
+   6:Core/Src/main.c ****     while (1)
+  38              		.loc 1 6 11 view .LVU3
+  39 0000 FEE7     		b	.L2
+  40              		.cfi_endproc
+  41              	.LFE130:
+  43              		.text
+  44              	.Letext0:
+ARM GAS  C:\Users\79530\AppData\Local\Temp\cc0HP6wd.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\79530\AppData\Local\Temp\cco4JKHv.s:21     .text.main:00000000 $t
-C:\Users\79530\AppData\Local\Temp\cco4JKHv.s:27     .text.main:00000000 main
+C:\Users\79530\AppData\Local\Temp\cc0HP6wd.s:21     .text.main:00000000 $t
+C:\Users\79530\AppData\Local\Temp\cc0HP6wd.s:27     .text.main:00000000 main
 
-UNDEFINED SYMBOLS
-GPIO_Ini
-main_task
+NO UNDEFINED SYMBOLS
