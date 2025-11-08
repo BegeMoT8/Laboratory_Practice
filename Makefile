@@ -38,7 +38,8 @@ BUILD_DIR = build
 C_SOURCES =  \
 CMSIS/Devices/STM32F4xx/Src/system_stm32f4xx.c \
 Core/Src/main.c \
-Core/Src/init.c \ 
+Core/Src/init.c \
+Core/Src/it_handlers.c \
 
 
 # ASM sources
