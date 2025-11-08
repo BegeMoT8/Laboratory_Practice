@@ -7,12 +7,11 @@
  */
 void RCC_Init(void)
 {
-    MODIFY_REG(RCC->CR, RCC_CR_HSITRIM, 0x80U); // очистка битов HSITRIM и установка
-    CLEAR_REG(RCC->CFGR);                       // очистка (выбор источника системной частоты)
+    /* Предварительная очистка регистров RCC */
+    MODIFY_REG(RCC->CR, RCC_CR_HSITRIM, 0x80U);
+    CLEAR_REG(RCC->CFGR);
     while (READ_BIT(RCC->CFGR, RCC_CFGR_SWS) != RESET)
         ;
-
-    // очистка битов PLLON, HSEON, CSSON, HSEBYP
     CLEAR_BIT(RCC->CR, RCC_CR_PLLON);
     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) != RESET)
         ;
@@ -20,54 +19,44 @@ void RCC_Init(void)
     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) != RESET)
         ;
     CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP);
-
-    // Настройка главного регистра RCC_CR
+    /* Настройка главного регистра RCC */
     SET_BIT(RCC->CR, RCC_CR_HSEON); // Запускаем внешний кварцевый резонатор
     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) == RESET)
         ;                              // Ждём пока он запустится
-    CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP); // отключение шунтирования для избежания наводок
-    SET_BIT(RCC->CR, RCC_CR_CSSON);    // отслеживание ошибки в работе HSE
-
-    // Настройка регистра RCC_PLLCFGR
+    CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP); // Сбросим бит байпаса в 0, если вдруг там что-то лежит
+    SET_BIT(RCC->CR, RCC_CR_CSSON);    // Запустим Clock detector
+    /* Настройка регистров PLL
+    * Предварительная очистка регистра
+    * В качестве источника тактирования для PLL выбирается HSE
+    * Мы сначала делим входную частоту (HSE) на 4 (получаем 2 МГц), затем умножаем на 180 и
+    снова делим на 2, таким образом получаем 180МГц
+    * Включаем работу PLL
+    */
     CLEAR_REG(RCC->PLLCFGR);
-    SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLSRC_HSE); // Выбираем в качестве источника PLL внешний кварцевый резонатор (вероятно 8 МГц)
-
-    // Настройка множителей и делителей PLL
-    MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLM, RCC_PLLCFGR_PLLM_2); // Выставляем предделитель входной частоты PLL на 4
-    //-------------------------------------------------
-    // N = 60 ||0011 1100 000000
-    // N = 80 ||0101 0000 000000
-    // N = 90 ||0101 1010 000000
-
-    // MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_2 |
-    // RCC_PLLCFGR_PLLN_3 | RCC_PLLCFGR_PLLN_4 | RCC_PLLCFGR_PLLN_5); //Настраиваем умножение частоты, полученной после деления (частоты VCO) на 60
-
-    // MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_4 | RCC_PLLCFGR_PLLN_6); //Настраиваем умножение частоты, полученной после деления (частоты VCO) на 80
-
-    MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_1 | RCC_PLLCFGR_PLLN_3 | RCC_PLLCFGR_PLLN_4 | RCC_PLLCFGR_PLLN_6); // Настраиваем умножение частоты, полученной после деления (частоты VCO) на 90
-
-    // MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_2 |
-    // RCC_PLLCFGR_PLLN_4 | RCC_PLLCFGR_PLLN_5 | RCC_PLLCFGR_PLLN_7); //Настраиваем умножение частоты, полученной после деления (частоты VCO) на х180
-
-    CLEAR_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLP_Msk); // Настраиваем предделитель получившейся частоты после умножения. Иными словами, получаем итоговую частоту PLL
-    // MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLP_Msk, RCC_PLLCFGR_PLLP_0); //Делим на 4 (90 МГц)
-
-    SET_BIT(RCC->CR, RCC_CR_PLLON); // Запустим PLL
+    SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLSRC_HSE);
+    MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLM, RCC_PLLCFGR_PLLM_2); // Выставляем предделитель входной частоты PLL на 4 
+    MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_2 | RCC_PLLCFGR_PLLN_4 | RCC_PLLCFGR_PLLN_5 | RCC_PLLCFGR_PLLN_7);
+    CLEAR_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLP_Msk); // Настраиваем предделитель получившейся частоты после умножения.Иными словами, получаем итоговую частоту PLL
+                                               SET_BIT(RCC->CR, RCC_CR_PLLON); // Запустим PLL
     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY))
         ; // Ждём запуска PLL
-
-    // Настройка регистра RCC_CFGR
-    MODIFY_REG(RCC->CFGR, RCC_CFGR_SW, RCC_CFGR_SW_PLL);        // Выбираем PLL в качестве System Clock
-    MODIFY_REG(RCC->CFGR, RCC_CFGR_HPRE, RCC_CFGR_HPRE_DIV1);   // Предделитель AHB, без делителя (180 МГц)
-    MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE1, RCC_CFGR_PPRE1_DIV4); // Предделитель APВ1, делим на 4 (45 МГц)
-    MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE2, RCC_CFGR_PPRE2_DIV2); // Предделитель APВ2, делим на 2 (90 МГц)
-
-    // MODIFY_REG(RCC->CFGR, RCC_CFGR_MCO2PRE, RCC_CFGR_MCO2PRE_Msk); //Предделитель на выходе MCO2 (PC9) = 5 (180МГц/5 = 36МГц)
-    MODIFY_REG(RCC->CFGR, RCC_CFGR_MCO2PRE, RCC_CFGR_MCO2PRE_2); // деление на 2
-
-    CLEAR_BIT(RCC->CFGR, RCC_CFGR_MCO2); // Выбираем в качестве источника MCO2 PLL
-
-    MODIFY_REG(FLASH->ACR, FLASH_ACR_LATENCY, FLASH_ACR_LATENCY_5WS); // Настройка задержки работы памяти FLASH на 5 тактов
+    /* Настройка основных конфигураций RCC
+     * В качетсве системных часов выбираем выход PLL
+     * Настраиваем предделители шин AHB и APB
+     * Настраиваем выходы MCO1 и MCO2 для внешней оценки настроенной системы тактирования
+     */
+    MODIFY_REG(RCC->CFGR, RCC_CFGR_SW, RCC_CFGR_SW_PLL); // Выбираем PLL в качестве System Clock
+        MODIFY_REG(RCC->CFGR, RCC_CFGR_HPRE, RCC_CFGR_HPRE_DIV1);    // Предделитель AHB, без делителя
+    MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE1, RCC_CFGR_PPRE1_DIV4);      // Предделитель APВ1, делим на4 
+    MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE2, RCC_CFGR_PPRE2_DIV2);    // Предделитель APВ2, делим на2 
+    MODIFY_REG(RCC->CFGR, RCC_CFGR_MCO2PRE, RCC_CFGR_MCO2PRE_Msk); // Предделитель на выходеMCO2(PC9) = 5 
+    CLEAR_BIT(RCC->CFGR, RCC_CFGR_MCO2);               // Настраиваем на выход MCO2 - System clock
+    /* Настройка задержки внутренней памяти
+    * Выставление битов LATENCY регистра FLASH_ACR в позицию 5SW (6 CPU cycles).
+    * Данная настройка необходима при увеличении системной частоты тактирования свыше 20 МГц.
+    Таблица 12 RM0090
+    */
+    MODIFY_REG(FLASH->ACR, FLASH_ACR_LATENCY, FLASH_ACR_LATENCY_5WS);
 }
 
 /**
@@ -77,11 +66,8 @@ void RCC_Init(void)
  */
 void GPIO_Init(void)
 {
-    // NOTE: используемые порты: PC11; PD2; PG2; PE2;
-
     // включаем тактирование на пины GPIOC/D/E/G/B
     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN | RCC_AHB1ENR_GPIODEN | RCC_AHB1ENR_GPIOEEN | RCC_AHB1ENR_GPIOGEN | RCC_AHB1ENR_GPIOBEN);
-
     SET_BIT(GPIOC->MODER, GPIO_MODER_MODER9_1);           // Настраиваем пин на альтернативный режим
     SET_BIT(GPIOC->OSPEEDR, GPIO_OSPEEDR_OSPEED9_Msk);    // Настраиваем пин на максимальную скорость работы
     MODIFY_REG(GPIOC->AFR[1], GPIO_AFRH_AFSEL9_Msk, 0x0); // Выбираем тип альтернативной функции – Выход MCO2
@@ -105,4 +91,15 @@ void ITR_Init(void)
     NVIC_SetPriority(EXTI15_10_IRQn,
                      NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0)); // установка приоритета прерывания
     NVIC_EnableIRQ(EXTI15_10_IRQn);                                          // разрешения прерывания
+}
+void SysTick_Init(void)
+{
+    CLEAR_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);  // На всякий случай, предварительно, выключим счётчик
+    SET_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);   // Разрешаем прерывание по системному таймеру
+    SET_BIT(SysTick->CTRL, SysTick_CTRL_CLKSOURCE_Msk); // Источник тактирования будет идти из AHB без деления
+    MODIFY_REG(SysTick->LOAD, SysTick_LOAD_RELOAD_Msk,
+               179999 << SysTick_LOAD_RELOAD_Pos); // Значение с которого начинается счёт, эквивалентное 1 кГц (частота AHB поделить на это число плюс 1 180000000/(179999+1)=1000 Гц)
+    MODIFY_REG(SysTick->VAL, SysTick_VAL_CURRENT_Msk,
+               179999 << SysTick_VAL_CURRENT_Pos);   // Очистка поля
+    SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk); // Включим счётчик
 }

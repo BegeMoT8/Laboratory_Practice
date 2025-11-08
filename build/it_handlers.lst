@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s 			page 1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\cckFv5qe.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -34,60 +34,66 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s 			page 1
    4:Core/Src/it_handlers.c **** #include "../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
    5:Core/Src/it_handlers.c **** #include <it_handlers.h>
    6:Core/Src/it_handlers.c **** extern uint8_t LedState; // внешняя переменная состояния светодио
-   7:Core/Src/it_handlers.c **** volatile uint8_t btn_count = 0;
-   8:Core/Src/it_handlers.c **** 
-   9:Core/Src/it_handlers.c **** void EXTI15_10_IRQHandler(void)
-  10:Core/Src/it_handlers.c **** {
-  29              		.loc 1 10 1 view -0
+   7:Core/Src/it_handlers.c **** extern uint16_t GlobalTickCount;
+   8:Core/Src/it_handlers.c **** volatile uint8_t btn_count = 0;
+   9:Core/Src/it_handlers.c **** 
+  10:Core/Src/it_handlers.c **** /**
+  11:Core/Src/it_handlers.c ****  * @brief Обработчик прерывания по EXTI линии 13 (кнопка на PC13
+  12:Core/Src/it_handlers.c ****  * @details При срабатывании прерывания увеличивает счетч�
+  13:Core/Src/it_handlers.c ****  * Если счетчик достигает 2, переключает состояние свет
+  14:Core/Src/it_handlers.c ****  */
+  15:Core/Src/it_handlers.c **** void EXTI15_10_IRQHandler(void)
+  16:Core/Src/it_handlers.c **** {
+  29              		.loc 1 16 1 view -0
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
   33              		@ link register save eliminated.
-  11:Core/Src/it_handlers.c ****     btn_count++;
-  34              		.loc 1 11 5 view .LVU1
-  35              		.loc 1 11 14 is_stmt 0 view .LVU2
+  17:Core/Src/it_handlers.c ****     btn_count++;
+  34              		.loc 1 17 5 view .LVU1
+  35              		.loc 1 17 14 is_stmt 0 view .LVU2
   36 0000 0B4A     		ldr	r2, .L3
   37 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
   38 0004 0133     		adds	r3, r3, #1
   39 0006 DBB2     		uxtb	r3, r3
   40 0008 1370     		strb	r3, [r2]
-  12:Core/Src/it_handlers.c ****     if (btn_count >= 2)
-  41              		.loc 1 12 5 is_stmt 1 view .LVU3
-  42              		.loc 1 12 19 is_stmt 0 view .LVU4
+  18:Core/Src/it_handlers.c ****     if (btn_count >= 2)
+ARM GAS  C:\Users\79530\AppData\Local\Temp\cckFv5qe.s 			page 2
+
+
+  41              		.loc 1 18 5 is_stmt 1 view .LVU3
+  42              		.loc 1 18 19 is_stmt 0 view .LVU4
   43 000a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
   44 000c DBB2     		uxtb	r3, r3
-  45              		.loc 1 12 8 view .LVU5
+  45              		.loc 1 18 8 view .LVU5
   46 000e 012B     		cmp	r3, #1
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s 			page 2
-
-
   47 0010 08D9     		bls	.L2
-  13:Core/Src/it_handlers.c ****     {
-  14:Core/Src/it_handlers.c ****         LedState = !LedState;
-  48              		.loc 1 14 9 is_stmt 1 view .LVU6
-  49              		.loc 1 14 20 is_stmt 0 view .LVU7
+  19:Core/Src/it_handlers.c ****     {
+  20:Core/Src/it_handlers.c ****         LedState = !LedState;
+  48              		.loc 1 20 9 is_stmt 1 view .LVU6
+  49              		.loc 1 20 20 is_stmt 0 view .LVU7
   50 0012 084A     		ldr	r2, .L3+4
   51 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
   52 0016 B3FA83F3 		clz	r3, r3
   53 001a 5B09     		lsrs	r3, r3, #5
-  54              		.loc 1 14 18 view .LVU8
+  54              		.loc 1 20 18 view .LVU8
   55 001c 1370     		strb	r3, [r2]
-  15:Core/Src/it_handlers.c ****         btn_count = 0;
-  56              		.loc 1 15 9 is_stmt 1 view .LVU9
-  57              		.loc 1 15 19 is_stmt 0 view .LVU10
+  21:Core/Src/it_handlers.c ****         btn_count = 0;
+  56              		.loc 1 21 9 is_stmt 1 view .LVU9
+  57              		.loc 1 21 19 is_stmt 0 view .LVU10
   58 001e 044B     		ldr	r3, .L3
   59 0020 0022     		movs	r2, #0
   60 0022 1A70     		strb	r2, [r3]
   61              	.L2:
-  16:Core/Src/it_handlers.c ****     }
-  17:Core/Src/it_handlers.c ****     SET_BIT(EXTI->PR, EXTI_PR_PR13); // устанавливаем бит для остановки
-  62              		.loc 1 17 5 is_stmt 1 view .LVU11
+  22:Core/Src/it_handlers.c ****     }
+  23:Core/Src/it_handlers.c ****     SET_BIT(EXTI->PR, EXTI_PR_PR13); // устанавливаем бит для остановки
+  62              		.loc 1 23 5 is_stmt 1 view .LVU11
   63 0024 044A     		ldr	r2, .L3+8
   64 0026 5369     		ldr	r3, [r2, #20]
   65 0028 43F40053 		orr	r3, r3, #8192
   66 002c 5361     		str	r3, [r2, #20]
-  18:Core/Src/it_handlers.c **** }
-  67              		.loc 1 18 1 is_stmt 0 view .LVU12
+  24:Core/Src/it_handlers.c **** }
+  67              		.loc 1 24 1 is_stmt 0 view .LVU12
   68 002e 7047     		bx	lr
   69              	.L4:
   70              		.align	2
@@ -97,25 +103,64 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s 			page 1
   74 0038 003C0140 		.word	1073822720
   75              		.cfi_endproc
   76              	.LFE130:
-  78              		.global	btn_count
-  79              		.section	.bss.btn_count,"aw",%nobits
-  82              	btn_count:
-  83 0000 00       		.space	1
-  84              		.text
-  85              	.Letext0:
-  86              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
-  87              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
-  88              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s 			page 3
+  78              		.section	.text.SysTick_Handler,"ax",%progbits
+  79              		.align	1
+  80              		.global	SysTick_Handler
+  81              		.syntax unified
+  82              		.thumb
+  83              		.thumb_func
+  85              	SysTick_Handler:
+  86              	.LFB131:
+  25:Core/Src/it_handlers.c **** 
+  26:Core/Src/it_handlers.c **** void SysTick_Handler(void)
+  27:Core/Src/it_handlers.c **** {
+  87              		.loc 1 27 1 is_stmt 1 view -0
+  88              		.cfi_startproc
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\79530\AppData\Local\Temp\cckFv5qe.s 			page 3
+
+
+  91              		@ link register save eliminated.
+  28:Core/Src/it_handlers.c ****     GlobalTickCount++;
+  92              		.loc 1 28 5 view .LVU14
+  93              		.loc 1 28 20 is_stmt 0 view .LVU15
+  94 0000 024A     		ldr	r2, .L6
+  95 0002 1388     		ldrh	r3, [r2]
+  96 0004 0133     		adds	r3, r3, #1
+  97 0006 1380     		strh	r3, [r2]	@ movhi
+  29:Core/Src/it_handlers.c **** }...
+  98              		.loc 1 29 1 view .LVU16
+  99 0008 7047     		bx	lr
+ 100              	.L7:
+ 101 000a 00BF     		.align	2
+ 102              	.L6:
+ 103 000c 00000000 		.word	GlobalTickCount
+ 104              		.cfi_endproc
+ 105              	.LFE131:
+ 107              		.global	btn_count
+ 108              		.section	.bss.btn_count,"aw",%nobits
+ 111              	btn_count:
+ 112 0000 00       		.space	1
+ 113              		.text
+ 114              	.Letext0:
+ 115              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
+ 116              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 117              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ARM GAS  C:\Users\79530\AppData\Local\Temp\cckFv5qe.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 it_handlers.c
-C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s:21     .text.EXTI15_10_IRQHandler:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s:27     .text.EXTI15_10_IRQHandler:00000000 EXTI15_10_IRQHandler
-C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s:72     .text.EXTI15_10_IRQHandler:00000030 $d
-C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s:82     .bss.btn_count:00000000 btn_count
-C:\Users\79530\AppData\Local\Temp\ccGvdH9d.s:83     .bss.btn_count:00000000 $d
+C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:21     .text.EXTI15_10_IRQHandler:00000000 $t
+C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:27     .text.EXTI15_10_IRQHandler:00000000 EXTI15_10_IRQHandler
+C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:72     .text.EXTI15_10_IRQHandler:00000030 $d
+C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:111    .bss.btn_count:00000000 btn_count
+C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:79     .text.SysTick_Handler:00000000 $t
+C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:85     .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:103    .text.SysTick_Handler:0000000c $d
+C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:112    .bss.btn_count:00000000 $d
 
 UNDEFINED SYMBOLS
 LedState
+GlobalTickCount

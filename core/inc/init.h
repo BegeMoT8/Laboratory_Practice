@@ -5,3 +5,5 @@
 
 void RCC_Init(void);
 void GPIO_Init(void);
+void ITR_Init(void);
+void SysTick_Init(void);

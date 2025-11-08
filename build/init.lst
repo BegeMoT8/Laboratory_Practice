@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
   27:CMSIS/Include/../include/core_cm4.h **** #elif defined (__clang__)
   28:CMSIS/Include/../include/core_cm4.h ****   #pragma clang system_header   /* treat file as system include file */
   29:CMSIS/Include/../include/core_cm4.h **** #endif
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 2
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 2
 
 
   30:CMSIS/Include/../include/core_cm4.h **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
   84:CMSIS/Include/../include/core_cm4.h ****   #else
   85:CMSIS/Include/../include/core_cm4.h ****     #define __FPU_USED         0U
   86:CMSIS/Include/../include/core_cm4.h ****   #endif
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 3
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 3
 
 
   87:CMSIS/Include/../include/core_cm4.h **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  141:CMSIS/Include/../include/core_cm4.h ****       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)
  142:CMSIS/Include/../include/core_cm4.h ****       #define __FPU_USED       0U
  143:CMSIS/Include/../include/core_cm4.h ****     #endif
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 4
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 4
 
 
  144:CMSIS/Include/../include/core_cm4.h ****   #else
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  198:CMSIS/Include/../include/core_cm4.h ****     #define __NVIC_PRIO_BITS          3U
  199:CMSIS/Include/../include/core_cm4.h ****     #warning "__NVIC_PRIO_BITS not defined in device header file; using default!"
  200:CMSIS/Include/../include/core_cm4.h ****   #endif
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 5
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 5
 
 
  201:CMSIS/Include/../include/core_cm4.h **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  255:CMSIS/Include/../include/core_cm4.h **** 
  256:CMSIS/Include/../include/core_cm4.h **** /**
  257:CMSIS/Include/../include/core_cm4.h ****   \brief  Union type to access the Application Program Status Register (APSR).
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 6
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 6
 
 
  258:CMSIS/Include/../include/core_cm4.h ****  */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  312:CMSIS/Include/../include/core_cm4.h **** 
  313:CMSIS/Include/../include/core_cm4.h **** /**
  314:CMSIS/Include/../include/core_cm4.h ****   \brief  Union type to access the Special-Purpose Program Status Registers (xPSR).
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 7
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 7
 
 
  315:CMSIS/Include/../include/core_cm4.h ****  */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  369:CMSIS/Include/../include/core_cm4.h ****   \brief  Union type to access the Control Registers (CONTROL).
  370:CMSIS/Include/../include/core_cm4.h ****  */
  371:CMSIS/Include/../include/core_cm4.h **** typedef union
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 8
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 8
 
 
  372:CMSIS/Include/../include/core_cm4.h **** {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  426:CMSIS/Include/../include/core_cm4.h **** 
  427:CMSIS/Include/../include/core_cm4.h **** /*@} end of group CMSIS_NVIC */
  428:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 9
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 9
 
 
  429:CMSIS/Include/../include/core_cm4.h **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  483:CMSIS/Include/../include/core_cm4.h **** #define SCB_ICSR_NMIPENDSET_Msk            (1UL << SCB_ICSR_NMIPENDSET_Pos)               /*!< SCB 
  484:CMSIS/Include/../include/core_cm4.h **** 
  485:CMSIS/Include/../include/core_cm4.h **** #define SCB_ICSR_PENDSVSET_Pos             28U                                            /*!< SCB 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 10
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 10
 
 
  486:CMSIS/Include/../include/core_cm4.h **** #define SCB_ICSR_PENDSVSET_Msk             (1UL << SCB_ICSR_PENDSVSET_Pos)                /*!< SCB 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  540:CMSIS/Include/../include/core_cm4.h **** #define SCB_SCR_SEVONPEND_Msk              (1UL << SCB_SCR_SEVONPEND_Pos)                 /*!< SCB 
  541:CMSIS/Include/../include/core_cm4.h **** 
  542:CMSIS/Include/../include/core_cm4.h **** #define SCB_SCR_SLEEPDEEP_Pos               2U                                            /*!< SCB 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 11
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 11
 
 
  543:CMSIS/Include/../include/core_cm4.h **** #define SCB_SCR_SLEEPDEEP_Msk              (1UL << SCB_SCR_SLEEPDEEP_Pos)                 /*!< SCB 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  597:CMSIS/Include/../include/core_cm4.h **** 
  598:CMSIS/Include/../include/core_cm4.h **** #define SCB_SHCSR_SVCALLACT_Pos             7U                                            /*!< SCB 
  599:CMSIS/Include/../include/core_cm4.h **** #define SCB_SHCSR_SVCALLACT_Msk            (1UL << SCB_SHCSR_SVCALLACT_Pos)               /*!< SCB 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 12
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 12
 
 
  600:CMSIS/Include/../include/core_cm4.h **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  654:CMSIS/Include/../include/core_cm4.h **** 
  655:CMSIS/Include/../include/core_cm4.h **** #define SCB_CFSR_PRECISERR_Pos            (SCB_CFSR_BUSFAULTSR_Pos + 1U)                  /*!< SCB 
  656:CMSIS/Include/../include/core_cm4.h **** #define SCB_CFSR_PRECISERR_Msk            (1UL << SCB_CFSR_PRECISERR_Pos)                 /*!< SCB 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 13
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 13
 
 
  657:CMSIS/Include/../include/core_cm4.h **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  711:CMSIS/Include/../include/core_cm4.h ****   \defgroup CMSIS_SCnSCB System Controls not in SCB (SCnSCB)
  712:CMSIS/Include/../include/core_cm4.h ****   \brief    Type definitions for the System Control and ID Register not in the SCB
  713:CMSIS/Include/../include/core_cm4.h ****   @{
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 14
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 14
 
 
  714:CMSIS/Include/../include/core_cm4.h ****  */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  768:CMSIS/Include/../include/core_cm4.h **** #define SysTick_CTRL_COUNTFLAG_Pos         16U                                            /*!< SysT
  769:CMSIS/Include/../include/core_cm4.h **** #define SysTick_CTRL_COUNTFLAG_Msk         (1UL << SysTick_CTRL_COUNTFLAG_Pos)            /*!< SysT
  770:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 15
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 15
 
 
  771:CMSIS/Include/../include/core_cm4.h **** #define SysTick_CTRL_CLKSOURCE_Pos          2U                                            /*!< SysT
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  825:CMSIS/Include/../include/core_cm4.h ****         uint32_t RESERVED3[29U];
  826:CMSIS/Include/../include/core_cm4.h ****   __OM  uint32_t IWR;                    /*!< Offset: 0xEF8 ( /W)  ITM Integration Write Register *
  827:CMSIS/Include/../include/core_cm4.h ****   __IM  uint32_t IRR;                    /*!< Offset: 0xEFC (R/ )  ITM Integration Read Register */
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 16
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 16
 
 
  828:CMSIS/Include/../include/core_cm4.h ****   __IOM uint32_t IMCR;                   /*!< Offset: 0xF00 (R/W)  ITM Integration Mode Control Reg
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  882:CMSIS/Include/../include/core_cm4.h **** 
  883:CMSIS/Include/../include/core_cm4.h **** /* ITM Integration Read Register Definitions */
  884:CMSIS/Include/../include/core_cm4.h **** #define ITM_IRR_ATREADYM_Pos                0U                                            /*!< ITM 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 17
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 17
 
 
  885:CMSIS/Include/../include/core_cm4.h **** #define ITM_IRR_ATREADYM_Msk               (1UL /*<< ITM_IRR_ATREADYM_Pos*/)              /*!< ITM 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  939:CMSIS/Include/../include/core_cm4.h **** } DWT_Type;
  940:CMSIS/Include/../include/core_cm4.h **** 
  941:CMSIS/Include/../include/core_cm4.h **** /* DWT Control Register Definitions */
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 18
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 18
 
 
  942:CMSIS/Include/../include/core_cm4.h **** #define DWT_CTRL_NUMCOMP_Pos               28U                                         /*!< DWT CTR
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
  996:CMSIS/Include/../include/core_cm4.h **** /* DWT CPI Count Register Definitions */
  997:CMSIS/Include/../include/core_cm4.h **** #define DWT_CPICNT_CPICNT_Pos               0U                                         /*!< DWT CPI
  998:CMSIS/Include/../include/core_cm4.h **** #define DWT_CPICNT_CPICNT_Msk              (0xFFUL /*<< DWT_CPICNT_CPICNT_Pos*/)       /*!< DWT CPI
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 19
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 19
 
 
  999:CMSIS/Include/../include/core_cm4.h **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1053:CMSIS/Include/../include/core_cm4.h ****   \defgroup CMSIS_TPI     Trace Port Interface (TPI)
 1054:CMSIS/Include/../include/core_cm4.h ****   \brief    Type definitions for the Trace Port Interface (TPI)
 1055:CMSIS/Include/../include/core_cm4.h ****   @{
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 20
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 20
 
 
 1056:CMSIS/Include/../include/core_cm4.h ****  */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1110:CMSIS/Include/../include/core_cm4.h **** /* TPI Formatter and Flush Control Register Definitions */
 1111:CMSIS/Include/../include/core_cm4.h **** #define TPI_FFCR_TrigIn_Pos                 8U                                         /*!< TPI FFC
 1112:CMSIS/Include/../include/core_cm4.h **** #define TPI_FFCR_TrigIn_Msk                (0x1UL << TPI_FFCR_TrigIn_Pos)              /*!< TPI FFC
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 21
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 21
 
 
 1113:CMSIS/Include/../include/core_cm4.h **** 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1167:CMSIS/Include/../include/core_cm4.h **** #define TPI_FIFO1_ITM1_Msk                 (0xFFUL << TPI_FIFO1_ITM1_Pos)              /*!< TPI FIF
 1168:CMSIS/Include/../include/core_cm4.h **** 
 1169:CMSIS/Include/../include/core_cm4.h **** #define TPI_FIFO1_ITM0_Pos                  0U                                         /*!< TPI FIF
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 22
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 22
 
 
 1170:CMSIS/Include/../include/core_cm4.h **** #define TPI_FIFO1_ITM0_Msk                 (0xFFUL /*<< TPI_FIFO1_ITM0_Pos*/)          /*!< TPI FIF
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1224:CMSIS/Include/../include/core_cm4.h **** {
 1225:CMSIS/Include/../include/core_cm4.h ****   __IM  uint32_t TYPE;                   /*!< Offset: 0x000 (R/ )  MPU Type Register */
 1226:CMSIS/Include/../include/core_cm4.h ****   __IOM uint32_t CTRL;                   /*!< Offset: 0x004 (R/W)  MPU Control Register */
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 23
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 23
 
 
 1227:CMSIS/Include/../include/core_cm4.h ****   __IOM uint32_t RNR;                    /*!< Offset: 0x008 (R/W)  MPU Region RNRber Register */
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1281:CMSIS/Include/../include/core_cm4.h **** #define MPU_RASR_AP_Pos                    24U                                            /*!< MPU 
 1282:CMSIS/Include/../include/core_cm4.h **** #define MPU_RASR_AP_Msk                    (0x7UL << MPU_RASR_AP_Pos)                     /*!< MPU 
 1283:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 24
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 24
 
 
 1284:CMSIS/Include/../include/core_cm4.h **** #define MPU_RASR_TEX_Pos                   19U                                            /*!< MPU 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1338:CMSIS/Include/../include/core_cm4.h **** 
 1339:CMSIS/Include/../include/core_cm4.h **** #define FPU_FPCCR_BFRDY_Pos                 6U                                            /*!< FPCC
 1340:CMSIS/Include/../include/core_cm4.h **** #define FPU_FPCCR_BFRDY_Msk                (1UL << FPU_FPCCR_BFRDY_Pos)                   /*!< FPCC
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 25
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 25
 
 
 1341:CMSIS/Include/../include/core_cm4.h **** 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1395:CMSIS/Include/../include/core_cm4.h **** 
 1396:CMSIS/Include/../include/core_cm4.h **** #define FPU_MVFR0_A_SIMD_registers_Pos      0U                                            /*!< MVFR
 1397:CMSIS/Include/../include/core_cm4.h **** #define FPU_MVFR0_A_SIMD_registers_Msk     (0xFUL /*<< FPU_MVFR0_A_SIMD_registers_Pos*/)  /*!< MVFR
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 26
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 26
 
 
 1398:CMSIS/Include/../include/core_cm4.h **** 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1452:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DHCSR_S_REGRDY_Pos       16U                                            /*!< Core
 1453:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DHCSR_S_REGRDY_Msk       (1UL << CoreDebug_DHCSR_S_REGRDY_Pos)          /*!< Core
 1454:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 27
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 27
 
 
 1455:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DHCSR_C_SNAPSTALL_Pos     5U                                            /*!< Core
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1509:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DEMCR_VC_NOCPERR_Msk     (1UL << CoreDebug_DEMCR_VC_NOCPERR_Pos)        /*!< Core
 1510:CMSIS/Include/../include/core_cm4.h **** 
 1511:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DEMCR_VC_MMERR_Pos        4U                                            /*!< Core
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 28
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 28
 
 
 1512:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DEMCR_VC_MMERR_Msk       (1UL << CoreDebug_DEMCR_VC_MMERR_Pos)          /*!< Core
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1566:CMSIS/Include/../include/core_cm4.h **** #define NVIC                ((NVIC_Type      *)     NVIC_BASE     )   /*!< NVIC configuration struc
 1567:CMSIS/Include/../include/core_cm4.h **** #define ITM                 ((ITM_Type       *)     ITM_BASE      )   /*!< ITM configuration struct
 1568:CMSIS/Include/../include/core_cm4.h **** #define DWT                 ((DWT_Type       *)     DWT_BASE      )   /*!< DWT configuration struct
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 29
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 29
 
 
 1569:CMSIS/Include/../include/core_cm4.h **** #define TPI                 ((TPI_Type       *)     TPI_BASE      )   /*!< TPI configuration struct
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1623:CMSIS/Include/../include/core_cm4.h ****   #define NVIC_SystemReset            __NVIC_SystemReset
 1624:CMSIS/Include/../include/core_cm4.h **** #endif /* CMSIS_NVIC_VIRTUAL */
 1625:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 30
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 30
 
 
 1626:CMSIS/Include/../include/core_cm4.h **** #ifdef CMSIS_VECTAB_VIRTUAL
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1680:CMSIS/Include/../include/core_cm4.h **** 
 1681:CMSIS/Include/../include/core_cm4.h **** 
 1682:CMSIS/Include/../include/core_cm4.h **** /**
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 31
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 31
 
 
 1683:CMSIS/Include/../include/core_cm4.h ****   \brief   Enable Interrupt
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1737:CMSIS/Include/../include/core_cm4.h ****   \details Reads the NVIC pending register and returns the pending bit for the specified device spe
 1738:CMSIS/Include/../include/core_cm4.h ****   \param [in]      IRQn  Device specific interrupt number.
 1739:CMSIS/Include/../include/core_cm4.h ****   \return             0  Interrupt status is not pending.
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 32
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 32
 
 
 1740:CMSIS/Include/../include/core_cm4.h ****   \return             1  Interrupt status is pending.
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1794:CMSIS/Include/../include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetActive(IRQn_Type IRQn)
 1795:CMSIS/Include/../include/core_cm4.h **** {
 1796:CMSIS/Include/../include/core_cm4.h ****   if ((int32_t)(IRQn) >= 0)
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 33
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 33
 
 
 1797:CMSIS/Include/../include/core_cm4.h ****   {
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
 1851:CMSIS/Include/../include/core_cm4.h **** 
 1852:CMSIS/Include/../include/core_cm4.h **** /**
 1853:CMSIS/Include/../include/core_cm4.h ****   \brief   Encode Priority
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 34
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 34
 
 
 1854:CMSIS/Include/../include/core_cm4.h ****   \details Encodes the priority for an interrupt with the given priority group,
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
   64              		.loc 2 1873 30 is_stmt 0 view .LVU14
   65 001c 4FF0FF3E 		mov	lr, #-1
   66 0020 0EFA0CF0 		lsl	r0, lr, ip
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 35
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 35
 
 
   67              	.LVL4:
@@ -2087,455 +2087,503 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 1
   99              		@ args = 0, pretend = 0, frame = 0
  100              		@ frame_needed = 0, uses_anonymous_args = 0
  101              		@ link register save eliminated.
-  10:Core/Src/init.c ****     MODIFY_REG(RCC->CR, RCC_CR_HSITRIM, 0x80U); // очистка битов HSITRIM и устан�
- 102              		.loc 1 10 5 view .LVU21
- 103 0000 404A     		ldr	r2, .L11
+  10:Core/Src/init.c ****     /* Предварительная очистка регистров RCC */
+  11:Core/Src/init.c ****     MODIFY_REG(RCC->CR, RCC_CR_HSITRIM, 0x80U);
+ 102              		.loc 1 11 5 view .LVU21
+ 103 0000 3F4A     		ldr	r2, .L11
  104 0002 1368     		ldr	r3, [r2]
  105 0004 23F0F803 		bic	r3, r3, #248
  106 0008 43F08003 		orr	r3, r3, #128
  107 000c 1360     		str	r3, [r2]
-  11:Core/Src/init.c ****     CLEAR_REG(RCC->CFGR);                       // очистка (выбор источника с
- 108              		.loc 1 11 5 view .LVU22
+  12:Core/Src/init.c ****     CLEAR_REG(RCC->CFGR);
+ 108              		.loc 1 12 5 view .LVU22
  109 000e 0023     		movs	r3, #0
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 36
+
+
  110 0010 9360     		str	r3, [r2, #8]
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 36
-
-
-  12:Core/Src/init.c ****     while (READ_BIT(RCC->CFGR, RCC_CFGR_SWS) != RESET)
- 111              		.loc 1 12 5 view .LVU23
+  13:Core/Src/init.c ****     while (READ_BIT(RCC->CFGR, RCC_CFGR_SWS) != RESET)
+ 111              		.loc 1 13 5 view .LVU23
  112              	.L6:
- 113              		.loc 1 12 46 discriminator 1 view .LVU24
- 114              		.loc 1 12 12 is_stmt 0 discriminator 1 view .LVU25
- 115 0012 3C4B     		ldr	r3, .L11
+ 113              		.loc 1 13 46 discriminator 1 view .LVU24
+ 114              		.loc 1 13 12 is_stmt 0 discriminator 1 view .LVU25
+ 115 0012 3B4B     		ldr	r3, .L11
  116 0014 9B68     		ldr	r3, [r3, #8]
- 117              		.loc 1 12 46 discriminator 1 view .LVU26
+ 117              		.loc 1 13 46 discriminator 1 view .LVU26
  118 0016 13F00C0F 		tst	r3, #12
  119 001a FAD1     		bne	.L6
-  13:Core/Src/init.c ****         ;
-  14:Core/Src/init.c **** 
-  15:Core/Src/init.c ****     // очистка битов PLLON, HSEON, CSSON, HSEBYP
-  16:Core/Src/init.c ****     CLEAR_BIT(RCC->CR, RCC_CR_PLLON);
- 120              		.loc 1 16 5 is_stmt 1 view .LVU27
- 121 001c 394A     		ldr	r2, .L11
+  14:Core/Src/init.c ****         ;
+  15:Core/Src/init.c ****     CLEAR_BIT(RCC->CR, RCC_CR_PLLON);
+ 120              		.loc 1 15 5 is_stmt 1 view .LVU27
+ 121 001c 384A     		ldr	r2, .L11
  122 001e 1368     		ldr	r3, [r2]
  123 0020 23F08073 		bic	r3, r3, #16777216
  124 0024 1360     		str	r3, [r2]
-  17:Core/Src/init.c ****     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) != RESET)
- 125              		.loc 1 17 5 view .LVU28
+  16:Core/Src/init.c ****     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) != RESET)
+ 125              		.loc 1 16 5 view .LVU28
  126              	.L7:
- 127              		.loc 1 17 45 discriminator 1 view .LVU29
- 128              		.loc 1 17 12 is_stmt 0 discriminator 1 view .LVU30
- 129 0026 374B     		ldr	r3, .L11
+ 127              		.loc 1 16 45 discriminator 1 view .LVU29
+ 128              		.loc 1 16 12 is_stmt 0 discriminator 1 view .LVU30
+ 129 0026 364B     		ldr	r3, .L11
  130 0028 1B68     		ldr	r3, [r3]
- 131              		.loc 1 17 45 discriminator 1 view .LVU31
+ 131              		.loc 1 16 45 discriminator 1 view .LVU31
  132 002a 13F0007F 		tst	r3, #33554432
  133 002e FAD1     		bne	.L7
-  18:Core/Src/init.c ****         ;
-  19:Core/Src/init.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEON | RCC_CR_CSSON);
- 134              		.loc 1 19 5 is_stmt 1 view .LVU32
- 135 0030 344A     		ldr	r2, .L11
+  17:Core/Src/init.c ****         ;
+  18:Core/Src/init.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEON | RCC_CR_CSSON);
+ 134              		.loc 1 18 5 is_stmt 1 view .LVU32
+ 135 0030 334A     		ldr	r2, .L11
  136 0032 1368     		ldr	r3, [r2]
  137 0034 23F41023 		bic	r3, r3, #589824
  138 0038 1360     		str	r3, [r2]
-  20:Core/Src/init.c ****     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) != RESET)
- 139              		.loc 1 20 5 view .LVU33
+  19:Core/Src/init.c ****     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) != RESET)
+ 139              		.loc 1 19 5 view .LVU33
  140              	.L8:
- 141              		.loc 1 20 45 discriminator 1 view .LVU34
- 142              		.loc 1 20 12 is_stmt 0 discriminator 1 view .LVU35
- 143 003a 324B     		ldr	r3, .L11
+ 141              		.loc 1 19 45 discriminator 1 view .LVU34
+ 142              		.loc 1 19 12 is_stmt 0 discriminator 1 view .LVU35
+ 143 003a 314B     		ldr	r3, .L11
  144 003c 1B68     		ldr	r3, [r3]
- 145              		.loc 1 20 45 discriminator 1 view .LVU36
+ 145              		.loc 1 19 45 discriminator 1 view .LVU36
  146 003e 13F4003F 		tst	r3, #131072
  147 0042 FAD1     		bne	.L8
-  21:Core/Src/init.c ****         ;
-  22:Core/Src/init.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP);
- 148              		.loc 1 22 5 is_stmt 1 view .LVU37
- 149 0044 2F4B     		ldr	r3, .L11
+  20:Core/Src/init.c ****         ;
+  21:Core/Src/init.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP);
+ 148              		.loc 1 21 5 is_stmt 1 view .LVU37
+ 149 0044 2E4B     		ldr	r3, .L11
  150 0046 1A68     		ldr	r2, [r3]
  151 0048 22F48022 		bic	r2, r2, #262144
  152 004c 1A60     		str	r2, [r3]
-  23:Core/Src/init.c **** 
-  24:Core/Src/init.c ****     // Настройка главного регистра RCC_CR
-  25:Core/Src/init.c ****     SET_BIT(RCC->CR, RCC_CR_HSEON); // Запускаем внешний кварцевый рез�
- 153              		.loc 1 25 5 view .LVU38
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 37
-
-
+  22:Core/Src/init.c ****     /* Настройка главного регистра RCC */
+  23:Core/Src/init.c ****     SET_BIT(RCC->CR, RCC_CR_HSEON); // Запускаем внешний кварцевый рез�
+ 153              		.loc 1 23 5 view .LVU38
  154 004e 1A68     		ldr	r2, [r3]
  155 0050 42F48032 		orr	r2, r2, #65536
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 37
+
+
  156 0054 1A60     		str	r2, [r3]
-  26:Core/Src/init.c ****     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) == RESET)
- 157              		.loc 1 26 5 view .LVU39
+  24:Core/Src/init.c ****     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) == RESET)
+ 157              		.loc 1 24 5 view .LVU39
  158              	.L9:
- 159              		.loc 1 26 45 discriminator 1 view .LVU40
- 160              		.loc 1 26 12 is_stmt 0 discriminator 1 view .LVU41
- 161 0056 2B4B     		ldr	r3, .L11
+ 159              		.loc 1 24 45 discriminator 1 view .LVU40
+ 160              		.loc 1 24 12 is_stmt 0 discriminator 1 view .LVU41
+ 161 0056 2A4B     		ldr	r3, .L11
  162 0058 1B68     		ldr	r3, [r3]
- 163              		.loc 1 26 45 discriminator 1 view .LVU42
+ 163              		.loc 1 24 45 discriminator 1 view .LVU42
  164 005a 13F4003F 		tst	r3, #131072
  165 005e FAD0     		beq	.L9
-  27:Core/Src/init.c ****         ;                              // Ждём пока он запустится
-  28:Core/Src/init.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP); // отключение шунтирования для из
- 166              		.loc 1 28 5 is_stmt 1 view .LVU43
- 167 0060 284B     		ldr	r3, .L11
+  25:Core/Src/init.c ****         ;                              // Ждём пока он запустится
+  26:Core/Src/init.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP); // Сбросим бит байпаса в 0, если вд�
+ 166              		.loc 1 26 5 is_stmt 1 view .LVU43
+ 167 0060 274B     		ldr	r3, .L11
  168 0062 1A68     		ldr	r2, [r3]
  169 0064 22F48022 		bic	r2, r2, #262144
  170 0068 1A60     		str	r2, [r3]
-  29:Core/Src/init.c ****     SET_BIT(RCC->CR, RCC_CR_CSSON);    // отслеживание ошибки в работе HSE
- 171              		.loc 1 29 5 view .LVU44
+  27:Core/Src/init.c ****     SET_BIT(RCC->CR, RCC_CR_CSSON);    // Запустим Clock detector
+ 171              		.loc 1 27 5 view .LVU44
  172 006a 1A68     		ldr	r2, [r3]
  173 006c 42F40022 		orr	r2, r2, #524288
  174 0070 1A60     		str	r2, [r3]
-  30:Core/Src/init.c **** 
-  31:Core/Src/init.c ****     // Настройка регистра RCC_PLLCFGR
-  32:Core/Src/init.c ****     CLEAR_REG(RCC->PLLCFGR);
- 175              		.loc 1 32 5 view .LVU45
+  28:Core/Src/init.c ****     /* Настройка регистров PLL
+  29:Core/Src/init.c ****     * Предварительная очистка регистра
+  30:Core/Src/init.c ****     * В качестве источника тактирования для PLL выбираетс
+  31:Core/Src/init.c ****     * Мы сначала делим входную частоту (HSE) на 4 (получаем 2
+  32:Core/Src/init.c ****     снова делим на 2, таким образом получаем 180МГц
+  33:Core/Src/init.c ****     * Включаем работу PLL
+  34:Core/Src/init.c ****     */
+  35:Core/Src/init.c ****     CLEAR_REG(RCC->PLLCFGR);
+ 175              		.loc 1 35 5 view .LVU45
  176 0072 0022     		movs	r2, #0
  177 0074 5A60     		str	r2, [r3, #4]
-  33:Core/Src/init.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLSRC_HSE); // Выбираем в качестве исто
- 178              		.loc 1 33 5 view .LVU46
+  36:Core/Src/init.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLSRC_HSE);
+ 178              		.loc 1 36 5 view .LVU46
  179 0076 5A68     		ldr	r2, [r3, #4]
  180 0078 42F48002 		orr	r2, r2, #4194304
  181 007c 5A60     		str	r2, [r3, #4]
-  34:Core/Src/init.c **** 
-  35:Core/Src/init.c ****     // Настройка множителей и делителей PLL
-  36:Core/Src/init.c ****     MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLM, RCC_PLLCFGR_PLLM_2); // Выставляем пре�
- 182              		.loc 1 36 5 view .LVU47
+  37:Core/Src/init.c ****     MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLM, RCC_PLLCFGR_PLLM_2); // Выставляем пре�
+ 182              		.loc 1 37 5 view .LVU47
  183 007e 5A68     		ldr	r2, [r3, #4]
  184 0080 22F03F02 		bic	r2, r2, #63
  185 0084 42F00402 		orr	r2, r2, #4
  186 0088 5A60     		str	r2, [r3, #4]
-  37:Core/Src/init.c ****     //-------------------------------------------------
-  38:Core/Src/init.c ****     // N = 60 ||0011 1100 000000
-  39:Core/Src/init.c ****     // N = 80 ||0101 0000 000000
-  40:Core/Src/init.c ****     // N = 90 ||0101 1010 000000
-  41:Core/Src/init.c **** 
-  42:Core/Src/init.c ****     // MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_2 |
-  43:Core/Src/init.c ****     // RCC_PLLCFGR_PLLN_3 | RCC_PLLCFGR_PLLN_4 | RCC_PLLCFGR_PLLN_5); //Настраиваем ум
-  44:Core/Src/init.c **** 
-  45:Core/Src/init.c ****     // MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_4 | RCC_PLLCFGR_PLLN_6); //�
-  46:Core/Src/init.c **** 
-  47:Core/Src/init.c ****     MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_1 | RCC_PLLCFGR_PLLN_3 | RCC_PL
- 187              		.loc 1 47 5 view .LVU48
+  38:Core/Src/init.c ****     MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_2 | RCC_PLLCFGR_PLLN_4 | RCC_PL
+ 187              		.loc 1 38 5 view .LVU48
  188 008a 5A68     		ldr	r2, [r3, #4]
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 38
-
-
  189 008c 6FF38E12 		bfc	r2, #6, #9
- 190 0090 42F4B452 		orr	r2, r2, #5760
+ 190 0090 42F43452 		orr	r2, r2, #11520
  191 0094 5A60     		str	r2, [r3, #4]
-  48:Core/Src/init.c **** 
-  49:Core/Src/init.c ****     // MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_2 |
-  50:Core/Src/init.c ****     // RCC_PLLCFGR_PLLN_4 | RCC_PLLCFGR_PLLN_5 | RCC_PLLCFGR_PLLN_7); //Настраиваем ум
-  51:Core/Src/init.c **** 
-  52:Core/Src/init.c ****     CLEAR_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLP_Msk); // Настраиваем предделител
- 192              		.loc 1 52 5 view .LVU49
+  39:Core/Src/init.c ****     CLEAR_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLP_Msk); // Настраиваем предделител
+ 192              		.loc 1 39 5 view .LVU49
  193 0096 5A68     		ldr	r2, [r3, #4]
  194 0098 22F44032 		bic	r2, r2, #196608
  195 009c 5A60     		str	r2, [r3, #4]
-  53:Core/Src/init.c ****     // MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLP_Msk, RCC_PLLCFGR_PLLP_0); //Делим на 4 (90 
-  54:Core/Src/init.c **** 
-  55:Core/Src/init.c ****     SET_BIT(RCC->CR, RCC_CR_PLLON); // Запустим PLL
- 196              		.loc 1 55 5 view .LVU50
+  40:Core/Src/init.c ****                                                SET_BIT(RCC->CR, RCC_CR_PLLON); // Запустим 
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 38
+
+
+ 196              		.loc 1 40 48 view .LVU50
  197 009e 1A68     		ldr	r2, [r3]
  198 00a0 42F08072 		orr	r2, r2, #16777216
  199 00a4 1A60     		str	r2, [r3]
-  56:Core/Src/init.c ****     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY))
- 200              		.loc 1 56 5 view .LVU51
+  41:Core/Src/init.c ****     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY))
+ 200              		.loc 1 41 5 view .LVU51
  201              	.L10:
- 202              		.loc 1 56 12 discriminator 1 view .LVU52
- 203 00a6 174B     		ldr	r3, .L11
+ 202              		.loc 1 41 12 discriminator 1 view .LVU52
+ 203 00a6 164B     		ldr	r3, .L11
  204 00a8 1B68     		ldr	r3, [r3]
  205 00aa 13F0007F 		tst	r3, #33554432
  206 00ae FAD1     		bne	.L10
-  57:Core/Src/init.c ****         ; // Ждём запуска PLL
-  58:Core/Src/init.c **** 
-  59:Core/Src/init.c ****     // Настройка регистра RCC_CFGR
-  60:Core/Src/init.c ****     MODIFY_REG(RCC->CFGR, RCC_CFGR_SW, RCC_CFGR_SW_PLL);        // Выбираем PLL в каче
- 207              		.loc 1 60 5 view .LVU53
- 208 00b0 144B     		ldr	r3, .L11
+  42:Core/Src/init.c ****         ; // Ждём запуска PLL
+  43:Core/Src/init.c ****     /* Настройка основных конфигураций RCC
+  44:Core/Src/init.c ****      * В качетсве системных часов выбираем выход PLL
+  45:Core/Src/init.c ****      * Настраиваем предделители шин AHB и APB
+  46:Core/Src/init.c ****      * Настраиваем выходы MCO1 и MCO2 для внешней оценки наст
+  47:Core/Src/init.c ****      */
+  48:Core/Src/init.c ****     MODIFY_REG(RCC->CFGR, RCC_CFGR_SW, RCC_CFGR_SW_PLL); // Выбираем PLL в качеств�
+ 207              		.loc 1 48 5 view .LVU53
+ 208 00b0 134B     		ldr	r3, .L11
  209 00b2 9A68     		ldr	r2, [r3, #8]
  210 00b4 22F00302 		bic	r2, r2, #3
  211 00b8 42F00202 		orr	r2, r2, #2
  212 00bc 9A60     		str	r2, [r3, #8]
-  61:Core/Src/init.c ****     MODIFY_REG(RCC->CFGR, RCC_CFGR_HPRE, RCC_CFGR_HPRE_DIV1);   // Предделитель AHB, б
- 213              		.loc 1 61 5 view .LVU54
+  49:Core/Src/init.c ****         MODIFY_REG(RCC->CFGR, RCC_CFGR_HPRE, RCC_CFGR_HPRE_DIV1);    // Предделитель AH
+ 213              		.loc 1 49 9 view .LVU54
  214 00be 9A68     		ldr	r2, [r3, #8]
  215 00c0 22F0F002 		bic	r2, r2, #240
  216 00c4 9A60     		str	r2, [r3, #8]
-  62:Core/Src/init.c ****     MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE1, RCC_CFGR_PPRE1_DIV4); // Предделитель APВ1, 
- 217              		.loc 1 62 5 view .LVU55
+  50:Core/Src/init.c ****     MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE1, RCC_CFGR_PPRE1_DIV4);      // Предделитель AP
+ 217              		.loc 1 50 5 view .LVU55
  218 00c6 9A68     		ldr	r2, [r3, #8]
  219 00c8 22F4E052 		bic	r2, r2, #7168
  220 00cc 42F4A052 		orr	r2, r2, #5120
  221 00d0 9A60     		str	r2, [r3, #8]
-  63:Core/Src/init.c ****     MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE2, RCC_CFGR_PPRE2_DIV2); // Предделитель APВ2, 
- 222              		.loc 1 63 5 view .LVU56
+  51:Core/Src/init.c ****     MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE2, RCC_CFGR_PPRE2_DIV2);    // Предделитель APВ
+ 222              		.loc 1 51 5 view .LVU56
  223 00d2 9A68     		ldr	r2, [r3, #8]
  224 00d4 22F46042 		bic	r2, r2, #57344
  225 00d8 42F40042 		orr	r2, r2, #32768
  226 00dc 9A60     		str	r2, [r3, #8]
-  64:Core/Src/init.c **** 
-  65:Core/Src/init.c ****     // MODIFY_REG(RCC->CFGR, RCC_CFGR_MCO2PRE, RCC_CFGR_MCO2PRE_Msk); //Предделитель н
-  66:Core/Src/init.c ****     MODIFY_REG(RCC->CFGR, RCC_CFGR_MCO2PRE, RCC_CFGR_MCO2PRE_2); // деление на 2
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 39
-
-
- 227              		.loc 1 66 5 view .LVU57
+  52:Core/Src/init.c ****     MODIFY_REG(RCC->CFGR, RCC_CFGR_MCO2PRE, RCC_CFGR_MCO2PRE_Msk); // Предделитель на
+ 227              		.loc 1 52 5 view .LVU57
  228 00de 9A68     		ldr	r2, [r3, #8]
- 229 00e0 22F06052 		bic	r2, r2, #939524096
- 230 00e4 42F00052 		orr	r2, r2, #536870912
- 231 00e8 9A60     		str	r2, [r3, #8]
-  67:Core/Src/init.c **** 
-  68:Core/Src/init.c ****     CLEAR_BIT(RCC->CFGR, RCC_CFGR_MCO2); // Выбираем в качестве источника
- 232              		.loc 1 68 5 view .LVU58
- 233 00ea 9A68     		ldr	r2, [r3, #8]
- 234 00ec 22F04042 		bic	r2, r2, #-1073741824
- 235 00f0 9A60     		str	r2, [r3, #8]
-  69:Core/Src/init.c **** 
-  70:Core/Src/init.c ****     MODIFY_REG(FLASH->ACR, FLASH_ACR_LATENCY, FLASH_ACR_LATENCY_5WS); // Настройка зад�
- 236              		.loc 1 70 5 view .LVU59
- 237 00f2 054A     		ldr	r2, .L11+4
- 238 00f4 1368     		ldr	r3, [r2]
- 239 00f6 23F00F03 		bic	r3, r3, #15
- 240 00fa 43F00503 		orr	r3, r3, #5
- 241 00fe 1360     		str	r3, [r2]
-  71:Core/Src/init.c **** }
- 242              		.loc 1 71 1 is_stmt 0 view .LVU60
- 243 0100 7047     		bx	lr
- 244              	.L12:
- 245 0102 00BF     		.align	2
- 246              	.L11:
- 247 0104 00380240 		.word	1073887232
- 248 0108 003C0240 		.word	1073888256
- 249              		.cfi_endproc
- 250              	.LFE130:
- 252              		.section	.text.GPIO_Init,"ax",%progbits
- 253              		.align	1
- 254              		.global	GPIO_Init
- 255              		.syntax unified
- 256              		.thumb
- 257              		.thumb_func
- 259              	GPIO_Init:
- 260              	.LFB131:
-  72:Core/Src/init.c **** 
-  73:Core/Src/init.c **** /**
-  74:Core/Src/init.c ****  * @brief настройка GPIO пинов микроконтроллера
-  75:Core/Src/init.c ****  * @details Настройка пинов PC11; PD2; PG2; PE2;
-  76:Core/Src/init.c ****  * @note Необходима вызвать в начале main
-  77:Core/Src/init.c ****  */
-  78:Core/Src/init.c **** void GPIO_Init(void)
-  79:Core/Src/init.c **** {
- 261              		.loc 1 79 1 is_stmt 1 view -0
- 262              		.cfi_startproc
- 263              		@ args = 0, pretend = 0, frame = 0
- 264              		@ frame_needed = 0, uses_anonymous_args = 0
- 265              		@ link register save eliminated.
-  80:Core/Src/init.c ****     // NOTE: используемые порты: PC11; PD2; PG2; PE2;
-  81:Core/Src/init.c **** 
-  82:Core/Src/init.c ****     // включаем тактирование на пины GPIOC/D/E/G/B
-  83:Core/Src/init.c ****     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN | RCC_AHB1ENR_GPIODEN | RCC_AHB1ENR_GPIOEEN | RCC_AHB
- 266              		.loc 1 83 5 view .LVU62
- 267 0000 094A     		ldr	r2, .L14
- 268 0002 136B     		ldr	r3, [r2, #48]
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 40
+ 229 00e0 42F06052 		orr	r2, r2, #939524096
+ 230 00e4 9A60     		str	r2, [r3, #8]
+  53:Core/Src/init.c ****     CLEAR_BIT(RCC->CFGR, RCC_CFGR_MCO2);               // Настраиваем на выход MC
+ 231              		.loc 1 53 5 view .LVU58
+ 232 00e6 9A68     		ldr	r2, [r3, #8]
+ 233 00e8 22F04042 		bic	r2, r2, #-1073741824
+ 234 00ec 9A60     		str	r2, [r3, #8]
+  54:Core/Src/init.c ****     /* Настройка задержки внутренней памяти
+  55:Core/Src/init.c ****     * Выставление битов LATENCY регистра FLASH_ACR в позицию 5SW (6
+  56:Core/Src/init.c ****     * Данная настройка необходима при увеличении систем
+  57:Core/Src/init.c ****     Таблица 12 RM0090
+  58:Core/Src/init.c ****     */
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 39
 
 
- 269 0004 43F05E03 		orr	r3, r3, #94
- 270 0008 1363     		str	r3, [r2, #48]
-  84:Core/Src/init.c **** 
-  85:Core/Src/init.c ****     SET_BIT(GPIOC->MODER, GPIO_MODER_MODER9_1);           // Настраиваем пин на а�
- 271              		.loc 1 85 5 view .LVU63
- 272 000a 084B     		ldr	r3, .L14+4
- 273 000c 1A68     		ldr	r2, [r3]
- 274 000e 42F40022 		orr	r2, r2, #524288
- 275 0012 1A60     		str	r2, [r3]
-  86:Core/Src/init.c ****     SET_BIT(GPIOC->OSPEEDR, GPIO_OSPEEDR_OSPEED9_Msk);    // Настраиваем пин на м�
- 276              		.loc 1 86 5 view .LVU64
- 277 0014 9A68     		ldr	r2, [r3, #8]
- 278 0016 42F44022 		orr	r2, r2, #786432
- 279 001a 9A60     		str	r2, [r3, #8]
-  87:Core/Src/init.c ****     MODIFY_REG(GPIOC->AFR[1], GPIO_AFRH_AFSEL9_Msk, 0x0); // Выбираем тип альтерн
- 280              		.loc 1 87 5 view .LVU65
- 281 001c 5A6A     		ldr	r2, [r3, #36]
- 282 001e 22F0F002 		bic	r2, r2, #240
- 283 0022 5A62     		str	r2, [r3, #36]
-  88:Core/Src/init.c **** }
- 284              		.loc 1 88 1 is_stmt 0 view .LVU66
- 285 0024 7047     		bx	lr
- 286              	.L15:
- 287 0026 00BF     		.align	2
- 288              	.L14:
- 289 0028 00380240 		.word	1073887232
- 290 002c 00080240 		.word	1073874944
- 291              		.cfi_endproc
- 292              	.LFE131:
- 294              		.section	.text.ITR_Init,"ax",%progbits
- 295              		.align	1
- 296              		.global	ITR_Init
- 297              		.syntax unified
- 298              		.thumb
- 299              		.thumb_func
- 301              	ITR_Init:
- 302              	.LFB132:
-  89:Core/Src/init.c **** /**
-  90:Core/Src/init.c ****  * @brief Инициализация прерывания по кнопке на пине PC13
-  91:Core/Src/init.c ****  * @details Настройка прерывания EXTI13 на пине PC13 по фронту и 
-  92:Core/Src/init.c ****  * Установка приоритета прерывания в 0.
-  93:Core/Src/init.c ****  * @note Необходима вызвать в начале main
-  94:Core/Src/init.c ****  */
-  95:Core/Src/init.c **** void ITR_Init(void)
-  96:Core/Src/init.c **** {
- 303              		.loc 1 96 1 is_stmt 1 view -0
- 304              		.cfi_startproc
- 305              		@ args = 0, pretend = 0, frame = 0
- 306              		@ frame_needed = 0, uses_anonymous_args = 0
- 307 0000 08B5     		push	{r3, lr}
- 308              	.LCFI1:
- 309              		.cfi_def_cfa_offset 8
- 310              		.cfi_offset 3, -8
- 311              		.cfi_offset 14, -4
-  97:Core/Src/init.c ****     // Настройка регистра SYSCFG_EXTICR4
-  98:Core/Src/init.c ****     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN);                                        // вклю
- 312              		.loc 1 98 5 view .LVU68
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 41
+  59:Core/Src/init.c ****     MODIFY_REG(FLASH->ACR, FLASH_ACR_LATENCY, FLASH_ACR_LATENCY_5WS);
+ 235              		.loc 1 59 5 view .LVU59
+ 236 00ee 054A     		ldr	r2, .L11+4
+ 237 00f0 1368     		ldr	r3, [r2]
+ 238 00f2 23F00F03 		bic	r3, r3, #15
+ 239 00f6 43F00503 		orr	r3, r3, #5
+ 240 00fa 1360     		str	r3, [r2]
+  60:Core/Src/init.c **** }
+ 241              		.loc 1 60 1 is_stmt 0 view .LVU60
+ 242 00fc 7047     		bx	lr
+ 243              	.L12:
+ 244 00fe 00BF     		.align	2
+ 245              	.L11:
+ 246 0100 00380240 		.word	1073887232
+ 247 0104 003C0240 		.word	1073888256
+ 248              		.cfi_endproc
+ 249              	.LFE130:
+ 251              		.section	.text.GPIO_Init,"ax",%progbits
+ 252              		.align	1
+ 253              		.global	GPIO_Init
+ 254              		.syntax unified
+ 255              		.thumb
+ 256              		.thumb_func
+ 258              	GPIO_Init:
+ 259              	.LFB131:
+  61:Core/Src/init.c **** 
+  62:Core/Src/init.c **** /**
+  63:Core/Src/init.c ****  * @brief настройка GPIO пинов микроконтроллера
+  64:Core/Src/init.c ****  * @details Настройка пинов PC11; PD2; PG2; PE2;
+  65:Core/Src/init.c ****  * @note Необходима вызвать в начале main
+  66:Core/Src/init.c ****  */
+  67:Core/Src/init.c **** void GPIO_Init(void)
+  68:Core/Src/init.c **** {
+ 260              		.loc 1 68 1 is_stmt 1 view -0
+ 261              		.cfi_startproc
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264              		@ link register save eliminated.
+  69:Core/Src/init.c ****     // включаем тактирование на пины GPIOC/D/E/G/B
+  70:Core/Src/init.c ****     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN | RCC_AHB1ENR_GPIODEN | RCC_AHB1ENR_GPIOEEN | RCC_AHB
+ 265              		.loc 1 70 5 view .LVU62
+ 266 0000 094A     		ldr	r2, .L14
+ 267 0002 136B     		ldr	r3, [r2, #48]
+ 268 0004 43F05E03 		orr	r3, r3, #94
+ 269 0008 1363     		str	r3, [r2, #48]
+  71:Core/Src/init.c ****     SET_BIT(GPIOC->MODER, GPIO_MODER_MODER9_1);           // Настраиваем пин на а�
+ 270              		.loc 1 71 5 view .LVU63
+ 271 000a 084B     		ldr	r3, .L14+4
+ 272 000c 1A68     		ldr	r2, [r3]
+ 273 000e 42F40022 		orr	r2, r2, #524288
+ 274 0012 1A60     		str	r2, [r3]
+  72:Core/Src/init.c ****     SET_BIT(GPIOC->OSPEEDR, GPIO_OSPEEDR_OSPEED9_Msk);    // Настраиваем пин на м�
+ 275              		.loc 1 72 5 view .LVU64
+ 276 0014 9A68     		ldr	r2, [r3, #8]
+ 277 0016 42F44022 		orr	r2, r2, #786432
+ 278 001a 9A60     		str	r2, [r3, #8]
+  73:Core/Src/init.c ****     MODIFY_REG(GPIOC->AFR[1], GPIO_AFRH_AFSEL9_Msk, 0x0); // Выбираем тип альтерн
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 40
 
 
- 313 0002 154A     		ldr	r2, .L18
- 314 0004 536C     		ldr	r3, [r2, #68]
- 315 0006 43F48043 		orr	r3, r3, #16384
- 316 000a 5364     		str	r3, [r2, #68]
-  99:Core/Src/init.c ****     MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC); // Наст
- 317              		.loc 1 99 5 view .LVU69
- 318 000c A2F58032 		sub	r2, r2, #65536
- 319 0010 5369     		ldr	r3, [r2, #20]
- 320 0012 23F0F003 		bic	r3, r3, #240
- 321 0016 43F02003 		orr	r3, r3, #32
- 322 001a 5361     		str	r3, [r2, #20]
- 100:Core/Src/init.c ****     // Настройка регистров EXTI
- 101:Core/Src/init.c ****     SET_BIT(EXTI->IMR, EXTI_IMR_MR13);   // Маскирования линии прерывани�
- 323              		.loc 1 101 5 view .LVU70
- 324 001c 0F4B     		ldr	r3, .L18+4
- 325 001e 1A68     		ldr	r2, [r3]
- 326 0020 42F40052 		orr	r2, r2, #8192
- 327 0024 1A60     		str	r2, [r3]
- 102:Core/Src/init.c ****     SET_BIT(EXTI->RTSR, EXTI_RTSR_TR13); // Отслеживание по фронту
- 328              		.loc 1 102 5 view .LVU71
- 329 0026 9A68     		ldr	r2, [r3, #8]
- 330 0028 42F40052 		orr	r2, r2, #8192
- 331 002c 9A60     		str	r2, [r3, #8]
- 103:Core/Src/init.c ****     SET_BIT(EXTI->FTSR, EXTI_FTSR_TR13); // Отслеживание по спаду
- 332              		.loc 1 103 5 view .LVU72
- 333 002e DA68     		ldr	r2, [r3, #12]
- 334 0030 42F40052 		orr	r2, r2, #8192
- 335 0034 DA60     		str	r2, [r3, #12]
- 104:Core/Src/init.c ****     // Настройка регистров NVIC
- 105:Core/Src/init.c ****     NVIC_SetPriority(EXTI15_10_IRQn,
- 336              		.loc 1 105 5 view .LVU73
- 337              	.LBB8:
- 338              	.LBI8:
+ 279              		.loc 1 73 5 view .LVU65
+ 280 001c 5A6A     		ldr	r2, [r3, #36]
+ 281 001e 22F0F002 		bic	r2, r2, #240
+ 282 0022 5A62     		str	r2, [r3, #36]
+  74:Core/Src/init.c **** }
+ 283              		.loc 1 74 1 is_stmt 0 view .LVU66
+ 284 0024 7047     		bx	lr
+ 285              	.L15:
+ 286 0026 00BF     		.align	2
+ 287              	.L14:
+ 288 0028 00380240 		.word	1073887232
+ 289 002c 00080240 		.word	1073874944
+ 290              		.cfi_endproc
+ 291              	.LFE131:
+ 293              		.section	.text.ITR_Init,"ax",%progbits
+ 294              		.align	1
+ 295              		.global	ITR_Init
+ 296              		.syntax unified
+ 297              		.thumb
+ 298              		.thumb_func
+ 300              	ITR_Init:
+ 301              	.LFB132:
+  75:Core/Src/init.c **** /**
+  76:Core/Src/init.c ****  * @brief Инициализация прерывания по кнопке на пине PC13
+  77:Core/Src/init.c ****  * @details Настройка прерывания EXTI13 на пине PC13 по фронту и 
+  78:Core/Src/init.c ****  * Установка приоритета прерывания в 0.
+  79:Core/Src/init.c ****  * @note Необходима вызвать в начале main
+  80:Core/Src/init.c ****  */
+  81:Core/Src/init.c **** void ITR_Init(void)
+  82:Core/Src/init.c **** {
+ 302              		.loc 1 82 1 is_stmt 1 view -0
+ 303              		.cfi_startproc
+ 304              		@ args = 0, pretend = 0, frame = 0
+ 305              		@ frame_needed = 0, uses_anonymous_args = 0
+ 306 0000 08B5     		push	{r3, lr}
+ 307              	.LCFI1:
+ 308              		.cfi_def_cfa_offset 8
+ 309              		.cfi_offset 3, -8
+ 310              		.cfi_offset 14, -4
+  83:Core/Src/init.c ****     // Настройка регистра SYSCFG_EXTICR4
+  84:Core/Src/init.c ****     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN);                                        // вклю
+ 311              		.loc 1 84 5 view .LVU68
+ 312 0002 154A     		ldr	r2, .L18
+ 313 0004 536C     		ldr	r3, [r2, #68]
+ 314 0006 43F48043 		orr	r3, r3, #16384
+ 315 000a 5364     		str	r3, [r2, #68]
+  85:Core/Src/init.c ****     MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC); // Наст
+ 316              		.loc 1 85 5 view .LVU69
+ 317 000c A2F58032 		sub	r2, r2, #65536
+ 318 0010 5369     		ldr	r3, [r2, #20]
+ 319 0012 23F0F003 		bic	r3, r3, #240
+ 320 0016 43F02003 		orr	r3, r3, #32
+ 321 001a 5361     		str	r3, [r2, #20]
+  86:Core/Src/init.c ****     // Настройка регистров EXTI
+  87:Core/Src/init.c ****     SET_BIT(EXTI->IMR, EXTI_IMR_MR13);   // Маскирования линии прерывани�
+ 322              		.loc 1 87 5 view .LVU70
+ 323 001c 0F4B     		ldr	r3, .L18+4
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 41
+
+
+ 324 001e 1A68     		ldr	r2, [r3]
+ 325 0020 42F40052 		orr	r2, r2, #8192
+ 326 0024 1A60     		str	r2, [r3]
+  88:Core/Src/init.c ****     SET_BIT(EXTI->RTSR, EXTI_RTSR_TR13); // Отслеживание по фронту
+ 327              		.loc 1 88 5 view .LVU71
+ 328 0026 9A68     		ldr	r2, [r3, #8]
+ 329 0028 42F40052 		orr	r2, r2, #8192
+ 330 002c 9A60     		str	r2, [r3, #8]
+  89:Core/Src/init.c ****     SET_BIT(EXTI->FTSR, EXTI_FTSR_TR13); // Отслеживание по спаду
+ 331              		.loc 1 89 5 view .LVU72
+ 332 002e DA68     		ldr	r2, [r3, #12]
+ 333 0030 42F40052 		orr	r2, r2, #8192
+ 334 0034 DA60     		str	r2, [r3, #12]
+  90:Core/Src/init.c ****     // Настройка регистров NVIC
+  91:Core/Src/init.c ****     NVIC_SetPriority(EXTI15_10_IRQn,
+ 335              		.loc 1 91 5 view .LVU73
+ 336              	.LBB8:
+ 337              	.LBI8:
 1676:CMSIS/Include/../include/core_cm4.h **** {
- 339              		.loc 2 1676 26 view .LVU74
- 340              	.LBB9:
+ 338              		.loc 2 1676 26 view .LVU74
+ 339              	.LBB9:
 1678:CMSIS/Include/../include/core_cm4.h **** }
- 341              		.loc 2 1678 3 view .LVU75
+ 340              		.loc 2 1678 3 view .LVU75
 1678:CMSIS/Include/../include/core_cm4.h **** }
- 342              		.loc 2 1678 26 is_stmt 0 view .LVU76
- 343 0036 0A4B     		ldr	r3, .L18+8
- 344 0038 D868     		ldr	r0, [r3, #12]
- 345              	.LBE9:
- 346              	.LBE8:
- 347              		.loc 1 105 5 discriminator 1 view .LVU77
- 348 003a 0022     		movs	r2, #0
- 349 003c 1146     		mov	r1, r2
- 350 003e C0F30220 		ubfx	r0, r0, #8, #3
- 351 0042 FFF7FEFF 		bl	NVIC_EncodePriority
- 352              	.LVL8:
- 353              	.LBB10:
- 354              	.LBI10:
+ 341              		.loc 2 1678 26 is_stmt 0 view .LVU76
+ 342 0036 0A4B     		ldr	r3, .L18+8
+ 343 0038 D868     		ldr	r0, [r3, #12]
+ 344              	.LBE9:
+ 345              	.LBE8:
+ 346              		.loc 1 91 5 discriminator 1 view .LVU77
+ 347 003a 0022     		movs	r2, #0
+ 348 003c 1146     		mov	r1, r2
+ 349 003e C0F30220 		ubfx	r0, r0, #8, #3
+ 350 0042 FFF7FEFF 		bl	NVIC_EncodePriority
+ 351              	.LVL8:
+ 352              	.LBB10:
+ 353              	.LBI10:
 1816:CMSIS/Include/../include/core_cm4.h **** {
- 355              		.loc 2 1816 22 is_stmt 1 view .LVU78
- 356              	.LBB11:
+ 354              		.loc 2 1816 22 is_stmt 1 view .LVU78
+ 355              	.LBB11:
 1818:CMSIS/Include/../include/core_cm4.h ****   {
- 357              		.loc 2 1818 3 view .LVU79
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 42
+ 356              		.loc 2 1818 3 view .LVU79
+1820:CMSIS/Include/../include/core_cm4.h ****   }
+ 357              		.loc 2 1820 5 view .LVU80
+1820:CMSIS/Include/../include/core_cm4.h ****   }
+ 358              		.loc 2 1820 48 is_stmt 0 view .LVU81
+ 359 0046 0001     		lsls	r0, r0, #4
+ 360              	.LVL9:
+1820:CMSIS/Include/../include/core_cm4.h ****   }
+ 361              		.loc 2 1820 48 view .LVU82
+ 362 0048 C0B2     		uxtb	r0, r0
+1820:CMSIS/Include/../include/core_cm4.h ****   }
+ 363              		.loc 2 1820 46 view .LVU83
+ 364 004a 064B     		ldr	r3, .L18+12
+ 365 004c 83F82803 		strb	r0, [r3, #808]
+ 366              	.LVL10:
+1820:CMSIS/Include/../include/core_cm4.h ****   }
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 42
 
 
-1820:CMSIS/Include/../include/core_cm4.h ****   }
- 358              		.loc 2 1820 5 view .LVU80
-1820:CMSIS/Include/../include/core_cm4.h ****   }
- 359              		.loc 2 1820 48 is_stmt 0 view .LVU81
- 360 0046 0001     		lsls	r0, r0, #4
- 361              	.LVL9:
-1820:CMSIS/Include/../include/core_cm4.h ****   }
- 362              		.loc 2 1820 48 view .LVU82
- 363 0048 C0B2     		uxtb	r0, r0
-1820:CMSIS/Include/../include/core_cm4.h ****   }
- 364              		.loc 2 1820 46 view .LVU83
- 365 004a 064B     		ldr	r3, .L18+12
- 366 004c 83F82803 		strb	r0, [r3, #808]
- 367              	.LVL10:
-1820:CMSIS/Include/../include/core_cm4.h ****   }
- 368              		.loc 2 1820 46 view .LVU84
- 369              	.LBE11:
- 370              	.LBE10:
- 106:Core/Src/init.c ****                      NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0)); // установка 
- 107:Core/Src/init.c ****     NVIC_EnableIRQ(EXTI15_10_IRQn);                                          // разрешени�
- 371              		.loc 1 107 5 is_stmt 1 view .LVU85
- 372              	.LBB12:
- 373              	.LBI12:
+ 367              		.loc 2 1820 46 view .LVU84
+ 368              	.LBE11:
+ 369              	.LBE10:
+  92:Core/Src/init.c ****                      NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0)); // установка 
+  93:Core/Src/init.c ****     NVIC_EnableIRQ(EXTI15_10_IRQn);                                          // разрешени�
+ 370              		.loc 1 93 5 is_stmt 1 view .LVU85
+ 371              	.LBB12:
+ 372              	.LBI12:
 1688:CMSIS/Include/../include/core_cm4.h **** {
- 374              		.loc 2 1688 22 view .LVU86
- 375              	.LBB13:
+ 373              		.loc 2 1688 22 view .LVU86
+ 374              	.LBB13:
 1690:CMSIS/Include/../include/core_cm4.h ****   {
- 376              		.loc 2 1690 3 view .LVU87
+ 375              		.loc 2 1690 3 view .LVU87
 1692:CMSIS/Include/../include/core_cm4.h ****   }
- 377              		.loc 2 1692 5 view .LVU88
+ 376              		.loc 2 1692 5 view .LVU88
 1692:CMSIS/Include/../include/core_cm4.h ****   }
- 378              		.loc 2 1692 43 is_stmt 0 view .LVU89
- 379 0050 4FF48072 		mov	r2, #256
- 380 0054 5A60     		str	r2, [r3, #4]
- 381              	.LVL11:
+ 377              		.loc 2 1692 43 is_stmt 0 view .LVU89
+ 378 0050 4FF48072 		mov	r2, #256
+ 379 0054 5A60     		str	r2, [r3, #4]
+ 380              	.LVL11:
 1692:CMSIS/Include/../include/core_cm4.h ****   }
- 382              		.loc 2 1692 43 view .LVU90
- 383              	.LBE13:
- 384              	.LBE12:
- 108:Core/Src/init.c **** }
- 385              		.loc 1 108 1 view .LVU91
- 386 0056 08BD     		pop	{r3, pc}
- 387              	.L19:
- 388              		.align	2
- 389              	.L18:
- 390 0058 00380240 		.word	1073887232
- 391 005c 003C0140 		.word	1073822720
- 392 0060 00ED00E0 		.word	-536810240
- 393 0064 00E100E0 		.word	-536813312
- 394              		.cfi_endproc
- 395              	.LFE132:
- 397              		.text
- 398              	.Letext0:
- 399              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
- 400              		.file 4 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
- 401              		.file 5 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
- 402              		.file 6 "Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h"
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 43
+ 381              		.loc 2 1692 43 view .LVU90
+ 382              	.LBE13:
+ 383              	.LBE12:
+  94:Core/Src/init.c **** }
+ 384              		.loc 1 94 1 view .LVU91
+ 385 0056 08BD     		pop	{r3, pc}
+ 386              	.L19:
+ 387              		.align	2
+ 388              	.L18:
+ 389 0058 00380240 		.word	1073887232
+ 390 005c 003C0140 		.word	1073822720
+ 391 0060 00ED00E0 		.word	-536810240
+ 392 0064 00E100E0 		.word	-536813312
+ 393              		.cfi_endproc
+ 394              	.LFE132:
+ 396              		.section	.text.SysTick_Init,"ax",%progbits
+ 397              		.align	1
+ 398              		.global	SysTick_Init
+ 399              		.syntax unified
+ 400              		.thumb
+ 401              		.thumb_func
+ 403              	SysTick_Init:
+ 404              	.LFB133:
+  95:Core/Src/init.c **** void SysTick_Init(void)
+  96:Core/Src/init.c **** {
+ 405              		.loc 1 96 1 is_stmt 1 view -0
+ 406              		.cfi_startproc
+ 407              		@ args = 0, pretend = 0, frame = 0
+ 408              		@ frame_needed = 0, uses_anonymous_args = 0
+ 409              		@ link register save eliminated.
+  97:Core/Src/init.c ****     CLEAR_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);  // На всякий случай, пред
+ 410              		.loc 1 97 5 view .LVU93
+ 411 0000 4FF0E023 		mov	r3, #-536813568
+ 412 0004 1A69     		ldr	r2, [r3, #16]
+ 413 0006 22F00102 		bic	r2, r2, #1
+ 414 000a 1A61     		str	r2, [r3, #16]
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 43
 
 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccW4EM49.s 			page 44
+  98:Core/Src/init.c ****     SET_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);   // Разрешаем прерывание 
+ 415              		.loc 1 98 5 view .LVU94
+ 416 000c 1A69     		ldr	r2, [r3, #16]
+ 417 000e 42F00202 		orr	r2, r2, #2
+ 418 0012 1A61     		str	r2, [r3, #16]
+  99:Core/Src/init.c ****     SET_BIT(SysTick->CTRL, SysTick_CTRL_CLKSOURCE_Msk); // Источник тактировани�
+ 419              		.loc 1 99 5 view .LVU95
+ 420 0014 1A69     		ldr	r2, [r3, #16]
+ 421 0016 42F00402 		orr	r2, r2, #4
+ 422 001a 1A61     		str	r2, [r3, #16]
+ 100:Core/Src/init.c ****     MODIFY_REG(SysTick->LOAD, SysTick_LOAD_RELOAD_Msk,
+ 423              		.loc 1 100 5 view .LVU96
+ 424 001c 5A69     		ldr	r2, [r3, #20]
+ 425 001e 02F07F42 		and	r2, r2, #-16777216
+ 426 0022 0649     		ldr	r1, .L21
+ 427 0024 0A43     		orrs	r2, r2, r1
+ 428 0026 5A61     		str	r2, [r3, #20]
+ 101:Core/Src/init.c ****                179999 << SysTick_LOAD_RELOAD_Pos); // Значение с которого начи
+ 102:Core/Src/init.c ****     MODIFY_REG(SysTick->VAL, SysTick_VAL_CURRENT_Msk,
+ 429              		.loc 1 102 5 view .LVU97
+ 430 0028 9A69     		ldr	r2, [r3, #24]
+ 431 002a 02F07F42 		and	r2, r2, #-16777216
+ 432 002e 0A43     		orrs	r2, r2, r1
+ 433 0030 9A61     		str	r2, [r3, #24]
+ 103:Core/Src/init.c ****                179999 << SysTick_VAL_CURRENT_Pos);   // Очистка поля
+ 104:Core/Src/init.c ****     SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk); // Включим счётчик
+ 434              		.loc 1 104 5 view .LVU98
+ 435 0032 1A69     		ldr	r2, [r3, #16]
+ 436 0034 42F00102 		orr	r2, r2, #1
+ 437 0038 1A61     		str	r2, [r3, #16]
+ 105:Core/Src/init.c **** }...
+ 438              		.loc 1 105 1 is_stmt 0 view .LVU99
+ 439 003a 7047     		bx	lr
+ 440              	.L22:
+ 441              		.align	2
+ 442              	.L21:
+ 443 003c 1FBF0200 		.word	179999
+ 444              		.cfi_endproc
+ 445              	.LFE133:
+ 447              		.text
+ 448              	.Letext0:
+ 449              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
+ 450              		.file 4 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 451              		.file 5 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ 452              		.file 6 "Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h"
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s 			page 44
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 init.c
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:21     .text.NVIC_EncodePriority:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:26     .text.NVIC_EncodePriority:00000000 NVIC_EncodePriority
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:89     .text.RCC_Init:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:95     .text.RCC_Init:00000000 RCC_Init
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:247    .text.RCC_Init:00000104 $d
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:253    .text.GPIO_Init:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:259    .text.GPIO_Init:00000000 GPIO_Init
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:289    .text.GPIO_Init:00000028 $d
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:295    .text.ITR_Init:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:301    .text.ITR_Init:00000000 ITR_Init
-C:\Users\79530\AppData\Local\Temp\ccW4EM49.s:390    .text.ITR_Init:00000058 $d
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:21     .text.NVIC_EncodePriority:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:26     .text.NVIC_EncodePriority:00000000 NVIC_EncodePriority
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:89     .text.RCC_Init:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:95     .text.RCC_Init:00000000 RCC_Init
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:246    .text.RCC_Init:00000100 $d
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:252    .text.GPIO_Init:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:258    .text.GPIO_Init:00000000 GPIO_Init
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:288    .text.GPIO_Init:00000028 $d
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:294    .text.ITR_Init:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:300    .text.ITR_Init:00000000 ITR_Init
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:389    .text.ITR_Init:00000058 $d
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:397    .text.SysTick_Init:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:403    .text.SysTick_Init:00000000 SysTick_Init
+C:\Users\79530\AppData\Local\Temp\ccQqQXc7.s:443    .text.SysTick_Init:0000003c $d
 
 NO UNDEFINED SYMBOLS
