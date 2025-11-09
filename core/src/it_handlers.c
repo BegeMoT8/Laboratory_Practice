@@ -6,6 +6,7 @@
 extern uint8_t LedState; // внешняя переменная состояния светодиода
 extern uint16_t GlobalTickCount;
 volatile uint8_t btn_count = 0;
+uint16_t DelayTickCount;
 
 /**
  * @brief Обработчик прерывания по EXTI линии 13 (кнопка на PC13)
@@ -30,4 +31,16 @@ void EXTI15_10_IRQHandler(void)
 void SysTick_Handler(void)
 {
     GlobalTickCount++;
+}
+
+/**
+ * @brief Функция задержки, основанная на глобальном счетчике тиков
+ * @param delay Задержка в тиках
+ * @details Блокирует выполнение программы на заданное количество тиков.
+ */
+void User_Delay(uint32_t delay)
+{
+    while (DelayTickCount < delay){    } // Цикл, благодаря которому происходит задержка программы
+    if (DelayTickCount >= delay)
+        DelayTickCount = 0; // Обнуление переменной счётчика, при достижении заданного пользователем значения
 }
