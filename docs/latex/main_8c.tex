@@ -1,0 +1,108 @@
+\doxysection{Файл Core/\+Src/main.c}
+\hypertarget{main_8c}{}\label{main_8c}\index{Core/Src/main.c@{Core/Src/main.c}}
+{\ttfamily \#include $<$init.\+h$>$}\newline
+{\ttfamily \#include $<$it\+\_\+handlers.\+h$>$}\newline
+Граф включаемых заголовочных файлов для main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a8ef6ec68f0113e3843ce7ec38a78a099}{Frequency1}}~1250
+\item 
+\#define \mbox{\hyperlink{main_8c_a5c2d545ca10f7d17c4f4574294a576a4}{Frequency2}}~455
+\item 
+\#define \mbox{\hyperlink{main_8c_aa41a0ef8e3fdeeee250eb9a5c68e56c2}{Frequency3}}~263
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{main_8c_a3387279a24bc624806c2e1e6201a5c36}{btn\+\_\+count}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{main_8c_a022c95c2ba2a5d466992663c3578d049}{btn\+\_\+hold\+\_\+2s}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{main_8c_ab7a4f042b14b4ac5bc41c23caeb9301b}{btn\+\_\+hold\+\_\+4s}}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{main_8c_abf286b5bf324f08a4395173ca136e8a3}{Global\+Tick\+Count}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{main_8c_doc-define-members}
+\doxysubsection{Макросы}
+\Hypertarget{main_8c_a8ef6ec68f0113e3843ce7ec38a78a099}\index{main.c@{main.c}!Frequency1@{Frequency1}}
+\index{Frequency1@{Frequency1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Frequency1}{Frequency1}}
+{\footnotesize\ttfamily \label{main_8c_a8ef6ec68f0113e3843ce7ec38a78a099} 
+\#define Frequency1~1250}
+
+\Hypertarget{main_8c_a5c2d545ca10f7d17c4f4574294a576a4}\index{main.c@{main.c}!Frequency2@{Frequency2}}
+\index{Frequency2@{Frequency2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Frequency2}{Frequency2}}
+{\footnotesize\ttfamily \label{main_8c_a5c2d545ca10f7d17c4f4574294a576a4} 
+\#define Frequency2~455}
+
+\Hypertarget{main_8c_aa41a0ef8e3fdeeee250eb9a5c68e56c2}\index{main.c@{main.c}!Frequency3@{Frequency3}}
+\index{Frequency3@{Frequency3}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Frequency3}{Frequency3}}
+{\footnotesize\ttfamily \label{main_8c_aa41a0ef8e3fdeeee250eb9a5c68e56c2} 
+\#define Frequency3~263}
+
+
+
+\label{doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Граф вызовов\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{main_8c_doc-var-members}
+\doxysubsection{Переменные}
+\Hypertarget{main_8c_a3387279a24bc624806c2e1e6201a5c36}\index{main.c@{main.c}!btn\_count@{btn\_count}}
+\index{btn\_count@{btn\_count}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{btn\_count}{btn\_count}}
+{\footnotesize\ttfamily \label{main_8c_a3387279a24bc624806c2e1e6201a5c36} 
+volatile uint8\+\_\+t btn\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_a022c95c2ba2a5d466992663c3578d049}\index{main.c@{main.c}!btn\_hold\_2s@{btn\_hold\_2s}}
+\index{btn\_hold\_2s@{btn\_hold\_2s}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{btn\_hold\_2s}{btn\_hold\_2s}}
+{\footnotesize\ttfamily \label{main_8c_a022c95c2ba2a5d466992663c3578d049} 
+volatile uint8\+\_\+t btn\+\_\+hold\+\_\+2s\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_ab7a4f042b14b4ac5bc41c23caeb9301b}\index{main.c@{main.c}!btn\_hold\_4s@{btn\_hold\_4s}}
+\index{btn\_hold\_4s@{btn\_hold\_4s}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{btn\_hold\_4s}{btn\_hold\_4s}}
+{\footnotesize\ttfamily \label{main_8c_ab7a4f042b14b4ac5bc41c23caeb9301b} 
+volatile uint8\+\_\+t btn\+\_\+hold\+\_\+4s\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_abf286b5bf324f08a4395173ca136e8a3}\index{main.c@{main.c}!GlobalTickCount@{GlobalTickCount}}
+\index{GlobalTickCount@{GlobalTickCount}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{GlobalTickCount}{GlobalTickCount}}
+{\footnotesize\ttfamily \label{main_8c_abf286b5bf324f08a4395173ca136e8a3} 
+volatile uint32\+\_\+t Global\+Tick\+Count\hspace{0.3cm}{\ttfamily [extern]}}
+

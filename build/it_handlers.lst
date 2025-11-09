@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\79530\AppData\Local\Temp\cckFv5qe.s 			page 1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -33,134 +33,385 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\cckFv5qe.s 			page 1
    3:Core/Src/it_handlers.c **** #include "../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h"
    4:Core/Src/it_handlers.c **** #include "../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
    5:Core/Src/it_handlers.c **** #include <it_handlers.h>
-   6:Core/Src/it_handlers.c **** extern uint8_t LedState; // внешняя переменная состояния светодио
-   7:Core/Src/it_handlers.c **** extern uint16_t GlobalTickCount;
-   8:Core/Src/it_handlers.c **** volatile uint8_t btn_count = 0;
-   9:Core/Src/it_handlers.c **** 
-  10:Core/Src/it_handlers.c **** /**
-  11:Core/Src/it_handlers.c ****  * @brief Обработчик прерывания по EXTI линии 13 (кнопка на PC13
-  12:Core/Src/it_handlers.c ****  * @details При срабатывании прерывания увеличивает счетч�
-  13:Core/Src/it_handlers.c ****  * Если счетчик достигает 2, переключает состояние свет
-  14:Core/Src/it_handlers.c ****  */
-  15:Core/Src/it_handlers.c **** void EXTI15_10_IRQHandler(void)
-  16:Core/Src/it_handlers.c **** {
-  29              		.loc 1 16 1 view -0
+   6:Core/Src/it_handlers.c **** volatile uint32_t GlobalTickCount; // Глобальный счетчик тиков SysTick
+   7:Core/Src/it_handlers.c **** volatile uint8_t btn_count = 0;    // Счетчик коротких нажатий
+   8:Core/Src/it_handlers.c **** volatile uint8_t btn_hold_2s = 0;  // Счетчик удержаний 2 сек
+   9:Core/Src/it_handlers.c **** volatile uint8_t btn_hold_4s = 0;  // Счетчик удержаний 4 сек
+  10:Core/Src/it_handlers.c **** #define delayTime_MS 50
+  11:Core/Src/it_handlers.c **** #define shortHoldTime_MS 2000
+  12:Core/Src/it_handlers.c **** #define longHoldTime_MS 4000
+  13:Core/Src/it_handlers.c **** #define Led_Count 6
+  14:Core/Src/it_handlers.c **** 
+  15:Core/Src/it_handlers.c **** /**
+  16:Core/Src/it_handlers.c ****  * @brief Обработчик прерывания по EXTI линии 13 (кнопка на PC13
+  17:Core/Src/it_handlers.c ****  * @details Комбинированный подход борьбы с дребезгом:
+  18:Core/Src/it_handlers.c ****  * - Временной фильтр 50 мс
+  19:Core/Src/it_handlers.c ****  * - Отслеживание состояния кнопки
+  20:Core/Src/it_handlers.c ****  * - Измерение длительности удержания
+  21:Core/Src/it_handlers.c ****  * - Определение типа нажатия: короткое / 2 сек / 4 сек
+  22:Core/Src/it_handlers.c ****  */
+  23:Core/Src/it_handlers.c **** void EXTI15_10_IRQHandler(void)
+  24:Core/Src/it_handlers.c **** {
+  29              		.loc 1 24 1 view -0
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
   33              		@ link register save eliminated.
-  17:Core/Src/it_handlers.c ****     btn_count++;
-  34              		.loc 1 17 5 view .LVU1
-  35              		.loc 1 17 14 is_stmt 0 view .LVU2
-  36 0000 0B4A     		ldr	r2, .L3
-  37 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  38 0004 0133     		adds	r3, r3, #1
-  39 0006 DBB2     		uxtb	r3, r3
-  40 0008 1370     		strb	r3, [r2]
-  18:Core/Src/it_handlers.c ****     if (btn_count >= 2)
-ARM GAS  C:\Users\79530\AppData\Local\Temp\cckFv5qe.s 			page 2
+  25:Core/Src/it_handlers.c ****     static uint32_t last_interrupt_time = 0;
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s 			page 2
 
 
-  41              		.loc 1 18 5 is_stmt 1 view .LVU3
-  42              		.loc 1 18 19 is_stmt 0 view .LVU4
-  43 000a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  44 000c DBB2     		uxtb	r3, r3
-  45              		.loc 1 18 8 view .LVU5
-  46 000e 012B     		cmp	r3, #1
-  47 0010 08D9     		bls	.L2
-  19:Core/Src/it_handlers.c ****     {
-  20:Core/Src/it_handlers.c ****         LedState = !LedState;
-  48              		.loc 1 20 9 is_stmt 1 view .LVU6
-  49              		.loc 1 20 20 is_stmt 0 view .LVU7
-  50 0012 084A     		ldr	r2, .L3+4
-  51 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  52 0016 B3FA83F3 		clz	r3, r3
-  53 001a 5B09     		lsrs	r3, r3, #5
-  54              		.loc 1 20 18 view .LVU8
-  55 001c 1370     		strb	r3, [r2]
-  21:Core/Src/it_handlers.c ****         btn_count = 0;
-  56              		.loc 1 21 9 is_stmt 1 view .LVU9
-  57              		.loc 1 21 19 is_stmt 0 view .LVU10
-  58 001e 044B     		ldr	r3, .L3
-  59 0020 0022     		movs	r2, #0
-  60 0022 1A70     		strb	r2, [r3]
-  61              	.L2:
-  22:Core/Src/it_handlers.c ****     }
-  23:Core/Src/it_handlers.c ****     SET_BIT(EXTI->PR, EXTI_PR_PR13); // устанавливаем бит для остановки
-  62              		.loc 1 23 5 is_stmt 1 view .LVU11
-  63 0024 044A     		ldr	r2, .L3+8
-  64 0026 5369     		ldr	r3, [r2, #20]
-  65 0028 43F40053 		orr	r3, r3, #8192
-  66 002c 5361     		str	r3, [r2, #20]
-  24:Core/Src/it_handlers.c **** }
-  67              		.loc 1 24 1 is_stmt 0 view .LVU12
-  68 002e 7047     		bx	lr
-  69              	.L4:
-  70              		.align	2
-  71              	.L3:
-  72 0030 00000000 		.word	btn_count
-  73 0034 00000000 		.word	LedState
-  74 0038 003C0140 		.word	1073822720
-  75              		.cfi_endproc
-  76              	.LFE130:
-  78              		.section	.text.SysTick_Handler,"ax",%progbits
-  79              		.align	1
-  80              		.global	SysTick_Handler
-  81              		.syntax unified
-  82              		.thumb
-  83              		.thumb_func
-  85              	SysTick_Handler:
-  86              	.LFB131:
-  25:Core/Src/it_handlers.c **** 
-  26:Core/Src/it_handlers.c **** void SysTick_Handler(void)
-  27:Core/Src/it_handlers.c **** {
-  87              		.loc 1 27 1 is_stmt 1 view -0
-  88              		.cfi_startproc
-  89              		@ args = 0, pretend = 0, frame = 0
-  90              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\79530\AppData\Local\Temp\cckFv5qe.s 			page 3
+  34              		.loc 1 25 5 view .LVU1
+  26:Core/Src/it_handlers.c ****     static uint32_t press_start_time = 0;
+  35              		.loc 1 26 5 view .LVU2
+  27:Core/Src/it_handlers.c ****     static bool button_pressed = false;
+  36              		.loc 1 27 5 view .LVU3
+  28:Core/Src/it_handlers.c **** 
+  29:Core/Src/it_handlers.c ****     uint32_t current_time = GlobalTickCount;
+  37              		.loc 1 29 5 view .LVU4
+  38              		.loc 1 29 14 is_stmt 0 view .LVU5
+  39 0000 244B     		ldr	r3, .L9
+  40 0002 1A68     		ldr	r2, [r3]
+  41              	.LVL0:
+  30:Core/Src/it_handlers.c **** 
+  31:Core/Src/it_handlers.c ****     // игнорируем прерывания в течение 50 мс после послед�
+  32:Core/Src/it_handlers.c ****     if ((current_time - last_interrupt_time) < delayTime_MS)
+  42              		.loc 1 32 5 is_stmt 1 view .LVU6
+  43              		.loc 1 32 23 is_stmt 0 view .LVU7
+  44 0004 244B     		ldr	r3, .L9+4
+  45 0006 1B68     		ldr	r3, [r3]
+  46 0008 D31A     		subs	r3, r2, r3
+  47              		.loc 1 32 8 view .LVU8
+  48 000a 312B     		cmp	r3, #49
+  49 000c 14D9     		bls	.L8
+  33:Core/Src/it_handlers.c ****     {
+  34:Core/Src/it_handlers.c ****         SET_BIT(EXTI->PR, EXTI_PR_PR13);
+  35:Core/Src/it_handlers.c ****         return;
+  36:Core/Src/it_handlers.c ****     }
+  37:Core/Src/it_handlers.c **** 
+  38:Core/Src/it_handlers.c ****     last_interrupt_time = current_time;
+  50              		.loc 1 38 5 is_stmt 1 view .LVU9
+  51              		.loc 1 38 25 is_stmt 0 view .LVU10
+  52 000e 224B     		ldr	r3, .L9+4
+  53 0010 1A60     		str	r2, [r3]
+  39:Core/Src/it_handlers.c **** 
+  40:Core/Src/it_handlers.c ****     // 1 = нажата (подтянута к VDD), 0 = отпущена (подтянута к GN
+  41:Core/Src/it_handlers.c ****     bool current_state = READ_BIT(GPIOC->IDR, GPIO_IDR_ID13);
+  54              		.loc 1 41 5 is_stmt 1 view .LVU11
+  55              		.loc 1 41 26 is_stmt 0 view .LVU12
+  56 0012 224B     		ldr	r3, .L9+8
+  57 0014 1B69     		ldr	r3, [r3, #16]
+  58              	.LVL1:
+  42:Core/Src/it_handlers.c **** 
+  43:Core/Src/it_handlers.c ****     if (current_state && !button_pressed) // Нажатие фронт
+  59              		.loc 1 43 5 is_stmt 1 view .LVU13
+  60              		.loc 1 43 8 is_stmt 0 view .LVU14
+  61 0016 13F4005F 		tst	r3, #8192
+  62 001a 13D0     		beq	.L4
+  63              		.loc 1 43 26 discriminator 1 view .LVU15
+  64 001c 204B     		ldr	r3, .L9+12
+  65              	.LVL2:
+  66              		.loc 1 43 26 discriminator 1 view .LVU16
+  67 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  68              		.loc 1 43 23 discriminator 1 view .LVU17
+  69 0020 23B9     		cbnz	r3, .L5
+  44:Core/Src/it_handlers.c ****     {
+  45:Core/Src/it_handlers.c ****         button_pressed = true;
+  70              		.loc 1 45 9 is_stmt 1 view .LVU18
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s 			page 3
 
 
-  91              		@ link register save eliminated.
-  28:Core/Src/it_handlers.c ****     GlobalTickCount++;
-  92              		.loc 1 28 5 view .LVU14
-  93              		.loc 1 28 20 is_stmt 0 view .LVU15
-  94 0000 024A     		ldr	r2, .L6
-  95 0002 1388     		ldrh	r3, [r2]
-  96 0004 0133     		adds	r3, r3, #1
-  97 0006 1380     		strh	r3, [r2]	@ movhi
-  29:Core/Src/it_handlers.c **** }...
-  98              		.loc 1 29 1 view .LVU16
-  99 0008 7047     		bx	lr
- 100              	.L7:
- 101 000a 00BF     		.align	2
- 102              	.L6:
- 103 000c 00000000 		.word	GlobalTickCount
- 104              		.cfi_endproc
- 105              	.LFE131:
- 107              		.global	btn_count
- 108              		.section	.bss.btn_count,"aw",%nobits
- 111              	btn_count:
- 112 0000 00       		.space	1
- 113              		.text
- 114              	.Letext0:
- 115              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
- 116              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
- 117              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
-ARM GAS  C:\Users\79530\AppData\Local\Temp\cckFv5qe.s 			page 4
+  71              		.loc 1 45 24 is_stmt 0 view .LVU19
+  72 0022 1F4B     		ldr	r3, .L9+12
+  73 0024 0121     		movs	r1, #1
+  74 0026 1970     		strb	r1, [r3]
+  46:Core/Src/it_handlers.c ****         press_start_time = current_time;
+  75              		.loc 1 46 9 is_stmt 1 view .LVU20
+  76              		.loc 1 46 26 is_stmt 0 view .LVU21
+  77 0028 1E4B     		ldr	r3, .L9+16
+  78 002a 1A60     		str	r2, [r3]
+  79              	.LVL3:
+  80              	.L5:
+  47:Core/Src/it_handlers.c ****     }
+  48:Core/Src/it_handlers.c ****     else if (!current_state && button_pressed) // Отпускание спад
+  49:Core/Src/it_handlers.c ****     {
+  50:Core/Src/it_handlers.c ****         button_pressed = false;
+  51:Core/Src/it_handlers.c ****         uint32_t press_duration = current_time - press_start_time;
+  52:Core/Src/it_handlers.c **** 
+  53:Core/Src/it_handlers.c ****         // Определяем тип нажатия
+  54:Core/Src/it_handlers.c ****         if (press_duration < shortHoldTime_MS) // Короткое нажатие (< 2 сек)
+  55:Core/Src/it_handlers.c ****         {
+  56:Core/Src/it_handlers.c ****             btn_count++; // Функция 1: переключение светодиодов
+  57:Core/Src/it_handlers.c ****             if (btn_count > Led_Count)
+  58:Core/Src/it_handlers.c ****             {
+  59:Core/Src/it_handlers.c ****                 btn_count = 0; // Сброс после 6-го светодиода
+  60:Core/Src/it_handlers.c ****             }
+  61:Core/Src/it_handlers.c ****         }
+  62:Core/Src/it_handlers.c ****         else if (press_duration < longHoldTime_MS) // Удержание 2-4 сек
+  63:Core/Src/it_handlers.c ****         {
+  64:Core/Src/it_handlers.c ****             btn_hold_2s++; // Функция 2: изменение частоты мерцания
+  65:Core/Src/it_handlers.c ****         }
+  66:Core/Src/it_handlers.c ****         else // Удержание >= 4 сек
+  67:Core/Src/it_handlers.c ****         {
+  68:Core/Src/it_handlers.c ****             btn_hold_4s++; // Функция 3: изменение режима работы
+  69:Core/Src/it_handlers.c ****         }
+  70:Core/Src/it_handlers.c ****     }
+  71:Core/Src/it_handlers.c **** 
+  72:Core/Src/it_handlers.c ****     SET_BIT(EXTI->PR, EXTI_PR_PR13); // сброс флага прерывания
+  81              		.loc 1 72 5 is_stmt 1 view .LVU22
+  82 002c 1E4A     		ldr	r2, .L9+20
+  83 002e 5369     		ldr	r3, [r2, #20]
+  84 0030 43F40053 		orr	r3, r3, #8192
+  85 0034 5361     		str	r3, [r2, #20]
+  86              	.LVL4:
+  73:Core/Src/it_handlers.c **** }
+  87              		.loc 1 73 1 is_stmt 0 view .LVU23
+  88 0036 7047     		bx	lr
+  89              	.LVL5:
+  90              	.L8:
+  34:Core/Src/it_handlers.c ****         return;
+  91              		.loc 1 34 9 is_stmt 1 view .LVU24
+  92 0038 1B4A     		ldr	r2, .L9+20
+  93              	.LVL6:
+  34:Core/Src/it_handlers.c ****         return;
+  94              		.loc 1 34 9 is_stmt 0 view .LVU25
+  95 003a 5369     		ldr	r3, [r2, #20]
+  96 003c 43F40053 		orr	r3, r3, #8192
+  97 0040 5361     		str	r3, [r2, #20]
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s 			page 4
+
+
+  35:Core/Src/it_handlers.c ****     }
+  98              		.loc 1 35 9 is_stmt 1 view .LVU26
+  99 0042 7047     		bx	lr
+ 100              	.LVL7:
+ 101              	.L4:
+  48:Core/Src/it_handlers.c ****     {
+ 102              		.loc 1 48 10 view .LVU27
+  48:Core/Src/it_handlers.c ****     {
+ 103              		.loc 1 48 29 is_stmt 0 discriminator 1 view .LVU28
+ 104 0044 164B     		ldr	r3, .L9+12
+ 105              	.LVL8:
+  48:Core/Src/it_handlers.c ****     {
+ 106              		.loc 1 48 29 discriminator 1 view .LVU29
+ 107 0046 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 108 0048 002B     		cmp	r3, #0
+ 109 004a EFD0     		beq	.L5
+ 110              	.LBB2:
+  50:Core/Src/it_handlers.c ****         uint32_t press_duration = current_time - press_start_time;
+ 111              		.loc 1 50 9 is_stmt 1 view .LVU30
+  50:Core/Src/it_handlers.c ****         uint32_t press_duration = current_time - press_start_time;
+ 112              		.loc 1 50 24 is_stmt 0 view .LVU31
+ 113 004c 144B     		ldr	r3, .L9+12
+ 114 004e 0021     		movs	r1, #0
+ 115 0050 1970     		strb	r1, [r3]
+  51:Core/Src/it_handlers.c **** 
+ 116              		.loc 1 51 9 is_stmt 1 view .LVU32
+  51:Core/Src/it_handlers.c **** 
+ 117              		.loc 1 51 48 is_stmt 0 view .LVU33
+ 118 0052 144B     		ldr	r3, .L9+16
+ 119 0054 1B68     		ldr	r3, [r3]
+  51:Core/Src/it_handlers.c **** 
+ 120              		.loc 1 51 18 view .LVU34
+ 121 0056 D21A     		subs	r2, r2, r3
+ 122              	.LVL9:
+  54:Core/Src/it_handlers.c ****         {
+ 123              		.loc 1 54 9 is_stmt 1 view .LVU35
+  54:Core/Src/it_handlers.c ****         {
+ 124              		.loc 1 54 12 is_stmt 0 view .LVU36
+ 125 0058 B2F5FA6F 		cmp	r2, #2000
+ 126 005c 0AD2     		bcs	.L6
+  56:Core/Src/it_handlers.c ****             if (btn_count > Led_Count)
+ 127              		.loc 1 56 13 is_stmt 1 view .LVU37
+  56:Core/Src/it_handlers.c ****             if (btn_count > Led_Count)
+ 128              		.loc 1 56 22 is_stmt 0 view .LVU38
+ 129 005e 134A     		ldr	r2, .L9+24
+ 130              	.LVL10:
+  56:Core/Src/it_handlers.c ****             if (btn_count > Led_Count)
+ 131              		.loc 1 56 22 view .LVU39
+ 132 0060 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 133              	.LVL11:
+  56:Core/Src/it_handlers.c ****             if (btn_count > Led_Count)
+ 134              		.loc 1 56 22 view .LVU40
+ 135 0062 0133     		adds	r3, r3, #1
+ 136 0064 DBB2     		uxtb	r3, r3
+ 137 0066 1370     		strb	r3, [r2]
+  57:Core/Src/it_handlers.c ****             {
+ 138              		.loc 1 57 13 is_stmt 1 view .LVU41
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s 			page 5
+
+
+  57:Core/Src/it_handlers.c ****             {
+ 139              		.loc 1 57 27 is_stmt 0 view .LVU42
+ 140 0068 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 141 006a DBB2     		uxtb	r3, r3
+  57:Core/Src/it_handlers.c ****             {
+ 142              		.loc 1 57 16 view .LVU43
+ 143 006c 062B     		cmp	r3, #6
+ 144 006e DDD9     		bls	.L5
+  59:Core/Src/it_handlers.c ****             }
+ 145              		.loc 1 59 17 is_stmt 1 view .LVU44
+  59:Core/Src/it_handlers.c ****             }
+ 146              		.loc 1 59 27 is_stmt 0 view .LVU45
+ 147 0070 1170     		strb	r1, [r2]
+ 148 0072 DBE7     		b	.L5
+ 149              	.LVL12:
+ 150              	.L6:
+  62:Core/Src/it_handlers.c ****         {
+ 151              		.loc 1 62 14 is_stmt 1 view .LVU46
+  62:Core/Src/it_handlers.c ****         {
+ 152              		.loc 1 62 17 is_stmt 0 view .LVU47
+ 153 0074 B2F57A6F 		cmp	r2, #4000
+ 154 0078 05D2     		bcs	.L7
+  64:Core/Src/it_handlers.c ****         }
+ 155              		.loc 1 64 13 is_stmt 1 view .LVU48
+  64:Core/Src/it_handlers.c ****         }
+ 156              		.loc 1 64 24 is_stmt 0 view .LVU49
+ 157 007a 0D4A     		ldr	r2, .L9+28
+ 158              	.LVL13:
+  64:Core/Src/it_handlers.c ****         }
+ 159              		.loc 1 64 24 view .LVU50
+ 160 007c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 161              	.LVL14:
+  64:Core/Src/it_handlers.c ****         }
+ 162              		.loc 1 64 24 view .LVU51
+ 163 007e 0133     		adds	r3, r3, #1
+ 164 0080 DBB2     		uxtb	r3, r3
+ 165 0082 1370     		strb	r3, [r2]
+ 166 0084 D2E7     		b	.L5
+ 167              	.LVL15:
+ 168              	.L7:
+  68:Core/Src/it_handlers.c ****         }
+ 169              		.loc 1 68 13 is_stmt 1 view .LVU52
+  68:Core/Src/it_handlers.c ****         }
+ 170              		.loc 1 68 24 is_stmt 0 view .LVU53
+ 171 0086 0B4A     		ldr	r2, .L9+32
+ 172              	.LVL16:
+  68:Core/Src/it_handlers.c ****         }
+ 173              		.loc 1 68 24 view .LVU54
+ 174 0088 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 175              	.LVL17:
+  68:Core/Src/it_handlers.c ****         }
+ 176              		.loc 1 68 24 view .LVU55
+ 177 008a 0133     		adds	r3, r3, #1
+ 178 008c DBB2     		uxtb	r3, r3
+ 179 008e 1370     		strb	r3, [r2]
+ 180 0090 CCE7     		b	.L5
+ 181              	.L10:
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s 			page 6
+
+
+ 182 0092 00BF     		.align	2
+ 183              	.L9:
+ 184 0094 00000000 		.word	GlobalTickCount
+ 185 0098 00000000 		.word	last_interrupt_time.2
+ 186 009c 00080240 		.word	1073874944
+ 187 00a0 00000000 		.word	button_pressed.1
+ 188 00a4 00000000 		.word	press_start_time.0
+ 189 00a8 003C0140 		.word	1073822720
+ 190 00ac 00000000 		.word	btn_count
+ 191 00b0 00000000 		.word	btn_hold_2s
+ 192 00b4 00000000 		.word	btn_hold_4s
+ 193              	.LBE2:
+ 194              		.cfi_endproc
+ 195              	.LFE130:
+ 197              		.section	.text.SysTick_Handler,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	SysTick_Handler
+ 200              		.syntax unified
+ 201              		.thumb
+ 202              		.thumb_func
+ 204              	SysTick_Handler:
+ 205              	.LFB131:
+  74:Core/Src/it_handlers.c **** 
+  75:Core/Src/it_handlers.c **** /**
+  76:Core/Src/it_handlers.c ****  * @brief Обработчик прерывания системного таймера SysTick
+  77:Core/Src/it_handlers.c ****  * @details Увеличивает глобальный счетчик тиков на 1 при к�
+  78:Core/Src/it_handlers.c ****  */
+  79:Core/Src/it_handlers.c **** void SysTick_Handler(void)
+  80:Core/Src/it_handlers.c **** {
+ 206              		.loc 1 80 1 is_stmt 1 view -0
+ 207              		.cfi_startproc
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210              		@ link register save eliminated.
+  81:Core/Src/it_handlers.c ****     GlobalTickCount++;//Одна итерация - 1 мс
+ 211              		.loc 1 81 5 view .LVU57
+ 212              		.loc 1 81 20 is_stmt 0 view .LVU58
+ 213 0000 024A     		ldr	r2, .L12
+ 214 0002 1368     		ldr	r3, [r2]
+ 215 0004 0133     		adds	r3, r3, #1
+ 216 0006 1360     		str	r3, [r2]
+  82:Core/Src/it_handlers.c **** }
+ 217              		.loc 1 82 1 view .LVU59
+ 218 0008 7047     		bx	lr
+ 219              	.L13:
+ 220 000a 00BF     		.align	2
+ 221              	.L12:
+ 222 000c 00000000 		.word	GlobalTickCount
+ 223              		.cfi_endproc
+ 224              	.LFE131:
+ 226              		.section	.bss.press_start_time.0,"aw",%nobits
+ 227              		.align	2
+ 230              	press_start_time.0:
+ 231 0000 00000000 		.space	4
+ 232              		.section	.bss.button_pressed.1,"aw",%nobits
+ 235              	button_pressed.1:
+ 236 0000 00       		.space	1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s 			page 7
+
+
+ 237              		.section	.bss.last_interrupt_time.2,"aw",%nobits
+ 238              		.align	2
+ 241              	last_interrupt_time.2:
+ 242 0000 00000000 		.space	4
+ 243              		.global	btn_hold_4s
+ 244              		.section	.bss.btn_hold_4s,"aw",%nobits
+ 247              	btn_hold_4s:
+ 248 0000 00       		.space	1
+ 249              		.global	btn_hold_2s
+ 250              		.section	.bss.btn_hold_2s,"aw",%nobits
+ 253              	btn_hold_2s:
+ 254 0000 00       		.space	1
+ 255              		.global	btn_count
+ 256              		.section	.bss.btn_count,"aw",%nobits
+ 259              	btn_count:
+ 260 0000 00       		.space	1
+ 261              		.global	GlobalTickCount
+ 262              		.section	.bss.GlobalTickCount,"aw",%nobits
+ 263              		.align	2
+ 266              	GlobalTickCount:
+ 267 0000 00000000 		.space	4
+ 268              		.text
+ 269              	.Letext0:
+ 270              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
+ 271              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 272              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ 273              		.file 5 "Core/Inc/it_handlers.h"
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 it_handlers.c
-C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:21     .text.EXTI15_10_IRQHandler:00000000 $t
-C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:27     .text.EXTI15_10_IRQHandler:00000000 EXTI15_10_IRQHandler
-C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:72     .text.EXTI15_10_IRQHandler:00000030 $d
-C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:111    .bss.btn_count:00000000 btn_count
-C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:79     .text.SysTick_Handler:00000000 $t
-C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:85     .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:103    .text.SysTick_Handler:0000000c $d
-C:\Users\79530\AppData\Local\Temp\cckFv5qe.s:112    .bss.btn_count:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:21     .text.EXTI15_10_IRQHandler:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:27     .text.EXTI15_10_IRQHandler:00000000 EXTI15_10_IRQHandler
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:184    .text.EXTI15_10_IRQHandler:00000094 $d
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:266    .bss.GlobalTickCount:00000000 GlobalTickCount
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:241    .bss.last_interrupt_time.2:00000000 last_interrupt_time.2
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:235    .bss.button_pressed.1:00000000 button_pressed.1
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:230    .bss.press_start_time.0:00000000 press_start_time.0
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:259    .bss.btn_count:00000000 btn_count
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:253    .bss.btn_hold_2s:00000000 btn_hold_2s
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:247    .bss.btn_hold_4s:00000000 btn_hold_4s
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:198    .text.SysTick_Handler:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:204    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:222    .text.SysTick_Handler:0000000c $d
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:227    .bss.press_start_time.0:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:236    .bss.button_pressed.1:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:238    .bss.last_interrupt_time.2:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:248    .bss.btn_hold_4s:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:254    .bss.btn_hold_2s:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:260    .bss.btn_count:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccQk1JZX.s:263    .bss.GlobalTickCount:00000000 $d
 
-UNDEFINED SYMBOLS
-LedState
-GlobalTickCount
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,133 @@
+\doxysection{Файл Core/\+Src/it\+\_\+handlers.c}
+\hypertarget{it__handlers_8c}{}\label{it__handlers_8c}\index{Core/Src/it\_handlers.c@{Core/Src/it\_handlers.c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}../../\+CMSIS/\+Devices/\+STM32\+F4xx/\+Inc/stm32f4xx.\+h"{}}\newline
+{\ttfamily \#include "{}../../\+CMSIS/\+Devices/\+STM32\+F4xx/\+Inc/\+STM32\+F429\+ZI/stm32f429xx.\+h"{}}\newline
+{\ttfamily \#include $<$it\+\_\+handlers.\+h$>$}\newline
+Граф включаемых заголовочных файлов для it\+\_\+handlers.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{it__handlers_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{it__handlers_8c_adae9800298bb2b8a2d2087fd161d4501}{delay\+Time\+\_\+\+MS}}~50
+\item 
+\#define \mbox{\hyperlink{it__handlers_8c_abcd2b7ede276dca194c049bbb235ae56}{short\+Hold\+Time\+\_\+\+MS}}~2000
+\item 
+\#define \mbox{\hyperlink{it__handlers_8c_a87ccce8a3d6171fcab0740e3ea9509bc}{long\+Hold\+Time\+\_\+\+MS}}~4000
+\item 
+\#define \mbox{\hyperlink{it__handlers_8c_ab56828f342e66276df00aabc373b7d4a}{Led\+\_\+\+Count}}~6
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9}{EXTI15\+\_\+10\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em Обработчик прерывания по EXTI линии 13 (кнопка на PC13). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{it__handlers_8c_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Обработчик прерывания системного таймера Sys\+Tick. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{it__handlers_8c_abf286b5bf324f08a4395173ca136e8a3}{Global\+Tick\+Count}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8c_a3387279a24bc624806c2e1e6201a5c36}{btn\+\_\+count}} = 0
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8c_a022c95c2ba2a5d466992663c3578d049}{btn\+\_\+hold\+\_\+2s}} = 0
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8c_ab7a4f042b14b4ac5bc41c23caeb9301b}{btn\+\_\+hold\+\_\+4s}} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{it__handlers_8c_doc-define-members}
+\doxysubsection{Макросы}
+\Hypertarget{it__handlers_8c_adae9800298bb2b8a2d2087fd161d4501}\index{it\_handlers.c@{it\_handlers.c}!delayTime\_MS@{delayTime\_MS}}
+\index{delayTime\_MS@{delayTime\_MS}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{delayTime\_MS}{delayTime\_MS}}
+{\footnotesize\ttfamily \label{it__handlers_8c_adae9800298bb2b8a2d2087fd161d4501} 
+\#define delay\+Time\+\_\+\+MS~50}
+
+\Hypertarget{it__handlers_8c_ab56828f342e66276df00aabc373b7d4a}\index{it\_handlers.c@{it\_handlers.c}!Led\_Count@{Led\_Count}}
+\index{Led\_Count@{Led\_Count}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{Led\_Count}{Led\_Count}}
+{\footnotesize\ttfamily \label{it__handlers_8c_ab56828f342e66276df00aabc373b7d4a} 
+\#define Led\+\_\+\+Count~6}
+
+\Hypertarget{it__handlers_8c_a87ccce8a3d6171fcab0740e3ea9509bc}\index{it\_handlers.c@{it\_handlers.c}!longHoldTime\_MS@{longHoldTime\_MS}}
+\index{longHoldTime\_MS@{longHoldTime\_MS}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{longHoldTime\_MS}{longHoldTime\_MS}}
+{\footnotesize\ttfamily \label{it__handlers_8c_a87ccce8a3d6171fcab0740e3ea9509bc} 
+\#define long\+Hold\+Time\+\_\+\+MS~4000}
+
+\Hypertarget{it__handlers_8c_abcd2b7ede276dca194c049bbb235ae56}\index{it\_handlers.c@{it\_handlers.c}!shortHoldTime\_MS@{shortHoldTime\_MS}}
+\index{shortHoldTime\_MS@{shortHoldTime\_MS}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{shortHoldTime\_MS}{shortHoldTime\_MS}}
+{\footnotesize\ttfamily \label{it__handlers_8c_abcd2b7ede276dca194c049bbb235ae56} 
+\#define short\+Hold\+Time\+\_\+\+MS~2000}
+
+
+
+\label{doc-func-members}
+\Hypertarget{it__handlers_8c_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9}\index{it\_handlers.c@{it\_handlers.c}!EXTI15\_10\_IRQHandler@{EXTI15\_10\_IRQHandler}}
+\index{EXTI15\_10\_IRQHandler@{EXTI15\_10\_IRQHandler}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{EXTI15\_10\_IRQHandler()}{EXTI15\_10\_IRQHandler()}}
+{\footnotesize\ttfamily \label{it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9} 
+void EXTI15\+\_\+10\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Обработчик прерывания по EXTI линии 13 (кнопка на PC13). 
+
+Комбинированный подход борьбы с дребезгом\+:
+\begin{DoxyItemize}
+\item Временной фильтр 50 мс
+\item Отслеживание состояния кнопки
+\item Измерение длительности удержания
+\item Определение типа нажатия\+: короткое / 2 сек / 4 сек 
+\end{DoxyItemize}\Hypertarget{it__handlers_8c_ab5e09814056d617c521549e542639b7e}\index{it\_handlers.c@{it\_handlers.c}!SysTick\_Handler@{SysTick\_Handler}}
+\index{SysTick\_Handler@{SysTick\_Handler}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Handler()}{SysTick\_Handler()}}
+{\footnotesize\ttfamily \label{it__handlers_8c_ab5e09814056d617c521549e542639b7e} 
+void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Обработчик прерывания системного таймера Sys\+Tick. 
+
+Увеличивает глобальный счетчик тиков на 1 при каждом срабатывании прерывания. 
+
+\label{doc-var-members}
+\Hypertarget{it__handlers_8c_doc-var-members}
+\doxysubsection{Переменные}
+\Hypertarget{it__handlers_8c_a3387279a24bc624806c2e1e6201a5c36}\index{it\_handlers.c@{it\_handlers.c}!btn\_count@{btn\_count}}
+\index{btn\_count@{btn\_count}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{btn\_count}{btn\_count}}
+{\footnotesize\ttfamily \label{it__handlers_8c_a3387279a24bc624806c2e1e6201a5c36} 
+volatile uint8\+\_\+t btn\+\_\+count = 0}
+
+\Hypertarget{it__handlers_8c_a022c95c2ba2a5d466992663c3578d049}\index{it\_handlers.c@{it\_handlers.c}!btn\_hold\_2s@{btn\_hold\_2s}}
+\index{btn\_hold\_2s@{btn\_hold\_2s}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{btn\_hold\_2s}{btn\_hold\_2s}}
+{\footnotesize\ttfamily \label{it__handlers_8c_a022c95c2ba2a5d466992663c3578d049} 
+volatile uint8\+\_\+t btn\+\_\+hold\+\_\+2s = 0}
+
+\Hypertarget{it__handlers_8c_ab7a4f042b14b4ac5bc41c23caeb9301b}\index{it\_handlers.c@{it\_handlers.c}!btn\_hold\_4s@{btn\_hold\_4s}}
+\index{btn\_hold\_4s@{btn\_hold\_4s}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{btn\_hold\_4s}{btn\_hold\_4s}}
+{\footnotesize\ttfamily \label{it__handlers_8c_ab7a4f042b14b4ac5bc41c23caeb9301b} 
+volatile uint8\+\_\+t btn\+\_\+hold\+\_\+4s = 0}
+
+\Hypertarget{it__handlers_8c_abf286b5bf324f08a4395173ca136e8a3}\index{it\_handlers.c@{it\_handlers.c}!GlobalTickCount@{GlobalTickCount}}
+\index{GlobalTickCount@{GlobalTickCount}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{GlobalTickCount}{GlobalTickCount}}
+{\footnotesize\ttfamily \label{it__handlers_8c_abf286b5bf324f08a4395173ca136e8a3} 
+volatile uint32\+\_\+t Global\+Tick\+Count}
+

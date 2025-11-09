@@ -1,0 +1,164 @@
+\doxysection{Файл Core/\+Src/init.c}
+\hypertarget{init_8c}{}\label{init_8c}\index{Core/Src/init.c@{Core/Src/init.c}}
+{\ttfamily \#include "{}init.\+h"{}}\newline
+Граф включаемых заголовочных файлов для init.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{init_8c_ac9c3c81db694c01409b2a6a3e7e7eca5}{RCC\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Инициализация тактирования микроконтроллера STM32\+F4xx. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8c_a90363099dc984eccffd2a7ad34def32d}{GPIO\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em настройка GPIO пинов микроконтроллера \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8c_a419e66ae8a3800fd1022978544d351b4}{ITR\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Инициализация прерывания по кнопке на пине PC13. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8c_aeb71ef4b996788e4aa8cda6ef617f58f}{Sys\+Tick\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Инициализация системного таймера Sys\+Tick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8c_a501391b8794d0beaeaf0dea7a3bdbbb3}{led\+\_\+off}} ()
+\begin{DoxyCompactList}\small\item\em Выключение всех светодиодов \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8c_a538fcbfed8b1e697437a30c052aecfd3}{led\+\_\+on}} (uint8\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Включение светодиодов в соответствии с номером нажатия кнопки \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{init_8c_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{init_8c_a90363099dc984eccffd2a7ad34def32d}\index{init.c@{init.c}!GPIO\_Init@{GPIO\_Init}}
+\index{GPIO\_Init@{GPIO\_Init}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_Init()}{GPIO\_Init()}}
+{\footnotesize\ttfamily \label{init_8c_a90363099dc984eccffd2a7ad34def32d} 
+void GPIO\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+настройка GPIO пинов микроконтроллера 
+
+Настройка пинов PC11; PD2; PG2; PE2; \begin{DoxyNote}{Заметки}
+Необходима вызвать в начале main 
+\end{DoxyNote}
+Граф вызова функции\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{init_8c_a90363099dc984eccffd2a7ad34def32d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{init_8c_a419e66ae8a3800fd1022978544d351b4}\index{init.c@{init.c}!ITR\_Init@{ITR\_Init}}
+\index{ITR\_Init@{ITR\_Init}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{ITR\_Init()}{ITR\_Init()}}
+{\footnotesize\ttfamily \label{init_8c_a419e66ae8a3800fd1022978544d351b4} 
+void ITR\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация прерывания по кнопке на пине PC13. 
+
+Настройка прерывания EXTI13 на пине PC13 по фронту и спаду сигнала. Установка приоритета прерывания в 0. \begin{DoxyNote}{Заметки}
+Необходима вызвать в начале main 
+\end{DoxyNote}
+Граф вызова функции\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{init_8c_a419e66ae8a3800fd1022978544d351b4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{init_8c_a501391b8794d0beaeaf0dea7a3bdbbb3}\index{init.c@{init.c}!led\_off@{led\_off}}
+\index{led\_off@{led\_off}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{led\_off()}{led\_off()}}
+{\footnotesize\ttfamily \label{init_8c_a501391b8794d0beaeaf0dea7a3bdbbb3} 
+void led\+\_\+off (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Выключение всех светодиодов 
+
+Граф вызова функции\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{init_8c_a501391b8794d0beaeaf0dea7a3bdbbb3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{init_8c_a538fcbfed8b1e697437a30c052aecfd3}\index{init.c@{init.c}!led\_on@{led\_on}}
+\index{led\_on@{led\_on}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{led\_on()}{led\_on()}}
+{\footnotesize\ttfamily \label{init_8c_a538fcbfed8b1e697437a30c052aecfd3} 
+void led\+\_\+on (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{count}{}\end{DoxyParamCaption})}
+
+
+
+Включение светодиодов в соответствии с номером нажатия кнопки 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em count} & Номер нажатия кнопки (от 0 до 6) \\
+\hline
+\end{DoxyParams}
+Граф вызовов\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{init_8c_a538fcbfed8b1e697437a30c052aecfd3_cgraph}
+\end{center}
+\end{figure}
+Граф вызова функции\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{init_8c_a538fcbfed8b1e697437a30c052aecfd3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{init_8c_ac9c3c81db694c01409b2a6a3e7e7eca5}\index{init.c@{init.c}!RCC\_Init@{RCC\_Init}}
+\index{RCC\_Init@{RCC\_Init}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{RCC\_Init()}{RCC\_Init()}}
+{\footnotesize\ttfamily \label{init_8c_ac9c3c81db694c01409b2a6a3e7e7eca5} 
+void RCC\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация тактирования микроконтроллера STM32\+F4xx. 
+
+Настройка тактирования на работу с внешним кварцевым резонатором 8 МГц и получение системной частоты 180 МГц с использованием PLL. \begin{DoxyNote}{Заметки}
+Необходима вызвать в начале main 
+\end{DoxyNote}
+Граф вызова функции\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{init_8c_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{init_8c_aeb71ef4b996788e4aa8cda6ef617f58f}\index{init.c@{init.c}!SysTick\_Init@{SysTick\_Init}}
+\index{SysTick\_Init@{SysTick\_Init}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Init()}{SysTick\_Init()}}
+{\footnotesize\ttfamily \label{init_8c_aeb71ef4b996788e4aa8cda6ef617f58f} 
+void Sys\+Tick\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация системного таймера Sys\+Tick. 
+
+Настройка Sys\+Tick на прерывание с частотой 1 кГц (1 мс). \begin{DoxyNote}{Заметки}
+Необходима вызвать в начале main 
+\end{DoxyNote}
+Граф вызова функции\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{init_8c_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph}
+\end{center}
+\end{figure}

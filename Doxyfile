@@ -1,6 +1,40 @@
-PROJECT_NAME = "My STM32 Project"
-INPUT = Core/Src Core/Inc
-OUTPUT_DIRECTORY = ./docs
-GENERATE_HTML = YES
-GENERATE_LATEX = NO
-EXTRACT_ALL = YES
+# === БАЗОВАЯ ИНФОРМАЦИЯ ===
+PROJECT_NAME           = "Laboratory Practice 2 - Variant 3"
+PROJECT_NUMBER         = "10.11.2025"
+PROJECT_BRIEF          = "STM32F429 LED Control with Button"
+
+# === ВХОДНЫЕ ФАЙЛЫ ===
+INPUT                  = ./Core/Inc ./Core/Src
+RECURSIVE              = YES
+FILE_PATTERNS          = *.c *.h
+
+# === HTML ДОКУМЕНТАЦИЯ ===
+GENERATE_HTML          = YES
+HTML_OUTPUT            = ./docs/html
+
+# === PDF/LaTeX ДОКУМЕНТАЦИЯ ===
+GENERATE_LATEX         = YES
+LATEX_OUTPUT           = ./docs/latex
+PDF_HYPERLINKS         = YES
+USE_PDFLATEX           = YES
+LATEX_BATCHMODE        = YES
+
+# === ЯЗЫК ===
+OUTPUT_LANGUAGE        = Russian
+
+# === ИЗВЛЕЧЕНИЕ КОДА ===
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+# === ОПТИМИЗАЦИЯ ДЛЯ C ===
+OPTIMIZE_OUTPUT_FOR_C  = YES
+
+# === ГРАФЫ ВЫЗОВОВ (опционально) ===
+HAVE_DOT               = YES
+DOT_PATH               = "D:\Graphviz\bin"
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+GRAPHICAL_HIERARCHY    = YES

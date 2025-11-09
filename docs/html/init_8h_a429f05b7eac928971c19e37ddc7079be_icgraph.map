@@ -1,0 +1,8 @@
+<map id="led_off" name="led_off">
+<area shape="rect" id="Node000001" title="Выключение всех светодиодов" alt="" coords="210,31,269,57"/>
+<area shape="rect" id="Node000002" href="$init_8c.html#a538fcbfed8b1e697437a30c052aecfd3" title="Включение светодиодов в соответствии с номером нажатия кнопки" alt="" coords="103,5,162,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,36,162,28,163,23,196,31"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,57"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="194,47,55,47,55,41,194,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,32,56,41,54,35,87,27"/>
+</map>

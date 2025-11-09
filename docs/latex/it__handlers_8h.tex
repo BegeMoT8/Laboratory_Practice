@@ -1,0 +1,80 @@
+\doxysection{Файл Core/\+Inc/it\+\_\+handlers.h}
+\hypertarget{it__handlers_8h}{}\label{it__handlers_8h}\index{Core/Inc/it\_handlers.h@{Core/Inc/it\_handlers.h}}
+Граф файлов, в которые включается этот файл\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{it__handlers_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{it__handlers_8h_a738473a5b43f6c92b80ce1d3d6f77ed9}{EXTI15\+\_\+10\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em Обработчик прерывания по EXTI линии 13 (кнопка на PC13). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{it__handlers_8h_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Обработчик прерывания системного таймера Sys\+Tick. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8h_a3387279a24bc624806c2e1e6201a5c36}{btn\+\_\+count}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8h_a022c95c2ba2a5d466992663c3578d049}{btn\+\_\+hold\+\_\+2s}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8h_ab7a4f042b14b4ac5bc41c23caeb9301b}{btn\+\_\+hold\+\_\+4s}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{it__handlers_8h_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{it__handlers_8h_a738473a5b43f6c92b80ce1d3d6f77ed9}\index{it\_handlers.h@{it\_handlers.h}!EXTI15\_10\_IRQHandler@{EXTI15\_10\_IRQHandler}}
+\index{EXTI15\_10\_IRQHandler@{EXTI15\_10\_IRQHandler}!it\_handlers.h@{it\_handlers.h}}
+\doxysubsubsection{\texorpdfstring{EXTI15\_10\_IRQHandler()}{EXTI15\_10\_IRQHandler()}}
+{\footnotesize\ttfamily \label{it__handlers_8h_a738473a5b43f6c92b80ce1d3d6f77ed9} 
+void EXTI15\+\_\+10\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Обработчик прерывания по EXTI линии 13 (кнопка на PC13). 
+
+Комбинированный подход борьбы с дребезгом\+:
+\begin{DoxyItemize}
+\item Временной фильтр 50 мс
+\item Отслеживание состояния кнопки
+\item Измерение длительности удержания
+\item Определение типа нажатия\+: короткое / 2 сек / 4 сек 
+\end{DoxyItemize}\Hypertarget{it__handlers_8h_ab5e09814056d617c521549e542639b7e}\index{it\_handlers.h@{it\_handlers.h}!SysTick\_Handler@{SysTick\_Handler}}
+\index{SysTick\_Handler@{SysTick\_Handler}!it\_handlers.h@{it\_handlers.h}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Handler()}{SysTick\_Handler()}}
+{\footnotesize\ttfamily \label{it__handlers_8h_ab5e09814056d617c521549e542639b7e} 
+void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Обработчик прерывания системного таймера Sys\+Tick. 
+
+Увеличивает глобальный счетчик тиков на 1 при каждом срабатывании прерывания. 
+
+\label{doc-var-members}
+\Hypertarget{it__handlers_8h_doc-var-members}
+\doxysubsection{Переменные}
+\Hypertarget{it__handlers_8h_a3387279a24bc624806c2e1e6201a5c36}\index{it\_handlers.h@{it\_handlers.h}!btn\_count@{btn\_count}}
+\index{btn\_count@{btn\_count}!it\_handlers.h@{it\_handlers.h}}
+\doxysubsubsection{\texorpdfstring{btn\_count}{btn\_count}}
+{\footnotesize\ttfamily \label{it__handlers_8h_a3387279a24bc624806c2e1e6201a5c36} 
+volatile uint8\+\_\+t btn\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{it__handlers_8h_a022c95c2ba2a5d466992663c3578d049}\index{it\_handlers.h@{it\_handlers.h}!btn\_hold\_2s@{btn\_hold\_2s}}
+\index{btn\_hold\_2s@{btn\_hold\_2s}!it\_handlers.h@{it\_handlers.h}}
+\doxysubsubsection{\texorpdfstring{btn\_hold\_2s}{btn\_hold\_2s}}
+{\footnotesize\ttfamily \label{it__handlers_8h_a022c95c2ba2a5d466992663c3578d049} 
+volatile uint8\+\_\+t btn\+\_\+hold\+\_\+2s\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{it__handlers_8h_ab7a4f042b14b4ac5bc41c23caeb9301b}\index{it\_handlers.h@{it\_handlers.h}!btn\_hold\_4s@{btn\_hold\_4s}}
+\index{btn\_hold\_4s@{btn\_hold\_4s}!it\_handlers.h@{it\_handlers.h}}
+\doxysubsubsection{\texorpdfstring{btn\_hold\_4s}{btn\_hold\_4s}}
+{\footnotesize\ttfamily \label{it__handlers_8h_ab7a4f042b14b4ac5bc41c23caeb9301b} 
+volatile uint8\+\_\+t btn\+\_\+hold\+\_\+4s\hspace{0.3cm}{\ttfamily [extern]}}
+
