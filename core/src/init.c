@@ -1,4 +1,9 @@
 #include "init.h"
+extern volatile uint32_t GlobalTickCount;
+extern volatile uint8_t btn_count;   // Счетчик коротких нажатий
+extern volatile uint8_t btn_hold_2s; // Счетчик удержаний 2 сек
+extern volatile uint8_t btn_hold_4s; // Счетчик удержаний 4 сек
+
 /**
  * @brief Инициализация тактирования микроконтроллера STM32F4xx
  * @details Настройка тактирования на работу с внешним кварцевым резонатором 8 МГц и
@@ -132,44 +137,127 @@ void SysTick_Init(void)
                179999 << SysTick_VAL_CURRENT_Pos);   // Очистка поля
     SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk); // Включим счётчик
 }
+
 /**
- * @brief Выключение всех светодиодов
+ * @brief Инициализация структуры Led
+ * @param led Указатель на структуру Led
+ * @param num Номер светодиода (от 1 до 6)
  */
-void led_off()
+void Led_init(Led* led, uint8_t num)
 {
-    // Выключение всех светодиодов
-    SET_BIT(GPIOC->BSRR, GPIO_BSRR_BR9);  // PC9 = LOW
-    SET_BIT(GPIOC->BSRR, GPIO_BSRR_BR10); // PC10 = LOW
-    SET_BIT(GPIOC->BSRR, GPIO_BSRR_BR11); // PC11 = LOW
-    SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR2);  // PD2 = LOW
-    SET_BIT(GPIOG->BSRR, GPIO_BSRR_BR2);  // PG2 = LOW
-    SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR2);  // PE2 = LOW
+    led->number = num;
+    led->toggle_time_ms = GlobalTickCount;
+    led->delay_time_ms = FREQUENCY1;
+    led->led_state = true;
 }
+
 /**
- * @brief Включение светодиодов в соответствии с номером нажатия кнопки
- * @param count Номер нажатия кнопки (от 0 до 6)
+ * @brief Установка частоты мерцания светодиода
+ * @param led Указатель на структуру Led
+ * @details Меняет частоту мерцания только если это текущий светодиод (btn_count == number)
  */
-void led_on(uint8_t count)
+void Led_set_delay_time_ms(Led* led)
 {
-    if (count > 6 || count < 0) // Некорректное значение
-        return; 
-
-    if (count == 0) // Все выключены
-        led_off();
- 
-    else // Включаем светодиоды последовательно
+    // Меняем частоту мерцания только если это текущий светодиод
+    if (btn_count == led->number)
     {
-        // Каждое нажатие включает следующий, предыдущие остаются включенными
-        (count >= 1) ? SET_BIT(GPIOC->BSRR, GPIO_BSRR_BS9) : SET_BIT(GPIOC->BSRR, GPIO_BSRR_BR9);
+        switch (btn_hold_2s % 3)
+        {
+        case 0: // Частота 0.4 Гц
+            led->delay_time_ms = FREQUENCY1;
+            break;
+        case 1: // Частота 1.1 Гц
+            led->delay_time_ms = FREQUENCY2;
+            break;
+        case 2: // Частота 1.9 Гц
+            led->delay_time_ms = FREQUENCY3;
+            break;
+        }
+    }
+}
 
-        (count >= 2) ? SET_BIT(GPIOC->BSRR, GPIO_BSRR_BS10) : SET_BIT(GPIOC->BSRR, GPIO_BSRR_BR10);
+/**
+ * @brief Включение светодиода
+ * @param led Указатель на структуру Led
+ */
+void Led_on(Led* led)
+{
+    // Управление происходит каждым отдельным светодиодом
+    switch (led->number)
+    {
+    case 1:
+        SET_BIT(GPIOC->BSRR, GPIO_BSRR_BS9);
+        break;
+    case 2:
+        SET_BIT(GPIOC->BSRR, GPIO_BSRR_BS10);
+        break;
+    case 3:
+        SET_BIT(GPIOC->BSRR, GPIO_BSRR_BS11);
+        break;
+    case 4:
+        SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS2);
+        break;
+    case 5:
+        SET_BIT(GPIOG->BSRR, GPIO_BSRR_BS2);
+        break;
+    case 6:
+        SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS2);
+        break;
+    default:
+        break;
+    }
+}
 
-        (count >= 3) ? SET_BIT(GPIOC->BSRR, GPIO_BSRR_BS11) : SET_BIT(GPIOC->BSRR, GPIO_BSRR_BR11);
+/**
+ * @brief Выключение светодиода
+ * @param led Указатель на структуру Led
+ */
+void Led_off(Led* led)
+{
+    // Управление происходит каждым отдельным светодиодом
+    switch (led->number)
+    {
+    case 1:
+        SET_BIT(GPIOC->BSRR, GPIO_BSRR_BR9);
+        break;
+    case 2:
+        SET_BIT(GPIOC->BSRR, GPIO_BSRR_BR10);
+        break;
+    case 3:
+        SET_BIT(GPIOC->BSRR, GPIO_BSRR_BR11);
+        break;
+    case 4:
+        SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR2);
+        break;
+    case 5:
+        SET_BIT(GPIOG->BSRR, GPIO_BSRR_BR2);
+        break;
+    case 6:
+        SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR2);
+        break;
+    default:
+        break;
+    }
+}
 
-        (count >= 4) ? SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS2) : SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR2);
+/**
+ * @brief Функция мерцания светодиода
+ * @param led Указатель на структуру Led
+ * @details Неблокирующая функция мерцания светодиода с заданной частотой
+ */
+void Led_flicker(Led* led)
+{
+    // Вычисляем прошедшее время с последнего переключения
+    uint32_t elapsed_time = GlobalTickCount - led->toggle_time_ms;
 
-        (count >= 5) ? SET_BIT(GPIOG->BSRR, GPIO_BSRR_BS2) : SET_BIT(GPIOG->BSRR, GPIO_BSRR_BR2);
+    // Проверяем частоту мерцания
+    Led_set_delay_time_ms(led);
 
-        (count >= 6) ? SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS2) : SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR2);
+    // Неблокирующее мерцание
+    if (elapsed_time >= led->delay_time_ms)
+    {
+        led->toggle_time_ms = GlobalTickCount; // Сохраняем момент времени переключения
+        led->led_state = !led->led_state;
+        (led->led_state) ? Led_on(led) : Led_off(led);
     }
 }
