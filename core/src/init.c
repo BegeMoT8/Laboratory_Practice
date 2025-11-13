@@ -145,6 +145,7 @@ void SysTick_Init(void)
  */
 void Led_init(Led* led, uint8_t num)
 {
+    led->current_btn_hold_2s = 0;
     led->number = num;
     led->toggle_time_ms = GlobalTickCount;
     led->delay_time_ms = FREQUENCY1;
@@ -154,25 +155,22 @@ void Led_init(Led* led, uint8_t num)
 /**
  * @brief Установка частоты мерцания светодиода
  * @param led Указатель на структуру Led
- * @details Меняет частоту мерцания только если это текущий светодиод (btn_count == number)
+ * @details функция вызывается в EXTI15_10_IRQHandler
  */
 void Led_set_delay_time_ms(Led* led)
 {
-    // Меняем частоту мерцания только если это текущий светодиод
-    if (btn_count == led->number)
+    led->current_btn_hold_2s++;
+    switch (led->current_btn_hold_2s % 3)
     {
-        switch (btn_hold_2s % 3)
-        {
-        case 0: // Частота 0.4 Гц
-            led->delay_time_ms = FREQUENCY1;
-            break;
-        case 1: // Частота 1.1 Гц
-            led->delay_time_ms = FREQUENCY2;
-            break;
-        case 2: // Частота 1.9 Гц
-            led->delay_time_ms = FREQUENCY3;
-            break;
-        }
+    case 0: // Частота 0.4 Гц
+        led->delay_time_ms = FREQUENCY1;
+        break;
+    case 1: // Частота 1.1 Гц
+        led->delay_time_ms = FREQUENCY2;
+        break;
+    case 2: // Частота 1.9 Гц
+        led->delay_time_ms = FREQUENCY3;
+        break;
     }
 }
 
@@ -249,9 +247,6 @@ void Led_flicker(Led* led)
 {
     // Вычисляем прошедшее время с последнего переключения
     uint32_t elapsed_time = GlobalTickCount - led->toggle_time_ms;
-
-    // Проверяем частоту мерцания
-    Led_set_delay_time_ms(led);
 
     // Неблокирующее мерцание
     if (elapsed_time >= led->delay_time_ms)

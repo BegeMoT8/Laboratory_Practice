@@ -3,10 +3,11 @@
 #include "../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h"
 #include "../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
 #include <it_handlers.h>
+#include <init.h>
 volatile uint32_t GlobalTickCount; // Глобальный счетчик тиков SysTick
 volatile uint8_t btn_count = 0;    // Счетчик коротких нажатий
-volatile uint8_t btn_hold_2s = 0;  // Счетчик удержаний 2 сек
 volatile uint8_t btn_hold_4s = 0;  // Счетчик удержаний 4 сек
+extern Led led1, led2, led3, led4, led5, led6;
 #define delayTime_MS 50
 #define shortHoldTime_MS 2000
 #define longHoldTime_MS 4000
@@ -61,7 +62,31 @@ void EXTI15_10_IRQHandler(void)
         }
         else if (press_duration < longHoldTime_MS) // Удержание 2-4 сек
         {
-            btn_hold_2s++; // Функция 2: изменение частоты мерцания
+            // определяем светодиод для изменения частоты мерцания
+            switch (btn_count)
+            {
+            case 1:
+                Led_set_delay_time_ms(&led1);
+                break;
+            case 2:
+                Led_set_delay_time_ms(&led2);
+                break;
+            case 3:
+                Led_set_delay_time_ms(&led3);
+                break;
+            case 4:
+                Led_set_delay_time_ms(&led4);
+                break;
+            case 5:
+                Led_set_delay_time_ms(&led5);
+                break;
+            case 6:
+                Led_set_delay_time_ms(&led6);
+                break;
+            default:
+                break;
+            }
+            //btn_hold_2s++; // счетчик нажатий с удержанием 2с
         }
         else // Удержание >= 4 сек
         {
@@ -78,5 +103,5 @@ void EXTI15_10_IRQHandler(void)
  */
 void SysTick_Handler(void)
 {
-    GlobalTickCount++;//Одна итерация - 1 мс
+    GlobalTickCount++; // Одна итерация - 1 мс
 }
