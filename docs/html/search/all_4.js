@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['globaltickcount_0',['GlobalTickCount',['../it__handlers_8c.html#abf286b5bf324f08a4395173ca136e8a3',1,'GlobalTickCount:&#160;it_handlers.c'],['../main_8c.html#abf286b5bf324f08a4395173ca136e8a3',1,'GlobalTickCount:&#160;it_handlers.c']]],
-  ['gpio_5finit_1',['GPIO_Init',['../init_8h.html#a90363099dc984eccffd2a7ad34def32d',1,'GPIO_Init(void):&#160;init.c'],['../init_8c.html#a90363099dc984eccffd2a7ad34def32d',1,'GPIO_Init(void):&#160;init.c']]]
+  ['frequency1_0',['FREQUENCY1',['../init_8h.html#ab7276f4b096faccc80b87350e18efa2b',1,'init.h']]],
+  ['frequency2_1',['FREQUENCY2',['../init_8h.html#a99942800789c32f090ba9a9c5f95073f',1,'init.h']]],
+  ['frequency3_2',['FREQUENCY3',['../init_8h.html#a73f51297601e8bc168b1d91145f73c68',1,'init.h']]]
 ];

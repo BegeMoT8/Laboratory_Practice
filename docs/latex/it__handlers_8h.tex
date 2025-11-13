@@ -1,7 +1,6 @@
 \doxysection{Файл Core/\+Inc/it\+\_\+handlers.h}
 \hypertarget{it__handlers_8h}{}\label{it__handlers_8h}\index{Core/Inc/it\_handlers.h@{Core/Inc/it\_handlers.h}}
-Граф файлов, в которые включается этот файл\+:
-\nopagebreak
+Граф файлов, в которые включается этот файл\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -19,8 +18,6 @@ void \mbox{\hyperlink{it__handlers_8h_ab5e09814056d617c521549e542639b7e}{Sys\+Ti
 \begin{DoxyCompactItemize}
 \item 
 volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8h_a3387279a24bc624806c2e1e6201a5c36}{btn\+\_\+count}}
-\item 
-volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8h_a022c95c2ba2a5d466992663c3578d049}{btn\+\_\+hold\+\_\+2s}}
 \item 
 volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8h_ab7a4f042b14b4ac5bc41c23caeb9301b}{btn\+\_\+hold\+\_\+4s}}
 \end{DoxyCompactItemize}
@@ -45,7 +42,14 @@ void EXTI15\+\_\+10\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{}{}
 \item Отслеживание состояния кнопки
 \item Измерение длительности удержания
 \item Определение типа нажатия\+: короткое / 2 сек / 4 сек 
-\end{DoxyItemize}\Hypertarget{it__handlers_8h_ab5e09814056d617c521549e542639b7e}\index{it\_handlers.h@{it\_handlers.h}!SysTick\_Handler@{SysTick\_Handler}}
+\end{DoxyItemize}Граф вызовов\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{it__handlers_8h_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{it__handlers_8h_ab5e09814056d617c521549e542639b7e}\index{it\_handlers.h@{it\_handlers.h}!SysTick\_Handler@{SysTick\_Handler}}
 \index{SysTick\_Handler@{SysTick\_Handler}!it\_handlers.h@{it\_handlers.h}}
 \doxysubsubsection{\texorpdfstring{SysTick\_Handler()}{SysTick\_Handler()}}
 {\footnotesize\ttfamily \label{it__handlers_8h_ab5e09814056d617c521549e542639b7e} 
@@ -65,12 +69,6 @@ void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{Dox
 \doxysubsubsection{\texorpdfstring{btn\_count}{btn\_count}}
 {\footnotesize\ttfamily \label{it__handlers_8h_a3387279a24bc624806c2e1e6201a5c36} 
 volatile uint8\+\_\+t btn\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
-
-\Hypertarget{it__handlers_8h_a022c95c2ba2a5d466992663c3578d049}\index{it\_handlers.h@{it\_handlers.h}!btn\_hold\_2s@{btn\_hold\_2s}}
-\index{btn\_hold\_2s@{btn\_hold\_2s}!it\_handlers.h@{it\_handlers.h}}
-\doxysubsubsection{\texorpdfstring{btn\_hold\_2s}{btn\_hold\_2s}}
-{\footnotesize\ttfamily \label{it__handlers_8h_a022c95c2ba2a5d466992663c3578d049} 
-volatile uint8\+\_\+t btn\+\_\+hold\+\_\+2s\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{it__handlers_8h_ab7a4f042b14b4ac5bc41c23caeb9301b}\index{it\_handlers.h@{it\_handlers.h}!btn\_hold\_4s@{btn\_hold\_4s}}
 \index{btn\_hold\_4s@{btn\_hold\_4s}!it\_handlers.h@{it\_handlers.h}}

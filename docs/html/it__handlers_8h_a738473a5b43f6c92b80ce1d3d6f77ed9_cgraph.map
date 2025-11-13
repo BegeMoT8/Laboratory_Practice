@@ -1,0 +1,5 @@
+<map id="EXTI15_10_IRQHandler" name="EXTI15_10_IRQHandler">
+<area shape="rect" id="Node000001" title="Обработчик прерывания по EXTI линии 13 (кнопка на PC13)." alt="" coords="5,5,168,32"/>
+<area shape="rect" id="Node000002" href="$init_8c.html#a3a2d70d05cd30715cc12f379fe34a607" title="Установка частоты мерцания светодиода" alt="" coords="216,5,378,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,16,200,16,200,21,168,21"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Led_set_delay_time_ms" name="Led_set_delay_time_ms">
+<area shape="rect" id="Node000001" title="Установка частоты мерцания светодиода" alt="" coords="216,5,378,32"/>
+<area shape="rect" id="Node000002" href="$it__handlers_8c.html#a738473a5b43f6c92b80ce1d3d6f77ed9" title="Обработчик прерывания по EXTI линии 13 (кнопка на PC13)." alt="" coords="5,5,168,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,21,168,21,168,16,200,16"/>
+</map>

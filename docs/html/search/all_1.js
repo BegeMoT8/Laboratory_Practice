@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['delaytime_5fms_0',['delayTime_MS',['../it__handlers_8c.html#adae9800298bb2b8a2d2087fd161d4501',1,'it_handlers.c']]]
+  ['current_5fbtn_5fhold_5f2s_0',['current_btn_hold_2s',['../struct_led.html#a3e3cb0142351baf8a32dbaee50806bc5',1,'Led']]]
 ];

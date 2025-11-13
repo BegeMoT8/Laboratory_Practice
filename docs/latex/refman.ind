@@ -1,0 +1,215 @@
+\begin{theindex}
+
+  \item {btn\_count}
+    \subitem {init.c}, \hyperpage{28}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+    \subitem {it\_handlers.h}, \hyperpage{21}
+    \subitem {main.c}, \hyperpage{33}
+  \item {btn\_hold\_2s}
+    \subitem {init.c}, \hyperpage{28}
+  \item {btn\_hold\_4s}
+    \subitem {init.c}, \hyperpage{28}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+    \subitem {it\_handlers.h}, \hyperpage{21}
+    \subitem {main.c}, \hyperpage{33}
+  \item {button\_pressed}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+
+  \indexspace
+
+  \item {Core/Inc/init.h}, \hyperpage{11}, \hyperpage{19}
+  \item {Core/Inc/it\_handlers.h}, \hyperpage{20, 21}
+  \item {Core/Inc/main.h}, \hyperpage{22}
+  \item {Core/Src/init.c}, \hyperpage{22}
+  \item {Core/Src/it\_handlers.c}, \hyperpage{28}
+  \item {Core/Src/main.c}, \hyperpage{32}
+  \item {current\_btn\_hold\_2s}
+    \subitem {Led}, \hyperpage{9}
+
+  \indexspace
+
+  \item {delay\_time\_ms}
+    \subitem {Led}, \hyperpage{9}
+  \item {delayTime\_MS}
+    \subitem {it\_handlers.c}, \hyperpage{29}
+
+  \indexspace
+
+  \item {EXTI15\_10\_IRQHandler}
+    \subitem {it\_handlers.c}, \hyperpage{30}
+    \subitem {it\_handlers.h}, \hyperpage{20}
+
+  \indexspace
+
+  \item {FREQUENCY1}
+    \subitem {init.h}, \hyperpage{12}
+  \item {FREQUENCY2}
+    \subitem {init.h}, \hyperpage{12}
+  \item {FREQUENCY3}
+    \subitem {init.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {GlobalTickCount}
+    \subitem {init.c}, \hyperpage{28}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+  \item {GPIO\_Init}
+    \subitem {init.c}, \hyperpage{23}
+    \subitem {init.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {init.c}
+    \subitem {btn\_count}, \hyperpage{28}
+    \subitem {btn\_hold\_2s}, \hyperpage{28}
+    \subitem {btn\_hold\_4s}, \hyperpage{28}
+    \subitem {GlobalTickCount}, \hyperpage{28}
+    \subitem {GPIO\_Init}, \hyperpage{23}
+    \subitem {ITR\_Init}, \hyperpage{23}
+    \subitem {Led\_flicker}, \hyperpage{24}
+    \subitem {Led\_init}, \hyperpage{25}
+    \subitem {Led\_off}, \hyperpage{25}
+    \subitem {Led\_on}, \hyperpage{26}
+    \subitem {Led\_set\_delay\_time\_ms}, \hyperpage{26}
+    \subitem {RCC\_Init}, \hyperpage{27}
+    \subitem {SysTick\_Init}, \hyperpage{27}
+  \item {init.h}
+    \subitem {FREQUENCY1}, \hyperpage{12}
+    \subitem {FREQUENCY2}, \hyperpage{12}
+    \subitem {FREQUENCY3}, \hyperpage{12}
+    \subitem {GPIO\_Init}, \hyperpage{13}
+    \subitem {ITR\_Init}, \hyperpage{13}
+    \subitem {Led\_flicker}, \hyperpage{13}
+    \subitem {Led\_init}, \hyperpage{15}
+    \subitem {Led\_off}, \hyperpage{15}
+    \subitem {Led\_on}, \hyperpage{16}
+    \subitem {Led\_set\_delay\_time\_ms}, \hyperpage{16}
+    \subitem {RCC\_Init}, \hyperpage{18}
+    \subitem {SysTick\_Init}, \hyperpage{18}
+  \item {it\_handlers.c}
+    \subitem {btn\_count}, \hyperpage{31}
+    \subitem {btn\_hold\_4s}, \hyperpage{31}
+    \subitem {button\_pressed}, \hyperpage{31}
+    \subitem {delayTime\_MS}, \hyperpage{29}
+    \subitem {EXTI15\_10\_IRQHandler}, \hyperpage{30}
+    \subitem {GlobalTickCount}, \hyperpage{31}
+    \subitem {led1}, \hyperpage{31}
+    \subitem {led2}, \hyperpage{31}
+    \subitem {led3}, \hyperpage{31}
+    \subitem {led4}, \hyperpage{31}
+    \subitem {led5}, \hyperpage{31}
+    \subitem {led6}, \hyperpage{31}
+    \subitem {Led\_Count}, \hyperpage{29}
+    \subitem {longHoldTime\_MS}, \hyperpage{30}
+    \subitem {shortHoldTime\_MS}, \hyperpage{30}
+    \subitem {SysTick\_Handler}, \hyperpage{30}
+  \item {it\_handlers.h}
+    \subitem {btn\_count}, \hyperpage{21}
+    \subitem {btn\_hold\_4s}, \hyperpage{21}
+    \subitem {EXTI15\_10\_IRQHandler}, \hyperpage{20}
+    \subitem {SysTick\_Handler}, \hyperpage{21}
+  \item {ITR\_Init}
+    \subitem {init.c}, \hyperpage{23}
+    \subitem {init.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {Led}, \hyperpage{9}
+    \subitem {current\_btn\_hold\_2s}, \hyperpage{9}
+    \subitem {delay\_time\_ms}, \hyperpage{9}
+    \subitem {led\_state}, \hyperpage{9}
+    \subitem {number}, \hyperpage{9}
+    \subitem {toggle\_time\_ms}, \hyperpage{9}
+  \item {led1}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+    \subitem {main.c}, \hyperpage{34}
+  \item {led2}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+    \subitem {main.c}, \hyperpage{34}
+  \item {led3}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+    \subitem {main.c}, \hyperpage{34}
+  \item {led4}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+    \subitem {main.c}, \hyperpage{34}
+  \item {led5}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+    \subitem {main.c}, \hyperpage{34}
+  \item {led6}
+    \subitem {it\_handlers.c}, \hyperpage{31}
+    \subitem {main.c}, \hyperpage{34}
+  \item {Led\_Count}
+    \subitem {it\_handlers.c}, \hyperpage{29}
+    \subitem {main.c}, \hyperpage{32}
+  \item {Led\_flicker}
+    \subitem {init.c}, \hyperpage{24}
+    \subitem {init.h}, \hyperpage{13}
+  \item {Led\_init}
+    \subitem {init.c}, \hyperpage{25}
+    \subitem {init.h}, \hyperpage{15}
+  \item {Led\_off}
+    \subitem {init.c}, \hyperpage{25}
+    \subitem {init.h}, \hyperpage{15}
+  \item {Led\_on}
+    \subitem {init.c}, \hyperpage{26}
+    \subitem {init.h}, \hyperpage{16}
+  \item {Led\_set\_delay\_time\_ms}
+    \subitem {init.c}, \hyperpage{26}
+    \subitem {init.h}, \hyperpage{16}
+  \item {led\_state}
+    \subitem {Led}, \hyperpage{9}
+  \item {longHoldTime\_MS}
+    \subitem {it\_handlers.c}, \hyperpage{30}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{33}
+  \item {main.c}
+    \subitem {btn\_count}, \hyperpage{33}
+    \subitem {btn\_hold\_4s}, \hyperpage{33}
+    \subitem {led1}, \hyperpage{34}
+    \subitem {led2}, \hyperpage{34}
+    \subitem {led3}, \hyperpage{34}
+    \subitem {led4}, \hyperpage{34}
+    \subitem {led5}, \hyperpage{34}
+    \subitem {led6}, \hyperpage{34}
+    \subitem {Led\_Count}, \hyperpage{32}
+    \subitem {main}, \hyperpage{33}
+
+  \indexspace
+
+  \item {number}
+    \subitem {Led}, \hyperpage{9}
+
+  \indexspace
+
+  \item {RCC\_Init}
+    \subitem {init.c}, \hyperpage{27}
+    \subitem {init.h}, \hyperpage{18}
+
+  \indexspace
+
+  \item {shortHoldTime\_MS}
+    \subitem {it\_handlers.c}, \hyperpage{30}
+  \item {SysTick\_Handler}
+    \subitem {it\_handlers.c}, \hyperpage{30}
+    \subitem {it\_handlers.h}, \hyperpage{21}
+  \item {SysTick\_Init}
+    \subitem {init.c}, \hyperpage{27}
+    \subitem {init.h}, \hyperpage{18}
+
+  \indexspace
+
+  \item {toggle\_time\_ms}
+    \subitem {Led}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Содержание директории Core}, \hyperpage{7}
+  \item {Содержание директории Core/Inc}, 
+		\hyperpage{8}
+  \item {Содержание директории Core/Src}, 
+		\hyperpage{8}
+
+\end{theindex}

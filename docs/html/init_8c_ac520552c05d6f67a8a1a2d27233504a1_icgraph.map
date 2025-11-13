@@ -1,0 +1,8 @@
+<map id="Led_on" name="Led_on">
+<area shape="rect" id="Node000001" title="Включение светодиода" alt="" coords="235,31,298,57"/>
+<area shape="rect" id="Node000002" href="$init_8c.html#ab1eb73da8d451e45ad7c48ee361c9580" title="Функция мерцания светодиода" alt="" coords="103,5,187,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,37,187,30,188,25,220,32"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="главная функция программы" alt="" coords="5,31,55,57"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="220,47,55,47,55,41,220,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,34,55,41,54,36,87,29"/>
+</map>

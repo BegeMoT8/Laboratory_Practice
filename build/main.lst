@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 1
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -34,710 +34,392 @@ ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 1
    4:Core/Src/main.c **** 
    5:Core/Src/main.c **** extern volatile uint8_t btn_count;   // Счетчик коротких нажатий
    6:Core/Src/main.c **** extern volatile uint8_t btn_hold_4s; // Счетчик удержаний 4 сек
-   7:Core/Src/main.c **** 
-   8:Core/Src/main.c **** // Создание структур Led для каждого из 6-ти светодиодов
-   9:Core/Src/main.c **** Led led1, led2, led3, led4, led5, led6;
-  10:Core/Src/main.c **** 
-  11:Core/Src/main.c **** /**
-  12:Core/Src/main.c ****  * @brief главная функция программы
-  13:Core/Src/main.c ****  * @details иницилизация систем и основной цикл
-  14:Core/Src/main.c ****  * @return int
-  15:Core/Src/main.c ****  */
-  16:Core/Src/main.c **** int main(void)
-  17:Core/Src/main.c **** {
-  29              		.loc 1 17 1 view -0
+   7:Core/Src/main.c **** #define Led_Count 6
+   8:Core/Src/main.c **** 
+   9:Core/Src/main.c **** // Создание структур Led для каждого из 6-ти светодиодов
+  10:Core/Src/main.c **** Led led1, led2, led3, led4, led5, led6;
+  11:Core/Src/main.c **** 
+  12:Core/Src/main.c **** /**
+  13:Core/Src/main.c ****  * @brief главная функция программы
+  14:Core/Src/main.c ****  * @details иницилизация систем и основной цикл с двумя реж
+  15:Core/Src/main.c ****  * @return int
+  16:Core/Src/main.c ****  */
+  17:Core/Src/main.c **** int main(void)
+  18:Core/Src/main.c **** {
+  29              		.loc 1 18 1 view -0
   30              		.cfi_startproc
-  31              		@ args = 0, pretend = 0, frame = 0
+  31              		@ args = 0, pretend = 0, frame = 24
   32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33 0000 08B5     		push	{r3, lr}
+  33 0000 30B5     		push	{r4, r5, lr}
   34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 8
-  36              		.cfi_offset 3, -8
-  37              		.cfi_offset 14, -4
-  18:Core/Src/main.c ****     RCC_Init();     // Инициализация системы тактирования RCC
-  38              		.loc 1 18 5 view .LVU1
-  39 0002 FFF7FEFF 		bl	RCC_Init
-  40              	.LVL0:
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 2
+  35              		.cfi_def_cfa_offset 12
+  36              		.cfi_offset 4, -12
+  37              		.cfi_offset 5, -8
+  38              		.cfi_offset 14, -4
+  39 0002 87B0     		sub	sp, sp, #28
+  40              	.LCFI1:
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s 			page 2
 
 
-  19:Core/Src/main.c ****     GPIO_Init();    // Инициализация портов GPIO
-  41              		.loc 1 19 5 view .LVU2
-  42 0006 FFF7FEFF 		bl	GPIO_Init
-  43              	.LVL1:
-  20:Core/Src/main.c ****     ITR_Init();     // Инициализация контроллера прерываний
-  44              		.loc 1 20 5 view .LVU3
-  45 000a FFF7FEFF 		bl	ITR_Init
-  46              	.LVL2:
-  21:Core/Src/main.c ****     SysTick_Init(); // Инициализация системного таймера
-  47              		.loc 1 21 5 view .LVU4
-  48 000e FFF7FEFF 		bl	SysTick_Init
-  49              	.LVL3:
-  22:Core/Src/main.c **** 
-  23:Core/Src/main.c ****     // Инициализация светодиодов
-  24:Core/Src/main.c ****     Led_init(&led1, 1);
-  50              		.loc 1 24 5 view .LVU5
-  51 0012 0121     		movs	r1, #1
-  52 0014 8D48     		ldr	r0, .L24
-  53 0016 FFF7FEFF 		bl	Led_init
-  54              	.LVL4:
-  25:Core/Src/main.c ****     Led_init(&led2, 2);
-  55              		.loc 1 25 5 view .LVU6
-  56 001a 0221     		movs	r1, #2
-  57 001c 8C48     		ldr	r0, .L24+4
-  58 001e FFF7FEFF 		bl	Led_init
-  59              	.LVL5:
-  26:Core/Src/main.c ****     Led_init(&led3, 3);
-  60              		.loc 1 26 5 view .LVU7
-  61 0022 0321     		movs	r1, #3
-  62 0024 8B48     		ldr	r0, .L24+8
-  63 0026 FFF7FEFF 		bl	Led_init
-  64              	.LVL6:
-  27:Core/Src/main.c ****     Led_init(&led4, 4);
-  65              		.loc 1 27 5 view .LVU8
-  66 002a 0421     		movs	r1, #4
-  67 002c 8A48     		ldr	r0, .L24+12
-  68 002e FFF7FEFF 		bl	Led_init
-  69              	.LVL7:
-  28:Core/Src/main.c ****     Led_init(&led5, 5);
-  70              		.loc 1 28 5 view .LVU9
-  71 0032 0521     		movs	r1, #5
-  72 0034 8948     		ldr	r0, .L24+16
-  73 0036 FFF7FEFF 		bl	Led_init
-  74              	.LVL8:
-  29:Core/Src/main.c ****     Led_init(&led6, 6);
-  75              		.loc 1 29 5 view .LVU10
-  76 003a 0621     		movs	r1, #6
-  77 003c 8848     		ldr	r0, .L24+20
-  78 003e FFF7FEFF 		bl	Led_init
-  79              	.LVL9:
-  80 0042 11E0     		b	.L2
-  81              	.LVL10:
-  82              	.L12:
-  83              	.LBB2:
-  30:Core/Src/main.c **** 
-  31:Core/Src/main.c ****     while (1)
-  32:Core/Src/main.c ****     {
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 3
+  41              		.cfi_def_cfa_offset 40
+  19:Core/Src/main.c ****     RCC_Init();     // Инициализация системы тактирования RCC
+  42              		.loc 1 19 5 view .LVU1
+  43 0004 FFF7FEFF 		bl	RCC_Init
+  44              	.LVL0:
+  20:Core/Src/main.c ****     GPIO_Init();    // Инициализация портов GPIO
+  45              		.loc 1 20 5 view .LVU2
+  46 0008 FFF7FEFF 		bl	GPIO_Init
+  47              	.LVL1:
+  21:Core/Src/main.c ****     ITR_Init();     // Инициализация контроллера прерываний
+  48              		.loc 1 21 5 view .LVU3
+  49 000c FFF7FEFF 		bl	ITR_Init
+  50              	.LVL2:
+  22:Core/Src/main.c ****     SysTick_Init(); // Инициализация системного таймера
+  51              		.loc 1 22 5 view .LVU4
+  52 0010 FFF7FEFF 		bl	SysTick_Init
+  53              	.LVL3:
+  23:Core/Src/main.c **** 
+  24:Core/Src/main.c ****     Led *led_adress[] = {&led1, &led2, &led3, &led4, &led5, &led6};
+  54              		.loc 1 24 5 view .LVU5
+  55              		.loc 1 24 10 is_stmt 0 view .LVU6
+  56 0014 6C46     		mov	r4, sp
+  57 0016 2B4D     		ldr	r5, .L19
+  58 0018 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+  59 001a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+  60 001c 95E80300 		ldm	r5, {r0, r1}
+  61 0020 84E80300 		stm	r4, {r0, r1}
+  25:Core/Src/main.c **** 
+  26:Core/Src/main.c ****     // Инициализация светодиодов
+  27:Core/Src/main.c ****     for (uint8_t i = 1; i <= Led_Count; i++)
+  62              		.loc 1 27 5 is_stmt 1 view .LVU7
+  63              	.LBB2:
+  64              		.loc 1 27 10 view .LVU8
+  65              	.LVL4:
+  66              		.loc 1 27 18 is_stmt 0 view .LVU9
+  67 0024 0124     		movs	r4, #1
+  68              		.loc 1 27 5 view .LVU10
+  69 0026 0AE0     		b	.L2
+  70              	.LVL5:
+  71              	.L3:
+  28:Core/Src/main.c ****     {
+  29:Core/Src/main.c ****         Led_init(led_adress[i - 1], i);
+  72              		.loc 1 29 9 is_stmt 1 view .LVU11
+  73              		.loc 1 29 31 is_stmt 0 view .LVU12
+  74 0028 631E     		subs	r3, r4, #1
+  75              		.loc 1 29 9 view .LVU13
+  76 002a 06AA     		add	r2, sp, #24
+  77 002c 02EB8303 		add	r3, r2, r3, lsl #2
+  78 0030 2146     		mov	r1, r4
+  79 0032 53F8180C 		ldr	r0, [r3, #-24]
+  80 0036 FFF7FEFF 		bl	Led_init
+  81              	.LVL6:
+  27:Core/Src/main.c ****     {
+  82              		.loc 1 27 42 is_stmt 1 discriminator 3 view .LVU14
+  83 003a 0134     		adds	r4, r4, #1
+  84              	.LVL7:
+  27:Core/Src/main.c ****     {
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s 			page 3
 
 
-  33:Core/Src/main.c ****         // Функция 3: Определяем режим работы
-  34:Core/Src/main.c ****         bool flicker_mode = (btn_hold_4s % 2 == 1);
-  35:Core/Src/main.c **** 
-  36:Core/Src/main.c ****         if (flicker_mode)
-  37:Core/Src/main.c ****         {
-  38:Core/Src/main.c ****             // Режим простого свечения - светодиоды горят по�
-  39:Core/Src/main.c ****             switch (btn_count)
+  85              		.loc 1 27 42 is_stmt 0 discriminator 3 view .LVU15
+  86 003c E4B2     		uxtb	r4, r4
+  87              	.LVL8:
+  88              	.L2:
+  27:Core/Src/main.c ****     {
+  89              		.loc 1 27 27 is_stmt 1 discriminator 1 view .LVU16
+  90 003e 062C     		cmp	r4, #6
+  91 0040 F2D9     		bls	.L3
+  92              	.LVL9:
+  93              	.L4:
+  27:Core/Src/main.c ****     {
+  94              		.loc 1 27 27 is_stmt 0 discriminator 1 view .LVU17
+  95              	.LBE2:
+  30:Core/Src/main.c ****     }
+  31:Core/Src/main.c **** 
+  32:Core/Src/main.c ****     while (1)
+  96              		.loc 1 32 5 is_stmt 1 view .LVU18
+  97              	.LBB3:
+  33:Core/Src/main.c ****     {
+  34:Core/Src/main.c ****         // Определяем режим работы
+  35:Core/Src/main.c ****         bool flicker_mode = (btn_hold_4s % 2 == 1);
+  98              		.loc 1 35 9 view .LVU19
+  99              		.loc 1 35 46 is_stmt 0 view .LVU20
+ 100 0042 214B     		ldr	r3, .L19+4
+ 101 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 102              	.LVL10:
+  36:Core/Src/main.c **** 
+  37:Core/Src/main.c ****         if (flicker_mode)
+ 103              		.loc 1 37 9 is_stmt 1 view .LVU21
+ 104              		.loc 1 37 12 is_stmt 0 view .LVU22
+ 105 0046 13F0010F 		tst	r3, #1
+ 106 004a 2AD1     		bne	.L15
+  38:Core/Src/main.c ****         {
+  39:Core/Src/main.c ****             // режим постоянного свечения
+  40:Core/Src/main.c ****             for (int i = 0; i < Led_Count; i++)
+  41:Core/Src/main.c ****             {
+  42:Core/Src/main.c ****                 if (i < btn_count)
+  43:Core/Src/main.c ****                 {
+  44:Core/Src/main.c ****                     Led_on(led_adress[i]);
+  45:Core/Src/main.c ****                 }
+  46:Core/Src/main.c ****                 else
+  47:Core/Src/main.c ****                 {
+  48:Core/Src/main.c ****                     Led_off(led_adress[i]);
+  49:Core/Src/main.c ****                 }
+  50:Core/Src/main.c ****             }
+  51:Core/Src/main.c ****         }
+  52:Core/Src/main.c ****         else
+  53:Core/Src/main.c ****         {
+  54:Core/Src/main.c ****             // режим мерцания
+  55:Core/Src/main.c ****             if (btn_count == 0) // выключение всех led
+ 107              		.loc 1 55 13 is_stmt 1 view .LVU23
+ 108              		.loc 1 55 27 is_stmt 0 view .LVU24
+ 109 004c 1F4B     		ldr	r3, .L19+8
+ 110              	.LVL11:
+ 111              		.loc 1 55 27 view .LVU25
+ 112 004e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 113              		.loc 1 55 16 view .LVU26
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s 			page 4
+
+
+ 114 0050 4BB3     		cbz	r3, .L16
+ 115              	.LBB4:
+  56:Core/Src/main.c ****             {
+  57:Core/Src/main.c ****                 for (uint8_t i = 1; i <= Led_Count; i++)
+  58:Core/Src/main.c ****                 {
+  59:Core/Src/main.c ****                     Led_off(led_adress[i - 1]);
+  60:Core/Src/main.c ****                 }
+  61:Core/Src/main.c ****             }
+  62:Core/Src/main.c ****             else // мерцание светодиодов
+  63:Core/Src/main.c ****             {
+  64:Core/Src/main.c ****                 for (uint8_t i = 1; i <= btn_count; i++)
+ 116              		.loc 1 64 30 view .LVU27
+ 117 0052 0124     		movs	r4, #1
+ 118              	.L12:
+ 119              	.LVL12:
+ 120              		.loc 1 64 39 is_stmt 1 discriminator 1 view .LVU28
+ 121 0054 1D4B     		ldr	r3, .L19+8
+ 122 0056 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 123 0058 DBB2     		uxtb	r3, r3
+ 124 005a A342     		cmp	r3, r4
+ 125 005c F1D3     		bcc	.L4
+  65:Core/Src/main.c ****                 {
+  66:Core/Src/main.c ****                     Led_flicker(led_adress[i - 1]);
+ 126              		.loc 1 66 21 view .LVU29
+ 127              		.loc 1 66 46 is_stmt 0 view .LVU30
+ 128 005e 631E     		subs	r3, r4, #1
+ 129              		.loc 1 66 21 view .LVU31
+ 130 0060 06AA     		add	r2, sp, #24
+ 131 0062 02EB8303 		add	r3, r2, r3, lsl #2
+ 132 0066 53F8180C 		ldr	r0, [r3, #-24]
+ 133 006a FFF7FEFF 		bl	Led_flicker
+ 134              	.LVL13:
+  64:Core/Src/main.c ****                 {
+ 135              		.loc 1 64 54 is_stmt 1 discriminator 3 view .LVU32
+ 136 006e 0134     		adds	r4, r4, #1
+ 137              	.LVL14:
+  64:Core/Src/main.c ****                 {
+ 138              		.loc 1 64 54 is_stmt 0 discriminator 3 view .LVU33
+ 139 0070 E4B2     		uxtb	r4, r4
+ 140              	.LVL15:
+  64:Core/Src/main.c ****                 {
+ 141              		.loc 1 64 54 discriminator 3 view .LVU34
+ 142 0072 EFE7     		b	.L12
+ 143              	.LVL16:
+ 144              	.L7:
+  64:Core/Src/main.c ****                 {
+ 145              		.loc 1 64 54 discriminator 3 view .LVU35
+ 146              	.LBE4:
+ 147              	.LBB5:
+  48:Core/Src/main.c ****                 }
+ 148              		.loc 1 48 21 is_stmt 1 view .LVU36
+ 149 0074 06AB     		add	r3, sp, #24
+ 150 0076 03EB8403 		add	r3, r3, r4, lsl #2
+ 151 007a 53F8180C 		ldr	r0, [r3, #-24]
+ 152 007e FFF7FEFF 		bl	Led_off
+ 153              	.LVL17:
+ 154              	.L8:
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s 			page 5
+
+
   40:Core/Src/main.c ****             {
-  41:Core/Src/main.c ****             case 0:
-  42:Core/Src/main.c ****                 Led_off(&led1);
-  84              		.loc 1 42 17 view .LVU11
-  85 0044 8148     		ldr	r0, .L24
-  86 0046 FFF7FEFF 		bl	Led_off
-  87              	.LVL11:
-  43:Core/Src/main.c ****                 Led_off(&led2);
-  88              		.loc 1 43 17 view .LVU12
-  89 004a 8148     		ldr	r0, .L24+4
-  90 004c FFF7FEFF 		bl	Led_off
-  91              	.LVL12:
-  44:Core/Src/main.c ****                 Led_off(&led3);
-  92              		.loc 1 44 17 view .LVU13
-  93 0050 8048     		ldr	r0, .L24+8
-  94 0052 FFF7FEFF 		bl	Led_off
-  95              	.LVL13:
-  45:Core/Src/main.c ****                 Led_off(&led4);
-  96              		.loc 1 45 17 view .LVU14
-  97 0056 8048     		ldr	r0, .L24+12
-  98 0058 FFF7FEFF 		bl	Led_off
-  99              	.LVL14:
-  46:Core/Src/main.c ****                 Led_off(&led5);
- 100              		.loc 1 46 17 view .LVU15
- 101 005c 7F48     		ldr	r0, .L24+16
- 102 005e FFF7FEFF 		bl	Led_off
- 103              	.LVL15:
-  47:Core/Src/main.c ****                 Led_off(&led6);
- 104              		.loc 1 47 17 view .LVU16
- 105 0062 7F48     		ldr	r0, .L24+20
- 106 0064 FFF7FEFF 		bl	Led_off
- 107              	.LVL16:
-  48:Core/Src/main.c ****                 break;
- 108              		.loc 1 48 17 view .LVU17
- 109              	.L2:
- 110              		.loc 1 48 17 is_stmt 0 view .LVU18
- 111              	.LBE2:
-  31:Core/Src/main.c ****     {
- 112              		.loc 1 31 5 is_stmt 1 view .LVU19
- 113              	.LBB3:
-  34:Core/Src/main.c **** 
- 114              		.loc 1 34 9 view .LVU20
-  34:Core/Src/main.c **** 
- 115              		.loc 1 34 46 is_stmt 0 view .LVU21
- 116 0068 7E4B     		ldr	r3, .L24+24
- 117 006a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 118              	.LVL17:
-  36:Core/Src/main.c ****         {
- 119              		.loc 1 36 9 is_stmt 1 view .LVU22
-  36:Core/Src/main.c ****         {
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 4
+ 155              		.loc 1 40 45 discriminator 2 view .LVU37
+ 156 0082 0134     		adds	r4, r4, #1
+ 157              	.LVL18:
+ 158              	.L5:
+  40:Core/Src/main.c ****             {
+ 159              		.loc 1 40 31 discriminator 1 view .LVU38
+ 160 0084 052C     		cmp	r4, #5
+ 161 0086 DCDC     		bgt	.L4
+  42:Core/Src/main.c ****                 {
+ 162              		.loc 1 42 17 view .LVU39
+  42:Core/Src/main.c ****                 {
+ 163              		.loc 1 42 23 is_stmt 0 view .LVU40
+ 164 0088 104B     		ldr	r3, .L19+8
+ 165 008a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 166 008c DBB2     		uxtb	r3, r3
+  42:Core/Src/main.c ****                 {
+ 167              		.loc 1 42 20 view .LVU41
+ 168 008e A342     		cmp	r3, r4
+ 169 0090 F0DD     		ble	.L7
+  44:Core/Src/main.c ****                 }
+ 170              		.loc 1 44 21 is_stmt 1 view .LVU42
+ 171 0092 06AB     		add	r3, sp, #24
+ 172 0094 03EB8403 		add	r3, r3, r4, lsl #2
+ 173 0098 53F8180C 		ldr	r0, [r3, #-24]
+ 174 009c FFF7FEFF 		bl	Led_on
+ 175              	.LVL19:
+ 176 00a0 EFE7     		b	.L8
+ 177              	.LVL20:
+ 178              	.L15:
+  40:Core/Src/main.c ****             {
+ 179              		.loc 1 40 22 is_stmt 0 view .LVU43
+ 180 00a2 0024     		movs	r4, #0
+ 181 00a4 EEE7     		b	.L5
+ 182              	.LVL21:
+ 183              	.L16:
+  40:Core/Src/main.c ****             {
+ 184              		.loc 1 40 22 view .LVU44
+ 185              	.LBE5:
+ 186              	.LBB6:
+  57:Core/Src/main.c ****                 {
+ 187              		.loc 1 57 30 view .LVU45
+ 188 00a6 0124     		movs	r4, #1
+ 189              	.L11:
+ 190              	.LVL22:
+  57:Core/Src/main.c ****                 {
+ 191              		.loc 1 57 39 is_stmt 1 discriminator 1 view .LVU46
+ 192 00a8 062C     		cmp	r4, #6
+ 193 00aa CAD8     		bhi	.L4
+  59:Core/Src/main.c ****                 }
+ 194              		.loc 1 59 21 view .LVU47
+  59:Core/Src/main.c ****                 }
+ 195              		.loc 1 59 42 is_stmt 0 view .LVU48
+ 196 00ac 631E     		subs	r3, r4, #1
+  59:Core/Src/main.c ****                 }
+ 197              		.loc 1 59 21 view .LVU49
+ 198 00ae 06AA     		add	r2, sp, #24
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s 			page 6
 
 
- 120              		.loc 1 36 12 is_stmt 0 view .LVU23
- 121 006c 13F0010F 		tst	r3, #1
- 122 0070 00F08880 		beq	.L4
-  39:Core/Src/main.c ****             {
- 123              		.loc 1 39 13 is_stmt 1 view .LVU24
- 124 0074 7C4B     		ldr	r3, .L24+28
- 125              	.LVL18:
-  39:Core/Src/main.c ****             {
- 126              		.loc 1 39 13 is_stmt 0 view .LVU25
- 127 0076 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 128 0078 DBB2     		uxtb	r3, r3
- 129 007a 062B     		cmp	r3, #6
- 130 007c F4D8     		bhi	.L2
- 131 007e 01A2     		adr	r2, .L6
- 132 0080 52F823F0 		ldr	pc, [r2, r3, lsl #2]
- 133              		.p2align 2
- 134              	.L6:
- 135 0084 45000000 		.word	.L12+1
- 136 0088 A1000000 		.word	.L11+1
- 137 008c C7000000 		.word	.L10+1
- 138 0090 ED000000 		.word	.L9+1
- 139 0094 13010000 		.word	.L8+1
- 140 0098 39010000 		.word	.L7+1
- 141 009c 5F010000 		.word	.L5+1
- 142              		.p2align 1
- 143              	.L11:
-  49:Core/Src/main.c ****             case 1:
-  50:Core/Src/main.c ****                 Led_on(&led1);
- 144              		.loc 1 50 17 is_stmt 1 view .LVU26
- 145 00a0 6A48     		ldr	r0, .L24
- 146 00a2 FFF7FEFF 		bl	Led_on
- 147              	.LVL19:
-  51:Core/Src/main.c ****                 Led_off(&led2);
- 148              		.loc 1 51 17 view .LVU27
- 149 00a6 6A48     		ldr	r0, .L24+4
- 150 00a8 FFF7FEFF 		bl	Led_off
- 151              	.LVL20:
-  52:Core/Src/main.c ****                 Led_off(&led3);
- 152              		.loc 1 52 17 view .LVU28
- 153 00ac 6948     		ldr	r0, .L24+8
- 154 00ae FFF7FEFF 		bl	Led_off
- 155              	.LVL21:
-  53:Core/Src/main.c ****                 Led_off(&led4);
- 156              		.loc 1 53 17 view .LVU29
- 157 00b2 6948     		ldr	r0, .L24+12
- 158 00b4 FFF7FEFF 		bl	Led_off
- 159              	.LVL22:
-  54:Core/Src/main.c ****                 Led_off(&led5);
- 160              		.loc 1 54 17 view .LVU30
- 161 00b8 6848     		ldr	r0, .L24+16
- 162 00ba FFF7FEFF 		bl	Led_off
- 163              	.LVL23:
-  55:Core/Src/main.c ****                 Led_off(&led6);
- 164              		.loc 1 55 17 view .LVU31
- 165 00be 6848     		ldr	r0, .L24+20
- 166 00c0 FFF7FEFF 		bl	Led_off
- 167              	.LVL24:
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 5
+ 199 00b0 02EB8303 		add	r3, r2, r3, lsl #2
+ 200 00b4 53F8180C 		ldr	r0, [r3, #-24]
+ 201 00b8 FFF7FEFF 		bl	Led_off
+ 202              	.LVL23:
+  57:Core/Src/main.c ****                 {
+ 203              		.loc 1 57 54 is_stmt 1 discriminator 3 view .LVU50
+ 204 00bc 0134     		adds	r4, r4, #1
+ 205              	.LVL24:
+  57:Core/Src/main.c ****                 {
+ 206              		.loc 1 57 54 is_stmt 0 discriminator 3 view .LVU51
+ 207 00be E4B2     		uxtb	r4, r4
+ 208              	.LVL25:
+  57:Core/Src/main.c ****                 {
+ 209              		.loc 1 57 54 discriminator 3 view .LVU52
+ 210 00c0 F2E7     		b	.L11
+ 211              	.L20:
+ 212 00c2 00BF     		.align	2
+ 213              	.L19:
+ 214 00c4 00000000 		.word	.LANCHOR0
+ 215 00c8 00000000 		.word	btn_hold_4s
+ 216 00cc 00000000 		.word	btn_count
+ 217              	.LBE6:
+ 218              	.LBE3:
+ 219              		.cfi_endproc
+ 220              	.LFE130:
+ 222              		.global	led6
+ 223              		.section	.bss.led6,"aw",%nobits
+ 224              		.align	2
+ 227              	led6:
+ 228 0000 00000000 		.space	20
+ 228      00000000 
+ 228      00000000 
+ 228      00000000 
+ 228      00000000 
+ 229              		.global	led5
+ 230              		.section	.bss.led5,"aw",%nobits
+ 231              		.align	2
+ 234              	led5:
+ 235 0000 00000000 		.space	20
+ 235      00000000 
+ 235      00000000 
+ 235      00000000 
+ 235      00000000 
+ 236              		.global	led4
+ 237              		.section	.bss.led4,"aw",%nobits
+ 238              		.align	2
+ 241              	led4:
+ 242 0000 00000000 		.space	20
+ 242      00000000 
+ 242      00000000 
+ 242      00000000 
+ 242      00000000 
+ 243              		.global	led3
+ 244              		.section	.bss.led3,"aw",%nobits
+ 245              		.align	2
+ 248              	led3:
+ 249 0000 00000000 		.space	20
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s 			page 7
 
 
-  56:Core/Src/main.c ****                 break;
- 168              		.loc 1 56 17 view .LVU32
- 169 00c4 D0E7     		b	.L2
- 170              	.L10:
-  57:Core/Src/main.c ****             case 2:
-  58:Core/Src/main.c ****                 Led_on(&led1);
- 171              		.loc 1 58 17 view .LVU33
- 172 00c6 6148     		ldr	r0, .L24
- 173 00c8 FFF7FEFF 		bl	Led_on
- 174              	.LVL25:
-  59:Core/Src/main.c ****                 Led_on(&led2);
- 175              		.loc 1 59 17 view .LVU34
- 176 00cc 6048     		ldr	r0, .L24+4
- 177 00ce FFF7FEFF 		bl	Led_on
- 178              	.LVL26:
-  60:Core/Src/main.c ****                 Led_off(&led3);
- 179              		.loc 1 60 17 view .LVU35
- 180 00d2 6048     		ldr	r0, .L24+8
- 181 00d4 FFF7FEFF 		bl	Led_off
- 182              	.LVL27:
-  61:Core/Src/main.c ****                 Led_off(&led4);
- 183              		.loc 1 61 17 view .LVU36
- 184 00d8 5F48     		ldr	r0, .L24+12
- 185 00da FFF7FEFF 		bl	Led_off
- 186              	.LVL28:
-  62:Core/Src/main.c ****                 Led_off(&led5);
- 187              		.loc 1 62 17 view .LVU37
- 188 00de 5F48     		ldr	r0, .L24+16
- 189 00e0 FFF7FEFF 		bl	Led_off
- 190              	.LVL29:
-  63:Core/Src/main.c ****                 Led_off(&led6);
- 191              		.loc 1 63 17 view .LVU38
- 192 00e4 5E48     		ldr	r0, .L24+20
- 193 00e6 FFF7FEFF 		bl	Led_off
- 194              	.LVL30:
-  64:Core/Src/main.c ****                 break;
- 195              		.loc 1 64 17 view .LVU39
- 196 00ea BDE7     		b	.L2
- 197              	.L9:
-  65:Core/Src/main.c ****             case 3:
-  66:Core/Src/main.c ****                 Led_on(&led1);
- 198              		.loc 1 66 17 view .LVU40
- 199 00ec 5748     		ldr	r0, .L24
- 200 00ee FFF7FEFF 		bl	Led_on
- 201              	.LVL31:
-  67:Core/Src/main.c ****                 Led_on(&led2);
- 202              		.loc 1 67 17 view .LVU41
- 203 00f2 5748     		ldr	r0, .L24+4
- 204 00f4 FFF7FEFF 		bl	Led_on
- 205              	.LVL32:
-  68:Core/Src/main.c ****                 Led_on(&led3);
- 206              		.loc 1 68 17 view .LVU42
- 207 00f8 5648     		ldr	r0, .L24+8
- 208 00fa FFF7FEFF 		bl	Led_on
- 209              	.LVL33:
-  69:Core/Src/main.c ****                 Led_off(&led4);
- 210              		.loc 1 69 17 view .LVU43
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 6
-
-
- 211 00fe 5648     		ldr	r0, .L24+12
- 212 0100 FFF7FEFF 		bl	Led_off
- 213              	.LVL34:
-  70:Core/Src/main.c ****                 Led_off(&led5);
- 214              		.loc 1 70 17 view .LVU44
- 215 0104 5548     		ldr	r0, .L24+16
- 216 0106 FFF7FEFF 		bl	Led_off
- 217              	.LVL35:
-  71:Core/Src/main.c ****                 Led_off(&led6);
- 218              		.loc 1 71 17 view .LVU45
- 219 010a 5548     		ldr	r0, .L24+20
- 220 010c FFF7FEFF 		bl	Led_off
- 221              	.LVL36:
-  72:Core/Src/main.c ****                 break;
- 222              		.loc 1 72 17 view .LVU46
- 223 0110 AAE7     		b	.L2
- 224              	.L8:
-  73:Core/Src/main.c ****             case 4:
-  74:Core/Src/main.c ****                 Led_on(&led1);
- 225              		.loc 1 74 17 view .LVU47
- 226 0112 4E48     		ldr	r0, .L24
- 227 0114 FFF7FEFF 		bl	Led_on
- 228              	.LVL37:
-  75:Core/Src/main.c ****                 Led_on(&led2);
- 229              		.loc 1 75 17 view .LVU48
- 230 0118 4D48     		ldr	r0, .L24+4
- 231 011a FFF7FEFF 		bl	Led_on
- 232              	.LVL38:
-  76:Core/Src/main.c ****                 Led_on(&led3);
- 233              		.loc 1 76 17 view .LVU49
- 234 011e 4D48     		ldr	r0, .L24+8
- 235 0120 FFF7FEFF 		bl	Led_on
- 236              	.LVL39:
-  77:Core/Src/main.c ****                 Led_on(&led4);
- 237              		.loc 1 77 17 view .LVU50
- 238 0124 4C48     		ldr	r0, .L24+12
- 239 0126 FFF7FEFF 		bl	Led_on
- 240              	.LVL40:
-  78:Core/Src/main.c ****                 Led_off(&led5);
- 241              		.loc 1 78 17 view .LVU51
- 242 012a 4C48     		ldr	r0, .L24+16
- 243 012c FFF7FEFF 		bl	Led_off
- 244              	.LVL41:
-  79:Core/Src/main.c ****                 Led_off(&led6);
- 245              		.loc 1 79 17 view .LVU52
- 246 0130 4B48     		ldr	r0, .L24+20
- 247 0132 FFF7FEFF 		bl	Led_off
- 248              	.LVL42:
-  80:Core/Src/main.c ****                 break;
- 249              		.loc 1 80 17 view .LVU53
- 250 0136 97E7     		b	.L2
- 251              	.L7:
-  81:Core/Src/main.c ****             case 5:
-  82:Core/Src/main.c ****                 Led_on(&led1);
- 252              		.loc 1 82 17 view .LVU54
- 253 0138 4448     		ldr	r0, .L24
- 254 013a FFF7FEFF 		bl	Led_on
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 7
-
-
- 255              	.LVL43:
-  83:Core/Src/main.c ****                 Led_on(&led2);
- 256              		.loc 1 83 17 view .LVU55
- 257 013e 4448     		ldr	r0, .L24+4
- 258 0140 FFF7FEFF 		bl	Led_on
- 259              	.LVL44:
-  84:Core/Src/main.c ****                 Led_on(&led3);
- 260              		.loc 1 84 17 view .LVU56
- 261 0144 4348     		ldr	r0, .L24+8
- 262 0146 FFF7FEFF 		bl	Led_on
- 263              	.LVL45:
-  85:Core/Src/main.c ****                 Led_on(&led4);
- 264              		.loc 1 85 17 view .LVU57
- 265 014a 4348     		ldr	r0, .L24+12
- 266 014c FFF7FEFF 		bl	Led_on
- 267              	.LVL46:
-  86:Core/Src/main.c ****                 Led_on(&led5);
- 268              		.loc 1 86 17 view .LVU58
- 269 0150 4248     		ldr	r0, .L24+16
- 270 0152 FFF7FEFF 		bl	Led_on
- 271              	.LVL47:
-  87:Core/Src/main.c ****                 Led_off(&led6);
- 272              		.loc 1 87 17 view .LVU59
- 273 0156 4248     		ldr	r0, .L24+20
- 274 0158 FFF7FEFF 		bl	Led_off
- 275              	.LVL48:
-  88:Core/Src/main.c ****                 break;
- 276              		.loc 1 88 17 view .LVU60
- 277 015c 84E7     		b	.L2
- 278              	.L5:
-  89:Core/Src/main.c ****             case 6:
-  90:Core/Src/main.c ****                 Led_on(&led1);
- 279              		.loc 1 90 17 view .LVU61
- 280 015e 3B48     		ldr	r0, .L24
- 281 0160 FFF7FEFF 		bl	Led_on
- 282              	.LVL49:
-  91:Core/Src/main.c ****                 Led_on(&led2);
- 283              		.loc 1 91 17 view .LVU62
- 284 0164 3A48     		ldr	r0, .L24+4
- 285 0166 FFF7FEFF 		bl	Led_on
- 286              	.LVL50:
-  92:Core/Src/main.c ****                 Led_on(&led3);
- 287              		.loc 1 92 17 view .LVU63
- 288 016a 3A48     		ldr	r0, .L24+8
- 289 016c FFF7FEFF 		bl	Led_on
- 290              	.LVL51:
-  93:Core/Src/main.c ****                 Led_on(&led4);
- 291              		.loc 1 93 17 view .LVU64
- 292 0170 3948     		ldr	r0, .L24+12
- 293 0172 FFF7FEFF 		bl	Led_on
- 294              	.LVL52:
-  94:Core/Src/main.c ****                 Led_on(&led5);
- 295              		.loc 1 94 17 view .LVU65
- 296 0176 3948     		ldr	r0, .L24+16
- 297 0178 FFF7FEFF 		bl	Led_on
- 298              	.LVL53:
-  95:Core/Src/main.c ****                 Led_on(&led6);
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 8
-
-
- 299              		.loc 1 95 17 view .LVU66
- 300 017c 3848     		ldr	r0, .L24+20
- 301 017e FFF7FEFF 		bl	Led_on
- 302              	.LVL54:
-  96:Core/Src/main.c ****                 break;
- 303              		.loc 1 96 17 view .LVU67
- 304 0182 71E7     		b	.L2
- 305              	.LVL55:
- 306              	.L4:
-  97:Core/Src/main.c ****             default:
-  98:Core/Src/main.c ****                 break;
-  99:Core/Src/main.c ****             }
- 100:Core/Src/main.c ****         }
- 101:Core/Src/main.c ****         else
- 102:Core/Src/main.c ****         {
- 103:Core/Src/main.c ****             // Режим мерцания - каждый светодиод мерцает со с
- 104:Core/Src/main.c ****             switch (btn_count)
- 307              		.loc 1 104 13 view .LVU68
- 308 0184 384B     		ldr	r3, .L24+28
- 309              	.LVL56:
- 310              		.loc 1 104 13 is_stmt 0 view .LVU69
- 311 0186 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 312 0188 DBB2     		uxtb	r3, r3
- 313 018a 062B     		cmp	r3, #6
- 314 018c 3FF66CAF 		bhi	.L2
- 315 0190 DFE803F0 		tbb	[pc, r3]
- 316              	.L14:
- 317 0194 04       		.byte	(.L20-.L14)/2
- 318 0195 17       		.byte	(.L19-.L14)/2
- 319 0196 1B       		.byte	(.L18-.L14)/2
- 320 0197 22       		.byte	(.L17-.L14)/2
- 321 0198 2C       		.byte	(.L16-.L14)/2
- 322 0199 39       		.byte	(.L15-.L14)/2
- 323 019a 49       		.byte	(.L13-.L14)/2
- 324 019b 00       		.p2align 1
- 325              	.L20:
- 105:Core/Src/main.c ****             {
- 106:Core/Src/main.c ****             case 0:
- 107:Core/Src/main.c ****                 Led_off(&led1);
- 326              		.loc 1 107 17 is_stmt 1 view .LVU70
- 327 019c 2B48     		ldr	r0, .L24
- 328 019e FFF7FEFF 		bl	Led_off
- 329              	.LVL57:
- 108:Core/Src/main.c ****                 Led_off(&led2);
- 330              		.loc 1 108 17 view .LVU71
- 331 01a2 2B48     		ldr	r0, .L24+4
- 332 01a4 FFF7FEFF 		bl	Led_off
- 333              	.LVL58:
- 109:Core/Src/main.c ****                 Led_off(&led3);
- 334              		.loc 1 109 17 view .LVU72
- 335 01a8 2A48     		ldr	r0, .L24+8
- 336 01aa FFF7FEFF 		bl	Led_off
- 337              	.LVL59:
- 110:Core/Src/main.c ****                 Led_off(&led4);
- 338              		.loc 1 110 17 view .LVU73
- 339 01ae 2A48     		ldr	r0, .L24+12
- 340 01b0 FFF7FEFF 		bl	Led_off
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 9
-
-
- 341              	.LVL60:
- 111:Core/Src/main.c ****                 Led_off(&led5);
- 342              		.loc 1 111 17 view .LVU74
- 343 01b4 2948     		ldr	r0, .L24+16
- 344 01b6 FFF7FEFF 		bl	Led_off
- 345              	.LVL61:
- 112:Core/Src/main.c ****                 Led_off(&led6);
- 346              		.loc 1 112 17 view .LVU75
- 347 01ba 2948     		ldr	r0, .L24+20
- 348 01bc FFF7FEFF 		bl	Led_off
- 349              	.LVL62:
- 113:Core/Src/main.c ****                 break;
- 350              		.loc 1 113 17 view .LVU76
- 351 01c0 52E7     		b	.L2
- 352              	.L19:
- 114:Core/Src/main.c ****             case 1:
- 115:Core/Src/main.c ****                 Led_flicker(&led1);
- 353              		.loc 1 115 17 view .LVU77
- 354 01c2 2248     		ldr	r0, .L24
- 355 01c4 FFF7FEFF 		bl	Led_flicker
- 356              	.LVL63:
- 116:Core/Src/main.c ****                 break;
- 357              		.loc 1 116 17 view .LVU78
- 358 01c8 4EE7     		b	.L2
- 359              	.L18:
- 117:Core/Src/main.c ****             case 2:
- 118:Core/Src/main.c ****                 Led_flicker(&led1);
- 360              		.loc 1 118 17 view .LVU79
- 361 01ca 2048     		ldr	r0, .L24
- 362 01cc FFF7FEFF 		bl	Led_flicker
- 363              	.LVL64:
- 119:Core/Src/main.c ****                 Led_flicker(&led2);
- 364              		.loc 1 119 17 view .LVU80
- 365 01d0 1F48     		ldr	r0, .L24+4
- 366 01d2 FFF7FEFF 		bl	Led_flicker
- 367              	.LVL65:
- 120:Core/Src/main.c ****                 break;
- 368              		.loc 1 120 17 view .LVU81
- 369 01d6 47E7     		b	.L2
- 370              	.L17:
- 121:Core/Src/main.c ****             case 3:
- 122:Core/Src/main.c ****                 Led_flicker(&led1);
- 371              		.loc 1 122 17 view .LVU82
- 372 01d8 1C48     		ldr	r0, .L24
- 373 01da FFF7FEFF 		bl	Led_flicker
- 374              	.LVL66:
- 123:Core/Src/main.c ****                 Led_flicker(&led2);
- 375              		.loc 1 123 17 view .LVU83
- 376 01de 1C48     		ldr	r0, .L24+4
- 377 01e0 FFF7FEFF 		bl	Led_flicker
- 378              	.LVL67:
- 124:Core/Src/main.c ****                 Led_flicker(&led3);
- 379              		.loc 1 124 17 view .LVU84
- 380 01e4 1B48     		ldr	r0, .L24+8
- 381 01e6 FFF7FEFF 		bl	Led_flicker
- 382              	.LVL68:
- 125:Core/Src/main.c ****                 break;
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 10
-
-
- 383              		.loc 1 125 17 view .LVU85
- 384 01ea 3DE7     		b	.L2
- 385              	.L16:
- 126:Core/Src/main.c ****             case 4:
- 127:Core/Src/main.c ****                 Led_flicker(&led1);
- 386              		.loc 1 127 17 view .LVU86
- 387 01ec 1748     		ldr	r0, .L24
- 388 01ee FFF7FEFF 		bl	Led_flicker
- 389              	.LVL69:
- 128:Core/Src/main.c ****                 Led_flicker(&led2);
- 390              		.loc 1 128 17 view .LVU87
- 391 01f2 1748     		ldr	r0, .L24+4
- 392 01f4 FFF7FEFF 		bl	Led_flicker
- 393              	.LVL70:
- 129:Core/Src/main.c ****                 Led_flicker(&led3);
- 394              		.loc 1 129 17 view .LVU88
- 395 01f8 1648     		ldr	r0, .L24+8
- 396 01fa FFF7FEFF 		bl	Led_flicker
- 397              	.LVL71:
- 130:Core/Src/main.c ****                 Led_flicker(&led4);
- 398              		.loc 1 130 17 view .LVU89
- 399 01fe 1648     		ldr	r0, .L24+12
- 400 0200 FFF7FEFF 		bl	Led_flicker
- 401              	.LVL72:
- 131:Core/Src/main.c ****                 break;
- 402              		.loc 1 131 17 view .LVU90
- 403 0204 30E7     		b	.L2
- 404              	.L15:
- 132:Core/Src/main.c ****             case 5:
- 133:Core/Src/main.c ****                 Led_flicker(&led1);
- 405              		.loc 1 133 17 view .LVU91
- 406 0206 1148     		ldr	r0, .L24
- 407 0208 FFF7FEFF 		bl	Led_flicker
- 408              	.LVL73:
- 134:Core/Src/main.c ****                 Led_flicker(&led2);
- 409              		.loc 1 134 17 view .LVU92
- 410 020c 1048     		ldr	r0, .L24+4
- 411 020e FFF7FEFF 		bl	Led_flicker
- 412              	.LVL74:
- 135:Core/Src/main.c ****                 Led_flicker(&led3);
- 413              		.loc 1 135 17 view .LVU93
- 414 0212 1048     		ldr	r0, .L24+8
- 415 0214 FFF7FEFF 		bl	Led_flicker
- 416              	.LVL75:
- 136:Core/Src/main.c ****                 Led_flicker(&led4);
- 417              		.loc 1 136 17 view .LVU94
- 418 0218 0F48     		ldr	r0, .L24+12
- 419 021a FFF7FEFF 		bl	Led_flicker
- 420              	.LVL76:
- 137:Core/Src/main.c ****                 Led_flicker(&led5);
- 421              		.loc 1 137 17 view .LVU95
- 422 021e 0F48     		ldr	r0, .L24+16
- 423 0220 FFF7FEFF 		bl	Led_flicker
- 424              	.LVL77:
- 138:Core/Src/main.c ****                 break;
- 425              		.loc 1 138 17 view .LVU96
- 426 0224 20E7     		b	.L2
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 11
-
-
- 427              	.L13:
- 139:Core/Src/main.c ****             case 6:
- 140:Core/Src/main.c ****                 Led_flicker(&led1);
- 428              		.loc 1 140 17 view .LVU97
- 429 0226 0948     		ldr	r0, .L24
- 430 0228 FFF7FEFF 		bl	Led_flicker
- 431              	.LVL78:
- 141:Core/Src/main.c ****                 Led_flicker(&led2);
- 432              		.loc 1 141 17 view .LVU98
- 433 022c 0848     		ldr	r0, .L24+4
- 434 022e FFF7FEFF 		bl	Led_flicker
- 435              	.LVL79:
- 142:Core/Src/main.c ****                 Led_flicker(&led3);
- 436              		.loc 1 142 17 view .LVU99
- 437 0232 0848     		ldr	r0, .L24+8
- 438 0234 FFF7FEFF 		bl	Led_flicker
- 439              	.LVL80:
- 143:Core/Src/main.c ****                 Led_flicker(&led4);
- 440              		.loc 1 143 17 view .LVU100
- 441 0238 0748     		ldr	r0, .L24+12
- 442 023a FFF7FEFF 		bl	Led_flicker
- 443              	.LVL81:
- 144:Core/Src/main.c ****                 Led_flicker(&led5);
- 444              		.loc 1 144 17 view .LVU101
- 445 023e 0748     		ldr	r0, .L24+16
- 446 0240 FFF7FEFF 		bl	Led_flicker
- 447              	.LVL82:
- 145:Core/Src/main.c ****                 Led_flicker(&led6);
- 448              		.loc 1 145 17 view .LVU102
- 449 0244 0648     		ldr	r0, .L24+20
- 450 0246 FFF7FEFF 		bl	Led_flicker
- 451              	.LVL83:
- 146:Core/Src/main.c ****                 break;
- 452              		.loc 1 146 17 view .LVU103
- 453 024a 0DE7     		b	.L2
- 454              	.L25:
- 455              		.align	2
- 456              	.L24:
- 457 024c 00000000 		.word	led1
- 458 0250 00000000 		.word	led2
- 459 0254 00000000 		.word	led3
- 460 0258 00000000 		.word	led4
- 461 025c 00000000 		.word	led5
- 462 0260 00000000 		.word	led6
- 463 0264 00000000 		.word	btn_hold_4s
- 464 0268 00000000 		.word	btn_count
- 465              	.LBE3:
- 466              		.cfi_endproc
- 467              	.LFE130:
- 469              		.global	led6
- 470              		.section	.bss.led6,"aw",%nobits
- 471              		.align	2
- 474              	led6:
- 475 0000 00000000 		.space	20
- 475      00000000 
- 475      00000000 
- 475      00000000 
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 12
-
-
- 475      00000000 
- 476              		.global	led5
- 477              		.section	.bss.led5,"aw",%nobits
- 478              		.align	2
- 481              	led5:
- 482 0000 00000000 		.space	20
- 482      00000000 
- 482      00000000 
- 482      00000000 
- 482      00000000 
- 483              		.global	led4
- 484              		.section	.bss.led4,"aw",%nobits
- 485              		.align	2
- 488              	led4:
- 489 0000 00000000 		.space	20
- 489      00000000 
- 489      00000000 
- 489      00000000 
- 489      00000000 
- 490              		.global	led3
- 491              		.section	.bss.led3,"aw",%nobits
- 492              		.align	2
- 495              	led3:
- 496 0000 00000000 		.space	20
- 496      00000000 
- 496      00000000 
- 496      00000000 
- 496      00000000 
- 497              		.global	led2
- 498              		.section	.bss.led2,"aw",%nobits
- 499              		.align	2
- 502              	led2:
- 503 0000 00000000 		.space	20
- 503      00000000 
- 503      00000000 
- 503      00000000 
- 503      00000000 
- 504              		.global	led1
- 505              		.section	.bss.led1,"aw",%nobits
- 506              		.align	2
- 509              	led1:
- 510 0000 00000000 		.space	20
- 510      00000000 
- 510      00000000 
- 510      00000000 
- 510      00000000 
- 511              		.text
- 512              	.Letext0:
- 513              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
- 514              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
- 515              		.file 4 "Core/Inc/init.h"
- 516              		.file 5 "Core/Inc/it_handlers.h"
-ARM GAS  C:\Users\79530\AppData\Local\Temp\ccTepq8b.s 			page 13
+ 249      00000000 
+ 249      00000000 
+ 249      00000000 
+ 249      00000000 
+ 250              		.global	led2
+ 251              		.section	.bss.led2,"aw",%nobits
+ 252              		.align	2
+ 255              	led2:
+ 256 0000 00000000 		.space	20
+ 256      00000000 
+ 256      00000000 
+ 256      00000000 
+ 256      00000000 
+ 257              		.global	led1
+ 258              		.section	.bss.led1,"aw",%nobits
+ 259              		.align	2
+ 262              	led1:
+ 263 0000 00000000 		.space	20
+ 263      00000000 
+ 263      00000000 
+ 263      00000000 
+ 263      00000000 
+ 264              		.section	.rodata
+ 265              		.align	2
+ 266              		.set	.LANCHOR0,. + 0
+ 267              	.LC0:
+ 268 0000 00000000 		.word	led1
+ 269 0004 00000000 		.word	led2
+ 270 0008 00000000 		.word	led3
+ 271 000c 00000000 		.word	led4
+ 272 0010 00000000 		.word	led5
+ 273 0014 00000000 		.word	led6
+ 274              		.text
+ 275              	.Letext0:
+ 276              		.file 2 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
+ 277              		.file 3 "D:/tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 278              		.file 4 "Core/Inc/init.h"
+ 279              		.file 5 "Core/Inc/it_handlers.h"
+ARM GAS  C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:21     .text.main:00000000 $t
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:27     .text.main:00000000 main
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:135    .text.main:00000084 $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:142    .text.main:000000a0 $t
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:317    .text.main:00000194 $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:457    .text.main:0000024c $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:509    .bss.led1:00000000 led1
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:502    .bss.led2:00000000 led2
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:495    .bss.led3:00000000 led3
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:488    .bss.led4:00000000 led4
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:481    .bss.led5:00000000 led5
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:474    .bss.led6:00000000 led6
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:471    .bss.led6:00000000 $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:478    .bss.led5:00000000 $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:485    .bss.led4:00000000 $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:492    .bss.led3:00000000 $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:499    .bss.led2:00000000 $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:506    .bss.led1:00000000 $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:324    .text.main:0000019b $d
-C:\Users\79530\AppData\Local\Temp\ccTepq8b.s:324    .text.main:0000019c $t
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:21     .text.main:00000000 $t
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:27     .text.main:00000000 main
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:214    .text.main:000000c4 $d
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:227    .bss.led6:00000000 led6
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:224    .bss.led6:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:234    .bss.led5:00000000 led5
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:231    .bss.led5:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:241    .bss.led4:00000000 led4
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:238    .bss.led4:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:248    .bss.led3:00000000 led3
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:245    .bss.led3:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:255    .bss.led2:00000000 led2
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:252    .bss.led2:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:262    .bss.led1:00000000 led1
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:259    .bss.led1:00000000 $d
+C:\Users\79530\AppData\Local\Temp\ccVLFMLd.s:265    .rodata:00000000 $d
 
 UNDEFINED SYMBOLS
 RCC_Init
@@ -745,8 +427,8 @@ GPIO_Init
 ITR_Init
 SysTick_Init
 Led_init
+Led_flicker
 Led_off
 Led_on
-Led_flicker
 btn_hold_4s
 btn_count

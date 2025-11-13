@@ -4,22 +4,34 @@
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include "{}../../\+CMSIS/\+Devices/\+STM32\+F4xx/\+Inc/stm32f4xx.\+h"{}}\newline
 {\ttfamily \#include "{}../../\+CMSIS/\+Devices/\+STM32\+F4xx/\+Inc/\+STM32\+F429\+ZI/stm32f429xx.\+h"{}}\newline
-Граф включаемых заголовочных файлов для init.\+h\+:
-\nopagebreak
+Граф включаемых заголовочных файлов для init.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{init_8h__incl}
 \end{center}
 \end{figure}
-Граф файлов, в которые включается этот файл\+:
-\nopagebreak
+Граф файлов, в которые включается этот файл\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=264pt]{init_8h__dep__incl}
+\includegraphics[width=350pt]{init_8h__dep__incl}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Структуры данных}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_led}{Led}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{init_8h_ab7276f4b096faccc80b87350e18efa2b}{FREQUENCY1}}~1250
+\item 
+\#define \mbox{\hyperlink{init_8h_a99942800789c32f090ba9a9c5f95073f}{FREQUENCY2}}~455
+\item 
+\#define \mbox{\hyperlink{init_8h_a73f51297601e8bc168b1d91145f73c68}{FREQUENCY3}}~263
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Функции}
 \begin{DoxyCompactItemize}
 \item 
@@ -31,10 +43,39 @@ void \mbox{\hyperlink{init_8h_a419e66ae8a3800fd1022978544d351b4}{ITR\+\_\+\+Init
 \begin{DoxyCompactList}\small\item\em Инициализация прерывания по кнопке на пине PC13. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{init_8h_aeb71ef4b996788e4aa8cda6ef617f58f}{Sys\+Tick\+\_\+\+Init}} (void)
 \begin{DoxyCompactList}\small\item\em Инициализация системного таймера Sys\+Tick. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{init_8h_a538fcbfed8b1e697437a30c052aecfd3}{led\+\_\+on}} (uint8\+\_\+t count)
-\begin{DoxyCompactList}\small\item\em Включение светодиодов в соответствии с номером нажатия кнопки \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{init_8h_a429f05b7eac928971c19e37ddc7079be}{led\+\_\+off}} (void)
-\begin{DoxyCompactList}\small\item\em Выключение всех светодиодов \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{init_8h_a070c92ebf8f1edc70a43d212aaa24766}{Led\+\_\+init}} (\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}led, uint8\+\_\+t num)
+\begin{DoxyCompactList}\small\item\em Инициализация структуры \doxylink{struct_led}{Led}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8h_ac520552c05d6f67a8a1a2d27233504a1}{Led\+\_\+on}} (\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}led)
+\begin{DoxyCompactList}\small\item\em Включение светодиода \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8h_aa1e55471e6cc2f9a7e79b180d08d6899}{Led\+\_\+off}} (\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}led)
+\begin{DoxyCompactList}\small\item\em Выключение светодиода \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8h_ab1eb73da8d451e45ad7c48ee361c9580}{Led\+\_\+flicker}} (\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}led)
+\begin{DoxyCompactList}\small\item\em Функция мерцания светодиода \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8h_a3a2d70d05cd30715cc12f379fe34a607}{Led\+\_\+set\+\_\+delay\+\_\+time\+\_\+ms}} (\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}led)
+\begin{DoxyCompactList}\small\item\em Установка частоты мерцания светодиода \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{init_8h_doc-define-members}
+\doxysubsection{Макросы}
+\Hypertarget{init_8h_ab7276f4b096faccc80b87350e18efa2b}\index{init.h@{init.h}!FREQUENCY1@{FREQUENCY1}}
+\index{FREQUENCY1@{FREQUENCY1}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{FREQUENCY1}{FREQUENCY1}}
+{\footnotesize\ttfamily \label{init_8h_ab7276f4b096faccc80b87350e18efa2b} 
+\#define FREQUENCY1~1250}
+
+\Hypertarget{init_8h_a99942800789c32f090ba9a9c5f95073f}\index{init.h@{init.h}!FREQUENCY2@{FREQUENCY2}}
+\index{FREQUENCY2@{FREQUENCY2}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{FREQUENCY2}{FREQUENCY2}}
+{\footnotesize\ttfamily \label{init_8h_a99942800789c32f090ba9a9c5f95073f} 
+\#define FREQUENCY2~455}
+
+\Hypertarget{init_8h_a73f51297601e8bc168b1d91145f73c68}\index{init.h@{init.h}!FREQUENCY3@{FREQUENCY3}}
+\index{FREQUENCY3@{FREQUENCY3}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{FREQUENCY3}{FREQUENCY3}}
+{\footnotesize\ttfamily \label{init_8h_a73f51297601e8bc168b1d91145f73c68} 
+\#define FREQUENCY3~263}
+
 
 
 \label{doc-func-members}
@@ -53,8 +94,7 @@ void GPIO\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCa
 Настройка пинов PC11; PD2; PG2; PE2; \begin{DoxyNote}{Заметки}
 Необходима вызвать в начале main 
 \end{DoxyNote}
-Граф вызова функции\+:
-\nopagebreak
+Граф вызова функции\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -74,61 +114,130 @@ void ITR\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCap
 Настройка прерывания EXTI13 на пине PC13 по фронту и спаду сигнала. Установка приоритета прерывания в 0. \begin{DoxyNote}{Заметки}
 Необходима вызвать в начале main 
 \end{DoxyNote}
-Граф вызова функции\+:
-\nopagebreak
+Граф вызова функции\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=204pt]{init_8h_a419e66ae8a3800fd1022978544d351b4_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{init_8h_a429f05b7eac928971c19e37ddc7079be}\index{init.h@{init.h}!led\_off@{led\_off}}
-\index{led\_off@{led\_off}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{led\_off()}{led\_off()}}
-{\footnotesize\ttfamily \label{init_8h_a429f05b7eac928971c19e37ddc7079be} 
-void led\+\_\+off (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+\Hypertarget{init_8h_ab1eb73da8d451e45ad7c48ee361c9580}\index{init.h@{init.h}!Led\_flicker@{Led\_flicker}}
+\index{Led\_flicker@{Led\_flicker}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{Led\_flicker()}{Led\_flicker()}}
+{\footnotesize\ttfamily \label{init_8h_ab1eb73da8d451e45ad7c48ee361c9580} 
+void Led\+\_\+flicker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}}]{led}{}\end{DoxyParamCaption})}
 
 
 
-Выключение всех светодиодов 
-
-Граф вызова функции\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=278pt]{init_8h_a429f05b7eac928971c19e37ddc7079be_icgraph}
-\end{center}
-\end{figure}
-\Hypertarget{init_8h_a538fcbfed8b1e697437a30c052aecfd3}\index{init.h@{init.h}!led\_on@{led\_on}}
-\index{led\_on@{led\_on}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{led\_on()}{led\_on()}}
-{\footnotesize\ttfamily \label{init_8h_a538fcbfed8b1e697437a30c052aecfd3} 
-void led\+\_\+on (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{count}{}\end{DoxyParamCaption})}
-
-
-
-Включение светодиодов в соответствии с номером нажатия кнопки 
+Функция мерцания светодиода 
 
 
 \begin{DoxyParams}{Аргументы}
-{\em count} & Номер нажатия кнопки (от 0 до 6) \\
+{\em led} & Указатель на структуру \doxylink{struct_led}{Led}\\
 \hline
 \end{DoxyParams}
-Граф вызовов\+:
-\nopagebreak
+Неблокирующая функция мерцания светодиода с заданной частотой Граф вызовов\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=205pt]{init_8h_a538fcbfed8b1e697437a30c052aecfd3_cgraph}
+\includegraphics[width=227pt]{init_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph}
 \end{center}
 \end{figure}
-Граф вызова функции\+:
-\nopagebreak
+Граф вызова функции\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=198pt]{init_8h_a538fcbfed8b1e697437a30c052aecfd3_icgraph}
+\includegraphics[width=216pt]{init_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{init_8h_a070c92ebf8f1edc70a43d212aaa24766}\index{init.h@{init.h}!Led\_init@{Led\_init}}
+\index{Led\_init@{Led\_init}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{Led\_init()}{Led\_init()}}
+{\footnotesize\ttfamily \label{init_8h_a070c92ebf8f1edc70a43d212aaa24766} 
+void Led\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}}]{led}{, }\item[{uint8\+\_\+t}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация структуры \doxylink{struct_led}{Led}. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em led} & Указатель на структуру \doxylink{struct_led}{Led} \\
+\hline
+{\em num} & Номер светодиода (от 1 до 6) \\
+\hline
+\end{DoxyParams}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{init_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{init_8h_aa1e55471e6cc2f9a7e79b180d08d6899}\index{init.h@{init.h}!Led\_off@{Led\_off}}
+\index{Led\_off@{Led\_off}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{Led\_off()}{Led\_off()}}
+{\footnotesize\ttfamily \label{init_8h_aa1e55471e6cc2f9a7e79b180d08d6899} 
+void Led\+\_\+off (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}}]{led}{}\end{DoxyParamCaption})}
+
+
+
+Выключение светодиода 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em led} & Указатель на структуру \doxylink{struct_led}{Led} \\
+\hline
+\end{DoxyParams}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{init_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{init_8h_ac520552c05d6f67a8a1a2d27233504a1}\index{init.h@{init.h}!Led\_on@{Led\_on}}
+\index{Led\_on@{Led\_on}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{Led\_on()}{Led\_on()}}
+{\footnotesize\ttfamily \label{init_8h_ac520552c05d6f67a8a1a2d27233504a1} 
+void Led\+\_\+on (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}}]{led}{}\end{DoxyParamCaption})}
+
+
+
+Включение светодиода 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em led} & Указатель на структуру \doxylink{struct_led}{Led} \\
+\hline
+\end{DoxyParams}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{init_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{init_8h_a3a2d70d05cd30715cc12f379fe34a607}\index{init.h@{init.h}!Led\_set\_delay\_time\_ms@{Led\_set\_delay\_time\_ms}}
+\index{Led\_set\_delay\_time\_ms@{Led\_set\_delay\_time\_ms}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{Led\_set\_delay\_time\_ms()}{Led\_set\_delay\_time\_ms()}}
+{\footnotesize\ttfamily \label{init_8h_a3a2d70d05cd30715cc12f379fe34a607} 
+void Led\+\_\+set\+\_\+delay\+\_\+time\+\_\+ms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_led}{Led}} \texorpdfstring{$\ast$}{*}}]{led}{}\end{DoxyParamCaption})}
+
+
+
+Установка частоты мерцания светодиода 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em led} & Указатель на структуру \doxylink{struct_led}{Led}\\
+\hline
+\end{DoxyParams}
+функция вызывается в EXTI15\+\_\+10\+\_\+\+IRQHandler Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8h_a3a2d70d05cd30715cc12f379fe34a607_icgraph}
 \end{center}
 \end{figure}
 \Hypertarget{init_8h_ac9c3c81db694c01409b2a6a3e7e7eca5}\index{init.h@{init.h}!RCC\_Init@{RCC\_Init}}
@@ -144,8 +253,7 @@ void RCC\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCap
 Настройка тактирования на работу с внешним кварцевым резонатором 8 МГц и получение системной частоты 180 МГц с использованием PLL. \begin{DoxyNote}{Заметки}
 Необходима вызвать в начале main 
 \end{DoxyNote}
-Граф вызова функции\+:
-\nopagebreak
+Граф вызова функции\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -165,8 +273,7 @@ void Sys\+Tick\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyPa
 Настройка Sys\+Tick на прерывание с частотой 1 кГц (1 мс). \begin{DoxyNote}{Заметки}
 Необходима вызвать в начале main 
 \end{DoxyNote}
-Граф вызова функции\+:
-\nopagebreak
+Граф вызова функции\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

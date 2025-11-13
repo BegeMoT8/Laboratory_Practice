@@ -5,8 +5,8 @@
 {\ttfamily \#include "{}../../\+CMSIS/\+Devices/\+STM32\+F4xx/\+Inc/stm32f4xx.\+h"{}}\newline
 {\ttfamily \#include "{}../../\+CMSIS/\+Devices/\+STM32\+F4xx/\+Inc/\+STM32\+F429\+ZI/stm32f429xx.\+h"{}}\newline
 {\ttfamily \#include $<$it\+\_\+handlers.\+h$>$}\newline
-Граф включаемых заголовочных файлов для it\+\_\+handlers.\+c\+:
-\nopagebreak
+{\ttfamily \#include $<$init.\+h$>$}\newline
+Граф включаемых заголовочных файлов для it\+\_\+handlers.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -38,9 +38,21 @@ volatile uint32\+\_\+t \mbox{\hyperlink{it__handlers_8c_abf286b5bf324f08a4395173
 \item 
 volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8c_a3387279a24bc624806c2e1e6201a5c36}{btn\+\_\+count}} = 0
 \item 
-volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8c_a022c95c2ba2a5d466992663c3578d049}{btn\+\_\+hold\+\_\+2s}} = 0
-\item 
 volatile uint8\+\_\+t \mbox{\hyperlink{it__handlers_8c_ab7a4f042b14b4ac5bc41c23caeb9301b}{btn\+\_\+hold\+\_\+4s}} = 0
+\item 
+volatile bool \mbox{\hyperlink{it__handlers_8c_aa41251119395c3dfe9475fe49c6c668e}{button\+\_\+pressed}} = false
+\item 
+\mbox{\hyperlink{struct_led}{Led}} \mbox{\hyperlink{it__handlers_8c_af724ba2236be926b4b028dae971354d5}{led1}}
+\item 
+\mbox{\hyperlink{struct_led}{Led}} \mbox{\hyperlink{it__handlers_8c_a89abaaf33176dd0fcdcad6d680feeba2}{led2}}
+\item 
+\mbox{\hyperlink{struct_led}{Led}} \mbox{\hyperlink{it__handlers_8c_a3754609318783e292022f01bbe3f38f8}{led3}}
+\item 
+\mbox{\hyperlink{struct_led}{Led}} \mbox{\hyperlink{it__handlers_8c_acb741137f4ae35a8a7a9dcc0c00dc0db}{led4}}
+\item 
+\mbox{\hyperlink{struct_led}{Led}} \mbox{\hyperlink{it__handlers_8c_a66c451ac04991c2dfc859f4f6adb1ac1}{led5}}
+\item 
+\mbox{\hyperlink{struct_led}{Led}} \mbox{\hyperlink{it__handlers_8c_a00d14f4c54e1a05cd7c7ff087d9b3dc2}{led6}}
 \end{DoxyCompactItemize}
 
 
@@ -92,7 +104,14 @@ void EXTI15\+\_\+10\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{}{}
 \item Отслеживание состояния кнопки
 \item Измерение длительности удержания
 \item Определение типа нажатия\+: короткое / 2 сек / 4 сек 
-\end{DoxyItemize}\Hypertarget{it__handlers_8c_ab5e09814056d617c521549e542639b7e}\index{it\_handlers.c@{it\_handlers.c}!SysTick\_Handler@{SysTick\_Handler}}
+\end{DoxyItemize}Граф вызовов\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{it__handlers_8c_ab5e09814056d617c521549e542639b7e}\index{it\_handlers.c@{it\_handlers.c}!SysTick\_Handler@{SysTick\_Handler}}
 \index{SysTick\_Handler@{SysTick\_Handler}!it\_handlers.c@{it\_handlers.c}}
 \doxysubsubsection{\texorpdfstring{SysTick\_Handler()}{SysTick\_Handler()}}
 {\footnotesize\ttfamily \label{it__handlers_8c_ab5e09814056d617c521549e542639b7e} 
@@ -113,21 +132,57 @@ void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{Dox
 {\footnotesize\ttfamily \label{it__handlers_8c_a3387279a24bc624806c2e1e6201a5c36} 
 volatile uint8\+\_\+t btn\+\_\+count = 0}
 
-\Hypertarget{it__handlers_8c_a022c95c2ba2a5d466992663c3578d049}\index{it\_handlers.c@{it\_handlers.c}!btn\_hold\_2s@{btn\_hold\_2s}}
-\index{btn\_hold\_2s@{btn\_hold\_2s}!it\_handlers.c@{it\_handlers.c}}
-\doxysubsubsection{\texorpdfstring{btn\_hold\_2s}{btn\_hold\_2s}}
-{\footnotesize\ttfamily \label{it__handlers_8c_a022c95c2ba2a5d466992663c3578d049} 
-volatile uint8\+\_\+t btn\+\_\+hold\+\_\+2s = 0}
-
 \Hypertarget{it__handlers_8c_ab7a4f042b14b4ac5bc41c23caeb9301b}\index{it\_handlers.c@{it\_handlers.c}!btn\_hold\_4s@{btn\_hold\_4s}}
 \index{btn\_hold\_4s@{btn\_hold\_4s}!it\_handlers.c@{it\_handlers.c}}
 \doxysubsubsection{\texorpdfstring{btn\_hold\_4s}{btn\_hold\_4s}}
 {\footnotesize\ttfamily \label{it__handlers_8c_ab7a4f042b14b4ac5bc41c23caeb9301b} 
 volatile uint8\+\_\+t btn\+\_\+hold\+\_\+4s = 0}
 
+\Hypertarget{it__handlers_8c_aa41251119395c3dfe9475fe49c6c668e}\index{it\_handlers.c@{it\_handlers.c}!button\_pressed@{button\_pressed}}
+\index{button\_pressed@{button\_pressed}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{button\_pressed}{button\_pressed}}
+{\footnotesize\ttfamily \label{it__handlers_8c_aa41251119395c3dfe9475fe49c6c668e} 
+volatile bool button\+\_\+pressed = false}
+
 \Hypertarget{it__handlers_8c_abf286b5bf324f08a4395173ca136e8a3}\index{it\_handlers.c@{it\_handlers.c}!GlobalTickCount@{GlobalTickCount}}
 \index{GlobalTickCount@{GlobalTickCount}!it\_handlers.c@{it\_handlers.c}}
 \doxysubsubsection{\texorpdfstring{GlobalTickCount}{GlobalTickCount}}
 {\footnotesize\ttfamily \label{it__handlers_8c_abf286b5bf324f08a4395173ca136e8a3} 
 volatile uint32\+\_\+t Global\+Tick\+Count}
+
+\Hypertarget{it__handlers_8c_af724ba2236be926b4b028dae971354d5}\index{it\_handlers.c@{it\_handlers.c}!led1@{led1}}
+\index{led1@{led1}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{led1}{led1}}
+{\footnotesize\ttfamily \label{it__handlers_8c_af724ba2236be926b4b028dae971354d5} 
+\mbox{\hyperlink{struct_led}{Led}} led1\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{it__handlers_8c_a89abaaf33176dd0fcdcad6d680feeba2}\index{it\_handlers.c@{it\_handlers.c}!led2@{led2}}
+\index{led2@{led2}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{led2}{led2}}
+{\footnotesize\ttfamily \label{it__handlers_8c_a89abaaf33176dd0fcdcad6d680feeba2} 
+\mbox{\hyperlink{struct_led}{Led}} led2}
+
+\Hypertarget{it__handlers_8c_a3754609318783e292022f01bbe3f38f8}\index{it\_handlers.c@{it\_handlers.c}!led3@{led3}}
+\index{led3@{led3}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{led3}{led3}}
+{\footnotesize\ttfamily \label{it__handlers_8c_a3754609318783e292022f01bbe3f38f8} 
+\mbox{\hyperlink{struct_led}{Led}} led3}
+
+\Hypertarget{it__handlers_8c_acb741137f4ae35a8a7a9dcc0c00dc0db}\index{it\_handlers.c@{it\_handlers.c}!led4@{led4}}
+\index{led4@{led4}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{led4}{led4}}
+{\footnotesize\ttfamily \label{it__handlers_8c_acb741137f4ae35a8a7a9dcc0c00dc0db} 
+\mbox{\hyperlink{struct_led}{Led}} led4}
+
+\Hypertarget{it__handlers_8c_a66c451ac04991c2dfc859f4f6adb1ac1}\index{it\_handlers.c@{it\_handlers.c}!led5@{led5}}
+\index{led5@{led5}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{led5}{led5}}
+{\footnotesize\ttfamily \label{it__handlers_8c_a66c451ac04991c2dfc859f4f6adb1ac1} 
+\mbox{\hyperlink{struct_led}{Led}} led5}
+
+\Hypertarget{it__handlers_8c_a00d14f4c54e1a05cd7c7ff087d9b3dc2}\index{it\_handlers.c@{it\_handlers.c}!led6@{led6}}
+\index{led6@{led6}!it\_handlers.c@{it\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{led6}{led6}}
+{\footnotesize\ttfamily \label{it__handlers_8c_a00d14f4c54e1a05cd7c7ff087d9b3dc2} 
+\mbox{\hyperlink{struct_led}{Led}} led6}
 

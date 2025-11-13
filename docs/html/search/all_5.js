@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['init_2ec_0',['init.c',['../init_8c.html',1,'']]],
-  ['init_2eh_1',['init.h',['../init_8h.html',1,'']]],
-  ['it_5fhandlers_2ec_2',['it_handlers.c',['../it__handlers_8c.html',1,'']]],
-  ['it_5fhandlers_2eh_3',['it_handlers.h',['../it__handlers_8h.html',1,'']]],
-  ['itr_5finit_4',['ITR_Init',['../init_8h.html#a419e66ae8a3800fd1022978544d351b4',1,'ITR_Init(void):&#160;init.c'],['../init_8c.html#a419e66ae8a3800fd1022978544d351b4',1,'ITR_Init(void):&#160;init.c']]]
+  ['globaltickcount_0',['GlobalTickCount',['../init_8c.html#abf286b5bf324f08a4395173ca136e8a3',1,'GlobalTickCount:&#160;it_handlers.c'],['../it__handlers_8c.html#abf286b5bf324f08a4395173ca136e8a3',1,'GlobalTickCount:&#160;it_handlers.c']]],
+  ['gpio_5finit_1',['GPIO_Init',['../init_8h.html#a90363099dc984eccffd2a7ad34def32d',1,'GPIO_Init(void):&#160;init.c'],['../init_8c.html#a90363099dc984eccffd2a7ad34def32d',1,'GPIO_Init(void):&#160;init.c']]]
 ];

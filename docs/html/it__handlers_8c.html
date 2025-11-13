@@ -97,22 +97,29 @@ $(function(){initNavTree('it__handlers_8c.html','',''); });
 <code>#include &quot;../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h&quot;</code><br />
 <code>#include &quot;../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h&quot;</code><br />
 <code>#include &lt;<a class="el" href="it__handlers_8h_source.html">it_handlers.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="init_8h_source.html">init.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Граф включаемых заголовочных файлов для it_handlers.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="it__handlers_8c__incl.png" border="0" usemap="#a_core_2_src_2it__handlers_8c" loading="lazy" alt=""/></div>
 <map name="a_core_2_src_2it__handlers_8c" id="a_core_2_src_2it__handlers_8c">
-<area shape="rect" title=" " alt="" coords="214,5,365,32"/>
-<area shape="rect" title=" " alt="" coords="5,96,70,123"/>
-<area shape="poly" title=" " alt="" coords="230,35,158,54,83,82,69,90,66,85,80,78,157,49,228,30"/>
-<area shape="rect" title=" " alt="" coords="94,96,168,123"/>
-<area shape="poly" title=" " alt="" coords="268,35,181,82,167,90,165,86,179,78,265,30"/>
-<area shape="rect" title=" " alt="" coords="192,88,387,131"/>
-<area shape="poly" title=" " alt="" coords="292,33,292,72,287,72,287,33"/>
-<area shape="rect" title=" " alt="" coords="411,80,616,139"/>
-<area shape="poly" title=" " alt="" coords="323,30,428,71,426,76,321,35"/>
-<area shape="rect" href="it__handlers_8h.html" title=" " alt="" coords="640,96,736,123"/>
-<area shape="poly" title=" " alt="" coords="366,25,490,44,560,59,629,77,652,86,650,91,627,83,559,64,489,49,365,30"/>
+<area shape="rect" title=" " alt="" coords="172,5,324,32"/>
+<area shape="rect" title=" " alt="" coords="5,171,70,197"/>
+<area shape="poly" title=" " alt="" coords="230,35,160,82,64,162,61,158,157,78,227,30"/>
+<area shape="rect" title=" " alt="" coords="94,171,168,197"/>
+<area shape="poly" title=" " alt="" coords="233,34,208,55,184,82,160,120,143,158,138,155,155,118,179,78,204,51,229,30"/>
+<area shape="rect" title=" " alt="" coords="192,163,387,205"/>
+<area shape="poly" title=" " alt="" coords="254,32,283,147,278,148,249,33"/>
+<area shape="rect" title=" " alt="" coords="411,155,616,213"/>
+<area shape="poly" title=" " alt="" coords="263,30,304,65,358,104,434,145,431,150,355,109,301,70,260,34"/>
+<area shape="rect" href="it__handlers_8h.html" title=" " alt="" coords="368,80,464,107"/>
+<area shape="poly" title=" " alt="" coords="278,30,374,71,372,76,276,35"/>
+<area shape="rect" href="init_8h.html" title=" " alt="" coords="193,80,242,107"/>
+<area shape="poly" title=" " alt="" coords="245,34,231,67,226,64,240,31"/>
+<area shape="poly" title=" " alt="" coords="193,107,142,129,83,157,70,164,67,160,80,152,140,124,191,102"/>
+<area shape="poly" title=" " alt="" coords="207,109,156,161,152,158,203,105"/>
+<area shape="poly" title=" " alt="" coords="230,106,265,149,261,152,226,109"/>
+<area shape="poly" title=" " alt="" coords="243,100,403,147,402,152,242,105"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -134,8 +141,14 @@ $(function(){initNavTree('it__handlers_8c.html','',''); });
 Переменные</h2></td></tr>
 <tr class="memitem:abf286b5bf324f08a4395173ca136e8a3" id="r_abf286b5bf324f08a4395173ca136e8a3"><td class="memItemLeft" align="right" valign="top">volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf286b5bf324f08a4395173ca136e8a3">GlobalTickCount</a></td></tr>
 <tr class="memitem:a3387279a24bc624806c2e1e6201a5c36" id="r_a3387279a24bc624806c2e1e6201a5c36"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3387279a24bc624806c2e1e6201a5c36">btn_count</a> = 0</td></tr>
-<tr class="memitem:a022c95c2ba2a5d466992663c3578d049" id="r_a022c95c2ba2a5d466992663c3578d049"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a022c95c2ba2a5d466992663c3578d049">btn_hold_2s</a> = 0</td></tr>
 <tr class="memitem:ab7a4f042b14b4ac5bc41c23caeb9301b" id="r_ab7a4f042b14b4ac5bc41c23caeb9301b"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7a4f042b14b4ac5bc41c23caeb9301b">btn_hold_4s</a> = 0</td></tr>
+<tr class="memitem:aa41251119395c3dfe9475fe49c6c668e" id="r_aa41251119395c3dfe9475fe49c6c668e"><td class="memItemLeft" align="right" valign="top">volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa41251119395c3dfe9475fe49c6c668e">button_pressed</a> = false</td></tr>
+<tr class="memitem:af724ba2236be926b4b028dae971354d5" id="r_af724ba2236be926b4b028dae971354d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_led.html">Led</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af724ba2236be926b4b028dae971354d5">led1</a></td></tr>
+<tr class="memitem:a89abaaf33176dd0fcdcad6d680feeba2" id="r_a89abaaf33176dd0fcdcad6d680feeba2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_led.html">Led</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89abaaf33176dd0fcdcad6d680feeba2">led2</a></td></tr>
+<tr class="memitem:a3754609318783e292022f01bbe3f38f8" id="r_a3754609318783e292022f01bbe3f38f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_led.html">Led</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3754609318783e292022f01bbe3f38f8">led3</a></td></tr>
+<tr class="memitem:acb741137f4ae35a8a7a9dcc0c00dc0db" id="r_acb741137f4ae35a8a7a9dcc0c00dc0db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_led.html">Led</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb741137f4ae35a8a7a9dcc0c00dc0db">led4</a></td></tr>
+<tr class="memitem:a66c451ac04991c2dfc859f4f6adb1ac1" id="r_a66c451ac04991c2dfc859f4f6adb1ac1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_led.html">Led</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66c451ac04991c2dfc859f4f6adb1ac1">led5</a></td></tr>
+<tr class="memitem:a00d14f4c54e1a05cd7c7ff087d9b3dc2" id="r_a00d14f4c54e1a05cd7c7ff087d9b3dc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_led.html">Led</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00d14f4c54e1a05cd7c7ff087d9b3dc2">led6</a></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Макросы</h2>
 <a id="adae9800298bb2b8a2d2087fd161d4501" name="adae9800298bb2b8a2d2087fd161d4501"></a>
@@ -217,6 +230,16 @@ $(function(){initNavTree('it__handlers_8c.html','',''); });
 <li>Измерение длительности удержания</li>
 <li>Определение типа нажатия: короткое / 2 сек / 4 сек </li>
 </ul>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.png" border="0" usemap="#ait__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph" loading="lazy" alt=""/></div>
+<map name="ait__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph" id="ait__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph">
+<area shape="rect" title="Обработчик прерывания по EXTI линии 13 (кнопка на PC13)." alt="" coords="5,5,168,32"/>
+<area shape="rect" href="init_8c.html#a3a2d70d05cd30715cc12f379fe34a607" title="Установка частоты мерцания светодиода" alt="" coords="216,5,378,32"/>
+<area shape="poly" title=" " alt="" coords="168,16,200,16,200,21,168,21"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -255,20 +278,6 @@ $(function(){initNavTree('it__handlers_8c.html','',''); });
 
 </div>
 </div>
-<a id="a022c95c2ba2a5d466992663c3578d049" name="a022c95c2ba2a5d466992663c3578d049"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a022c95c2ba2a5d466992663c3578d049">&#9670;&#160;</a></span>btn_hold_2s</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t btn_hold_2s = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ab7a4f042b14b4ac5bc41c23caeb9301b" name="ab7a4f042b14b4ac5bc41c23caeb9301b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7a4f042b14b4ac5bc41c23caeb9301b">&#9670;&#160;</a></span>btn_hold_4s</h2>
 
@@ -283,6 +292,20 @@ $(function(){initNavTree('it__handlers_8c.html','',''); });
 
 </div>
 </div>
+<a id="aa41251119395c3dfe9475fe49c6c668e" name="aa41251119395c3dfe9475fe49c6c668e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa41251119395c3dfe9475fe49c6c668e">&#9670;&#160;</a></span>button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile bool button_pressed = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abf286b5bf324f08a4395173ca136e8a3" name="abf286b5bf324f08a4395173ca136e8a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf286b5bf324f08a4395173ca136e8a3">&#9670;&#160;</a></span>GlobalTickCount</h2>
 
@@ -291,6 +314,98 @@ $(function(){initNavTree('it__handlers_8c.html','',''); });
       <table class="memname">
         <tr>
           <td class="memname">volatile uint32_t GlobalTickCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af724ba2236be926b4b028dae971354d5" name="af724ba2236be926b4b028dae971354d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af724ba2236be926b4b028dae971354d5">&#9670;&#160;</a></span>led1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_led.html">Led</a> led1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89abaaf33176dd0fcdcad6d680feeba2" name="a89abaaf33176dd0fcdcad6d680feeba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89abaaf33176dd0fcdcad6d680feeba2">&#9670;&#160;</a></span>led2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_led.html">Led</a> led2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3754609318783e292022f01bbe3f38f8" name="a3754609318783e292022f01bbe3f38f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3754609318783e292022f01bbe3f38f8">&#9670;&#160;</a></span>led3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_led.html">Led</a> led3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb741137f4ae35a8a7a9dcc0c00dc0db" name="acb741137f4ae35a8a7a9dcc0c00dc0db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb741137f4ae35a8a7a9dcc0c00dc0db">&#9670;&#160;</a></span>led4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_led.html">Led</a> led4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66c451ac04991c2dfc859f4f6adb1ac1" name="a66c451ac04991c2dfc859f4f6adb1ac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66c451ac04991c2dfc859f4f6adb1ac1">&#9670;&#160;</a></span>led5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_led.html">Led</a> led5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00d14f4c54e1a05cd7c7ff087d9b3dc2" name="a00d14f4c54e1a05cd7c7ff087d9b3dc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d14f4c54e1a05cd7c7ff087d9b3dc2">&#9670;&#160;</a></span>led6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_led.html">Led</a> led6</td>
         </tr>
       </table>
 </div><div class="memdoc">

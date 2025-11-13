@@ -1,27 +1,30 @@
 var indexSectionsWithContent =
 {
-  0: "bdefgilmrs",
-  1: "im",
-  2: "egilmrs",
-  3: "bg",
-  4: "dfls"
+  0: "bcdefgilmnrst",
+  1: "l",
+  2: "im",
+  3: "egilmrs",
+  4: "bcdglnt",
+  5: "dfls"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions",
-  3: "variables",
-  4: "defines"
+  1: "classes",
+  2: "files",
+  3: "functions",
+  4: "variables",
+  5: "defines"
 };
 
 var indexSectionLabels =
 {
   0: "Указатель",
-  1: "Файлы",
-  2: "Функции",
-  3: "Переменные",
-  4: "Макросы"
+  1: "Структуры данных",
+  2: "Файлы",
+  3: "Функции",
+  4: "Переменные",
+  5: "Макросы"
 };
 

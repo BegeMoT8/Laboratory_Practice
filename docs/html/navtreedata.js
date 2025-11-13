@@ -25,6 +25,14 @@
 var NAVTREE =
 [
   [ "Laboratory Practice 2 - Variant 3", "index.html", [
+    [ "Структуры данных", "annotated.html", [
+      [ "Структуры данных", "annotated.html", "annotated_dup" ],
+      [ "Алфавитный указатель структур данных", "classes.html", null ],
+      [ "Поля структур", "functions.html", [
+        [ "Указатель", "functions.html", null ],
+        [ "Переменные", "functions_vars.html", null ]
+      ] ]
+    ] ],
     [ "Файлы", "files.html", [
       [ "Файлы", "files.html", "files_dup" ],
       [ "Список членов всех файлов", "globals.html", [
@@ -39,7 +47,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"dir_b596f468b52957496e4f78b80e029268.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

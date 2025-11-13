@@ -117,16 +117,28 @@ $(function(){initNavTree('init_8h.html','',''); });
 <div class="dyncontent">
 <div class="center"><img src="init_8h__dep__incl.png" border="0" usemap="#a_core_2_inc_2init_8hdep" loading="lazy" alt=""/></div>
 <map name="a_core_2_inc_2init_8hdep" id="a_core_2_inc_2init_8hdep">
-<area shape="rect" title=" " alt="" coords="73,5,176,32"/>
+<area shape="rect" title=" " alt="" coords="158,5,262,32"/>
 <area shape="rect" href="init_8c.html" title=" " alt="" coords="5,80,111,107"/>
-<area shape="poly" title=" " alt="" coords="105,45,71,81,68,78,101,42"/>
-<area shape="rect" href="main_8c.html" title=" " alt="" coords="134,80,251,107"/>
-<area shape="poly" title=" " alt="" coords="149,42,183,78,179,81,145,45"/>
+<area shape="poly" title=" " alt="" coords="171,41,86,82,84,77,169,37"/>
+<area shape="rect" href="it__handlers_8c.html" title=" " alt="" coords="134,80,286,107"/>
+<area shape="poly" title=" " alt="" coords="213,48,213,80,207,80,207,48"/>
+<area shape="rect" href="main_8c.html" title=" " alt="" coords="309,80,426,107"/>
+<area shape="poly" title=" " alt="" coords="252,36,341,77,339,82,250,41"/>
 </map>
 </div>
 </div>
 <p><a href="init_8h_source.html">См. исходные тексты.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Структуры данных</h2></td></tr>
+<tr class="memitem:Led" id="r_Led"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_led.html">Led</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:ab7276f4b096faccc80b87350e18efa2b" id="r_ab7276f4b096faccc80b87350e18efa2b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7276f4b096faccc80b87350e18efa2b">FREQUENCY1</a>&#160;&#160;&#160;1250</td></tr>
+<tr class="memitem:a99942800789c32f090ba9a9c5f95073f" id="r_a99942800789c32f090ba9a9c5f95073f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99942800789c32f090ba9a9c5f95073f">FREQUENCY2</a>&#160;&#160;&#160;455</td></tr>
+<tr class="memitem:a73f51297601e8bc168b1d91145f73c68" id="r_a73f51297601e8bc168b1d91145f73c68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73f51297601e8bc168b1d91145f73c68">FREQUENCY3</a>&#160;&#160;&#160;263</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
 <tr class="memitem:ac9c3c81db694c01409b2a6a3e7e7eca5" id="r_ac9c3c81db694c01409b2a6a3e7e7eca5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9c3c81db694c01409b2a6a3e7e7eca5">RCC_Init</a> (void)</td></tr>
@@ -137,11 +149,60 @@ $(function(){initNavTree('init_8h.html','',''); });
 <tr class="memdesc:a419e66ae8a3800fd1022978544d351b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация прерывания по кнопке на пине PC13.  <br /></td></tr>
 <tr class="memitem:aeb71ef4b996788e4aa8cda6ef617f58f" id="r_aeb71ef4b996788e4aa8cda6ef617f58f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb71ef4b996788e4aa8cda6ef617f58f">SysTick_Init</a> (void)</td></tr>
 <tr class="memdesc:aeb71ef4b996788e4aa8cda6ef617f58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация системного таймера SysTick.  <br /></td></tr>
-<tr class="memitem:a538fcbfed8b1e697437a30c052aecfd3" id="r_a538fcbfed8b1e697437a30c052aecfd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a538fcbfed8b1e697437a30c052aecfd3">led_on</a> (uint8_t count)</td></tr>
-<tr class="memdesc:a538fcbfed8b1e697437a30c052aecfd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включение светодиодов в соответствии с номером нажатия кнопки  <br /></td></tr>
-<tr class="memitem:a429f05b7eac928971c19e37ddc7079be" id="r_a429f05b7eac928971c19e37ddc7079be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a429f05b7eac928971c19e37ddc7079be">led_off</a> (void)</td></tr>
-<tr class="memdesc:a429f05b7eac928971c19e37ddc7079be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выключение всех светодиодов  <br /></td></tr>
+<tr class="memitem:a070c92ebf8f1edc70a43d212aaa24766" id="r_a070c92ebf8f1edc70a43d212aaa24766"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a070c92ebf8f1edc70a43d212aaa24766">Led_init</a> (<a class="el" href="struct_led.html">Led</a> *led, uint8_t num)</td></tr>
+<tr class="memdesc:a070c92ebf8f1edc70a43d212aaa24766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация структуры <a class="el" href="struct_led.html">Led</a>.  <br /></td></tr>
+<tr class="memitem:ac520552c05d6f67a8a1a2d27233504a1" id="r_ac520552c05d6f67a8a1a2d27233504a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac520552c05d6f67a8a1a2d27233504a1">Led_on</a> (<a class="el" href="struct_led.html">Led</a> *led)</td></tr>
+<tr class="memdesc:ac520552c05d6f67a8a1a2d27233504a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включение светодиода  <br /></td></tr>
+<tr class="memitem:aa1e55471e6cc2f9a7e79b180d08d6899" id="r_aa1e55471e6cc2f9a7e79b180d08d6899"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1e55471e6cc2f9a7e79b180d08d6899">Led_off</a> (<a class="el" href="struct_led.html">Led</a> *led)</td></tr>
+<tr class="memdesc:aa1e55471e6cc2f9a7e79b180d08d6899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выключение светодиода  <br /></td></tr>
+<tr class="memitem:ab1eb73da8d451e45ad7c48ee361c9580" id="r_ab1eb73da8d451e45ad7c48ee361c9580"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1eb73da8d451e45ad7c48ee361c9580">Led_flicker</a> (<a class="el" href="struct_led.html">Led</a> *led)</td></tr>
+<tr class="memdesc:ab1eb73da8d451e45ad7c48ee361c9580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция мерцания светодиода  <br /></td></tr>
+<tr class="memitem:a3a2d70d05cd30715cc12f379fe34a607" id="r_a3a2d70d05cd30715cc12f379fe34a607"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a2d70d05cd30715cc12f379fe34a607">Led_set_delay_time_ms</a> (<a class="el" href="struct_led.html">Led</a> *led)</td></tr>
+<tr class="memdesc:a3a2d70d05cd30715cc12f379fe34a607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка частоты мерцания светодиода  <br /></td></tr>
 </table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Макросы</h2>
+<a id="ab7276f4b096faccc80b87350e18efa2b" name="ab7276f4b096faccc80b87350e18efa2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7276f4b096faccc80b87350e18efa2b">&#9670;&#160;</a></span>FREQUENCY1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FREQUENCY1&#160;&#160;&#160;1250</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99942800789c32f090ba9a9c5f95073f" name="a99942800789c32f090ba9a9c5f95073f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99942800789c32f090ba9a9c5f95073f">&#9670;&#160;</a></span>FREQUENCY2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FREQUENCY2&#160;&#160;&#160;455</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73f51297601e8bc168b1d91145f73c68" name="a73f51297601e8bc168b1d91145f73c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73f51297601e8bc168b1d91145f73c68">&#9670;&#160;</a></span>FREQUENCY3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FREQUENCY3&#160;&#160;&#160;263</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
 <a id="a90363099dc984eccffd2a7ad34def32d" name="a90363099dc984eccffd2a7ad34def32d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90363099dc984eccffd2a7ad34def32d">&#9670;&#160;</a></span>GPIO_Init()</h2>
@@ -166,7 +227,7 @@ $(function(){initNavTree('init_8h.html','',''); });
 <div class="center"><img src="init_8h_a90363099dc984eccffd2a7ad34def32d_icgraph.png" border="0" usemap="#ainit_8h_a90363099dc984eccffd2a7ad34def32d_icgraph" loading="lazy" alt=""/></div>
 <map name="ainit_8h_a90363099dc984eccffd2a7ad34def32d_icgraph" id="ainit_8h_a90363099dc984eccffd2a7ad34def32d_icgraph">
 <area shape="rect" title="настройка GPIO пинов микроконтроллера" alt="" coords="103,5,182,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="главная функция программы" alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -196,85 +257,208 @@ $(function(){initNavTree('init_8h.html','',''); });
 <div class="center"><img src="init_8h_a419e66ae8a3800fd1022978544d351b4_icgraph.png" border="0" usemap="#ainit_8h_a419e66ae8a3800fd1022978544d351b4_icgraph" loading="lazy" alt=""/></div>
 <map name="ainit_8h_a419e66ae8a3800fd1022978544d351b4_icgraph" id="ainit_8h_a419e66ae8a3800fd1022978544d351b4_icgraph">
 <area shape="rect" title="Инициализация прерывания по кнопке на пине PC13." alt="" coords="103,5,171,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="главная функция программы" alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a429f05b7eac928971c19e37ddc7079be" name="a429f05b7eac928971c19e37ddc7079be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a429f05b7eac928971c19e37ddc7079be">&#9670;&#160;</a></span>led_off()</h2>
+<a id="ab1eb73da8d451e45ad7c48ee361c9580" name="ab1eb73da8d451e45ad7c48ee361c9580"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1eb73da8d451e45ad7c48ee361c9580">&#9670;&#160;</a></span>Led_flicker()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void led_off </td>
+          <td class="memname">void Led_flicker </td>
           <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_led.html">Led</a> *</td>          <td class="paramname"><span class="paramname"><em>led</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Выключение всех светодиодов </p>
+<p>Функция мерцания светодиода </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led</td><td>Указатель на структуру <a class="el" href="struct_led.html">Led</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Неблокирующая функция мерцания светодиода с заданной частотой </p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="init_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.png" border="0" usemap="#ainit_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph" loading="lazy" alt=""/></div>
+<map name="ainit_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph" id="ainit_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph">
+<area shape="rect" title="Функция мерцания светодиода" alt="" coords="5,31,90,57"/>
+<area shape="rect" href="init_8c.html#aa1e55471e6cc2f9a7e79b180d08d6899" title="Выключение светодиода" alt="" coords="138,5,201,32"/>
+<area shape="poly" title=" " alt="" coords="90,33,122,26,123,31,91,38"/>
+<area shape="rect" href="init_8c.html#ac520552c05d6f67a8a1a2d27233504a1" title="Включение светодиода" alt="" coords="138,56,201,83"/>
+<area shape="poly" title=" " alt="" coords="91,50,123,57,122,62,90,55"/>
+</map>
+</div>
 <div class="dynheader">
 Граф вызова функции:</div>
 <div class="dyncontent">
-<div class="center"><img src="init_8h_a429f05b7eac928971c19e37ddc7079be_icgraph.png" border="0" usemap="#ainit_8h_a429f05b7eac928971c19e37ddc7079be_icgraph" loading="lazy" alt=""/></div>
-<map name="ainit_8h_a429f05b7eac928971c19e37ddc7079be_icgraph" id="ainit_8h_a429f05b7eac928971c19e37ddc7079be_icgraph">
-<area shape="rect" title="Выключение всех светодиодов" alt="" coords="210,31,269,57"/>
-<area shape="rect" href="init_8c.html#a538fcbfed8b1e697437a30c052aecfd3" title="Включение светодиодов в соответствии с номером нажатия кнопки" alt="" coords="103,5,162,32"/>
-<area shape="poly" title=" " alt="" coords="194,36,162,28,163,23,196,31"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,57"/>
-<area shape="poly" title=" " alt="" coords="194,47,55,47,55,41,194,41"/>
-<area shape="poly" title=" " alt="" coords="88,32,56,41,54,35,87,27"/>
+<div class="center"><img src="init_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.png" border="0" usemap="#ainit_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph" loading="lazy" alt=""/></div>
+<map name="ainit_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph" id="ainit_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph">
+<area shape="rect" title="Функция мерцания светодиода" alt="" coords="103,5,187,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="главная функция программы" alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a538fcbfed8b1e697437a30c052aecfd3" name="a538fcbfed8b1e697437a30c052aecfd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a538fcbfed8b1e697437a30c052aecfd3">&#9670;&#160;</a></span>led_on()</h2>
+<a id="a070c92ebf8f1edc70a43d212aaa24766" name="a070c92ebf8f1edc70a43d212aaa24766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a070c92ebf8f1edc70a43d212aaa24766">&#9670;&#160;</a></span>Led_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void led_on </td>
+          <td class="memname">void Led_init </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_led.html">Led</a> *</td>          <td class="paramname"><span class="paramname"><em>led</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>num</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Включение светодиодов в соответствии с номером нажатия кнопки </p>
+<p>Инициализация структуры <a class="el" href="struct_led.html">Led</a>. </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">count</td><td>Номер нажатия кнопки (от 0 до 6) </td></tr>
+    <tr><td class="paramname">led</td><td>Указатель на структуру <a class="el" href="struct_led.html">Led</a> </td></tr>
+    <tr><td class="paramname">num</td><td>Номер светодиода (от 1 до 6) </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
-Граф вызовов:</div>
+Граф вызова функции:</div>
 <div class="dyncontent">
-<div class="center"><img src="init_8h_a538fcbfed8b1e697437a30c052aecfd3_cgraph.png" border="0" usemap="#ainit_8h_a538fcbfed8b1e697437a30c052aecfd3_cgraph" loading="lazy" alt=""/></div>
-<map name="ainit_8h_a538fcbfed8b1e697437a30c052aecfd3_cgraph" id="ainit_8h_a538fcbfed8b1e697437a30c052aecfd3_cgraph">
-<area shape="rect" title="Включение светодиодов в соответствии с номером нажатия кнопки" alt="" coords="5,5,65,32"/>
-<area shape="rect" href="init_8c.html#a501391b8794d0beaeaf0dea7a3bdbbb3" title="Выключение всех светодиодов" alt="" coords="113,5,172,32"/>
-<area shape="poly" title=" " alt="" coords="65,16,97,16,97,21,65,21"/>
+<div class="center"><img src="init_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph.png" border="0" usemap="#ainit_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph" loading="lazy" alt=""/></div>
+<map name="ainit_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph" id="ainit_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph">
+<area shape="rect" title="Инициализация структуры Led." alt="" coords="103,5,169,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="главная функция программы" alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="aa1e55471e6cc2f9a7e79b180d08d6899" name="aa1e55471e6cc2f9a7e79b180d08d6899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1e55471e6cc2f9a7e79b180d08d6899">&#9670;&#160;</a></span>Led_off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Led_off </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_led.html">Led</a> *</td>          <td class="paramname"><span class="paramname"><em>led</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Выключение светодиода </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led</td><td>Указатель на структуру <a class="el" href="struct_led.html">Led</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Граф вызова функции:</div>
 <div class="dyncontent">
-<div class="center"><img src="init_8h_a538fcbfed8b1e697437a30c052aecfd3_icgraph.png" border="0" usemap="#ainit_8h_a538fcbfed8b1e697437a30c052aecfd3_icgraph" loading="lazy" alt=""/></div>
-<map name="ainit_8h_a538fcbfed8b1e697437a30c052aecfd3_icgraph" id="ainit_8h_a538fcbfed8b1e697437a30c052aecfd3_icgraph">
-<area shape="rect" title="Включение светодиодов в соответствии с номером нажатия кнопки" alt="" coords="103,5,162,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+<div class="center"><img src="init_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.png" border="0" usemap="#ainit_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph" loading="lazy" alt=""/></div>
+<map name="ainit_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph" id="ainit_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph">
+<area shape="rect" title="Выключение светодиода" alt="" coords="235,31,298,57"/>
+<area shape="rect" href="init_8c.html#ab1eb73da8d451e45ad7c48ee361c9580" title="Функция мерцания светодиода" alt="" coords="103,5,187,32"/>
+<area shape="poly" title=" " alt="" coords="219,37,187,30,188,25,220,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="главная функция программы" alt="" coords="5,31,55,57"/>
+<area shape="poly" title=" " alt="" coords="220,47,55,47,55,41,220,41"/>
+<area shape="poly" title=" " alt="" coords="88,34,55,41,54,36,87,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac520552c05d6f67a8a1a2d27233504a1" name="ac520552c05d6f67a8a1a2d27233504a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac520552c05d6f67a8a1a2d27233504a1">&#9670;&#160;</a></span>Led_on()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Led_on </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_led.html">Led</a> *</td>          <td class="paramname"><span class="paramname"><em>led</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Включение светодиода </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led</td><td>Указатель на структуру <a class="el" href="struct_led.html">Led</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="init_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph.png" border="0" usemap="#ainit_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph" loading="lazy" alt=""/></div>
+<map name="ainit_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph" id="ainit_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph">
+<area shape="rect" title="Включение светодиода" alt="" coords="235,31,298,57"/>
+<area shape="rect" href="init_8c.html#ab1eb73da8d451e45ad7c48ee361c9580" title="Функция мерцания светодиода" alt="" coords="103,5,187,32"/>
+<area shape="poly" title=" " alt="" coords="219,37,187,30,188,25,220,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="главная функция программы" alt="" coords="5,31,55,57"/>
+<area shape="poly" title=" " alt="" coords="220,47,55,47,55,41,220,41"/>
+<area shape="poly" title=" " alt="" coords="88,34,55,41,54,36,87,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3a2d70d05cd30715cc12f379fe34a607" name="a3a2d70d05cd30715cc12f379fe34a607"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a2d70d05cd30715cc12f379fe34a607">&#9670;&#160;</a></span>Led_set_delay_time_ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Led_set_delay_time_ms </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_led.html">Led</a> *</td>          <td class="paramname"><span class="paramname"><em>led</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка частоты мерцания светодиода </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led</td><td>Указатель на структуру <a class="el" href="struct_led.html">Led</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>функция вызывается в EXTI15_10_IRQHandler </p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="init_8h_a3a2d70d05cd30715cc12f379fe34a607_icgraph.png" border="0" usemap="#ainit_8h_a3a2d70d05cd30715cc12f379fe34a607_icgraph" loading="lazy" alt=""/></div>
+<map name="ainit_8h_a3a2d70d05cd30715cc12f379fe34a607_icgraph" id="ainit_8h_a3a2d70d05cd30715cc12f379fe34a607_icgraph">
+<area shape="rect" title="Установка частоты мерцания светодиода" alt="" coords="216,5,378,32"/>
+<area shape="rect" href="it__handlers_8c.html#a738473a5b43f6c92b80ce1d3d6f77ed9" title="Обработчик прерывания по EXTI линии 13 (кнопка на PC13)." alt="" coords="5,5,168,32"/>
+<area shape="poly" title=" " alt="" coords="200,21,168,21,168,16,200,16"/>
 </map>
 </div>
 
@@ -303,7 +487,7 @@ $(function(){initNavTree('init_8h.html','',''); });
 <div class="center"><img src="init_8h_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph.png" border="0" usemap="#ainit_8h_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph" loading="lazy" alt=""/></div>
 <map name="ainit_8h_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph" id="ainit_8h_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph">
 <area shape="rect" title="Инициализация тактирования микроконтроллера STM32F4xx." alt="" coords="103,5,179,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="главная функция программы" alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -333,7 +517,7 @@ $(function(){initNavTree('init_8h.html','',''); });
 <div class="center"><img src="init_8h_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.png" border="0" usemap="#ainit_8h_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph" loading="lazy" alt=""/></div>
 <map name="ainit_8h_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph" id="ainit_8h_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph">
 <area shape="rect" title="Инициализация системного таймера SysTick." alt="" coords="103,5,197,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="главная функция программы" alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>

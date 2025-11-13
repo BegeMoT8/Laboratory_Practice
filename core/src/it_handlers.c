@@ -7,6 +7,7 @@
 volatile uint32_t GlobalTickCount; // Глобальный счетчик тиков SysTick
 volatile uint8_t btn_count = 0;    // Счетчик коротких нажатий
 volatile uint8_t btn_hold_4s = 0;  // Счетчик удержаний 4 сек
+volatile bool button_pressed = false;
 extern Led led1, led2, led3, led4, led5, led6;
 #define delayTime_MS 50
 #define shortHoldTime_MS 2000
@@ -25,7 +26,6 @@ void EXTI15_10_IRQHandler(void)
 {
     static uint32_t last_interrupt_time = 0;
     static uint32_t press_start_time = 0;
-    static bool button_pressed = false;
 
     uint32_t current_time = GlobalTickCount;
 
