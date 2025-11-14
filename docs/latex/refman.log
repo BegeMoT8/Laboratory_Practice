@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.9)  13 NOV 2025 13:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.9)  14 NOV 2025 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1178,7 +1178,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 4.
 (dir_c6310732a22f63c0c2fc5595561e68f1.tex <./dir_c6310732a22f63c0c2fc5595561e68
 f1_dep.pdf>
-<dir_c6310732a22f63c0c2fc5595561e68f1_dep.pdf, id=572, 199.74625pt x 188.705pt>
+<dir_c6310732a22f63c0c2fc5595561e68f1_dep.pdf, id=577, 199.74625pt x 188.705pt>
 
 File: dir_c6310732a22f63c0c2fc5595561e68f1_dep.pdf Graphic file (type pdf)
 <use dir_c6310732a22f63c0c2fc5595561e68f1_dep.pdf>
@@ -1194,7 +1194,7 @@ LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 13.
 ) (dir_e2489e887f17afa3cbc07a4ec152cdd2.tex <./dir_e2489e887f17afa3cbc07a4ec152
 cdd2_dep.pdf>
-<dir_e2489e887f17afa3cbc07a4ec152cdd2_dep.pdf, id=582, 142.5325pt x 152.57pt>
+<dir_e2489e887f17afa3cbc07a4ec152cdd2_dep.pdf, id=587, 142.5325pt x 152.57pt>
 File: dir_e2489e887f17afa3cbc07a4ec152cdd2_dep.pdf Graphic file (type pdf)
 <use dir_e2489e887f17afa3cbc07a4ec152cdd2_dep.pdf>
 Package pdftex.def Info: dir_e2489e887f17afa3cbc07a4ec152cdd2_dep.pdf  used on 
@@ -1202,7 +1202,7 @@ input line 7.
 (pdftex.def)             Requested size: 142.0pt x 151.99925pt.
 [7{D:/MikTex/fonts/enc/dvips/base/8r.enc}]) (dir_b596f468b52957496e4f78b80e0292
 68.tex <./dir_b596f468b52957496e4f78b80e029268_dep.pdf>
-<dir_b596f468b52957496e4f78b80e029268_dep.pdf, id=605, 144.54pt x 208.78pt>
+<dir_b596f468b52957496e4f78b80e029268_dep.pdf, id=610, 144.54pt x 208.78pt>
 File: dir_b596f468b52957496e4f78b80e029268_dep.pdf Graphic file (type pdf)
 <use dir_b596f468b52957496e4f78b80e029268_dep.pdf>
 Package pdftex.def Info: dir_b596f468b52957496e4f78b80e029268_dep.pdf  used on 
@@ -1225,13 +1225,13 @@ LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
 ]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 6.
 (init_8h.tex <./init_8h__incl.pdf>
-<init_8h__incl.pdf, id=648, 540.0175pt x 180.675pt>
+<init_8h__incl.pdf, id=653, 540.0175pt x 180.675pt>
 File: init_8h__incl.pdf Graphic file (type pdf)
 <use init_8h__incl.pdf>
 Package pdftex.def Info: init_8h__incl.pdf  used on input line 11.
 (pdftex.def)             Requested size: 350.0pt x 117.10376pt.
  <./init_8h__dep__incl.pdf>
-<init_8h__dep__incl.pdf, id=656, 396.48125pt x 156.585pt>
+<init_8h__dep__incl.pdf, id=661, 396.48125pt x 156.585pt>
 File: init_8h__dep__incl.pdf Graphic file (type pdf)
 <use init_8h__dep__incl.pdf>
 Package pdftex.def Info: init_8h__dep__incl.pdf  used on input line 18.
@@ -1255,7 +1255,7 @@ Underfull \hbox (badness 10000) detected at line 94
  []
 
  <./init_8h_a90363099dc984eccffd2a7ad34def32d_icgraph.pdf>
-<init_8h_a90363099dc984eccffd2a7ad34def32d_icgraph.pdf, id=691, 213.79875pt x 1
+<init_8h_a90363099dc984eccffd2a7ad34def32d_icgraph.pdf, id=696, 213.79875pt x 1
 00.375pt>
 File: init_8h_a90363099dc984eccffd2a7ad34def32d_icgraph.pdf Graphic file (type 
 pdf)
@@ -1269,7 +1269,7 @@ Underfull \hbox (badness 10000) detected at line 114
  []
 
  <./init_8h_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf>
-<init_8h_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf, id=721, 204.765pt x 100
+<init_8h_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf, id=726, 204.765pt x 100
 .375pt>
 File: init_8h_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf Graphic file (type 
 pdf)
@@ -1278,7 +1278,7 @@ Package pdftex.def Info: init_8h_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf
  used on input line 121.
 (pdftex.def)             Requested size: 204.0pt x 100.00562pt.
 [13] [14] <./init_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf>
-<init_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf, id=750, 227.85126pt x 13
+<init_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf, id=755, 227.85126pt x 13
 8.5175pt>
 File: init_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf Graphic file (type p
 df)
@@ -1287,7 +1287,7 @@ Package pdftex.def Info: init_8h_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf
 used on input line 143.
 (pdftex.def)             Requested size: 227.0pt x 138.00354pt.
  <./init_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf>
-<init_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf, id=758, 216.81pt x 100.
+<init_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf, id=763, 216.81pt x 100.
 375pt>
 File: init_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf Graphic file (type 
 pdf)
@@ -1296,7 +1296,7 @@ Package pdftex.def Info: init_8h_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf
  used on input line 150.
 (pdftex.def)             Requested size: 216.0pt x 100.00562pt.
  <./init_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf>
-<init_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf, id=774, 203.76125pt x 1
+<init_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf, id=779, 203.76125pt x 1
 00.375pt>
 File: init_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf Graphic file (type 
 pdf)
@@ -1305,7 +1305,7 @@ Package pdftex.def Info: init_8h_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf
  used on input line 174.
 (pdftex.def)             Requested size: 203.0pt x 100.00409pt.
 [15] <./init_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf>
-<init_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf, id=798, 301.125pt x 119
+<init_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf, id=803, 301.125pt x 119
 .44624pt>
 File: init_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf Graphic file (type 
 pdf)
@@ -1314,7 +1314,7 @@ Package pdftex.def Info: init_8h_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf
  used on input line 196.
 (pdftex.def)             Requested size: 300.0pt x 119.01033pt.
  <./init_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf>
-<init_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf, id=813, 301.125pt x 119
+<init_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf, id=818, 301.125pt x 119
 .44624pt>
 File: init_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf Graphic file (type 
 pdf)
@@ -1323,7 +1323,7 @@ Package pdftex.def Info: init_8h_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf
  used on input line 218.
 (pdftex.def)             Requested size: 300.0pt x 119.01033pt.
 [16] [17] <./init_8h_a3a2d70d05cd30715cc12f379fe34a607_icgraph.pdf>
-<init_8h_a3a2d70d05cd30715cc12f379fe34a607_icgraph.pdf, id=842, 361.35pt x 100.
+<init_8h_a3a2d70d05cd30715cc12f379fe34a607_icgraph.pdf, id=847, 361.35pt x 100.
 375pt>
 File: init_8h_a3a2d70d05cd30715cc12f379fe34a607_icgraph.pdf Graphic file (type 
 pdf)
@@ -1337,7 +1337,7 @@ Underfull \hbox (badness 10000) detected at line 253
  []
 
  <./init_8h_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph.pdf>
-<init_8h_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph.pdf, id=850, 210.7875pt x 10
+<init_8h_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph.pdf, id=855, 210.7875pt x 10
 0.375pt>
 File: init_8h_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph.pdf Graphic file (type 
 pdf)
@@ -1351,7 +1351,7 @@ Underfull \hbox (badness 10000) detected at line 273
  []
 
  <./init_8h_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf>
-<init_8h_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf, id=858, 224.84pt x 100.
+<init_8h_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf, id=863, 224.84pt x 100.
 375pt>
 File: init_8h_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf Graphic file (type 
 pdf)
@@ -1361,13 +1361,13 @@ Package pdftex.def Info: init_8h_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf
 (pdftex.def)             Requested size: 224.0pt x 100.00409pt.
 ) (init_8h_source.tex [18]) (it__handlers_8h.tex <./it__handlers_8h__dep__incl.
 pdf>
-<it__handlers_8h__dep__incl.pdf, id=894, 299.1175pt x 156.585pt>
+<it__handlers_8h__dep__incl.pdf, id=899, 299.1175pt x 156.585pt>
 File: it__handlers_8h__dep__incl.pdf Graphic file (type pdf)
 <use it__handlers_8h__dep__incl.pdf>
 Package pdftex.def Info: it__handlers_8h__dep__incl.pdf  used on input line 7.
 (pdftex.def)             Requested size: 298.0pt x 156.01117pt.
 [19] <./it__handlers_8h_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.pdf>
-<it__handlers_8h_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.pdf, id=914, 361.35pt
+<it__handlers_8h_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.pdf, id=919, 361.35pt
  x 100.375pt>
 File: it__handlers_8h_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.pdf Graphic file
  (type pdf)
@@ -1377,7 +1377,7 @@ ph.pdf  used on input line 49.
 (pdftex.def)             Requested size: 350.0pt x 97.2227pt.
 [20]) (it__handlers_8h_source.tex) (main_8h.tex) (main_8h_source.tex [21]) (ini
 t_8c.tex <./init_8c__incl.pdf>
-<init_8c__incl.pdf, id=949, 540.0175pt x 236.885pt>
+<init_8c__incl.pdf, id=954, 540.0175pt x 236.885pt>
 File: init_8c__incl.pdf Graphic file (type pdf)
 <use init_8c__incl.pdf>
 Package pdftex.def Info: init_8c__incl.pdf  used on input line 8.
@@ -1388,7 +1388,7 @@ Underfull \hbox (badness 10000) detected at line 58
  []
 
  <./init_8c_a90363099dc984eccffd2a7ad34def32d_icgraph.pdf>
-<init_8c_a90363099dc984eccffd2a7ad34def32d_icgraph.pdf, id=989, 213.79875pt x 1
+<init_8c_a90363099dc984eccffd2a7ad34def32d_icgraph.pdf, id=994, 213.79875pt x 1
 00.375pt>
 File: init_8c_a90363099dc984eccffd2a7ad34def32d_icgraph.pdf Graphic file (type 
 pdf)
@@ -1402,8 +1402,8 @@ Underfull \hbox (badness 10000) detected at line 78
  []
 
  <./init_8c_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf>
-<init_8c_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf, id=997, 204.765pt x 100
-.375pt>
+<init_8c_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf, id=1002, 204.765pt x 10
+0.375pt>
 File: init_8c_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf Graphic file (type 
 pdf)
 <use init_8c_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf>
@@ -1411,7 +1411,7 @@ Package pdftex.def Info: init_8c_a419e66ae8a3800fd1022978544d351b4_icgraph.pdf
  used on input line 85.
 (pdftex.def)             Requested size: 204.0pt x 100.00562pt.
 [23] <./init_8c_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf>
-<init_8c_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf, id=1028, 227.85126pt x 1
+<init_8c_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf, id=1033, 227.85126pt x 1
 38.5175pt>
 File: init_8c_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf Graphic file (type p
 df)
@@ -1420,7 +1420,7 @@ Package pdftex.def Info: init_8c_ab1eb73da8d451e45ad7c48ee361c9580_cgraph.pdf
 used on input line 107.
 (pdftex.def)             Requested size: 227.0pt x 138.00354pt.
  <./init_8c_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf>
-<init_8c_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf, id=1036, 216.81pt x 100
+<init_8c_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf, id=1041, 216.81pt x 100
 .375pt>
 File: init_8c_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf Graphic file (type 
 pdf)
@@ -1429,7 +1429,7 @@ Package pdftex.def Info: init_8c_ab1eb73da8d451e45ad7c48ee361c9580_icgraph.pdf
  used on input line 114.
 (pdftex.def)             Requested size: 216.0pt x 100.00562pt.
 [24] <./init_8c_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf>
-<init_8c_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf, id=1060, 203.76125pt x 
+<init_8c_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf, id=1065, 203.76125pt x 
 100.375pt>
 File: init_8c_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf Graphic file (type 
 pdf)
@@ -1438,7 +1438,7 @@ Package pdftex.def Info: init_8c_a070c92ebf8f1edc70a43d212aaa24766_icgraph.pdf
  used on input line 138.
 (pdftex.def)             Requested size: 203.0pt x 100.00409pt.
  <./init_8c_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf>
-<init_8c_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf, id=1075, 301.125pt x 11
+<init_8c_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf, id=1080, 301.125pt x 11
 9.44624pt>
 File: init_8c_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf Graphic file (type 
 pdf)
@@ -1447,7 +1447,7 @@ Package pdftex.def Info: init_8c_aa1e55471e6cc2f9a7e79b180d08d6899_icgraph.pdf
  used on input line 160.
 (pdftex.def)             Requested size: 300.0pt x 119.01033pt.
 [25] <./init_8c_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf>
-<init_8c_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf, id=1100, 301.125pt x 11
+<init_8c_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf, id=1105, 301.125pt x 11
 9.44624pt>
 File: init_8c_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf Graphic file (type 
 pdf)
@@ -1456,7 +1456,7 @@ Package pdftex.def Info: init_8c_ac520552c05d6f67a8a1a2d27233504a1_icgraph.pdf
  used on input line 182.
 (pdftex.def)             Requested size: 300.0pt x 119.01033pt.
  <./init_8c_a3a2d70d05cd30715cc12f379fe34a607_icgraph.pdf>
-<init_8c_a3a2d70d05cd30715cc12f379fe34a607_icgraph.pdf, id=1115, 361.35pt x 100
+<init_8c_a3a2d70d05cd30715cc12f379fe34a607_icgraph.pdf, id=1120, 361.35pt x 100
 .375pt>
 File: init_8c_a3a2d70d05cd30715cc12f379fe34a607_icgraph.pdf Graphic file (type 
 pdf)
@@ -1470,7 +1470,7 @@ Underfull \hbox (badness 10000) detected at line 217
  []
 
  <./init_8c_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph.pdf>
-<init_8c_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph.pdf, id=1132, 210.7875pt x 1
+<init_8c_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph.pdf, id=1137, 210.7875pt x 1
 00.375pt>
 File: init_8c_ac9c3c81db694c01409b2a6a3e7e7eca5_icgraph.pdf Graphic file (type 
 pdf)
@@ -1484,7 +1484,7 @@ Underfull \hbox (badness 10000) detected at line 237
  []
 
  <./init_8c_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf>
-<init_8c_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf, id=1140, 224.84pt x 100
+<init_8c_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf, id=1145, 224.84pt x 100
 .375pt>
 File: init_8c_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf Graphic file (type 
 pdf)
@@ -1493,22 +1493,22 @@ Package pdftex.def Info: init_8c_aeb71ef4b996788e4aa8cda6ef617f58f_icgraph.pdf
  used on input line 244.
 (pdftex.def)             Requested size: 224.0pt x 100.00409pt.
 [27]) (it__handlers_8c.tex <./it__handlers_8c__incl.pdf>
-<it__handlers_8c__incl.pdf, id=1155, 540.0175pt x 236.885pt>
+<it__handlers_8c__incl.pdf, id=1160, 540.0175pt x 236.885pt>
 File: it__handlers_8c__incl.pdf Graphic file (type pdf)
 <use it__handlers_8c__incl.pdf>
 Package pdftex.def Info: it__handlers_8c__incl.pdf  used on input line 13.
 (pdftex.def)             Requested size: 350.0pt x 153.53606pt.
 [28] [29] <./it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.pdf>
-<it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.pdf, id=1218, 361.35p
+<it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.pdf, id=1225, 361.35p
 t x 100.375pt>
 File: it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.pdf Graphic file
  (type pdf)
 <use it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgraph.pdf>
 Package pdftex.def Info: it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9_cgra
-ph.pdf  used on input line 111.
+ph.pdf  used on input line 113.
 (pdftex.def)             Requested size: 350.0pt x 97.2227pt.
 [30]) (main_8c.tex <./main_8c__incl.pdf>
-<main_8c__incl.pdf, id=1240, 540.0175pt x 236.885pt>
+<main_8c__incl.pdf, id=1247, 540.0175pt x 236.885pt>
 File: main_8c__incl.pdf Graphic file (type pdf)
 <use main_8c__incl.pdf>
 Package pdftex.def Info: main_8c__incl.pdf  used on input line 9.
@@ -1519,7 +1519,7 @@ Underfull \hbox (badness 10000) detected at line 67
  []
 
  <./main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.pdf>
-<main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.pdf, id=1290, 308.15125pt x 3
+<main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.pdf, id=1297, 308.15125pt x 3
 67.3725pt>
 File: main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.pdf Graphic file (type p
 df)
@@ -1551,13 +1551,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 7D3683B5FE590FD11AAE5660154FAC18;17024.
+(rerunfilecheck)             Checksum: C9699FDE015DD19981D130925DB82D6B;17206.
  ) 
 Here is how much of TeX's memory you used:
- 22990 strings out of 474485
- 412350 string characters out of 5760149
- 1942542 words of memory out of 5000000
- 44603 multiletter control sequences out of 15000+600000
+ 22994 strings out of 474485
+ 412496 string characters out of 5760149
+ 1943542 words of memory out of 5000000
+ 44605 multiletter control sequences out of 15000+600000
  595509 words of font info for 135 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,16n,121p,1421b,832s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1573,9 +1573,9 @@ four/lh/lh-t2a/dpi600\larm1440.pk><D:/MikTex/fonts/type1/public/amsfonts/cm/cmm
 i10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/t
 ype1/public/amsfonts/cm/cmsy8.pfb><D:/MikTex/fonts/type1/urw/helvetic/uhvr8a.pf
 b>
-Output written on refman.pdf (42 pages, 829975 bytes).
+Output written on refman.pdf (42 pages, 831488 bytes).
 PDF statistics:
- 2037 PDF objects out of 2073 (max. 8388607)
- 279 named destinations out of 1000 (max. 500000)
- 929 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2046 PDF objects out of 2073 (max. 8388607)
+ 281 named destinations out of 1000 (max. 500000)
+ 937 words of extra memory for PDF output out of 10000 (max. 10000000)
 

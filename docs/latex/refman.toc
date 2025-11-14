@@ -72,15 +72,16 @@
 \contentsline {subsubsection}{\numberline {6.8.2.2}SysTick\_Handler()}{30}{subsubsection.6.8.2.2}%
 \contentsline {subsection}{\numberline {6.8.3}Переменные}{31}{subsection.6.8.3}%
 \contentsline {subsubsection}{\numberline {6.8.3.1}btn\_count}{31}{subsubsection.6.8.3.1}%
-\contentsline {subsubsection}{\numberline {6.8.3.2}btn\_hold\_4s}{31}{subsubsection.6.8.3.2}%
-\contentsline {subsubsection}{\numberline {6.8.3.3}button\_pressed}{31}{subsubsection.6.8.3.3}%
-\contentsline {subsubsection}{\numberline {6.8.3.4}GlobalTickCount}{31}{subsubsection.6.8.3.4}%
-\contentsline {subsubsection}{\numberline {6.8.3.5}led1}{31}{subsubsection.6.8.3.5}%
-\contentsline {subsubsection}{\numberline {6.8.3.6}led2}{31}{subsubsection.6.8.3.6}%
-\contentsline {subsubsection}{\numberline {6.8.3.7}led3}{31}{subsubsection.6.8.3.7}%
-\contentsline {subsubsection}{\numberline {6.8.3.8}led4}{31}{subsubsection.6.8.3.8}%
-\contentsline {subsubsection}{\numberline {6.8.3.9}led5}{31}{subsubsection.6.8.3.9}%
-\contentsline {subsubsection}{\numberline {6.8.3.10}led6}{31}{subsubsection.6.8.3.10}%
+\contentsline {subsubsection}{\numberline {6.8.3.2}btn\_hold\_2s}{31}{subsubsection.6.8.3.2}%
+\contentsline {subsubsection}{\numberline {6.8.3.3}btn\_hold\_4s}{31}{subsubsection.6.8.3.3}%
+\contentsline {subsubsection}{\numberline {6.8.3.4}button\_pressed}{31}{subsubsection.6.8.3.4}%
+\contentsline {subsubsection}{\numberline {6.8.3.5}GlobalTickCount}{31}{subsubsection.6.8.3.5}%
+\contentsline {subsubsection}{\numberline {6.8.3.6}led1}{31}{subsubsection.6.8.3.6}%
+\contentsline {subsubsection}{\numberline {6.8.3.7}led2}{31}{subsubsection.6.8.3.7}%
+\contentsline {subsubsection}{\numberline {6.8.3.8}led3}{31}{subsubsection.6.8.3.8}%
+\contentsline {subsubsection}{\numberline {6.8.3.9}led4}{31}{subsubsection.6.8.3.9}%
+\contentsline {subsubsection}{\numberline {6.8.3.10}led5}{31}{subsubsection.6.8.3.10}%
+\contentsline {subsubsection}{\numberline {6.8.3.11}led6}{32}{subsubsection.6.8.3.11}%
 \contentsline {section}{\numberline {6.9}Файл Core/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Src/main.c}{32}{section.6.9}%
 \contentsline {subsection}{\numberline {6.9.1}Макросы}{32}{subsection.6.9.1}%
 \contentsline {subsubsection}{\numberline {6.9.1.1}Led\_Count}{32}{subsubsection.6.9.1.1}%

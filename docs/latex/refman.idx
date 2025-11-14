@@ -92,6 +92,8 @@
 \indexentry{SysTick\_Handler@{SysTick\_Handler}!it\_handlers.c@{it\_handlers.c}|hyperpage}{30}
 \indexentry{it\_handlers.c@{it\_handlers.c}!btn\_count@{btn\_count}|hyperpage}{31}
 \indexentry{btn\_count@{btn\_count}!it\_handlers.c@{it\_handlers.c}|hyperpage}{31}
+\indexentry{it\_handlers.c@{it\_handlers.c}!btn\_hold\_2s@{btn\_hold\_2s}|hyperpage}{31}
+\indexentry{btn\_hold\_2s@{btn\_hold\_2s}!it\_handlers.c@{it\_handlers.c}|hyperpage}{31}
 \indexentry{it\_handlers.c@{it\_handlers.c}!btn\_hold\_4s@{btn\_hold\_4s}|hyperpage}{31}
 \indexentry{btn\_hold\_4s@{btn\_hold\_4s}!it\_handlers.c@{it\_handlers.c}|hyperpage}{31}
 \indexentry{it\_handlers.c@{it\_handlers.c}!button\_pressed@{button\_pressed}|hyperpage}{31}

@@ -7,6 +7,7 @@ var it__handlers_8c =
     [ "EXTI15_10_IRQHandler", "it__handlers_8c.html#a738473a5b43f6c92b80ce1d3d6f77ed9", null ],
     [ "SysTick_Handler", "it__handlers_8c.html#ab5e09814056d617c521549e542639b7e", null ],
     [ "btn_count", "it__handlers_8c.html#a3387279a24bc624806c2e1e6201a5c36", null ],
+    [ "btn_hold_2s", "it__handlers_8c.html#a022c95c2ba2a5d466992663c3578d049", null ],
     [ "btn_hold_4s", "it__handlers_8c.html#ab7a4f042b14b4ac5bc41c23caeb9301b", null ],
     [ "button_pressed", "it__handlers_8c.html#aa41251119395c3dfe9475fe49c6c668e", null ],
     [ "GlobalTickCount", "it__handlers_8c.html#abf286b5bf324f08a4395173ca136e8a3", null ],

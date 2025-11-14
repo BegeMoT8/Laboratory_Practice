@@ -7,6 +7,7 @@
     \subitem {main.c}, \hyperpage{33}
   \item {btn\_hold\_2s}
     \subitem {init.c}, \hyperpage{28}
+    \subitem {it\_handlers.c}, \hyperpage{31}
   \item {btn\_hold\_4s}
     \subitem {init.c}, \hyperpage{28}
     \subitem {it\_handlers.c}, \hyperpage{31}
@@ -88,6 +89,7 @@
     \subitem {SysTick\_Init}, \hyperpage{18}
   \item {it\_handlers.c}
     \subitem {btn\_count}, \hyperpage{31}
+    \subitem {btn\_hold\_2s}, \hyperpage{31}
     \subitem {btn\_hold\_4s}, \hyperpage{31}
     \subitem {button\_pressed}, \hyperpage{31}
     \subitem {delayTime\_MS}, \hyperpage{29}

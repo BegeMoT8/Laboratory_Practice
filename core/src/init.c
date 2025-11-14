@@ -15,19 +15,15 @@ void RCC_Init(void)
     /* Предварительная очистка регистров RCC */
     MODIFY_REG(RCC->CR, RCC_CR_HSITRIM, 0x80U);
     CLEAR_REG(RCC->CFGR);
-    while (READ_BIT(RCC->CFGR, RCC_CFGR_SWS) != RESET)
-        ;
+    while (READ_BIT(RCC->CFGR, RCC_CFGR_SWS) != RESET);
     CLEAR_BIT(RCC->CR, RCC_CR_PLLON);
-    while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) != RESET)
-        ;
+    while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) != RESET);
     CLEAR_BIT(RCC->CR, RCC_CR_HSEON | RCC_CR_CSSON);
-    while (READ_BIT(RCC->CR, RCC_CR_HSERDY) != RESET)
-        ;
+    while (READ_BIT(RCC->CR, RCC_CR_HSERDY) != RESET);
     CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP);
     /* Настройка главного регистра RCC */
     SET_BIT(RCC->CR, RCC_CR_HSEON); // Запускаем внешний кварцевый резонатор
-    while (READ_BIT(RCC->CR, RCC_CR_HSERDY) == RESET)
-        ;                              // Ждём пока он запустится
+    while (READ_BIT(RCC->CR, RCC_CR_HSERDY) == RESET);// Ждём пока он запустится
     CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP); // Сбросим бит байпаса в 0, если вдруг там что-то лежит
     SET_BIT(RCC->CR, RCC_CR_CSSON);    // Запустим Clock detector
     /* Настройка регистров PLL
@@ -35,21 +31,18 @@ void RCC_Init(void)
     * В качестве источника тактирования для PLL выбирается HSE
     * Мы сначала делим входную частоту (HSE) на 4 (получаем 2 МГц), затем умножаем на 180 и
     снова делим на 2, таким образом получаем 180МГц
-    * Включаем работу PLL
-    */
+    * Включаем работу PLL*/
     CLEAR_REG(RCC->PLLCFGR);
     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLSRC_HSE);
     MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLM, RCC_PLLCFGR_PLLM_2); // Выставляем предделитель входной частоты PLL на 4
     MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_Msk, RCC_PLLCFGR_PLLN_2 | RCC_PLLCFGR_PLLN_4 | RCC_PLLCFGR_PLLN_5 | RCC_PLLCFGR_PLLN_7);
     CLEAR_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLP_Msk); // Настраиваем предделитель получившейся частоты после умножения.Иными словами, получаем итоговую частоту PLL
     SET_BIT(RCC->CR, RCC_CR_PLLON);                // Запустим PLL
-    while (READ_BIT(RCC->CR, RCC_CR_PLLRDY))
-        ; // Ждём запуска PLL
+    while (READ_BIT(RCC->CR, RCC_CR_PLLRDY)); // Ждём запуска PLL
     /* Настройка основных конфигураций RCC
      * В качетсве системных часов выбираем выход PLL
      * Настраиваем предделители шин AHB и APB
-     * Настраиваем выходы MCO1 и MCO2 для внешней оценки настроенной системы тактирования
-     */
+     * Настраиваем выходы MCO1 и MCO2 для внешней оценки настроенной системы тактирования*/
     MODIFY_REG(RCC->CFGR, RCC_CFGR_SW, RCC_CFGR_SW_PLL);           // Выбираем PLL в качестве System Clock
     MODIFY_REG(RCC->CFGR, RCC_CFGR_HPRE, RCC_CFGR_HPRE_DIV1);      // Предделитель AHB, без делителя
     MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE1, RCC_CFGR_PPRE1_DIV4);    // Предделитель APВ1, делим на4
@@ -59,8 +52,7 @@ void RCC_Init(void)
     /* Настройка задержки внутренней памяти
     * Выставление битов LATENCY регистра FLASH_ACR в позицию 5SW (6 CPU cycles).
     * Данная настройка необходима при увеличении системной частоты тактирования свыше 20 МГц.
-    Таблица 12 RM0090
-    */
+    Таблица 12 RM0090*/
     MODIFY_REG(FLASH->ACR, FLASH_ACR_LATENCY, FLASH_ACR_LATENCY_5WS);
 }
 
@@ -131,8 +123,8 @@ void SysTick_Init(void)
     CLEAR_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);  // На всякий случай, предварительно, выключим счётчик
     SET_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);   // Разрешаем прерывание по системному таймеру
     SET_BIT(SysTick->CTRL, SysTick_CTRL_CLKSOURCE_Msk); // Источник тактирования будет идти из AHB без деления
-    MODIFY_REG(SysTick->LOAD, SysTick_LOAD_RELOAD_Msk,
-               179999 << SysTick_LOAD_RELOAD_Pos); // Значение с которого начинается счёт, эквивалентное 1 кГц (частота AHB поделить на это число плюс 1 180000000/(179999+1)=1000 Гц)
+    MODIFY_REG(SysTick->LOAD, SysTick_LOAD_RELOAD_Msk,  // Значение с которого начинается счёт, эквивалентное 1 кГц
+               179999 << SysTick_LOAD_RELOAD_Pos); //  (частота AHB поделить на это число плюс 1 180000000/(179999+1)=1000 Гц)
     MODIFY_REG(SysTick->VAL, SysTick_VAL_CURRENT_Msk,
                179999 << SysTick_VAL_CURRENT_Pos);   // Очистка поля
     SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk); // Включим счётчик
